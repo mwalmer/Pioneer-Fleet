@@ -5,8 +5,8 @@ using UnityEngine;
 public class Fleet : MonoBehaviour
 {
 
-    public int NumOfStarFighters;
-    public int NumOfCapitalShips;
+    public CapitalShip[] CapitalShips;
+    //public CapitalShip[] NumOfStarFighters;
     //public StarFighter starFighter;
     //public CapitalShip capitalShip;
     // Start is called before the first frame update
@@ -20,4 +20,5 @@ public class Fleet : MonoBehaviour
     {
         
     }
+    
 }
