@@ -21,13 +21,24 @@ public class FleetBattleHandler : MonoBehaviour
     }
 
     public void fleetBattleCalcTest(){
-        fleet1.CapitalShips[0].takeDamage(fleet2.CapitalShips[0].artilleryPower);
-        fleet1.CapitalShips[1].takeDamage(fleet2.CapitalShips[1].artilleryPower);
-        fleet1.CapitalShips[2].takeDamage(fleet2.CapitalShips[2].artilleryPower);
-
-        fleet2.CapitalShips[0].takeDamage(fleet1.CapitalShips[0].artilleryPower);
-        fleet2.CapitalShips[1].takeDamage(fleet1.CapitalShips[1].artilleryPower);
-        fleet2.CapitalShips[2].takeDamage(fleet1.CapitalShips[2].artilleryPower);
+        for(int i = 0; i < fleet2.CapitalShips.Length; i++){
+            int x = Random.Range(0,fleet2.CapitalShips.Length);
+            Debug.Log(x);
+            fleet1.CapitalShips[x].takeDamage(fleet2.CapitalShips[i].artilleryPower);
+        }
+        for(int i = 0; i < fleet1.CapitalShips.Length; i++){
+            int x = Random.Range(0,fleet2.CapitalShips.Length);
+            Debug.Log(x);
+            fleet2.CapitalShips[x].takeDamage(fleet1.CapitalShips[i].artilleryPower);
+        }
+        int DogFights = fleet1.starFighters.Length;
+        if(fleet2.starFighters.Length < DogFights){
+            DogFights = fleet2.starFighters.Length;
+        }
+        for(int i = 0; i < DogFights; i++){
+            fleet1.starFighters[i].takeFire(fleet2.starFighters[i].Accuracy);
+            fleet2.starFighters[i].takeFire(fleet1.starFighters[i].Accuracy);
+        }
     }
 
     //public void battle1v1(){

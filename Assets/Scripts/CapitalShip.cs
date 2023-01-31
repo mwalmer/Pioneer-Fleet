@@ -22,12 +22,17 @@ public class CapitalShip : MonoBehaviour
         
     }
 
-    public void takeDamage(int x){
+    public void takeDamage(int enemyArtillery){
         if(currentShield > 0){
-            currentShield = currentShield - x;
+            currentShield = currentShield - enemyArtillery;
+            if(currentShield < 0){
+                currentHull = currentHull + currentShield;
+                currentShield = 0;
         }
-        if(currentShield < 0){
-            currentHull = currentHull + currentShield;
+        }
+        if(currentShield <= 0){
+            currentHull = currentHull - enemyArtillery;
+            currentShield = 0;
         }
     }
 }

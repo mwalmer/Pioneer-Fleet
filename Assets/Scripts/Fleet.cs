@@ -6,8 +6,7 @@ public class Fleet : MonoBehaviour
 {
 
     public CapitalShip[] CapitalShips;
-    //public CapitalShip[] NumOfStarFighters;
-    //public StarFighter starFighter;
+    public StarFighter[] starFighters;
     //public CapitalShip capitalShip;
     // Start is called before the first frame update
     void Start()
