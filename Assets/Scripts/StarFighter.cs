@@ -35,29 +35,22 @@ public class StarFighter : MonoBehaviour
     }
 
     public void hit(){
-        active = false;
-        sprite.color = Color.red;
-        /*
         if(60 < Random.Range(0,100)){
             deadge = true;
             sprite.color = Color.red;
         }
         else {
             damadge = true;
-            sprite.color = Color.blue;
+            sprite.color = Color.black;
         }
-        */
     }
 
     public bool getActive(){
-        return active;
-        /*
         if(deadge == true || damadge == true){
             return false;
         }
         else 
             return true;
-            */
     }
 
 }
