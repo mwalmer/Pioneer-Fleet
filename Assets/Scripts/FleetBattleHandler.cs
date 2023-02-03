@@ -22,7 +22,6 @@ public class FleetBattleHandler : MonoBehaviour
 
     public void fleetBattleCalcTest(){
         //capital ships battle
-        /*
         for(int i = 0; i < fleet2.CapitalShips.Count; i++){
             int x = Random.Range(0,fleet2.CapitalShips.Count);
             fleet1.CapitalShips[x].takeDamage(fleet2.CapitalShips[i].artilleryPower);
@@ -31,7 +30,6 @@ public class FleetBattleHandler : MonoBehaviour
             int x = Random.Range(0,fleet2.CapitalShips.Count);
             fleet2.CapitalShips[x].takeDamage(fleet1.CapitalShips[i].artilleryPower);
         }
-*/
         //starfighter battle
         List<StarFighter> fleet1ActiveFighters = fleet1.ActiveFighters();
         List<StarFighter> fleet2ActiveFighters = fleet2.ActiveFighters();
@@ -50,7 +48,7 @@ public class FleetBattleHandler : MonoBehaviour
                 fleet2ActiveFighters[i].takeFire(fleet1ActiveFighters[i].Accuracy);
             }
         }
-        /*
+        
         if(fleet1ActiveFighters.Count > fleet2ActiveFighters.Count){
             for(;DogFights < fleet1ActiveFighters.Count; DogFights++){
                 int x = Random.Range(0,fleet2.CapitalShips.Count);
@@ -63,7 +61,7 @@ public class FleetBattleHandler : MonoBehaviour
                 fleet1.CapitalShips[x].takeDamage(fleet2ActiveFighters[DogFights].BombingPower);
             }
         }
-        */
+        
     }
 
     //public void battle1v1(){
