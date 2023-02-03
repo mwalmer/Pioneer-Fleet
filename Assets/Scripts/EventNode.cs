@@ -65,7 +65,7 @@ public class EventNode : MonoBehaviour
         //TODO: this should be done when the player wins/loses
         PlayerState.currentNode.GetComponent<EventNode>()._nodeState = NodeState.completed;
         PlayerState.currentNode.GetComponent<EventNode>().UpdateColor();
-
+        
         PlayerState.currentNode = gameObject;
         _nodeState = NodeState.active;
         UpdateColor();
