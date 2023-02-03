@@ -4,6 +4,8 @@
 #
 
 .vscode/
+.idea/
+UserSettings/
 
 /[Ll]ibrary/
 /[Tt]emp/
