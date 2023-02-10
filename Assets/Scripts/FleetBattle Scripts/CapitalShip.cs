@@ -10,7 +10,7 @@ public class CapitalShip : MonoBehaviour
     public int currentHull;
     public int artilleryPower;
     public int flakPower; 
-        SpriteRenderer sprite;
+    SpriteRenderer sprite;
     Color color;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,11 @@ public class CapitalShip : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void setup(){
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.color = Color.blue;
     }
 
     public void takeDamage(int enemyArtillery){

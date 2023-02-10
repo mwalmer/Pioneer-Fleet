@@ -27,6 +27,11 @@ public class StarFighter : MonoBehaviour
     {
         
     }
+    public void setup(){
+        active = true;
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
     public void takeFire(int enemyAccuracy){
         int hitChance = EnginePower - enemyAccuracy;
         if(hitChance < Random.Range(0,100)){
