@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FC_enemyStatus : MonoBehaviour
+public class FC_EnemyStatus : MonoBehaviour
 {
+    [SerializeField]
     float hp = 10;
+    [SerializeField]
     float def = 0;
 
 
@@ -42,6 +44,7 @@ public class FC_enemyStatus : MonoBehaviour
 
     void Dead()
     {
+        FC_GameManager.CountDestroy();
         Destroy(this.gameObject);
     }
 

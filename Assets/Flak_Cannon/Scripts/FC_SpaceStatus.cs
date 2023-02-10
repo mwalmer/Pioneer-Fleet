@@ -36,18 +36,19 @@ public class FC_SpaceStatus : MonoBehaviour
 
         // Use to change the scale of the enemy fighter by the distance
 
-        if (distance > rangeOfVisibility || distance < 0)
+        if (distance > rangeOfVisibility || distance < 0 || transform.localScale.x <= 0.01f)
         {
-            sr.enabled = false;
-            this.gameObject.SetActive(false);
+            VisualDisable();
+            //this.gameObject.SetActive(false);
         }
         else
             sr.enabled = true;
-        sr.sortingOrder = (int)distance;
-        float Modifier = (rangeOfVisibility - distance) / rangeOfVisibility * 4;
-        Modifier = Modifier * Modifier * sizeMultiplier;
-
-        this.transform.localScale = new Vector3(Modifier, Modifier, transform.localScale.z);
+        sr.sortingOrder = (int)distance * -1;
+        float modifier = (rangeOfVisibility - distance) / rangeOfVisibility * 4;
+        modifier = modifier * modifier * sizeMultiplier;
+        if (modifier < 0.01f)
+            modifier = 0.01f;
+        this.transform.localScale = new Vector3(modifier, modifier, transform.localScale.z);
     }
     public void SetSR(SpriteRenderer _sr)
     {
@@ -76,5 +77,16 @@ public class FC_SpaceStatus : MonoBehaviour
         return distance;
     }
 
-    
+    public void VisualDisable()
+    {
+        sr.enabled = false;
+        ParticleSystem ps = this.GetComponentInChildren<ParticleSystem>();
+        if (ps != null)
+        {
+            ps.Stop();
+            ps.Clear();
+        }
+    }
+
+
 }

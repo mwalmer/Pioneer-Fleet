@@ -15,7 +15,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 2845089993
+    locked: 0
+  - name: Explosion
+    uniqueID: 2019238921
     locked: 0
   - name: Cursor
     uniqueID: 3806622447

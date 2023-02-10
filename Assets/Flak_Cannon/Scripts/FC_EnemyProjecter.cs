@@ -5,6 +5,8 @@ using UnityEngine;
 public class FC_EnemyProjecter : MonoBehaviour
 {
     public GameObject EnemyfighterPrefab;
+    public Transform minPos;
+    public Transform maxPos;
 
     // It might allow timeline script for spawning enemy fighters, 
     // or identify several pattern of fighters.
@@ -26,11 +28,14 @@ public class FC_EnemyProjecter : MonoBehaviour
 
     void SpawnEnemyfighter()
     {
+        if (minPos == null || maxPos == null)
+            return;
         //TODO:: 
         //1. random a position in the camera
+        float spawnX = Random.Range(minPos.position.x, maxPos.position.x);
+        float spawnY = Random.Range(minPos.position.y, maxPos.position.y);
 
         //2. instantiate the enemy fighter and spwan into the right position from the above.
-
-
+        Instantiate(EnemyfighterPrefab, new Vector2(spawnX, spawnY), Quaternion.identity);
     }
 }
