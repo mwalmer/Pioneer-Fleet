@@ -191,7 +191,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &318681095
+--- !u!1 &884372907
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,35 +199,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 318681097}
-  - component: {fileID: 318681096}
+  - component: {fileID: 884372909}
+  - component: {fileID: 884372908}
   m_Layer: 0
-  m_Name: PathRenderer
+  m_Name: LineRenderer Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &318681096
+--- !u!114 &884372908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318681095}
+  m_GameObject: {fileID: 884372907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ff9a3b76d32e148b2b44bc431f2bdc, type: 3}
+  m_Script: {fileID: 11500000, guid: def90a45d9431b444b7286feb26866c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3234174839737643423, guid: 4de340a6b36cf3741ae6e50abcc01be5, type: 3}
---- !u!4 &318681097
+  dashPrefab: {fileID: 24351368481081064, guid: 5fd141fcd35a970498724cadd18f3983, type: 3}
+  solidPrefab: {fileID: 6207780873609722380, guid: a95b499586ccd014fa7f06c37be91b74, type: 3}
+--- !u!4 &884372909
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318681095}
+  m_GameObject: {fileID: 884372907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
