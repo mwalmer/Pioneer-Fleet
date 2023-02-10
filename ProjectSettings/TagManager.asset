@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -42,6 +42,16 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
+  - name: Enemy
+    uniqueID: 2845089993
+    locked: 0
+  - name: Explosion
+    uniqueID: 2019238921
+    locked: 0
+  - name: Cursor
+    uniqueID: 3806622447
+=======
   - name: back
     uniqueID: 3949470775
     locked: 0
@@ -50,4 +60,5 @@ TagManager:
     locked: 0
   - name: front
     uniqueID: 1022238801
+>>>>>>> 8ba4af8d0aa32f7340ca2e064b4b4f3988e0d074
     locked: 0
