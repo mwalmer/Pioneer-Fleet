@@ -1,10 +1,7 @@
 %YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Attack
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -39,10 +36,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 167856003
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
   - name: Enemy
     uniqueID: 2845089993
     locked: 0
@@ -51,14 +50,4 @@ TagManager:
     locked: 0
   - name: Cursor
     uniqueID: 3806622447
-=======
-  - name: back
-    uniqueID: 3949470775
-    locked: 0
-  - name: mid
-    uniqueID: 3853309413
-    locked: 0
-  - name: front
-    uniqueID: 1022238801
->>>>>>> 8ba4af8d0aa32f7340ca2e064b4b4f3988e0d074
     locked: 0

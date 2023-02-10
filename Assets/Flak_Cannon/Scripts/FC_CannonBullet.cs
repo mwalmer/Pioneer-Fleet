@@ -37,7 +37,6 @@ public class FC_CannonBullet : MonoBehaviour
         {
             if (explosion.isStopped)
             {
-                Debug.Log("explosion finished");
                 Destroy(this.gameObject);
             }
         }
@@ -92,7 +91,6 @@ public class FC_CannonBullet : MonoBehaviour
 
     public void Explode(FC_Enemyfighter eFighter)
     {
-        Debug.Log("Deal damage!!!");
         eFighter.TakeDamage(damage);
         ExplodingEvent();
     }
@@ -104,7 +102,6 @@ public class FC_CannonBullet : MonoBehaviour
         spaceStatus.VisualDisable();
         if (explosion != null)
         {
-            Debug.Log("Partical is playing");
             explosion.gameObject.SetActive(true);
             explosion.Play();
         }
