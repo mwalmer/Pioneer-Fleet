@@ -7,48 +7,40 @@ public class NodeMap : MonoBehaviour
     public GameObject eventNodePrefab;
     public float minimumDistance;
     public float maximumDistance;
-    
-    // save it between scenes, shouldn't change each time scene is loaded
-    private List<GameObject> _eventNodeList;
-    
+
     private void Awake()
     {
-        _eventNodeList = new List<GameObject>();
-        GenerateNodes();
-    }
-
-    private void Start()
-    {
-        //TODO: change how this is selected
-        PlayerState.currentNode = _eventNodeList[0];
-        PlayerState.currentNode.GetComponent<EventNode>().Select();
+        if (PlayerState.eventNodeList.Count == 0)
+        {
+            GenerateNodes();
+            PlayerState.currentNode = PlayerState.eventNodeList[0];
+            PlayerState.currentNode.GetComponent<EventNode>().Select();
+        }
     }
 
     private void GenerateNodes()
     {
-        Vector3 start = new Vector3(-4, 0, 1);
-        Vector3 goal = new Vector3(4, 0, 1);
+        Vector3 start = new Vector3(-4, 0, 0);
+        Vector3 goal = new Vector3(4, 0, 0);
         Vector2 midpoint = new Vector2((goal.x + start.x) / 2, (goal.y + goal.y) / 2);
         
-        GameObject node = Instantiate(eventNodePrefab, start, new Quaternion(0, 0, 0, 0));
-        node.name = "Event Node start";
-        _eventNodeList.Add(node);
-
-
-        //NOTE: should probably be moved to awake
+        CreateNode(start, "Start");
+        CreateNode(goal, "Goal");
+        
         for (int i = 0; i < numberOfNodes - 2; i++)
         {
-            Vector3 position = new Vector3(0, 0, 1);
+            Vector3 position = new Vector3(0, 0, 0);
             if(!placeNode(ref position, midpoint))
                 continue;
-            node = Instantiate(eventNodePrefab, position, new Quaternion(0, 0, 0, 0));
-            node.name = "Event Node " + i;
-            _eventNodeList.Add(node);
+            CreateNode(position, i.ToString());
         }
-        
-        node = Instantiate(eventNodePrefab, goal, new Quaternion(0, 0, 0, 0));
-        node.name = "Event Node goal";
-        _eventNodeList.Add(node);
+    }
+
+    private void CreateNode(Vector3 position, string str)
+    {
+        GameObject node = Instantiate(eventNodePrefab, position, new Quaternion(0, 0, 0, 0));
+        node.name = "Event Node: " + str;
+        PlayerState.eventNodeList.Add(node);
     }
 
     private bool placeNode(ref Vector3 position, Vector2 center)
@@ -68,9 +60,9 @@ public class NodeMap : MonoBehaviour
             y += center.y;
             
             bool breakFlag = false;
-            for (int j = 0; j < _eventNodeList.Count; j++)
+            for (int j = 0; j < PlayerState.eventNodeList.Count; j++)
             {
-                if (Vector3.Distance(_eventNodeList[j].transform.position, new Vector3(x, y, 1)) < minimumDistance)
+                if (Vector3.Distance(PlayerState.eventNodeList[j].transform.position, new Vector3(x, y, 0)) < minimumDistance)
                 {
                     breakFlag = true;
                     break;
@@ -80,7 +72,7 @@ public class NodeMap : MonoBehaviour
             if(breakFlag)
                 continue;
 
-            position.Set(x, y, 1.0f);
+            position.Set(x, y, 0);
             return true;
         }
 
