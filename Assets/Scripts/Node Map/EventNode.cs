@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,6 @@ public class EventNode : MonoBehaviour
     }
     
     public NodeState nodeState;
-    public Transform _transform;
     private SpriteRenderer _spriteRenderer;
 
     public static Color[] nodeColors;
@@ -20,59 +20,47 @@ public class EventNode : MonoBehaviour
     public Color activeColor;
     public Color completedColor;
     public Color failedColor;
-    public static PathRenderer pathRenderer;
-
+    private LineRendererSpawner _lineRendererSpawner;
     
-    public static List<Vector3> reachableNodes = new List<Vector3>();
-    public static List<NodeState> reachableNodeStates = new List<NodeState>();
-
     private void Awake()
     {
         nodeColors = new[]{ unvisitedColor, activeColor, completedColor, failedColor };
         nodeState = NodeState.unvisited;
-        _transform = GetComponent<Transform>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        pathRenderer = GameObject.Find("PathRenderer").GetComponent<PathRenderer>();
+        _lineRendererSpawner = GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>();
     }
-
+    
     private void OnMouseEnter()
     {
         if(nodeState != NodeState.unvisited)
             return;
         
         _spriteRenderer.color = Color.cyan;
-
-        // reachableNodes.Add();
         Vector3 currentPosition = gameObject.transform.position;
         for (int i = 0; i < PlayerState.eventNodeList.Count; i++)
         {
             Vector3 nodePosition = PlayerState.eventNodeList[i].transform.position;
-            NodeState n = PlayerState.eventNodeList[i].GetComponent<EventNode>().nodeState;
+            // NodeState n = PlayerState.eventNodeList[i].GetComponent<EventNode>().nodeState;
             if (Vector3.Distance(currentPosition, nodePosition) < 3)
             {
-                reachableNodes.Add(currentPosition);
-                reachableNodes.Add(nodePosition);
-                reachableNodeStates.Add(n);
+                if(PlayerState.eventNodeList[i] == PlayerState.currentNode)
+                    _lineRendererSpawner.SpawnSolid(currentPosition, nodePosition);
+                else
+                    _lineRendererSpawner.SpawnLine(currentPosition, nodePosition);
             }
         }
-        
-        pathRenderer.render();
     }
     
     private void OnMouseExit()
     {
         UpdateColor();
-        pathRenderer.clear();
-        reachableNodes.Clear();
-        reachableNodeStates.Clear();
+        _lineRendererSpawner.ClearLines();
     }
 
     private void OnMouseDown()
     {
         Select();
-        pathRenderer.clear();
-        reachableNodes.Clear();
-        reachableNodeStates.Clear();
+        _lineRendererSpawner.ClearLines();
     }
 
     public void Select()

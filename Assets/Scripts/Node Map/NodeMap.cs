@@ -16,6 +16,9 @@ public class NodeMap : MonoBehaviour
             PlayerState.currentNode = PlayerState.eventNodeList[0];
             PlayerState.currentNode.GetComponent<EventNode>().Select();
         }
+        
+        // Debug.Log(Screen.width);
+        // Debug.Log(Screen.height);
     }
 
     private void GenerateNodes()
@@ -67,6 +70,8 @@ public class NodeMap : MonoBehaviour
                     breakFlag = true;
                     break;
                 }
+                
+                // if(Screen.)
             }
             
             if(breakFlag)
