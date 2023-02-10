@@ -695,7 +695,7 @@ MonoBehaviour:
   EnemyfighterPrefab: {fileID: 5763180627720563338, guid: c64668560aa720b4d94cb497dc58ce7c, type: 3}
   minPos: {fileID: 755475497}
   maxPos: {fileID: 496385850}
-  interval: 3
+  interval: 1.5
 --- !u!1 &978669362
 GameObject:
   m_ObjectHideFlags: 0

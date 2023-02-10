@@ -45,7 +45,7 @@ public class FC_CannonBullet : MonoBehaviour
 
         if (!isBulletActive)
             return;
-
+        /*
         // The movement of a bullet in screen's horizontal and vertical space
         float newX = transform.position.x + intervalDistance.x * Time.deltaTime * depthVisualModifer;
         if (Mathf.Abs(transform.position.x - targetPos.x) < (newX - targetPos.x))
@@ -59,6 +59,13 @@ public class FC_CannonBullet : MonoBehaviour
             newY = targetPos.y;
         }
         this.transform.position = new Vector3(newX, newY, transform.position.z);
+        */
+
+        this.transform.position = new Vector3(
+                                    transform.position.x + (targetPos.x - transform.position.x) / 0.15f * Time.deltaTime,
+                                    transform.position.y + (targetPos.y - transform.position.y) / 0.15f * Time.deltaTime,
+                                    transform.position.z
+        );
     }
     void FixedUpdate()
     {

@@ -46,13 +46,13 @@ public class FC_GameManager : MonoBehaviour
 
     void CheckGameConditions()
     {
-        if (playerHP <= 0)
-        {
-            losingEvent();
-        }
         if (destroyCount > winningCount)
         {
             WinningEvent();
+        }
+        if (playerHP <= 0)
+        {
+            losingEvent();
         }
     }
     void WinningEvent()
