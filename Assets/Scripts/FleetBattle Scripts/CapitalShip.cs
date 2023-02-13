@@ -10,6 +10,8 @@ public class CapitalShip : MonoBehaviour
     public int currentHull;
     public int artilleryPower;
     public int flakPower; 
+    public bool active = true;
+
     SpriteRenderer sprite;
     Color color;
     // Start is called before the first frame update
@@ -48,4 +50,13 @@ public class CapitalShip : MonoBehaviour
             }
         }
     }
+
+    public bool getActive(){
+        if(currentHull <= 0){
+            return false;
+        }
+            else
+        return true;
+    }
+
 }
