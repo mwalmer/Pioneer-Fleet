@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1222984153}
   - component: {fileID: 1222984154}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4953361164336428771}
   - component: {fileID: 1339383491}
   - component: {fileID: 7741593627627528242}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: EnemyFighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5763180628264708503}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Thruster(Disable for now)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5763180628472804942}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 5763180629443382647}
   - component: {fileID: 5763180629443382645}
   - component: {fileID: 5763180629443382644}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5069,7 +5069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5763180629604679638}
   - component: {fileID: 5763180629604679639}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
