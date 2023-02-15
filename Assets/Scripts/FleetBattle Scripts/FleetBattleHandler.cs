@@ -41,10 +41,12 @@ public class FleetBattleHandler : MonoBehaviour
         //capital ships battle
         for(int i = 0; i < fleet2.CapitalShips.Count; i++){
             int x = Random.Range(0,fleet1.CapitalShips.Count);
+            Debug.Log("Enemy ship number " + i + " fires at allied ship number " + x);
             fleet1.CapitalShips[x].GetComponent<CapitalShip>().takeDamage(fleet2.CapitalShips[i].GetComponent<CapitalShip>().artilleryPower);
         }
         for(int i = 0; i < fleet1.CapitalShips.Count; i++){
             int x = Random.Range(0,fleet2.CapitalShips.Count);
+            Debug.Log("Allied ship number " + i + " fires at enemy ship number " + x);
             fleet2.CapitalShips[x].GetComponent<CapitalShip>().takeDamage(fleet1.CapitalShips[i].GetComponent<CapitalShip>().artilleryPower);
         }
         //starfighter battle
@@ -54,18 +56,18 @@ public class FleetBattleHandler : MonoBehaviour
         if(fleet2ActiveFighters.Count < DogFights){
             DogFights = fleet2ActiveFighters.Count;
         }
-        Debug.Log("Active DogFights " + DogFights);
-        Debug.Log("Fleet 1 active Fighters " + fleet1ActiveFighters.Count);
-        Debug.Log("Fleet 2 active Fighters " + fleet2ActiveFighters.Count);
+        //Debug.Log("Active DogFights " + DogFights);
+        //Debug.Log("Fleet 1 active Fighters " + fleet1ActiveFighters.Count);
+        //Debug.Log("Fleet 2 active Fighters " + fleet2ActiveFighters.Count);
 
         if(fleet1ActiveFighters.Count > 0 && fleet2ActiveFighters.Count > 0){
             for(int i = 0; i < DogFights; i++){
-                Debug.Log(i);
+                //Debug.Log(i);
                 fleet1ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet2ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
                 fleet2ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet1ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
             }
         }
-        
+        //Starfighters bombing capital ships
         if(fleet1ActiveFighters.Count > fleet2ActiveFighters.Count){
             for(;DogFights < fleet1ActiveFighters.Count; DogFights++){
                 int x = Random.Range(0,fleet2.CapitalShips.Count);
@@ -78,7 +80,19 @@ public class FleetBattleHandler : MonoBehaviour
                 fleet1.CapitalShips[x].GetComponent<CapitalShip>().takeDamage(fleet2ActiveFighters[DogFights].GetComponent<StarFighter>().BombingPower);
             }
         }
+        //make some way for capital ships to destory fighters
+        //check for victory or defeat
+        if(fleet1.ActiveCapitalShips().Count <= 0 && fleet1.ActiveFighters().Count <=0){
+            Debug.Log("Lose condition");
+        }
+        if(fleet2.ActiveCapitalShips().Count <= 0 && fleet2.ActiveFighters().Count <=0){
+            Debug.Log("Win condition");
+        }
         
+    }
+
+    public void StarFighterMiniGame(int score){
+
     }
 
     //public void battle1v1(){

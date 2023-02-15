@@ -29,6 +29,16 @@ public class Fleet : MonoBehaviour
         }
         return S;
     }
+
+    public List<GameObject> ActiveCapitalShips(){
+        List<GameObject> C = CapitalShips;
+        for(int i = 0; i < C.Count; i++){
+            if(C[i].GetComponent<CapitalShip>().getActive() == false){
+                C.RemoveAt(i);
+            }
+        }
+        return C;
+    }
 /*
     public void addCapitalShip(CapitalShip test){
         CapitalShips.Add(test);
