@@ -10,11 +10,11 @@ public class NodeMap : MonoBehaviour
 
     private void Awake()
     {
-        if (PlayerState.eventNodeList.Count == 0)
+        if (NodeData.eventNodeList.Count == 0)
         {
             GenerateNodes();
-            PlayerState.currentNode = PlayerState.eventNodeList[0];
-            PlayerState.currentNode.GetComponent<EventNode>().Select();
+            NodeData.currentNode = NodeData.eventNodeList[0];
+            NodeData.currentNode.GetComponent<EventNode>().Select();
         }
         
         // Debug.Log(Screen.width);
@@ -43,7 +43,7 @@ public class NodeMap : MonoBehaviour
     {
         GameObject node = Instantiate(eventNodePrefab, position, new Quaternion(0, 0, 0, 0));
         node.name = "Event Node: " + str;
-        PlayerState.eventNodeList.Add(node);
+        NodeData.eventNodeList.Add(node);
     }
 
     private bool placeNode(ref Vector3 position, Vector2 center)
@@ -51,6 +51,11 @@ public class NodeMap : MonoBehaviour
         // trys to place the node X amount of time before giving up
         int trys = 1000;
         //TODO: add screen bounds checks
+        Camera c = GameObject.Find("Main Camera").GetComponent<Camera>();
+        float nodeScaleX = 0.3f;
+        float nodeScaleY = 0.3f;
+
+
         for (int i = 0; i < trys; i++)
         {
             float x = Random.Range(-maximumDistance, maximumDistance);
@@ -62,10 +67,19 @@ public class NodeMap : MonoBehaviour
             x += center.x;
             y += center.y;
             
-            bool breakFlag = false;
-            for (int j = 0; j < PlayerState.eventNodeList.Count; j++)
+            Vector3 p = c.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+            Debug.Log(p);
+            if ((x < -p.x + nodeScaleX || x > p.x - nodeScaleX) || (y < -p.y + nodeScaleY || y > p.y - nodeScaleY))
             {
-                if (Vector3.Distance(PlayerState.eventNodeList[j].transform.position, new Vector3(x, y, 0)) < minimumDistance)
+                Debug.Log(nodeScaleX);
+                Debug.Log(nodeScaleY);
+                continue;
+            }
+            
+            bool breakFlag = false;
+            for (int j = 0; j < NodeData.eventNodeList.Count; j++)
+            {
+                if (Vector3.Distance(NodeData.eventNodeList[j].transform.position, new Vector3(x, y, 0)) < minimumDistance)
                 {
                     breakFlag = true;
                     break;
