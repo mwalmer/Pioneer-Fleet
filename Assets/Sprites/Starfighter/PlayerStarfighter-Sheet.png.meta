@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: defbf75a57d0cd84cb91d030751a35b8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerStarfigher_body
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 51
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504607715ff8fd14caa1c298561ba897
+      internalID: -288738547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_backwing
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 7
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52c32ef6895e764d82a40b159e0e338
+      internalID: -18050765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_leftwing1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 93
+        width: 7
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.84210527}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d1195bbc301b14a85a91c7200c1b9e
+      internalID: 1418658297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_leftwing2
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 79
+        width: 9
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.8787879}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae2050802706794a98baefc2e18ee0d
+      internalID: 1095374384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_leftwing3
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 86
+        width: 8
+        height: 26
+      alignment: 9
+      pivot: {x: 0.625, y: 0.8846154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a14a615953262d34f875bf3dccf2109b
+      internalID: -294242968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_leftwing4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 96
+        width: 6
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0.875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5fc1ea97ca15ab4598da1d7c70265be
+      internalID: 2129772321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_rightwing1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 93
+        width: 7
+        height: 19
+      alignment: 9
+      pivot: {x: 0.42857146, y: 0.84210527}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa3896006f3e9449ad263f52ecf24dd
+      internalID: 1377199010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_rightwing2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 79
+        width: 9
+        height: 33
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.8787879}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc321fff0853c44faba30c4cc20d359
+      internalID: 1489727949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_rightwing3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 86
+        width: 8
+        height: 26
+      alignment: 9
+      pivot: {x: 0.375, y: 0.8846154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93a2958034589449b6a2c7d4dcd55e3
+      internalID: 247927474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_rightwing4
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 96
+        width: 6
+        height: 16
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b3b5bc45adbae45b938c4316c95ab3
+      internalID: 1729997474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_leftwingControl1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 22
+        width: 12
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8181819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c774dc20b5f1a34188996f80dd5442d
+      internalID: -915644747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_leftwingControl2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 57
+        width: 8
+        height: 20
+      alignment: 9
+      pivot: {x: 0.375, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1031f305db0a674c81cd6d74a35796e
+      internalID: 1652798804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_leftwingControlWhole
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 37
+        width: 13
+        height: 40
+      alignment: 9
+      pivot: {x: 0.4615385, y: 0.675}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07186852f93f8484ea04e673900affd5
+      internalID: -820268960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_rightwingControl1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 22
+        width: 12
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8181819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f532049f1ed42044080504f578ce4fe7
+      internalID: 530257285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_rightwingControl2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 57
+        width: 8
+        height: 20
+      alignment: 9
+      pivot: {x: 0.625, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc534b8925cb297498552a951cb76bdb
+      internalID: 2126563135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerStarfighter_rightwingControlWhole
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 37
+        width: 13
+        height: 40
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.675}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c7b86a7266ab24fa407104aff379cc
+      internalID: -1381951287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlayerStarfighter_rightwing4: 1729997474
+      PlayerStarfighter_rightwingControl2: 2126563135
+      PlayerStarfighter_rightwing3: 247927474
+      PlayerStarfighter_leftwing4: 2129772321
+      PlayerStarfighter_backwing: -18050765
+      PlayerStarfighter_leftwing2: 1095374384
+      PlayerStarfigher_body: -288738547
+      PlayerStarfighter_leftwing3: -294242968
+      PlayerStarfighter_rightwingControl1: 530257285
+      PlayerStarfighter_rightwing1: 1377199010
+      PlayerStarfighter_leftwingControlWhole: -820268960
+      PlayerStarfighter_rightwing2: 1489727949
+      PlayerStarfighter_rightwingControlWhole: -1381951287
+      PlayerStarfighter_leftwingControl2: 1652798804
+      PlayerStarfighter_leftwing1: 1418658297
+      PlayerStarfighter_leftwingControl1: -915644747
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -23,9 +23,9 @@ public class Enemy : MonoBehaviour {
 		else
 		{
 			//Instantiate(shieldEffect, transform.position, Quaternion.identity);
-			
+			health -= damage;
 		}
-		health -= damage;
+		
 
 		if (health <= 0)
 		{
