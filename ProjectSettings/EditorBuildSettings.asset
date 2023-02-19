@@ -15,6 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleBridge.unity
     guid: 228a73740b92e5a40896b968fd43db2c
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/MiniGameTest.unity
     guid: 2af7712a98a0c0243b9a14f4674b61bd
+=======
+    path: Assets/Scenes/test scene.unity
+    guid: 2deed3e55cfe0a34c9cf3f24e5a7dc40
+>>>>>>> Stashed changes
   m_configObjects: {}

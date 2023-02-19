@@ -5,6 +5,10 @@ using UnityEngine;
 public class ship_move : MonoBehaviour
 {
     public float speed = 20f;
+    public float w=20f;
+     public float a=-20f;
+      public float s=-20f;
+       public float d=20f;
     private float moveX;
     private float moveY;
     //private Vector3 moveDir;
@@ -14,19 +18,19 @@ public class ship_move : MonoBehaviour
         Vector3 pos = transform.position;
 
         //Currently, player can manoever his spaceship either with w,s,a,d or arrow keys. Another constraint was added so that the player can manoever his ship inside the game board.
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && pos.y <= 4.2)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && pos.y <= w)
         {
             pos.y += speed * Time.deltaTime;
         }
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && pos.y >= -4.2)
+        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && pos.y >= s)
         {
             pos.y -= speed * Time.deltaTime;
         }
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && pos.x <= 8)
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && pos.x <= d)
         {
             pos.x += speed * Time.deltaTime;
         }
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && pos.x >= -8)
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && pos.x >= a)
         {
             pos.x -= speed * Time.deltaTime;
         }
