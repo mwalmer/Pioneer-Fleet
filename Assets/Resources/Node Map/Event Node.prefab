@@ -47,12 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeState: 0
-  _transform: {fileID: 0}
   unvisitedColor: {r: 0.9811321, g: 0.9357942, b: 0.50445, a: 1}
-  activeColor: {r: 1, g: 0.43867922, b: 0.993308, a: 1}
-  completedColor: {r: 0.21226418, g: 1, b: 0.27638018, a: 1}
+  activeColor: {r: 0.21176471, g: 1, b: 0.993308, a: 1}
+  completedColor: {r: 0.2117647, g: 1, b: 0.9934303, a: 1}
   failedColor: {r: 1, g: 0.3254717, b: 0.3254717, a: 1}
-  reachableNodes: []
 --- !u!212 &-2426107996298776911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,10 +89,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1721721605
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: bb10022e39b6be04dbfbf3fc13ed7543, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 9b11a98a086532b4d979c29380004cb7, type: 3}
   m_Color: {r: 0.9622642, g: 0.854231, b: 0.38581347, a: 1}
   m_FlipX: 0
   m_FlipY: 0

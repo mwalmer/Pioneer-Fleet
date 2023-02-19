@@ -68,7 +68,6 @@ public class NodeMap : MonoBehaviour
             y += center.y;
             
             Vector3 p = c.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-            Debug.Log(p);
             if ((x < -p.x + nodeScaleX || x > p.x - nodeScaleX) || (y < -p.y + nodeScaleY || y > p.y - nodeScaleY))
             {
                 Debug.Log(nodeScaleX);

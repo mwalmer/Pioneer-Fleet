@@ -35,12 +35,14 @@ public class EventNode : MonoBehaviour
         if(nodeState != NodeState.unvisited)
             return;
         
-        _spriteRenderer.color = Color.cyan;
+        _spriteRenderer.color = Color.magenta;
         Vector3 currentPosition = gameObject.transform.position;
         for (int i = 0; i < NodeData.eventNodeList.Count; i++)
         {
             Vector3 nodePosition = NodeData.eventNodeList[i].transform.position;
-            // NodeState n = NodeData.eventNodeList[i].GetComponent<EventNode>().nodeState;
+            NodeState n = NodeData.eventNodeList[i].GetComponent<EventNode>().nodeState;
+            if(n == NodeState.completed)
+                continue;
             if (Vector3.Distance(currentPosition, nodePosition) < 3)
             {
                 if(NodeData.eventNodeList[i] == NodeData.currentNode)
@@ -75,6 +77,7 @@ public class EventNode : MonoBehaviour
         NodeData.currentNode = gameObject;
         nodeState = NodeState.active;
         UpdateColor();
+        _lineRendererSpawner.SetSolid();
     }
     
     private void UpdateColor()
