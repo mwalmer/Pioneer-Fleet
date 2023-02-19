@@ -24,18 +24,19 @@ public class EnemyShooting : MonoBehaviour {
 		if(player == null) {
 			// Find the player's ship!
 			GameObject go = GameObject.FindWithTag ("Player");
-			
+			//Debug.Log ("find");
 			if(go != null) {
 				player = go.transform;
+				Debug.Log ("found");
 			}
 		}
 
 
 		cooldownTimer -= Time.deltaTime;
-		
+	
 		if( cooldownTimer <= 0 && player != null && Vector3.Distance(transform.position, player.position) < track) {
 			// SHOOT!
-			//Debug.Log ("Enemy Pew!");
+		//	Debug.Log ("Enemy Pew!");
 			cooldownTimer = fireDelay;
 			
 			Vector3 offset = transform.rotation * bulletOffset;
