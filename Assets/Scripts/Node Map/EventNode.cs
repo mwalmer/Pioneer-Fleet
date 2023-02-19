@@ -35,15 +35,17 @@ public class EventNode : MonoBehaviour
         if(nodeState != NodeState.unvisited)
             return;
         
-        _spriteRenderer.color = Color.cyan;
+        _spriteRenderer.color = Color.magenta;
         Vector3 currentPosition = gameObject.transform.position;
-        for (int i = 0; i < PlayerState.eventNodeList.Count; i++)
+        for (int i = 0; i < NodeData.eventNodeList.Count; i++)
         {
-            Vector3 nodePosition = PlayerState.eventNodeList[i].transform.position;
-            // NodeState n = PlayerState.eventNodeList[i].GetComponent<EventNode>().nodeState;
+            Vector3 nodePosition = NodeData.eventNodeList[i].transform.position;
+            NodeState n = NodeData.eventNodeList[i].GetComponent<EventNode>().nodeState;
+            if(n == NodeState.completed)
+                continue;
             if (Vector3.Distance(currentPosition, nodePosition) < 3)
             {
-                if(PlayerState.eventNodeList[i] == PlayerState.currentNode)
+                if(NodeData.eventNodeList[i] == NodeData.currentNode)
                     _lineRendererSpawner.SpawnSolid(currentPosition, nodePosition);
                 else
                     _lineRendererSpawner.SpawnLine(currentPosition, nodePosition);
@@ -69,12 +71,13 @@ public class EventNode : MonoBehaviour
             return;
         
         //TODO: this should be done when the player wins/loses
-        PlayerState.currentNode.GetComponent<EventNode>().nodeState = NodeState.completed;
-        PlayerState.currentNode.GetComponent<EventNode>().UpdateColor();
+        NodeData.currentNode.GetComponent<EventNode>().nodeState = NodeState.completed;
+        NodeData.currentNode.GetComponent<EventNode>().UpdateColor();
         
-        PlayerState.currentNode = gameObject;
+        NodeData.currentNode = gameObject;
         nodeState = NodeState.active;
         UpdateColor();
+        _lineRendererSpawner.SetSolid();
     }
     
     private void UpdateColor()

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class PlayerState
+public static class NodeData
 {
     public static GameObject currentNode;
     public static Fleet playerFleet;

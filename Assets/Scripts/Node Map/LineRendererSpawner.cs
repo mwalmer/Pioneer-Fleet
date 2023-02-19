@@ -6,11 +6,25 @@ public class LineRendererSpawner : MonoBehaviour
 {
     public GameObject dashPrefab;
     public GameObject solidPrefab;
-    private List<GameObject> renderers;
+    private List<GameObject> dashRenderers;
+    private List<GameObject> solidRenderers;
+    private GameObject tempLine;
 
     private void Awake()
     {
-        renderers = new List<GameObject>();
+        dashRenderers = new List<GameObject>();
+        solidRenderers = new List<GameObject>();
+    }
+
+    public void SetSolid()
+    {
+        if (tempLine != null)
+        {
+            GameObject obj = Instantiate(tempLine);
+            obj.GetComponent<LineRenderer>().startColor = EventNode.nodeColors[(int)EventNode.NodeState.completed];
+            obj.GetComponent<LineRenderer>().endColor = EventNode.nodeColors[(int)EventNode.NodeState.completed];
+            solidRenderers.Add(obj);
+        }
     }
 
     public void SpawnSolid(Vector3 start, Vector3 end)
@@ -21,7 +35,7 @@ public class LineRendererSpawner : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, start);
         lineRenderer.SetPosition(1, end);
-        renderers.Add(obj);
+        tempLine = obj;
     }
 
     public void SpawnLine(Vector3 start, Vector3 end)
@@ -32,16 +46,16 @@ public class LineRendererSpawner : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, start);
         lineRenderer.SetPosition(1, end);
-        renderers.Add(obj);
+        dashRenderers.Add(obj);
     }
 
     public void ClearLines()
     {
-        for (int i = 0; i < renderers.Count; i++)
+        for (int i = 0; i < dashRenderers.Count; i++)
         {
-            Destroy(renderers[i]);
+            Destroy(dashRenderers[i]);
         }
-        
-        renderers.Clear();
+        Destroy(tempLine);
+        dashRenderers.Clear();
     }
 }
