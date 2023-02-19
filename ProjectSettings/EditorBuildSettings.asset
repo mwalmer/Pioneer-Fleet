@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleBridge.unity
     guid: 228a73740b92e5a40896b968fd43db2c
+  - enabled: 1
+    path: Assets/Scenes/MiniGameTest.unity
+    guid: 2af7712a98a0c0243b9a14f4674b61bd
   m_configObjects: {}

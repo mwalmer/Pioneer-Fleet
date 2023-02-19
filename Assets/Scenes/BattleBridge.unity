@@ -350,7 +350,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &148492376
 GameObject:
@@ -412,8 +412,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Evasive Manuvers
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
+  m_sharedMaterial: {fileID: -1614837777300207787, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -437,8 +437,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -553,194 +553,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &368424278
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6831954910004607987, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Frigate E2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
---- !u!1 &368424279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6831954910004607987, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-  m_PrefabInstance: {fileID: 368424278}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &533895074
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.252
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.887
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Fighter (7)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
---- !u!1 &533895075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-  m_PrefabInstance: {fileID: 533895074}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &602563883
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.241
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Fighter (6)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
---- !u!1 &602563884 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-  m_PrefabInstance: {fileID: 602563883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &662732664
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,15 +792,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CapitalShips:
-  - {fileID: 1727516631}
-  - {fileID: 368424279}
-  - {fileID: 1619117699}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   starFighters:
-  - {fileID: 1917154348}
-  - {fileID: 1826086265}
-  - {fileID: 533895075}
-  - {fileID: 602563884}
-  - {fileID: 2052565330}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &1062553171
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1052,7 +866,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1146440668
 GameObject:
@@ -1114,8 +928,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fighter Supremacy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
+  m_sharedMaterial: {fileID: -1614837777300207787, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1139,8 +953,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1249,8 +1063,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Battle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
+  m_sharedMaterial: {fileID: -1614837777300207787, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1274,8 +1088,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1581,142 +1395,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592244788}
   m_CullTransparentMesh: 1
---- !u!1001 &1619117698
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6831954910004607987, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Frigate E3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
---- !u!1 &1619117699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6831954910004607987, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-  m_PrefabInstance: {fileID: 1619117698}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1727516630
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1131769170380433654, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1131769170380433654, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1131769170380433654, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110478140517409960, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6831954910004607987, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Frigate E1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
---- !u!1 &1727516631 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6831954910004607987, guid: d2ffed0d7def4e143b2916086bc985d6, type: 3}
-  m_PrefabInstance: {fileID: 1727516630}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764540415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,8 +1455,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Power to the Shields
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
+  m_sharedMaterial: {fileID: -1614837777300207787, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1802,8 +1480,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1944,7 +1622,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1999,130 +1677,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770593342}
   m_CullTransparentMesh: 1
---- !u!1001 &1826086264
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.461
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.562
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Fighter (8)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
---- !u!1 &1826086265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-  m_PrefabInstance: {fileID: 1826086264}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1917154347
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.125
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.324
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Fighter (9)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
---- !u!1 &1917154348 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-  m_PrefabInstance: {fileID: 1917154347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1928577072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,7 +1706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e25a1dede0e39458e5b57a48f92bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fleet2: {fileID: 1062553170}
 --- !u!4 &1928577074
 Transform:
   m_ObjectHideFlags: 0
@@ -2166,7 +1719,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1933743138
 GameObject:
@@ -2266,75 +1819,13 @@ RectTransform:
   - {fileID: 1592244789}
   - {fileID: 1770593343}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &2052565329
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.627
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.202
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911289, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-      propertyPath: m_Name
-      value: Kla'ed Fighter (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
---- !u!1 &2052565330 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3159861785921911292, guid: d87f21740c5307547bb246a79c0a5041, type: 3}
-  m_PrefabInstance: {fileID: 2052565329}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2115396987
 GameObject:
   m_ObjectHideFlags: 0

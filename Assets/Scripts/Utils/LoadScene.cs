@@ -14,4 +14,9 @@ public class LoadScene : MonoBehaviour
         //GameObject.Find("StageData").GetComponent<StageData>().setStage();
         SceneManager.LoadScene(1);
     }
+
+    public void LoadAdditiveByIndex(int sceneIndex)
+    {
+           SceneManager.LoadScene(sceneIndex,LoadSceneMode.Additive);
+    }
 }

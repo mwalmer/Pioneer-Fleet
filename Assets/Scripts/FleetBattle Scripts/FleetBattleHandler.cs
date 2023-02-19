@@ -7,7 +7,7 @@ public class FleetBattleHandler : MonoBehaviour
     //public CapitalShip ship1;
     //public CapitalShip ship2;
     Fleet fleet1;
-    public Fleet fleet2;
+    Fleet fleet2;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +27,27 @@ public class FleetBattleHandler : MonoBehaviour
             fighterPosition.x = fighterPosition.x+1;
             GameObject FighterTemp = Instantiate(fleetTemp.starFighters[i], fighterPosition,transform.rotation);
             fleet1.starFighters.Add(FighterTemp);
+            //fleet1.starFighters[i].setup();
+        }
+
+
+    fleet2 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
+        //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
+        Fleet fleetTemp2 = GameObject.Find("PlayerData").GetComponent<Fleet>();
+        for(int i = 0; i < fleetTemp.CapitalShips.Count; i++){
+            Vector3 CapitalPosition = transform.position;
+            CapitalPosition.y = CapitalPosition.y + i;
+            CapitalPosition.x = CapitalPosition.x+5;
+            GameObject CapitalTemp= Instantiate(fleetTemp2.CapitalShips[i], CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
+            fleet2.CapitalShips.Add(CapitalTemp);
+            //fleet1.CapitalShips[i].setup();
+        }
+        for(int i = 0; i < fleetTemp2.starFighters.Count; i++){
+            Vector3 fighterPosition = transform.position;
+            fighterPosition.y = fighterPosition.y + i;
+            fighterPosition.x = fighterPosition.x+4;
+            GameObject FighterTemp = Instantiate(fleetTemp2.starFighters[i], fighterPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
+            fleet2.starFighters.Add(FighterTemp);
             //fleet1.starFighters[i].setup();
         }
     }
