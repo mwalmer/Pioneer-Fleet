@@ -18,7 +18,6 @@ public class CapitalShip : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        sprite.color = Color.blue;
     }
 
     // Update is called once per frame
