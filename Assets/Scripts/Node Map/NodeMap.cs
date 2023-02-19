@@ -16,9 +16,6 @@ public class NodeMap : MonoBehaviour
             NodeData.currentNode = NodeData.eventNodeList[0];
             NodeData.currentNode.GetComponent<EventNode>().Select();
         }
-        
-        // Debug.Log(Screen.width);
-        // Debug.Log(Screen.height);
     }
 
     private void GenerateNodes()
@@ -42,6 +39,7 @@ public class NodeMap : MonoBehaviour
     private void CreateNode(Vector3 position, string str)
     {
         GameObject node = Instantiate(eventNodePrefab, position, new Quaternion(0, 0, 0, 0));
+        node.transform.parent = gameObject.transform;
         node.name = "Event Node: " + str;
         NodeData.eventNodeList.Add(node);
     }
@@ -70,8 +68,6 @@ public class NodeMap : MonoBehaviour
             Vector3 p = c.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
             if ((x < -p.x + nodeScaleX || x > p.x - nodeScaleX) || (y < -p.y + nodeScaleY || y > p.y - nodeScaleY))
             {
-                Debug.Log(nodeScaleX);
-                Debug.Log(nodeScaleY);
                 continue;
             }
             

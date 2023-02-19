@@ -20,7 +20,8 @@ public class LineRendererSpawner : MonoBehaviour
     {
         if (tempLine != null)
         {
-            GameObject obj = Instantiate(tempLine);
+            GameObject obj = Instantiate(tempLine, transform);
+            obj.name = "path line";
             obj.GetComponent<LineRenderer>().startColor = EventNode.nodeColors[(int)EventNode.NodeState.completed];
             obj.GetComponent<LineRenderer>().endColor = EventNode.nodeColors[(int)EventNode.NodeState.completed];
             solidRenderers.Add(obj);
@@ -29,7 +30,8 @@ public class LineRendererSpawner : MonoBehaviour
 
     public void SpawnSolid(Vector3 start, Vector3 end)
     {
-        GameObject obj = Instantiate(solidPrefab);
+        GameObject obj = Instantiate(solidPrefab, transform);
+        obj.name = "solid line";
         LineRenderer lineRenderer = obj.GetComponent<LineRenderer>();
         lineRenderer.widthMultiplier = 0.05f;
         lineRenderer.positionCount = 2;
@@ -40,7 +42,8 @@ public class LineRendererSpawner : MonoBehaviour
 
     public void SpawnLine(Vector3 start, Vector3 end)
     {
-        GameObject obj = Instantiate(dashPrefab);
+        GameObject obj = Instantiate(dashPrefab, transform);
+        obj.name = "dashed line";
         LineRenderer lineRenderer = obj.GetComponent<LineRenderer>();
         lineRenderer.widthMultiplier = 0.05f;
         lineRenderer.positionCount = 2;

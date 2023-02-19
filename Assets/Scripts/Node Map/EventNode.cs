@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EventNode : MonoBehaviour
@@ -14,6 +15,7 @@ public class EventNode : MonoBehaviour
     
     public NodeState nodeState;
     private SpriteRenderer _spriteRenderer;
+    public GameObject panel;
 
     public static Color[] nodeColors;
     public Color unvisitedColor;
@@ -32,6 +34,15 @@ public class EventNode : MonoBehaviour
     
     private void OnMouseEnter()
     {
+        // show info panel
+        GameObject obj = GameObject.Find("InfoPanel");
+        if (obj != null)
+        {
+            //Debug.Log(obj.GetComponentsInChildren<TextMeshPro>().Length);
+            obj.transform.position = new Vector3(960, 540, 0);
+        }
+        
+        // change node color
         if(nodeState != NodeState.unvisited)
             return;
         
@@ -57,6 +68,11 @@ public class EventNode : MonoBehaviour
     {
         UpdateColor();
         _lineRendererSpawner.ClearLines();
+        GameObject obj = GameObject.Find("InfoPanel");
+        if (obj != null)
+        {
+            obj.transform.position = new Vector3(20000, 20000, 0);
+        }
     }
 
     private void OnMouseDown()
