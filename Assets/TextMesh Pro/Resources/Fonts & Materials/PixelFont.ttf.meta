@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3112299296337d042a24922d936e7179
+guid: 090014913fba9004dbea0b1c588854cc
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,10 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - 8-bit HUD
+  - Gamer
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 3
+  fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
