@@ -61,8 +61,8 @@ public class FC_CannonBullet : MonoBehaviour
         */
 
         this.transform.position = new Vector3(
-                                    transform.position.x + (targetPos.x - transform.position.x) / 0.15f * Time.deltaTime,
-                                    transform.position.y + (targetPos.y - transform.position.y) / 0.15f * Time.deltaTime,
+                                    transform.position.x + (targetPos.x - transform.position.x) / 0.125f * Time.deltaTime,
+                                    transform.position.y + (targetPos.y - transform.position.y) / 0.125f * Time.deltaTime,
                                     transform.position.z
         );
     }
