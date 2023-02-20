@@ -463,6 +463,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 0}
   breakEffect: {fileID: 0}
+  leftshift: 1
 --- !u!114 &158431015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,8 +727,9 @@ MonoBehaviour:
   shield: 50
   show: {fileID: 1078915974}
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
-  shieldEffect: {fileID: 7518048096728380910, guid: 95efa65fe30a44542a9510032bd38cf3, type: 3}
+  shieldEffect: {fileID: 516878696879621750, guid: 25716a92fbadd0d499cf49d995263489, type: 3}
   breakEffect: {fileID: 9017226000171225035, guid: 4b203daed596d9e42b803d4db491ce5e, type: 3}
+  leftshift: 0.5
 --- !u!4 &444983393
 Transform:
   m_ObjectHideFlags: 0
@@ -1314,6 +1316,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 516878696879621750, guid: 25716a92fbadd0d499cf49d995263489, type: 3}
   breakEffect: {fileID: 9017226000171225035, guid: 4b203daed596d9e42b803d4db491ce5e, type: 3}
+  leftshift: 1
 --- !u!4 &980309668
 Transform:
   m_ObjectHideFlags: 0
@@ -1830,6 +1833,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 0}
   breakEffect: {fileID: 0}
+  leftshift: 1
 --- !u!114 &1133637108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,6 +2136,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 516878696879621750, guid: 25716a92fbadd0d499cf49d995263489, type: 3}
   breakEffect: {fileID: 9017226000171225035, guid: 4b203daed596d9e42b803d4db491ce5e, type: 3}
+  leftshift: 1
 --- !u!4 &1591735371
 Transform:
   m_ObjectHideFlags: 0
@@ -2141,7 +2146,7 @@ Transform:
   m_GameObject: {fileID: 1591735364}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 6.18, y: 2.97, z: -0.054893248}
-  m_LocalScale: {x: 2.3489556, y: 2.3489556, z: 2.3489556}
+  m_LocalScale: {x: 2.6, y: 2.6, z: 2.3489556}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 158431011}
@@ -2593,6 +2598,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 0}
   breakEffect: {fileID: 0}
+  leftshift: 1
 --- !u!114 &1963305823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,6 +2791,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 0}
   breakEffect: {fileID: 0}
+  leftshift: 1
 --- !u!114 &2082478112
 MonoBehaviour:
   m_ObjectHideFlags: 0

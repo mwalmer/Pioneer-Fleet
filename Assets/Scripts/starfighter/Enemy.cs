@@ -10,13 +10,16 @@ public class Enemy : MonoBehaviour {
 	public GameObject deathEffect;
 	public GameObject shieldEffect;
 	public GameObject breakEffect;
+	public float leftshift=1;
 
 	public void TakeDamage (int damage)
 	{
 		if(	shield >0	)
 		{
 			shield -=damage;
-			Instantiate(shieldEffect, transform.position, Quaternion.identity);
+			var v = transform.position; 
+			v.x-=leftshift;
+			Instantiate(shieldEffect, v, Quaternion.identity);
 			if(shield<=0)
 				Instantiate(breakEffect, transform.position, Quaternion.identity);
 		}
