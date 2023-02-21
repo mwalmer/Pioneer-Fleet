@@ -15,7 +15,7 @@ public class torpedo : MonoBehaviour {
 	float currentV;
 
 	float currentY;
-	public float accTY=1f;
+	public float accerateTimeY=1f;
 	public float eY=0f;
 	public float veloY=10f;
 	// Rigidbody m_Rigidbody;
@@ -30,7 +30,7 @@ public class torpedo : MonoBehaviour {
 		currentV=Mathf.Lerp(currentV,eventualspeed,accTime*Time.deltaTime);
 		newPos.x += currentV* Time.deltaTime;
 		//(float)transform.rotation.y*(float).5
-		currentY=Mathf.Lerp(currentY,eY,accTY*Time.deltaTime);
+		currentY=Mathf.Lerp(currentY,eY,accerateTimeY*Time.deltaTime);
 		newPos.y += currentY* Time.deltaTime;
 		transform.position = newPos;
 				Debug.Log(currentY);
