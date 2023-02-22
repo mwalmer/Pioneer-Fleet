@@ -120,7 +120,7 @@ MonoBehaviour:
   damage: 20
   impactEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   angle: 0
-  accerateTimeY: 2
+  accerateTimeY: 3
   eY: 50
   veloY: -15
 --- !u!61 &474168465525105482
