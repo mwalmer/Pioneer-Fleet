@@ -24,32 +24,32 @@ public class PlayerData : MonoBehaviour
     }
 
     public void setFleet(){
-        GameObject test = Resources.Load("PlayerFrigate", typeof(GameObject)) as GameObject;
+        GameObject playerCapitalShip = Resources.Load("FleetBattle/PlayerFrigate", typeof(GameObject)) as GameObject;
         //CapitalShip c = test.GetComponent(typeof(GameObject)) as GameObject;
-        playerFleet.CapitalShips.Add(test);
-        playerFleet.CapitalShips.Add(test);
+        playerFleet.CapitalShips.Add(playerCapitalShip);
+        playerFleet.CapitalShips.Add(playerCapitalShip);
 
-        GameObject test2 = Resources.Load("PlayerFighter", typeof(GameObject)) as GameObject;
+        GameObject playerFighter = Resources.Load("FleetBattle/PlayerFighter", typeof(GameObject)) as GameObject;
         //StarFighter s = test2.GetComponent(typeof(GameObject)) as GameObject;
-        playerFleet.starFighters.Add(test2);
-        playerFleet.starFighters.Add(test2);
-        playerFleet.starFighters.Add(test2);
+        playerFleet.starFighters.Add(playerFighter);
+        playerFleet.starFighters.Add(playerFighter);
+        playerFleet.starFighters.Add(playerFighter);
         //playerFleet.addCapitalShip(test.GetComponent<CapitalShip>());
         //playerFleet.starFighters.Add((StarFighter)Resources.Load("PlayerFighter", typeof(GameObject)));
 
     }
 
     public void setEnemyFleet(){
-        GameObject test = Resources.Load("PlayerFrigate", typeof(GameObject)) as GameObject;
+        GameObject enemyCapitalShip = Resources.Load("FleetBattle/NairanBattlecruiser", typeof(GameObject)) as GameObject;
         //CapitalShip c = test.GetComponent(typeof(GameObject)) as GameObject;
-        enemyFleet.CapitalShips.Add(test);
-        enemyFleet.CapitalShips.Add(test);
+        enemyFleet.CapitalShips.Add(enemyCapitalShip);
+        enemyFleet.CapitalShips.Add(enemyCapitalShip);
 
-        GameObject test2 = Resources.Load("PlayerFighter", typeof(GameObject)) as GameObject;
+        GameObject enemyFigther = Resources.Load("FleetBattle/NairanFighter", typeof(GameObject)) as GameObject;
         //StarFighter s = test2.GetComponent(typeof(GameObject)) as GameObject;
-        enemyFleet.starFighters.Add(test2);
-        enemyFleet.starFighters.Add(test2);
-        enemyFleet.starFighters.Add(test2);
+        enemyFleet.starFighters.Add(enemyFigther);
+        enemyFleet.starFighters.Add(enemyFigther);
+        enemyFleet.starFighters.Add(enemyFigther);
         //playerFleet.addCapitalShip(test.GetComponent<CapitalShip>());
         //playerFleet.starFighters.Add((StarFighter)Resources.Load("PlayerFighter", typeof(GameObject)));
 

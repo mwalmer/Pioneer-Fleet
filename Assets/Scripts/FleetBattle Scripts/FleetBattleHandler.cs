@@ -13,19 +13,19 @@ public class FleetBattleHandler : MonoBehaviour
     {
         fleet1 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
-        Fleet fleetTemp = GameObject.Find("PlayerData").GetComponent<Fleet>();
-        for(int i = 0; i < fleetTemp.CapitalShips.Count; i++){
+        Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
+        for(int i = 0; i < fleetTemp[0].CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
-            GameObject CapitalTemp= Instantiate(fleetTemp.CapitalShips[i], CapitalPosition,transform.rotation);
+            GameObject CapitalTemp= Instantiate(fleetTemp[0].CapitalShips[i], CapitalPosition,transform.rotation);
             fleet1.CapitalShips.Add(CapitalTemp);
             //fleet1.CapitalShips[i].setup();
         }
-        for(int i = 0; i < fleetTemp.starFighters.Count; i++){
+        for(int i = 0; i < fleetTemp[0].starFighters.Count; i++){
             Vector3 fighterPosition = transform.position;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+1;
-            GameObject FighterTemp = Instantiate(fleetTemp.starFighters[i], fighterPosition,transform.rotation);
+            GameObject FighterTemp = Instantiate(fleetTemp[0].starFighters[i], fighterPosition,transform.rotation);
             fleet1.starFighters.Add(FighterTemp);
             //fleet1.starFighters[i].setup();
         }
@@ -33,20 +33,20 @@ public class FleetBattleHandler : MonoBehaviour
 
     fleet2 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
-        Fleet fleetTemp2 = GameObject.Find("PlayerData").GetComponent<Fleet>();
-        for(int i = 0; i < fleetTemp.CapitalShips.Count; i++){
+        //Fleet fleetTemp2 = GameObject.Find("PlayerData").GetComponent<Fleet>();
+        for(int i = 0; i < fleetTemp[1].CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             CapitalPosition.x = CapitalPosition.x+5;
-            GameObject CapitalTemp= Instantiate(fleetTemp2.CapitalShips[i], CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
+            GameObject CapitalTemp= Instantiate(fleetTemp[1].CapitalShips[i], CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
             fleet2.CapitalShips.Add(CapitalTemp);
             //fleet1.CapitalShips[i].setup();
         }
-        for(int i = 0; i < fleetTemp2.starFighters.Count; i++){
+        for(int i = 0; i < fleetTemp[1].starFighters.Count; i++){
             Vector3 fighterPosition = transform.position;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+4;
-            GameObject FighterTemp = Instantiate(fleetTemp2.starFighters[i], fighterPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
+            GameObject FighterTemp = Instantiate(fleetTemp[1].starFighters[i], fighterPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
             fleet2.starFighters.Add(FighterTemp);
             //fleet1.starFighters[i].setup();
         }
