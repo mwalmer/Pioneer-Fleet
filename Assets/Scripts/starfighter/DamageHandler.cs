@@ -6,6 +6,7 @@ public class DamageHandler : MonoBehaviour {
 
 	public int health = 1;
 	int maxHealth;
+	public int damage=1;
 	public float invulnPeriod = 0;
 	float invulnTimer = 0;
 	int correctLayer;
@@ -31,18 +32,21 @@ public class DamageHandler : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D hitInfo) {
-/* 
-		Enemy enemy = hitInfo.GetComponent<Enemy>();
-			if(enemy.gameObject.layer==LayerMask.NameToLayer("torpedo")) //this is added for all bullets to not be damaged by torpedos, they shouldn't
+
+		GameObject bullet = hitInfo.gameObject;
+			if(bullet.layer==LayerMask.NameToLayer("torpedo")) //this is added for all bullets to not be damaged by torpedos, they shouldn't
 		{
-		
+	//	Debug.Log("ddd");
 		}
-		else 
-		{health--;} 
-	  */
-		health--;
+		else if(isPlayer)
+		{health-=damage*10;}
+		else
+		{health--; }
+	  
+		//health--;
         if (isPlayer)
         {
+			
 			UpdateHealth();
         }
 
