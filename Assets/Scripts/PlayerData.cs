@@ -25,17 +25,19 @@ public class PlayerData : MonoBehaviour
 
     public void setFleet(){
         GameObject playerCapitalShip = Resources.Load("FleetBattle/PlayerFrigate", typeof(GameObject)) as GameObject;
-        //CapitalShip c = test.GetComponent(typeof(GameObject)) as GameObject;
         playerFleet.CapitalShips.Add(playerCapitalShip);
         playerFleet.CapitalShips.Add(playerCapitalShip);
+        playerFleet.CapitalShipsCurrentHull.Add(playerCapitalShip.GetComponent<CapitalShip>().currentHull);
+        playerFleet.CapitalShipsCurrentHull.Add(playerCapitalShip.GetComponent<CapitalShip>().currentHull);
+        playerFleet.CapitalShipsCurrentShields.Add(playerCapitalShip.GetComponent<CapitalShip>().currentShield);
+        playerFleet.CapitalShipsCurrentShields.Add(playerCapitalShip.GetComponent<CapitalShip>().currentShield);
+
+
 
         GameObject playerFighter = Resources.Load("FleetBattle/PlayerFighter", typeof(GameObject)) as GameObject;
-        //StarFighter s = test2.GetComponent(typeof(GameObject)) as GameObject;
         playerFleet.starFighters.Add(playerFighter);
         playerFleet.starFighters.Add(playerFighter);
         playerFleet.starFighters.Add(playerFighter);
-        //playerFleet.addCapitalShip(test.GetComponent<CapitalShip>());
-        //playerFleet.starFighters.Add((StarFighter)Resources.Load("PlayerFighter", typeof(GameObject)));
 
     }
 

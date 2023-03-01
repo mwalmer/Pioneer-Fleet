@@ -18,6 +18,8 @@ public class FleetBattleHandler : MonoBehaviour
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             GameObject CapitalTemp= Instantiate(fleetTemp[0].CapitalShips[i], CapitalPosition,transform.rotation);
+            CapitalTemp.GetComponent<CapitalShip>().currentHull = fleetTemp[0].CapitalShipsCurrentHull[i];
+            CapitalTemp.GetComponent<CapitalShip>().currentShield = fleetTemp[0].CapitalShipsCurrentShields[i];
             fleet1.CapitalShips.Add(CapitalTemp);
             //fleet1.CapitalShips[i].setup();
         }
@@ -83,9 +85,16 @@ public class FleetBattleHandler : MonoBehaviour
 
         if(fleet1ActiveFighters.Count > 0 && fleet2ActiveFighters.Count > 0){
             for(int i = 0; i < DogFights; i++){
-                //Debug.Log(i);
+                Debug.Log("We got there");
+                fleet1ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet2ActiveFighters[i].transform);
+                fleet2ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet1ActiveFighters[i].transform);
+
+                fleet1ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
+                fleet2ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
+
                 fleet1ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet2ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
                 fleet2ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet1ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
+
             }
         }
         //Starfighters bombing capital ships
@@ -109,8 +118,14 @@ public class FleetBattleHandler : MonoBehaviour
         if(fleet2.ActiveCapitalShips().Count <= 0 && fleet2.ActiveFighters().Count <=0){
             Debug.Log("Win condition");
         }
+
+        GameObject.Find("PlayerData").GetComponent<Fleet>().setHP(fleet1);
         
     }
+
+    //IEnumerator starFighterBattle(){
+    //    while()
+    //}
 
     public void StarFighterMiniGame(int score){
 

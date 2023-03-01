@@ -13,7 +13,8 @@ public class StarFighter : MonoBehaviour
     public bool active = true;
     //star fighters take 1 on 1s with the enemy. Leftover starfighters deal damage to capital ships
     //Start is called before the first frame update
-
+    public bool inFlight = false;
+    public Transform target;
     SpriteRenderer sprite;
     Color color;
     void Start()
@@ -25,7 +26,10 @@ public class StarFighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(inFlight == true){
+            var step =  1.0f * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        }
     }
     public void setup(){
         active = true;
@@ -48,6 +52,14 @@ public class StarFighter : MonoBehaviour
             damadge = true;
             sprite.color = Color.black;
         }
+    }
+
+    public void dogFightAnimation(){
+        inFlight = true;
+    }
+
+    public void setTarget(Transform t){
+        target = t;
     }
 
     public bool getActive(){
