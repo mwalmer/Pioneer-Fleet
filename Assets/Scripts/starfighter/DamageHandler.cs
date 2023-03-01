@@ -31,16 +31,16 @@ public class DamageHandler : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D hitInfo) {
-/* 
-		Enemy enemy = hitInfo.GetComponent<Enemy>();
-			if(enemy.gameObject.layer==LayerMask.NameToLayer("torpedo")) //this is added for all bullets to not be damaged by torpedos, they shouldn't
+
+		GameObject bullet = hitInfo.gameObject;
+			if(bullet.layer==LayerMask.NameToLayer("torpedo")) //this is added for all bullets to not be damaged by torpedos, they shouldn't
 		{
-		
+	//	Debug.Log("ddd");
 		}
 		else 
-		{health--;} 
-	  */
-		health--;
+		{health--; }
+	  
+		//health--;
         if (isPlayer)
         {
 			UpdateHealth();

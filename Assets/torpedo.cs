@@ -33,14 +33,14 @@ public class torpedo : MonoBehaviour {
 		currentY=Mathf.Lerp(currentY,eY,accerateTimeY*Time.deltaTime);
 		newPos.y += currentY* Time.deltaTime;
 		transform.position = newPos;
-				Debug.Log(currentY);
+			//	Debug.Log(currentY);
 	//	 m_Rigidbody.AddForce(transform.up * acceleration);
 
 	}
 	void OnTriggerEnter2D (Collider2D hitInfo)
 	{
 		
-		Enemy enemy = hitInfo.GetComponent<Enemy>();
+		Enemy enemy = hitInfo.GetComponent<Enemy>(); //
 		if(enemy.gameObject.layer==LayerMask.NameToLayer("Enemy"))
 		{
 			if (enemy != null)

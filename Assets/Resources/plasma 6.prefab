@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 987745924474484430}
   - component: {fileID: 474168465525105482}
   - component: {fileID: 6341462912567300367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: plasma 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8814429644684749816}
   - component: {fileID: 8244559828174480108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
