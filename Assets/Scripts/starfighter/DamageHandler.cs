@@ -6,6 +6,7 @@ public class DamageHandler : MonoBehaviour {
 
 	public int health = 1;
 	int maxHealth;
+	public int damage=1;
 	public float invulnPeriod = 0;
 	float invulnTimer = 0;
 	int correctLayer;
@@ -37,12 +38,15 @@ public class DamageHandler : MonoBehaviour {
 		{
 	//	Debug.Log("ddd");
 		}
-		else 
+		else if(isPlayer)
+		{health-=damage*10;}
+		else
 		{health--; }
 	  
 		//health--;
         if (isPlayer)
         {
+			
 			UpdateHealth();
         }
 

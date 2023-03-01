@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Attack
+  - BigLaser
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - UI
   - torpedo
   - Enemy
-  - 
+  - EnemyAtk
   - 
   - 
   - 
