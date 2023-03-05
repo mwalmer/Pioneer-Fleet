@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EventNode : MonoBehaviour
 {
@@ -12,10 +14,12 @@ public class EventNode : MonoBehaviour
         completed = 2,
         failed = 3
     }
-    
+
+    public string planetName;
+    public string planetDescription;
+
     public NodeState nodeState;
     private SpriteRenderer _spriteRenderer;
-    public GameObject panel;
 
     public static Color[] nodeColors;
     public Color unvisitedColor;
@@ -34,13 +38,9 @@ public class EventNode : MonoBehaviour
     
     private void OnMouseEnter()
     {
-        // show info panel
-        GameObject obj = GameObject.Find("InfoPanel");
-        if (obj != null)
-        {
-            //Debug.Log(obj.GetComponentsInChildren<TextMeshPro>().Length);
-            obj.transform.position = new Vector3(960, 540, 0);
-        }
+        NodeData.ui.SetActive(true);
+        NodeData.title.GetComponent<TextMeshProUGUI>().SetText("Planet: " + planetName);
+        NodeData.description.GetComponent<TextMeshProUGUI>().SetText(planetDescription);
         
         // change node color
         if(nodeState != NodeState.unvisited)
@@ -68,20 +68,17 @@ public class EventNode : MonoBehaviour
     {
         UpdateColor();
         _lineRendererSpawner.ClearLines();
-        GameObject obj = GameObject.Find("InfoPanel");
-        if (obj != null)
-        {
-            obj.transform.position = new Vector3(20000, 20000, 0);
-        }
+        NodeData.ui.SetActive(false);
     }
 
     private void OnMouseDown()
     {
         Select();
+        
         _lineRendererSpawner.ClearLines();
     }
 
-    public void Select()
+    public void Select(bool defer=false)
     {
         if(nodeState != NodeState.unvisited)
             return;
@@ -94,10 +91,25 @@ public class EventNode : MonoBehaviour
         nodeState = NodeState.active;
         UpdateColor();
         _lineRendererSpawner.SetSolid();
+        
+        if(defer) 
+            return;
+        LoadScene(2);
     }
     
     private void UpdateColor()
     {
         _spriteRenderer.color = nodeColors[(int)nodeState];
+    }
+    
+    private void LoadScene(int id)
+    {
+        // disable NodeMap stuff
+        if(!NodeData.nodeMap)
+            NodeData.nodeMap = GameObject.Find("NodeMap");
+        NodeData.nodeMap.SetActive(false);
+        
+        // load scene additively
+        SceneManager.LoadScene(id, LoadSceneMode.Additive);
     }
 }
