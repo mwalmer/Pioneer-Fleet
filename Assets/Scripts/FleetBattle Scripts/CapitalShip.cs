@@ -12,6 +12,8 @@ public class CapitalShip : MonoBehaviour
     public int flakPower; 
     public bool active = true;
 
+    public GameObject ShipType;
+
     SpriteRenderer sprite;
     Color color;
     // Start is called before the first frame update

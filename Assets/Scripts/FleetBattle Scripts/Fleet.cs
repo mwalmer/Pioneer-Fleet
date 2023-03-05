@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fleet : MonoBehaviour
 {
 
-    public List<GameObject> CapitalShips = new List<GameObject>();
+    public List<CapitalShip> CapitalShips = new List<CapitalShip>();
 
     public List<int> CapitalShipsCurrentHull = new List<int>();
     public List<int> CapitalShipsCurrentShields = new List<int>();
@@ -34,8 +34,8 @@ public class Fleet : MonoBehaviour
         return S;
     }
 
-    public List<GameObject> ActiveCapitalShips(){
-        List<GameObject> C = CapitalShips;
+    public List<CapitalShip> ActiveCapitalShips(){
+        List<CapitalShip> C = CapitalShips;
         for(int i = 0; i < C.Count; i++){
             if(C[i].GetComponent<CapitalShip>().getActive() == false){
                 C.RemoveAt(i);
@@ -46,8 +46,11 @@ public class Fleet : MonoBehaviour
 
     public void setHP(Fleet f){
         for(int i = 0; i < CapitalShips.Count;i++){
-            CapitalShipsCurrentHull[i] = f.CapitalShips[i].GetComponent<CapitalShip>().currentHull;
-            CapitalShipsCurrentShields[i] = f.CapitalShips[i].GetComponent<CapitalShip>().currentShield;
+            Debug.Log("In setHP Ship #" + i + " has Hull:" + f.CapitalShips[i].GetComponent<CapitalShip>().currentHull + " and Shield:" + f.CapitalShips[i].GetComponent<CapitalShip>().currentShield);
+            CapitalShips[i].currentHull = f.CapitalShips[i].GetComponent<CapitalShip>().currentHull;
+            CapitalShips[i].currentShield = f.CapitalShips[i].GetComponent<CapitalShip>().currentShield;
+            Debug.Log("In setHP After we set it Ship #" + i + " has Hull:" + CapitalShips[i].currentHull + " and Shield:" + CapitalShips[i].currentShield);
+
             //starFighters[i].GetComponent<StarFighter>().damadge = f.starFighters[i].GetComponent<StarFighter>().damadge;
             //starFighters[i].GetComponent<StarFighter>().deadge = f.starFighters[i].GetComponent<StarFighter>().deadge;
         }

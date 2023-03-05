@@ -24,7 +24,7 @@ public class PlayerData : MonoBehaviour
     }
 
     public void setFleet(){
-        GameObject playerCapitalShip = Resources.Load("FleetBattle/PlayerFrigate", typeof(GameObject)) as GameObject;
+        CapitalShip playerCapitalShip = Resources.Load("FleetBattle/PlayerFrigate", typeof(CapitalShip)) as CapitalShip;
         playerFleet.CapitalShips.Add(playerCapitalShip);
         playerFleet.CapitalShips.Add(playerCapitalShip);
         playerFleet.CapitalShipsCurrentHull.Add(playerCapitalShip.GetComponent<CapitalShip>().currentHull);
@@ -42,7 +42,7 @@ public class PlayerData : MonoBehaviour
     }
 
     public void setEnemyFleet(){
-        GameObject enemyCapitalShip = Resources.Load("FleetBattle/NairanBattlecruiser", typeof(GameObject)) as GameObject;
+        CapitalShip enemyCapitalShip = Resources.Load("FleetBattle/NairanBattlecruiser", typeof(CapitalShip)) as CapitalShip;
         //CapitalShip c = test.GetComponent(typeof(GameObject)) as GameObject;
         enemyFleet.CapitalShips.Add(enemyCapitalShip);
         enemyFleet.CapitalShips.Add(enemyCapitalShip);

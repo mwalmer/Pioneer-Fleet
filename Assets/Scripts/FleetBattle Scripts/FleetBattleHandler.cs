@@ -11,16 +11,18 @@ public class FleetBattleHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject CapitalTemp;
         fleet1 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
         Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
         for(int i = 0; i < fleetTemp[0].CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
-            GameObject CapitalTemp= Instantiate(fleetTemp[0].CapitalShips[i], CapitalPosition,transform.rotation);
-            CapitalTemp.GetComponent<CapitalShip>().currentHull = fleetTemp[0].CapitalShipsCurrentHull[i];
-            CapitalTemp.GetComponent<CapitalShip>().currentShield = fleetTemp[0].CapitalShipsCurrentShields[i];
-            fleet1.CapitalShips.Add(CapitalTemp);
+            CapitalTemp = Instantiate(fleetTemp[0].CapitalShips[i].ShipType, CapitalPosition,transform.rotation);
+            Debug.Log("Value from player data is Ship #" + i + " has Hull:" + fleetTemp[0].CapitalShips[i].currentHull + " and Shield:" + fleetTemp[0].CapitalShips[i].currentShield);
+            CapitalTemp.GetComponent<CapitalShip>().currentHull = fleetTemp[0].CapitalShips[i].currentHull;
+            CapitalTemp.GetComponent<CapitalShip>().currentShield = fleetTemp[0].CapitalShips[i].currentShield;
+            fleet1.CapitalShips.Add(CapitalTemp.GetComponent<CapitalShip>());
             //fleet1.CapitalShips[i].setup();
         }
         for(int i = 0; i < fleetTemp[0].starFighters.Count; i++){
@@ -40,8 +42,8 @@ public class FleetBattleHandler : MonoBehaviour
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             CapitalPosition.x = CapitalPosition.x+5;
-            GameObject CapitalTemp= Instantiate(fleetTemp[1].CapitalShips[i], CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
-            fleet2.CapitalShips.Add(CapitalTemp);
+            CapitalTemp= Instantiate(fleetTemp[1].CapitalShips[i].ShipType, CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
+            fleet2.CapitalShips.Add(CapitalTemp.GetComponent<CapitalShip>());
             //fleet1.CapitalShips[i].setup();
         }
         for(int i = 0; i < fleetTemp[1].starFighters.Count; i++){
@@ -85,7 +87,6 @@ public class FleetBattleHandler : MonoBehaviour
 
         if(fleet1ActiveFighters.Count > 0 && fleet2ActiveFighters.Count > 0){
             for(int i = 0; i < DogFights; i++){
-                Debug.Log("We got there");
                 fleet1ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet2ActiveFighters[i].transform);
                 fleet2ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet1ActiveFighters[i].transform);
 
@@ -118,9 +119,15 @@ public class FleetBattleHandler : MonoBehaviour
         if(fleet2.ActiveCapitalShips().Count <= 0 && fleet2.ActiveFighters().Count <=0){
             Debug.Log("Win condition");
         }
+        Debug.Log("There are this many allied capital ships this number should never change from 2 and it is " + fleet1.CapitalShips.Count);
+        Debug.Log("From the feel scene directly Ship #0 has Hull:" + fleet1.CapitalShips[0].GetComponent<CapitalShip>().currentHull + " and Shield:" + fleet1.CapitalShips[0].GetComponent<CapitalShip>().currentShield);
+        Debug.Log("From the feel scene directly Ship #1 has Hull:" + fleet1.CapitalShips[1].GetComponent<CapitalShip>().currentHull + " and Shield:" + fleet1.CapitalShips[1].GetComponent<CapitalShip>().currentShield);
 
         GameObject.Find("PlayerData").GetComponent<Fleet>().setHP(fleet1);
-        
+        Debug.Log("Ship #0 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].GetComponent<CapitalShip>().currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].GetComponent<CapitalShip>().currentShield);
+        Debug.Log("Ship #1 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].GetComponent<CapitalShip>().currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].GetComponent<CapitalShip>().currentShield);
+
+
     }
 
     //IEnumerator starFighterBattle(){

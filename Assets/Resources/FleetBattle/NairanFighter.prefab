@@ -98,8 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnginePower: 65
-  Accuracy: 20
+  Accuracy: 5
   BombingPower: 20
   deadge: 0
   damadge: 0
   active: 1
+  inFlight: 0
+  target: {fileID: 0}
