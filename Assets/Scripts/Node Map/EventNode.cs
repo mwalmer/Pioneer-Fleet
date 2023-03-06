@@ -116,7 +116,7 @@ public class EventNode : MonoBehaviour
         if(defer) 
             return;
         
-        // LoadScene(2);
+        LoadScene(2);
     }
     
     private void UpdateColor()
