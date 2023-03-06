@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class NodeMap : MonoBehaviour
 {
+    public float travelDist;
     public int numberOfNodes;
     public GameObject eventNodePrefab;
     public float minimumDistance;
@@ -15,19 +16,21 @@ public class NodeMap : MonoBehaviour
     {
         if (NodeData.eventNodeList.Count == 0)
         {
+            NodeData.travelIndicator = GameObject.Find("TravelIndicator");
             NodeData.nodeMap = gameObject;
             NodeData.ui = GameObject.Find("Canvas");
             NodeData.title = GameObject.Find("Title");
             NodeData.description = GameObject.Find("Description");
             GenerateNodes();
             NodeData.currentNode = NodeData.eventNodeList[0];
-            NodeData.currentNode.GetComponent<EventNode>().Select(true);
         }
     }
 
     private void Start()
     {
         NodeData.ui.SetActive(false);
+        NodeData.travelIndicator.SetActive(false);
+        NodeData.currentNode.GetComponent<EventNode>().Select(true);
     }
 
     private void GenerateNodes()
@@ -49,12 +52,15 @@ public class NodeMap : MonoBehaviour
         }
         
         // Generate rng elements (names, descriptions, etc...)
+        // TODO: temp
         int numNodes = NodeData.eventNodeList.Count;
         for (int i = 0; i < numNodes; i++)
         {
             EventNode node = NodeData.eventNodeList[i].GetComponent<EventNode>();
-            node.planetName = NodeData.PlanetNames[i];
-            node.planetDescription = NodeData.PlanetNames[i] + "'s description!";
+            node.planetName = NodeData.PlanetNames[Random.Range(0, NodeData.PlanetNames.Count)];
+            node.planetDescription = node.planetName + "'s description!";
+            node.type = (EventNode.NodeType)Random.Range(0, 2);
+            node.eventType = (EventNode.EventType)Random.Range(0, 2);
         }
     }
 

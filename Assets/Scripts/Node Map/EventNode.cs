@@ -14,9 +14,26 @@ public class EventNode : MonoBehaviour
         completed = 2,
         failed = 3
     }
+    
+    public enum NodeType
+    {
+        planet = 0,
+        asteroid = 1,
+        star = 2
+    }
+    
+    public enum EventType
+    {
+        planet = 0,
+        asteroid = 1,
+        star = 2
+    }
 
     public string planetName;
     public string planetDescription;
+    public NodeType type;
+    public EventType eventType;
+    
 
     public NodeState nodeState;
     private SpriteRenderer _spriteRenderer;
@@ -35,9 +52,10 @@ public class EventNode : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _lineRendererSpawner = GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>();
     }
-    
+
     private void OnMouseEnter()
     {
+        // show ui
         NodeData.ui.SetActive(true);
         NodeData.title.GetComponent<TextMeshProUGUI>().SetText("Planet: " + planetName);
         NodeData.description.GetComponent<TextMeshProUGUI>().SetText(planetDescription);
@@ -46,6 +64,8 @@ public class EventNode : MonoBehaviour
         if(nodeState != NodeState.unvisited)
             return;
         
+        // draws line to nearby nodes
+        float travelDist = FindObjectOfType<NodeMap>().travelDist;
         _spriteRenderer.color = Color.magenta;
         Vector3 currentPosition = gameObject.transform.position;
         for (int i = 0; i < NodeData.eventNodeList.Count; i++)
@@ -54,7 +74,7 @@ public class EventNode : MonoBehaviour
             NodeState n = NodeData.eventNodeList[i].GetComponent<EventNode>().nodeState;
             if(n == NodeState.completed)
                 continue;
-            if (Vector3.Distance(currentPosition, nodePosition) < 3)
+            if (Vector3.Distance(currentPosition, nodePosition) < travelDist)
             {
                 if(NodeData.eventNodeList[i] == NodeData.currentNode)
                     _lineRendererSpawner.SpawnSolid(currentPosition, nodePosition);
@@ -91,10 +111,12 @@ public class EventNode : MonoBehaviour
         nodeState = NodeState.active;
         UpdateColor();
         _lineRendererSpawner.SetSolid();
+        UpdateTravelIndicator();
         
         if(defer) 
             return;
-        LoadScene(2);
+        
+        // LoadScene(2);
     }
     
     private void UpdateColor()
@@ -111,5 +133,18 @@ public class EventNode : MonoBehaviour
         
         // load scene additively
         SceneManager.LoadScene(id, LoadSceneMode.Additive);
+    }
+
+    private void UpdateTravelIndicator()
+    {
+        NodeData.travelIndicator.SetActive(true);
+        NodeMap nm = FindObjectOfType<NodeMap>();
+        SpriteRenderer sr = NodeData.travelIndicator.GetComponent<SpriteRenderer>();
+        
+        NodeData.travelIndicator.transform.position = NodeData.currentNode.transform.position;
+        // TODO: get rid of magic number
+        float travelRadius = nm.travelDist / 4.5f;
+        NodeData.travelIndicator.transform.localScale = new Vector3(travelRadius, travelRadius, 1);
+        // sp.sprite = new Vector2(.5f, .5f);
     }
 }

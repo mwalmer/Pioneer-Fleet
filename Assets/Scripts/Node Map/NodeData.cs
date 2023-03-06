@@ -8,6 +8,7 @@ public static class NodeData
     public static GameObject title;
     public static GameObject description;
     public static GameObject currentNode;
+    public static GameObject travelIndicator;
     public static List<GameObject> eventNodeList = new List<GameObject>();
 
     public static List<string> Descriptions = new List<string>();
