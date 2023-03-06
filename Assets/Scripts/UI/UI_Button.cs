@@ -9,31 +9,47 @@ public class UI_Button : MonoBehaviour
     [SerializeField]
     private bool isMouseOn = false;
     [SerializeField]
+    private bool isPressing = false;
+    [SerializeField]
     private RectTransform rectTransform;
+    private CanvasGroup cGroup;
     // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        cGroup = GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckMouse();
+        CheckMousePosition();
         if (isMouseOn)
         {
             if (PointFrame) PointFrame.SetActive(true);
             FC_AimmingCursor.disableOriginalCursor = false;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                isPressing = true;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                isPressing = false;
+            }
         }
         else
         {
             if (PointFrame) PointFrame.SetActive(false);
             FC_AimmingCursor.disableOriginalCursor = true;
+            isPressing = false;
         }
     }
 
-    bool CheckMouse()
+    bool CheckMousePosition()
     {
+        if (cGroup.alpha == 0) return false;
+
         float buttonX = rectTransform.position.x * 100f + (float)Screen.width / 2f - rectTransform.sizeDelta.x / 2f;
         float buttonY = rectTransform.position.y * 100f + (float)Screen.height / 2f + rectTransform.sizeDelta.y / 2f;
         //Debug.Log("local x:" + buttonX + " | rect x:" + rectTransform.position.x + " | game x:" + transform.position.x);
@@ -48,5 +64,9 @@ public class UI_Button : MonoBehaviour
         else
             isMouseOn = false;
         return isMouseOn;
+    }
+    public bool IsButtonPressing()
+    {
+        return isPressing;
     }
 }

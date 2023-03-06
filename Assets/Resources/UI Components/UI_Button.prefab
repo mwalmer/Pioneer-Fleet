@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 1014567559395055769}
   - component: {fileID: 1014567559395055766}
   - component: {fileID: 1014567559395055770}
+  - component: {fileID: 8101415355604265395}
   m_Layer: 5
   m_Name: UI_Button
   m_TagString: Untagged
@@ -452,4 +453,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointFrame: {fileID: 1014567558228349109}
   isMouseOn: 0
+  isPressing: 0
   rectTransform: {fileID: 0}
+--- !u!225 &8101415355604265395
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014567559395055764}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
