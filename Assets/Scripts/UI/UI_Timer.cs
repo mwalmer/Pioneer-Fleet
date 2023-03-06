@@ -10,6 +10,7 @@ public class UI_Timer : MonoBehaviour
     public bool isRunning = false;
     public bool isCountingDown = false;
     public float timeRemindingBoder = 30f; // -1 means not using the reminding function.
+
     // Render components
     TextMeshProUGUI timerTextMesh;
 
@@ -37,11 +38,12 @@ public class UI_Timer : MonoBehaviour
                 time += Time.deltaTime;
             else
                 time -= Time.deltaTime;
-            Debug.Log(Time.deltaTime);
             if (time < 0) time = 0;
         }
     }
 
+
+    // API
     public void Reset()
     {
         time = 0;
@@ -68,6 +70,10 @@ public class UI_Timer : MonoBehaviour
     {
         // IsTime only works when it is using counting down mode.
         return (isCountingDown && time <= 0 ? true : false);
+    }
+    public string CurrentTime()
+    {
+        return TimeToString();
     }
 
     // Data Processing

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FC_AimmingCursor : MonoBehaviour
 {
-    public bool disableOriginalCursor = true;
+    public static bool disableOriginalCursor = true;
 
     private void Start()
     {

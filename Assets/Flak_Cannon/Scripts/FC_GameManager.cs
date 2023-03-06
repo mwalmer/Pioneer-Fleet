@@ -6,14 +6,13 @@ using TMPro;
 
 public class FC_GameManager : MonoBehaviour
 {
-    public TextMeshProUGUI hpUI;
+    public UI_IconBar hpUI;
     public TextMeshProUGUI destroyCountUI;
     public TextMeshProUGUI gameEndNoticeUI;
     public UI_Description condiReminder;
     public UI_Timer gameTimer;
 
-    //
-    public static float playerHP = 2;
+    public static int playerHP = 10;
     public static int destroyCount = 0;
     public int winningCount = 10;
     public float timeLimit = 60;
@@ -41,7 +40,7 @@ public class FC_GameManager : MonoBehaviour
     {
         if (hpUI != null)
         {
-            hpUI.text = "HP: " + playerHP;
+            hpUI.ChangeBarValue(playerHP);
         }
         if (destroyCountUI != null)
         {
