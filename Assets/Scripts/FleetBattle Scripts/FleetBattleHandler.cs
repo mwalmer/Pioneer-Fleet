@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class FleetBattleHandler : MonoBehaviour
 {
     //public CapitalShip ship1;
     //public CapitalShip ship2;
     Fleet fleet1;
-    Fleet fleet2;
+    Fleet fleet2; 
+    GameObject CapitalTemp;
+    public TMP_Text text;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject CapitalTemp;
         fleet1 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
         Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
@@ -54,6 +57,8 @@ public class FleetBattleHandler : MonoBehaviour
             fleet2.starFighters.Add(FighterTemp);
             //fleet1.starFighters[i].setup();
         }
+
+        setHPtext();
     }
 
     // Update is called once per frame
@@ -111,21 +116,25 @@ public class FleetBattleHandler : MonoBehaviour
                 fleet1.CapitalShips[x].GetComponent<CapitalShip>().takeDamage(fleet2ActiveFighters[DogFights].GetComponent<StarFighter>().BombingPower);
             }
         }
+        setHPtext();
         //make some way for capital ships to destory fighters
         //check for victory or defeat
-        if(fleet1.ActiveCapitalShips().Count <= 0 && fleet1.ActiveFighters().Count <=0){
+        if (fleet1.ActiveCapitalShips().Count <= 0 && fleet1.ActiveFighters().Count <=0){
             Debug.Log("Lose condition");
         }
         if(fleet2.ActiveCapitalShips().Count <= 0 && fleet2.ActiveFighters().Count <=0){
             Debug.Log("Win condition");
         }
         Debug.Log("There are this many allied capital ships this number should never change from 2 and it is " + fleet1.CapitalShips.Count);
-        Debug.Log("From the feel scene directly Ship #0 has Hull:" + fleet1.CapitalShips[0].GetComponent<CapitalShip>().currentHull + " and Shield:" + fleet1.CapitalShips[0].GetComponent<CapitalShip>().currentShield);
-        Debug.Log("From the feel scene directly Ship #1 has Hull:" + fleet1.CapitalShips[1].GetComponent<CapitalShip>().currentHull + " and Shield:" + fleet1.CapitalShips[1].GetComponent<CapitalShip>().currentShield);
+        Debug.Log("From the feel scene directly Ship #0 has Hull:" + fleet1.CapitalShips[0].currentHull + " and Shield:" + fleet1.CapitalShips[0].currentShield);
+        Debug.Log("From the feel scene directly Ship #1 has Hull:" + fleet1.CapitalShips[1].currentHull + " and Shield:" + fleet1.CapitalShips[1].currentShield);
 
+        //Fleet fleetTestOG = GameObject.Find("PlayerData").GetComponent<Fleet>() as Fleet;
+        //fleetTestOG.setHP(fleet1);
         GameObject.Find("PlayerData").GetComponent<Fleet>().setHP(fleet1);
-        Debug.Log("Ship #0 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].GetComponent<CapitalShip>().currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].GetComponent<CapitalShip>().currentShield);
-        Debug.Log("Ship #1 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].GetComponent<CapitalShip>().currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].GetComponent<CapitalShip>().currentShield);
+        //Fleet fleetTest = GameObject.Find("PlayerData").GetComponent<Fleet>() as Fleet;
+        Debug.Log("Ship #0 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].currentShield);
+        Debug.Log("Ship #1 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].currentShield);
 
 
     }
@@ -133,6 +142,9 @@ public class FleetBattleHandler : MonoBehaviour
     //IEnumerator starFighterBattle(){
     //    while()
     //}
+    public void setHPtext() {
+        text.text = "Ship 1 current hull:" + fleet1.CapitalShips[0].currentHull + "\n Ship 1 current shield" + fleet1.CapitalShips[0].currentShield + "Ship 2 current hull:" + fleet1.CapitalShips[1].currentHull + "\n Ship 2 current shield" + fleet1.CapitalShips[1].currentShield;
+    }
 
     public void StarFighterMiniGame(int score){
 

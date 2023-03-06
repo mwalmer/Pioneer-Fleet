@@ -7,9 +7,6 @@ public class Fleet : MonoBehaviour
 
     public List<CapitalShip> CapitalShips = new List<CapitalShip>();
 
-    public List<int> CapitalShipsCurrentHull = new List<int>();
-    public List<int> CapitalShipsCurrentShields = new List<int>();
-
     public List<GameObject> starFighters = new List<GameObject>();
     //public CapitalShip capitalShip;
     // Start is called before the first frame update
@@ -45,10 +42,11 @@ public class Fleet : MonoBehaviour
     }
 
     public void setHP(Fleet f){
-        for(int i = 0; i < CapitalShips.Count;i++){
-            Debug.Log("In setHP Ship #" + i + " has Hull:" + f.CapitalShips[i].GetComponent<CapitalShip>().currentHull + " and Shield:" + f.CapitalShips[i].GetComponent<CapitalShip>().currentShield);
-            CapitalShips[i].currentHull = f.CapitalShips[i].GetComponent<CapitalShip>().currentHull;
-            CapitalShips[i].currentShield = f.CapitalShips[i].GetComponent<CapitalShip>().currentShield;
+        //CapitalShips = f.CapitalShips;
+        for (int i = 0; i < CapitalShips.Count;i++){
+            Debug.Log("In setHP Ship #" + i + " has Hull:" + f.CapitalShips[i].currentHull + " and Shield:" + f.CapitalShips[i].currentShield);
+            CapitalShips[i].currentHull = f.CapitalShips[i].currentHull;
+            CapitalShips[i].currentShield = f.CapitalShips[i].currentShield;
             Debug.Log("In setHP After we set it Ship #" + i + " has Hull:" + CapitalShips[i].currentHull + " and Shield:" + CapitalShips[i].currentShield);
 
             //starFighters[i].GetComponent<StarFighter>().damadge = f.starFighters[i].GetComponent<StarFighter>().damadge;
