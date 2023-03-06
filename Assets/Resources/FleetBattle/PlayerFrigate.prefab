@@ -104,5 +104,4 @@ MonoBehaviour:
   artilleryPower: 60
   flakPower: 0
   active: 1
-  shipName: 
   ShipType: {fileID: 6831954910004607987}

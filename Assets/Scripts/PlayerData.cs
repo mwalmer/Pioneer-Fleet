@@ -27,10 +27,6 @@ public class PlayerData : MonoBehaviour
         CapitalShip playerCapitalShip = Resources.Load("FleetBattle/PlayerFrigate", typeof(CapitalShip)) as CapitalShip;
         playerFleet.CapitalShips.Add(playerCapitalShip);
         playerFleet.CapitalShips.Add(playerCapitalShip);
-        playerFleet.CapitalShipsCurrentHull.Add(playerCapitalShip.GetComponent<CapitalShip>().currentHull);
-        playerFleet.CapitalShipsCurrentHull.Add(playerCapitalShip.GetComponent<CapitalShip>().currentHull);
-        playerFleet.CapitalShipsCurrentShields.Add(playerCapitalShip.GetComponent<CapitalShip>().currentShield);
-        playerFleet.CapitalShipsCurrentShields.Add(playerCapitalShip.GetComponent<CapitalShip>().currentShield);
 
 
 
