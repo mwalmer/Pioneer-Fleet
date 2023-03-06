@@ -39,7 +39,7 @@ public class DamageHandler : MonoBehaviour {
 	//	Debug.Log("ddd");
 		}
 		else if(isPlayer)
-		{health-=damage*10;}
+		{health--;}
 		else
 		{health--; }
 	  

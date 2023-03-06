@@ -27,7 +27,7 @@ public class UI_Description : MonoBehaviour
     }
     public void AddWords(string words, Color color)
     {
-        AddWords(ColorWords(words, color));
+        sentence += ColorWords(words, color);
     }
     public void Clear()
     {

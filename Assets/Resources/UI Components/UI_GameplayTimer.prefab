@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9115842008823383221}
   - component: {fileID: 9115842008823383211}
   m_Layer: 5
-  m_Name: GameplayTimer
+  m_Name: UI_GameplayTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

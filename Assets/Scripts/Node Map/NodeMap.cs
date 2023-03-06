@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NodeMap : MonoBehaviour
 {
@@ -12,14 +15,24 @@ public class NodeMap : MonoBehaviour
     {
         if (NodeData.eventNodeList.Count == 0)
         {
+            NodeData.nodeMap = gameObject;
+            NodeData.ui = GameObject.Find("Canvas");
+            NodeData.title = GameObject.Find("Title");
+            NodeData.description = GameObject.Find("Description");
             GenerateNodes();
             NodeData.currentNode = NodeData.eventNodeList[0];
-            NodeData.currentNode.GetComponent<EventNode>().Select();
+            NodeData.currentNode.GetComponent<EventNode>().Select(true);
         }
+    }
+
+    private void Start()
+    {
+        NodeData.ui.SetActive(false);
     }
 
     private void GenerateNodes()
     {
+        // Create/Place nodes
         Vector3 start = new Vector3(-4, 0, 0);
         Vector3 goal = new Vector3(4, 0, 0);
         Vector2 midpoint = new Vector2((goal.x + start.x) / 2, (goal.y + goal.y) / 2);
@@ -33,6 +46,15 @@ public class NodeMap : MonoBehaviour
             if(!placeNode(ref position, midpoint))
                 continue;
             CreateNode(position, i.ToString());
+        }
+        
+        // Generate rng elements (names, descriptions, etc...)
+        int numNodes = NodeData.eventNodeList.Count;
+        for (int i = 0; i < numNodes; i++)
+        {
+            EventNode node = NodeData.eventNodeList[i].GetComponent<EventNode>();
+            node.planetName = NodeData.PlanetNames[i];
+            node.planetDescription = NodeData.PlanetNames[i] + "'s description!";
         }
     }
 

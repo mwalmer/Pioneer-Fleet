@@ -22,7 +22,7 @@ public class FC_Enemyfighter : MonoBehaviour
         if (spaceStatus.GetDistance() < 0)
         {
             FC_GameManager.ChangePlayerHP(-1);
-            gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 
