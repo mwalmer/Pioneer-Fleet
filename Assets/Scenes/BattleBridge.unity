@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 38277342}
   - component: {fileID: 38277345}
   - component: {fileID: 38277344}
+  - component: {fileID: 38277346}
   - component: {fileID: 38277343}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Flak Cannon Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 38277344}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 38277346}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadByIndexToFlak
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &38277344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +258,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38277341}
   m_CullTransparentMesh: 1
+--- !u!114 &38277346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38277341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd35bf410f64d554dab0d7f05ad45ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &120720360
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Evasive Manuvers
+  m_text: Load Armament Mini Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
   m_sharedMaterial: {fileID: -1614837777300207787, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
@@ -702,8 +727,9 @@ GameObject:
   - component: {fileID: 662732668}
   - component: {fileID: 662732667}
   - component: {fileID: 662732666}
+  - component: {fileID: 662732669}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Starfighter Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,7 +799,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 662732667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 662732669}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadByIndexToStarFighter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &662732667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,6 +850,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662732664}
   m_CullTransparentMesh: 1
+--- !u!114 &662732669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662732664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd35bf410f64d554dab0d7f05ad45ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &756756078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1118,7 +1168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fighter Supremacy
+  m_text: StarFighter Minigame
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
   m_sharedMaterial: {fileID: -1614837777300207787, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
@@ -1476,9 +1526,10 @@ GameObject:
   - component: {fileID: 1592244789}
   - component: {fileID: 1592244792}
   - component: {fileID: 1592244791}
+  - component: {fileID: 1592244793}
   - component: {fileID: 1592244790}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Load Armament Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1548,7 +1599,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592244791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1592244793}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadByIndexArmaments
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1592244791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,6 +1650,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592244788}
   m_CullTransparentMesh: 1
+--- !u!114 &1592244793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592244788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd35bf410f64d554dab0d7f05ad45ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1764540415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,7 +1720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Power to the Shields
+  m_text: Flak Cannon Mini game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}
   m_sharedMaterial: {fileID: -1614837777300207787, guid: 1fa6c9c2b0d993444bc0250d520c6bed, type: 2}

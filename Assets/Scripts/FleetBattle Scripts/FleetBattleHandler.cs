@@ -57,7 +57,9 @@ public class FleetBattleHandler : MonoBehaviour
             fleet2.starFighters.Add(FighterTemp);
             //fleet1.starFighters[i].setup();
         }
-
+        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame != 0){
+            Debug.Log("You just played a mini game. Good job");
+        }
         setHPtext();
     }
 
@@ -143,7 +145,7 @@ public class FleetBattleHandler : MonoBehaviour
     //    while()
     //}
     public void setHPtext() {
-        text.text = "Ship 1 current hull:" + fleet1.CapitalShips[0].currentHull + "\n Ship 1 current shield" + fleet1.CapitalShips[0].currentShield + "Ship 2 current hull:" + fleet1.CapitalShips[1].currentHull + "\n Ship 2 current shield" + fleet1.CapitalShips[1].currentShield;
+        text.text = "Ship 1 current hull: " + fleet1.CapitalShips[0].currentHull + "\nShip 1 current shield: " + fleet1.CapitalShips[0].currentShield + "\nShip 2 current hull:" + fleet1.CapitalShips[1].currentHull + "\nShip 2 current shield: " + fleet1.CapitalShips[1].currentShield;
     }
 
     public void StarFighterMiniGame(int score){

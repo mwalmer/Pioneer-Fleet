@@ -9,14 +9,29 @@ public class LoadScene : MonoBehaviour
     {
            SceneManager.LoadScene(sceneIndex);
     }
+    public void LoadByIndexToStarFighter()
+    {
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame = 0;
+        SceneManager.LoadScene(3);
+    }
+    public void LoadByIndexToFlak()
+    {
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame = 1;
+        SceneManager.LoadScene(4);
+    }
+    public void LoadByIndexArmaments()
+    {
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame = 2;
+        SceneManager.LoadScene(5);
+    }
 
-    public void LoadBattleScene(){
-        //GameObject.Find("StageData").GetComponent<StageData>().setStage();
+
+    public void LoadBattleBridge(){
         SceneManager.LoadScene(1);
     }
 
     public void LoadAdditiveByIndex(int sceneIndex)
     {
-           SceneManager.LoadScene(sceneIndex,LoadSceneMode.Additive);
+        SceneManager.LoadScene(sceneIndex,LoadSceneMode.Additive);
     }
 }

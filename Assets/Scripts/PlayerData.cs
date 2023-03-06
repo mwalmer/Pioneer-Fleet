@@ -6,6 +6,7 @@ public class PlayerData : MonoBehaviour
 {
     public Fleet playerFleet;
     public Fleet enemyFleet;
+    public int miniGame;
     //public List<CapitalShip> CapitalShips;
     // Start is called before the first frame update
     void Start()
