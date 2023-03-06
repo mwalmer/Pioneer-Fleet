@@ -27,9 +27,19 @@ public class StarFighter : MonoBehaviour
     void Update()
     {
         if(inFlight == true){
-            var step =  1.0f * Time.deltaTime;
+            var step =  2.0f * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }
+        /*
+        if(Vector3.Distance(target.position, transform.position)<0.1f && inFlight == true){
+                if(deadge == true){
+                    //expode
+                }
+                if(deadge == false){
+                    //target.transform.position = (new Vector3(transform.position.x+2,transform.position.y +1,transform.position.z));
+                }
+            }
+            */
     }
     public void setup(){
         active = true;

@@ -27,7 +27,7 @@ public class LoadScene : MonoBehaviour
 
 
     public void LoadBattleBridge(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadNodeMapFromBattleBridge(){
