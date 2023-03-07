@@ -15,24 +15,23 @@ public class NodeMap : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            NodeData.travelIndicator = GameObject.Find("TravelIndicator");
-            NodeData.nodeMap = gameObject;
-            NodeData.ui = GameObject.Find("NMCanvas");
-            NodeData.title = GameObject.Find("Title");
-            NodeData.description = GameObject.Find("Description");
-            GenerateNodes();
-            NodeData.currentNode = NodeData.eventNodeList[0];
-
-            NodeData.nodeMap = gameObject;
-            instance = gameObject;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (instance != null)
         {
             Destroy(gameObject);
+            return;
         }
+        
+        NodeData.travelIndicator = GameObject.Find("TravelIndicator");
+        NodeData.nodeMap = gameObject;
+        NodeData.ui = GameObject.Find("NMCanvas");
+        NodeData.title = GameObject.Find("Title");
+        NodeData.description = GameObject.Find("Description");
+        GenerateNodes();
+        NodeData.currentNode = NodeData.eventNodeList[0];
+
+        NodeData.nodeMap = gameObject;
+        instance = gameObject;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnDestroy()
