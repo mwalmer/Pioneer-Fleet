@@ -132,7 +132,7 @@ public class EventNode : MonoBehaviour
         NodeData.nodeMap.SetActive(false);
         
         // load scene additively
-        SceneManager.LoadScene(id, LoadSceneMode.Additive);
+        SceneManager.LoadScene(id);
     }
 
     private void UpdateTravelIndicator()

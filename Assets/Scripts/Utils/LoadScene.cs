@@ -31,8 +31,7 @@ public class LoadScene : MonoBehaviour
     }
 
     public void LoadNodeMapFromBattleBridge(){
-        NodeData.nodeMap.SetActive(true);
-        SceneManager.UnloadSceneAsync(2);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadAdditiveByIndex(int sceneIndex)

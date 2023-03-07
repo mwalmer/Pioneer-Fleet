@@ -11,19 +11,34 @@ public class NodeMap : MonoBehaviour
     public GameObject eventNodePrefab;
     public float minimumDistance;
     public float maximumDistance;
+    public static GameObject instance;
 
     private void Awake()
     {
-        if (NodeData.eventNodeList.Count == 0)
+        if (instance == null)
         {
             NodeData.travelIndicator = GameObject.Find("TravelIndicator");
             NodeData.nodeMap = gameObject;
-            NodeData.ui = GameObject.Find("Canvas");
+            NodeData.ui = GameObject.Find("NMCanvas");
             NodeData.title = GameObject.Find("Title");
             NodeData.description = GameObject.Find("Description");
             GenerateNodes();
             NodeData.currentNode = NodeData.eventNodeList[0];
+
+            NodeData.nodeMap = gameObject;
+            instance = gameObject;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(NodeData.nodeMap != gameObject)
+            NodeData.nodeMap.SetActive(true);
     }
 
     private void Start()
