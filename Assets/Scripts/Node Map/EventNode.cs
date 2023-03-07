@@ -56,9 +56,11 @@ public class EventNode : MonoBehaviour
     private void OnMouseEnter()
     {
         // show ui
-        NodeData.ui.SetActive(true);
-        NodeData.title.GetComponent<TextMeshProUGUI>().SetText("Planet: " + planetName);
-        NodeData.description.GetComponent<TextMeshProUGUI>().SetText(planetDescription);
+        UI_WindowController controller = FindObjectOfType<UI_WindowController>();
+        UI_LocationInfo info = FindObjectOfType<UI_LocationInfo>();
+        info.ChangeName(planetName, Color.white);
+        info.ChangeDescription(planetDescription, Color.white);
+        controller.FadeBack();
         
         // change node color
         if(nodeState != NodeState.unvisited)
@@ -88,13 +90,13 @@ public class EventNode : MonoBehaviour
     {
         UpdateColor();
         _lineRendererSpawner.ClearLines();
-        NodeData.ui.SetActive(false);
+        UI_WindowController controller = FindObjectOfType<UI_WindowController>();
+        controller.FadeOut();
     }
 
     private void OnMouseDown()
     {
         Select();
-        
         _lineRendererSpawner.ClearLines();
     }
 

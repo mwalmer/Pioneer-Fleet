@@ -22,16 +22,12 @@ public class NodeMap : MonoBehaviour
         }
         
         NodeData.travelIndicator = GameObject.Find("TravelIndicator");
-        NodeData.nodeMap = gameObject;
-        NodeData.ui = GameObject.Find("NMCanvas");
-        NodeData.title = GameObject.Find("Title");
-        NodeData.description = GameObject.Find("Description");
+        instance = gameObject;
+        NodeData.nodeMap = instance;
+        DontDestroyOnLoad(instance);
+        
         GenerateNodes();
         NodeData.currentNode = NodeData.eventNodeList[0];
-
-        NodeData.nodeMap = gameObject;
-        instance = gameObject;
-        DontDestroyOnLoad(gameObject);
     }
 
     private void OnDestroy()
@@ -42,7 +38,7 @@ public class NodeMap : MonoBehaviour
 
     private void Start()
     {
-        NodeData.ui.SetActive(false);
+        // NodeData.ui.SetActive(false);
         NodeData.travelIndicator.SetActive(false);
         NodeData.currentNode.GetComponent<EventNode>().Select(true);
     }
