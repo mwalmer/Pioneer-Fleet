@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
 //	public Rigidbody2D rb;
 	public GameObject impactEffect;
 	public float angle;
+	public int hp=1;
 	// Use this for initialization
 	void Start () {
 	
@@ -32,6 +33,10 @@ public class Bullet : MonoBehaviour {
 		}
 
 		Instantiate(impactEffect, transform.position, transform.rotation);
+		hp--;
+		//Debug.Log("TEST3");
+		if(hp<=0)
+		{
 		foreach (Transform child in transform)
 		{
 			//Debug.Log("TEST" + child.gameObject.name);
@@ -40,6 +45,7 @@ public class Bullet : MonoBehaviour {
 	//	Debug.Log("TEST2" + gameObject.name);
 		Destroy(gameObject);
 		//Debug.Log("TEST3");
+		}
 	}
 	
 }

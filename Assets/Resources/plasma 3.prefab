@@ -117,7 +117,7 @@ MonoBehaviour:
   velocity: -60
   eventualspeed: 80
   accTime: 6
-  damage: 20
+  damage: 15
   impactEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   angle: 0
   accerateTimeY: 3
