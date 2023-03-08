@@ -45,8 +45,9 @@ public class Fleet : MonoBehaviour
         //CapitalShips = f.CapitalShips;
         for (int i = 0; i < CapitalShips.Count;i++){
             Debug.Log("In setHP Ship #" + i + " has Hull:" + f.CapitalShips[i].currentHull + " and Shield:" + f.CapitalShips[i].currentShield);
-            CapitalShips[i].currentHull = f.CapitalShips[i].currentHull;
-            CapitalShips[i].currentShield = f.CapitalShips[i].currentShield;
+            //CapitalShips[i].currentHull = f.CapitalShips[i].currentHull;
+            //CapitalShips[i].currentShield = f.CapitalShips[i].currentShield;
+            CapitalShips[i].setHP(f.CapitalShips[i].currentHull,f.CapitalShips[i].currentShield);
             Debug.Log("In setHP After we set it Ship #" + i + " has Hull:" + CapitalShips[i].currentHull + " and Shield:" + CapitalShips[i].currentShield);
 
             //starFighters[i].GetComponent<StarFighter>().damadge = f.starFighters[i].GetComponent<StarFighter>().damadge;

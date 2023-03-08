@@ -25,17 +25,19 @@ public class PlayerData : MonoBehaviour
     }
 
     public void setFleet(){
-        CapitalShip playerCapitalShip = Resources.Load("FleetBattle/PlayerFrigate", typeof(CapitalShip)) as CapitalShip;
-        playerFleet.CapitalShips.Add(playerCapitalShip);
-        playerFleet.CapitalShips.Add(playerCapitalShip);
-
+        addShip("PlayerFrigate");
+        addShip("PlayerFrigate");
 
 
         GameObject playerFighter = Resources.Load("FleetBattle/PlayerFighter", typeof(GameObject)) as GameObject;
         playerFleet.starFighters.Add(playerFighter);
         playerFleet.starFighters.Add(playerFighter);
         playerFleet.starFighters.Add(playerFighter);
+    }
 
+    public void addShip(string name){
+        CapitalShip playerCapitalShip = Instantiate(Resources.Load("FleetBattle/" + name, typeof(CapitalShip)) as CapitalShip, transform);
+        playerFleet.CapitalShips.Add(playerCapitalShip);
     }
 
     public void setEnemyFleet(){

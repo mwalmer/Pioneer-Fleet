@@ -60,4 +60,9 @@ public class CapitalShip : MonoBehaviour
         return true;
     }
 
+    public void setHP(int cHull, int cShield){
+        currentHull = cHull;
+        currentShield = cShield;
+    }
+
 }

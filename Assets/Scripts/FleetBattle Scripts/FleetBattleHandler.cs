@@ -10,7 +10,8 @@ public class FleetBattleHandler : MonoBehaviour
     //public CapitalShip ship2;
     Fleet fleet1;
     Fleet fleet2; 
-    GameObject CapitalTemp;
+    CapitalShip CapitalTemp;
+    
     public TMP_Text text;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class FleetBattleHandler : MonoBehaviour
         for(int i = 0; i < fleetTemp[0].CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
-            CapitalTemp = Instantiate(fleetTemp[0].CapitalShips[i].ShipType, CapitalPosition,transform.rotation);
+            CapitalTemp = Instantiate(fleetTemp[0].CapitalShips[i], CapitalPosition,transform.rotation);
             Debug.Log("Value from player data is Ship #" + i + " has Hull:" + fleetTemp[0].CapitalShips[i].currentHull + " and Shield:" + fleetTemp[0].CapitalShips[i].currentShield);
             CapitalTemp.GetComponent<CapitalShip>().currentHull = fleetTemp[0].CapitalShips[i].currentHull;
             CapitalTemp.GetComponent<CapitalShip>().currentShield = fleetTemp[0].CapitalShips[i].currentShield;
@@ -45,7 +46,7 @@ public class FleetBattleHandler : MonoBehaviour
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             CapitalPosition.x = CapitalPosition.x+5;
-            CapitalTemp= Instantiate(fleetTemp[1].CapitalShips[i].ShipType, CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
+            CapitalTemp= Instantiate(fleetTemp[1].CapitalShips[i], CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
             fleet2.CapitalShips.Add(CapitalTemp.GetComponent<CapitalShip>());
             //fleet1.CapitalShips[i].setup();
         }
