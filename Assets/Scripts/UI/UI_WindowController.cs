@@ -28,7 +28,6 @@ public class UI_WindowController : MonoBehaviour
 
     void Fading()
     {
-        Debug.Log("is fading");
         if (fadingStatus == -1)
         {
             uiGroup.alpha = uiGroup.alpha + Time.deltaTime / fadingTime;

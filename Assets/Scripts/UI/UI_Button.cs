@@ -13,11 +13,13 @@ public class UI_Button : MonoBehaviour
     [SerializeField]
     private RectTransform rectTransform;
     private CanvasGroup cGroup;
+    private Canvas canvas;
     // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         cGroup = GetComponent<CanvasGroup>();
+        canvas = GetComponentInParent<Canvas>();
     }
 
     // Update is called once per frame
@@ -49,9 +51,9 @@ public class UI_Button : MonoBehaviour
     bool CheckMousePosition()
     {
         if (cGroup.alpha == 0) return false;
-
-        float buttonX = rectTransform.position.x * 100f + (float)Screen.width / 2f - rectTransform.sizeDelta.x / 2f;
-        float buttonY = rectTransform.position.y * 100f + (float)Screen.height / 2f + rectTransform.sizeDelta.y / 2f;
+        //float buttonX = rectTransform.position.x * 100f + (float)Screen.width / 2f - rectTransform.sizeDelta.x / 2f;
+        float buttonX = canvas.worldCamera.WorldToScreenPoint(rectTransform.position).x - rectTransform.sizeDelta.x / 2f;
+        float buttonY = canvas.worldCamera.WorldToScreenPoint(rectTransform.position).y + rectTransform.sizeDelta.y / 2f;
         //Debug.Log("local x:" + buttonX + " | rect x:" + rectTransform.position.x + " | game x:" + transform.position.x);
         //Debug.Log("Mouse: (" + Input.mousePosition.x + "," + Input.mousePosition.y + ") | button local pos:" + buttonX + "," + buttonY + " | size:" + rectTransform.sizeDelta.x + "," + rectTransform.sizeDelta.y);
         if (Input.mousePosition.x > buttonX
