@@ -18,7 +18,7 @@ public class UI_Button : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        cGroup = GetComponent<CanvasGroup>();
+        cGroup = transform.parent.GetComponentInParent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
     }
 
@@ -50,6 +50,7 @@ public class UI_Button : MonoBehaviour
 
     bool CheckMousePosition()
     {
+        isMouseOn = false;
         if (cGroup.alpha == 0) return false;
         //float buttonX = rectTransform.position.x * 100f + (float)Screen.width / 2f - rectTransform.sizeDelta.x / 2f;
         float buttonX = canvas.worldCamera.WorldToScreenPoint(rectTransform.position).x - rectTransform.sizeDelta.x / 2f;
@@ -63,8 +64,6 @@ public class UI_Button : MonoBehaviour
         {
             isMouseOn = true;
         }
-        else
-            isMouseOn = false;
         return isMouseOn;
     }
     public bool IsButtonPressing()
