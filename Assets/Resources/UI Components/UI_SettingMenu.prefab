@@ -34,7 +34,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.99973845}
+  m_AnchorMax: {x: 1, y: 0.6274175}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -184,9 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175a8dae3e9eeb49bf4f2c74f26f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shortcutKey: 27
-  titleScene:
-    m_Handle: 0
+  titleScene: 
   fadingTime: 1
   cGroup: {fileID: 1473880813849045303}
 --- !u!1 &1473880814349080147
@@ -761,7 +759,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1473880813617965281}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99973845
+  m_Size: 0.6274175
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -801,7 +799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00000838168}
+  m_AnchoredPosition: {x: 0, y: 235.8204}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1473880814812526520
@@ -2124,7 +2122,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 713ec05a19efa864892c08f0febc33e3, type: 2}
     - target: {fileID: 1014567559395055764, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_Name
-      value: Apply_Button (1)
+      value: Apply_Button
       objectReference: {fileID: 0}
     - target: {fileID: 1014567559395055766, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_ShowMaskGraphic
@@ -2208,7 +2206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014567559395055767, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -474
+      value: -753.4
       objectReference: {fileID: 0}
     - target: {fileID: 1014567559395055767, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2292,7 +2290,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 713ec05a19efa864892c08f0febc33e3, type: 2}
     - target: {fileID: 1014567559395055764, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_Name
-      value: Cancel_Button (1)
+      value: Cancel_Button
       objectReference: {fileID: 0}
     - target: {fileID: 1014567559395055766, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_ShowMaskGraphic
@@ -2376,7 +2374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014567559395055767, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -771.6
+      value: -1051
       objectReference: {fileID: 0}
     - target: {fileID: 1014567559395055767, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
       propertyPath: m_AnchoredPosition.y

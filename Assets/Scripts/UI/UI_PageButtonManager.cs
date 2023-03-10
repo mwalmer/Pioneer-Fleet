@@ -89,6 +89,7 @@ public class UI_PageButtonManager : MonoBehaviour
         else
         {
             selectedButton = null;
+            EnableButtons();
             currentReplacingTime = 0f;
         }
     }

@@ -28,6 +28,7 @@ public class UI_Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Shortcut();
 
         CheckMousePosition();
@@ -37,14 +38,10 @@ public class UI_Button : MonoBehaviour
             if (isUsable == false) return;
             if (PointFrame) PointFrame.SetActive(true);
             FC_AimmingCursor.disableOriginalCursor = false;
-
-            if (Input.GetMouseButtonDown(0))
+            isPressing = false;
+            if (Input.GetMouseButton(0))
             {
                 isPressing = true;
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                isPressing = false;
             }
         }
         else
