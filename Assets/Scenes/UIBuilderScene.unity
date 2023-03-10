@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282624722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92, y: 2.38, z: 0.33068848}
+  m_LocalPosition: {x: -5.427, y: -0.315, z: 0.33068848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,8 +217,6 @@ GameObject:
   m_Component:
   - component: {fileID: 340896647}
   - component: {fileID: 340896646}
-  - component: {fileID: 340896648}
-  - component: {fileID: 340896649}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -293,34 +291,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &340896648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340896645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e1ad958561e000429a9b43bccf97452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointFrame: {fileID: 0}
-  isMouseOn: 0
-  isPressing: 0
-  rectTransform: {fileID: 0}
---- !u!225 &340896649
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340896645}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843033824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.92, y: -2.6, z: 0.33068848}
+  m_LocalPosition: {x: 1.14, y: -2.83, z: 0.33068848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -604,6 +574,30 @@ PrefabInstance:
     - target: {fileID: 2756144532393977240, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445761253377008093, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 713ec05a19efa864892c08f0febc33e3, type: 2}
+    - target: {fileID: 3445761253629086849, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.003921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445761253629086862, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_ShowMaskGraphic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445761254399409383, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.003921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445761254866756142, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 713ec05a19efa864892c08f0febc33e3, type: 2}
+    - target: {fileID: 3445761255052394260, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.003921569
       objectReference: {fileID: 0}
     - target: {fileID: 8176699751236712070, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_Name

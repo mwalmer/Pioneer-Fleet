@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UI_Button : MonoBehaviour
 {
     public GameObject PointFrame;
+    public KeyCode shortcut;
+    public bool isUsable = true;
     [SerializeField]
     private bool isMouseOn = false;
     [SerializeField]
@@ -18,16 +21,20 @@ public class UI_Button : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        cGroup = transform.parent.GetComponentInParent<CanvasGroup>();
+        cGroup = GetComponentInParent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Shortcut();
+
         CheckMousePosition();
+
         if (isMouseOn)
         {
+            if (isUsable == false) return;
             if (PointFrame) PointFrame.SetActive(true);
             FC_AimmingCursor.disableOriginalCursor = false;
 
@@ -69,5 +76,12 @@ public class UI_Button : MonoBehaviour
     public bool IsButtonPressing()
     {
         return isPressing;
+    }
+    private void Shortcut()
+    {
+        if (Input.GetKeyDown(shortcut))
+        {
+            gameObject.GetComponentInChildren<Button>().onClick.Invoke();
+        }
     }
 }

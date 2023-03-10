@@ -9,6 +9,7 @@ public class UI_PageButtonManager : MonoBehaviour
     public RectTransform horiLine;
     private UI_Button selectedButton;
     public float replacingTime = 0.75f; // in sec
+    [SerializeField]
     private float currentReplacingTime = 0f;
 
     private float unselectY = 66f; // in rect transform
@@ -34,7 +35,7 @@ public class UI_PageButtonManager : MonoBehaviour
         if (currentSelected != selectedButton)
         {
             currentReplacingTime += Time.deltaTime;
-            float timeRatio = currentReplacingTime / (replacingTime * 1.2f); // 1.2f is visual multiplier
+            float timeRatio = currentReplacingTime / (replacingTime * 10f); // 10f is visual multiplier since lerp has a very fast result.
             float currentX = -180f;
             for (int i = 0; i < buttons.Count; ++i)
             {
@@ -82,6 +83,7 @@ public class UI_PageButtonManager : MonoBehaviour
             {
                 currentSelected = selectedButton;
                 currentReplacingTime = 0f;
+                EnableButtons();
             }
         }
         else
@@ -107,9 +109,24 @@ public class UI_PageButtonManager : MonoBehaviour
                 if (currentReplacingTime == 0)
                 {
                     selectedButton = button;
+                    DisableButtons();
                 }
                 return;
             }
+        }
+    }
+    void DisableButtons()
+    {
+        foreach (UI_Button button in buttons)
+        {
+            button.isUsable = false;
+        }
+    }
+    void EnableButtons()
+    {
+        foreach (UI_Button button in buttons)
+        {
+            button.isUsable = true;
         }
     }
 }
