@@ -16,9 +16,21 @@ public class FleetBattleHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fleet1 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
-        //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
         Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
+        fleet1 = fleetTemp[0];
+        for(int i = 0; i < fleet1.CapitalShips.Count; i++){
+            Vector3 CapitalPosition = transform.position;
+            CapitalPosition.y = CapitalPosition.y + i;
+            fleet1.CapitalShips[i].gameObject.transform.position = CapitalPosition;
+        }
+        for(int i = 0; i < fleet1.StarFighters.Count; i++){
+            Vector3 fighterPosition = transform.position;
+            fighterPosition.y = fighterPosition.y + i;
+            fighterPosition.x = fighterPosition.x+1;
+            fleet1.StarFighters[i].gameObject.transform.position = fighterPosition;
+        }
+        //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
+        /*
         for(int i = 0; i < fleetTemp[0].CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
@@ -37,7 +49,7 @@ public class FleetBattleHandler : MonoBehaviour
             fleet1.starFighters.Add(FighterTemp);
             //fleet1.starFighters[i].setup();
         }
-
+*/
 
     fleet2 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
@@ -50,12 +62,12 @@ public class FleetBattleHandler : MonoBehaviour
             fleet2.CapitalShips.Add(CapitalTemp.GetComponent<CapitalShip>());
             //fleet1.CapitalShips[i].setup();
         }
-        for(int i = 0; i < fleetTemp[1].starFighters.Count; i++){
+        for(int i = 0; i < fleetTemp[1].StarFighters.Count; i++){
             Vector3 fighterPosition = transform.position;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+4;
-            GameObject FighterTemp = Instantiate(fleetTemp[1].starFighters[i], fighterPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
-            fleet2.starFighters.Add(FighterTemp);
+            StarFighter FighterTemp = Instantiate(fleetTemp[1].StarFighters[i], fighterPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
+            fleet2.StarFighters.Add(FighterTemp);
             //fleet1.starFighters[i].setup();
         }
         if(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame != 0){
@@ -67,7 +79,7 @@ public class FleetBattleHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void fleetBattleCalcTest(){
@@ -83,8 +95,8 @@ public class FleetBattleHandler : MonoBehaviour
             fleet2.CapitalShips[x].GetComponent<CapitalShip>().takeDamage(fleet1.CapitalShips[i].GetComponent<CapitalShip>().artilleryPower);
         }
         //starfighter battle
-        List<GameObject> fleet1ActiveFighters = fleet1.ActiveFighters();
-        List<GameObject> fleet2ActiveFighters = fleet2.ActiveFighters();
+        List<StarFighter> fleet1ActiveFighters = fleet1.ActiveFighters();
+        List<StarFighter> fleet2ActiveFighters = fleet2.ActiveFighters();
         int DogFights = fleet1ActiveFighters.Count;
         if(fleet2ActiveFighters.Count < DogFights){
             DogFights = fleet2ActiveFighters.Count;

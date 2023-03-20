@@ -7,7 +7,7 @@ public class Fleet : MonoBehaviour
 
     public List<CapitalShip> CapitalShips = new List<CapitalShip>();
 
-    public List<GameObject> starFighters = new List<GameObject>();
+    public List<StarFighter> StarFighters = new List<StarFighter>();
     //public CapitalShip capitalShip;
     // Start is called before the first frame update
     void Start()
@@ -21,10 +21,10 @@ public class Fleet : MonoBehaviour
         
     }
 
-    public List<GameObject> ActiveFighters(){
-        List<GameObject> S = starFighters;
+    public List<StarFighter> ActiveFighters(){
+        List<StarFighter> S = StarFighters;
         for(int i = 0; i < S.Count; i++){
-            if(S[i].GetComponent<StarFighter>().getActive() == false){
+            if(S[i].getActive() == false){
                 S.RemoveAt(i);
             }
         }
