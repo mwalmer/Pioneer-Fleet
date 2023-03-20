@@ -12,6 +12,7 @@ public class VE_FadeOut : MonoBehaviour
     private Image maskImg;
     [SerializeField]
     private Color color;
+    public bool disableWhenFinished = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,9 @@ public class VE_FadeOut : MonoBehaviour
             newA = img.color.a - Time.deltaTime / fadeoutTime;
             if (newA <= 0)
             {
-                Destroy(this.gameObject);
+                if (disableWhenFinished)
+                    this.gameObject.SetActive(false);
+                Destroy(this);
             }
             else
             {

@@ -531,7 +531,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1842757328}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -768,17 +768,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1675016988 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7667145449854747148, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
-  m_PrefabInstance: {fileID: 3147587522373660251}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4bdd7e9e5e66144b7564d009e478d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1842757328 stripped
@@ -1153,22 +1142,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1842757328}
     m_Modifications:
-    - target: {fileID: 1943433575249599897, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2718500706696731148, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1675016988}
-    - target: {fileID: 2718500706696731148, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FadeOut
-      objectReference: {fileID: 0}
-    - target: {fileID: 2718500706696731148, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI_WindowController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3147587521271523473, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1256,10 +1229,6 @@ PrefabInstance:
     - target: {fileID: 3147587521271523474, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
       propertyPath: m_Name
       value: Sample_SideWindow
-      objectReference: {fileID: 0}
-    - target: {fileID: 7667145449854747148, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
-      propertyPath: fadingTime
-      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
@@ -1373,7 +1342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5824465913761300253, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7380936880393010435, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
       propertyPath: m_Name
@@ -1441,7 +1410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7380936881388692648, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7380936881467470198, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
       propertyPath: m_RootOrder
