@@ -17,6 +17,7 @@ public class NodeMap : MonoBehaviour
     {
         if (instance != null)
         {
+            FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(NodeData.currentNode.transform);
             Destroy(gameObject);
             return;
         }
@@ -29,18 +30,18 @@ public class NodeMap : MonoBehaviour
         GenerateNodes();
         NodeData.currentNode = NodeData.eventNodeList[0];
     }
+    
+    private void Start()
+    {
+        NodeData.travelIndicator.SetActive(false);
+        NodeData.currentNode.GetComponent<EventNode>().Select(true);
+        NodeData.selectedNode.GetComponent<EventNode>().Travel(true);
+    }
 
     private void OnDestroy()
     {
         if(NodeData.nodeMap != gameObject)
             NodeData.nodeMap.SetActive(true);
-    }
-
-    private void Start()
-    {
-        // NodeData.ui.SetActive(false);
-        NodeData.travelIndicator.SetActive(false);
-        NodeData.currentNode.GetComponent<EventNode>().Select(true);
     }
 
     private void GenerateNodes()

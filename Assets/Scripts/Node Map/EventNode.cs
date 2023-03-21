@@ -55,12 +55,8 @@ public class EventNode : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        // show ui
-        UI_WindowController controller = FindObjectOfType<UI_WindowController>();
-        UI_LocationInfo info = FindObjectOfType<UI_LocationInfo>();
-        info.ChangeName(planetName, Color.white);
-        info.ChangeDescription(planetDescription, Color.white);
-        controller.FadeBack();
+        if(NodeData.selectedNode != null)
+            return;
         
         // change node color
         if(nodeState != NodeState.unvisited)
@@ -88,23 +84,33 @@ public class EventNode : MonoBehaviour
     
     private void OnMouseExit()
     {
+        if(NodeData.selectedNode != null)
+            return;
         UpdateColor();
         _lineRendererSpawner.ClearLines();
-        UI_WindowController controller = FindObjectOfType<UI_WindowController>();
-        controller.FadeOut();
     }
 
     private void OnMouseDown()
     {
-        Select();
-        _lineRendererSpawner.ClearLines();
-    }
-
-    public void Select(bool defer=false)
-    {
-        if(nodeState != NodeState.unvisited)
+        if(NodeData.selectedNode != null)
             return;
         
+        Select();
+        _lineRendererSpawner.ClearLines();
+        
+        // show ui
+        UI_WindowController controller = FindObjectOfType<UI_WindowController>();
+        UI_LocationInfo info = FindObjectOfType<UI_LocationInfo>();
+        info.ChangeName(planetName, Color.white);
+        info.ChangeDescription(planetDescription, Color.white);
+        controller.FadeBack();
+    }
+
+    public void Travel(bool defer=false)
+    {
+        if(NodeData.selectedNode == null)
+            return;
+
         //TODO: this should be done when the player wins/loses
         NodeData.currentNode.GetComponent<EventNode>().nodeState = NodeState.completed;
         NodeData.currentNode.GetComponent<EventNode>().UpdateColor();
@@ -114,14 +120,29 @@ public class EventNode : MonoBehaviour
         UpdateColor();
         _lineRendererSpawner.SetSolid();
         UpdateTravelIndicator();
+
+        NodeData.selectedNode = null;
+        _lineRendererSpawner.ClearLines();
         
         if(defer) 
             return;
         
         LoadScene(2);
     }
+
+    public void Select(bool ignoreCurrent = false)
+    {
+        if(nodeState != NodeState.unvisited)
+            return;
+
+        if(!ignoreCurrent && (NodeData.selectedNode == gameObject || NodeData.currentNode == gameObject))
+            return;
+
+        NodeData.selectedNode = gameObject;
+        FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(transform);
+    }
     
-    private void UpdateColor()
+    public void UpdateColor()
     {
         _spriteRenderer.color = nodeColors[(int)nodeState];
     }
