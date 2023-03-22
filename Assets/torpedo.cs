@@ -8,7 +8,9 @@ public class torpedo : MonoBehaviour {
 	public float velocity = 10f;
     public float eventualspeed = 60f;
 	public float accTime = 3f;
+	public int shieldDamage=40;
 	public int damage = 40;
+	
 //	public Rigidbody2D rb;
 	public GameObject impactEffect;
 	public float angle;
@@ -45,7 +47,7 @@ public class torpedo : MonoBehaviour {
 		{
 			if (enemy != null)
 			{
-			enemy.TakeDamage(damage);
+			enemy.TakeDamage(shieldDamage,damage);
 			}
 
 			Instantiate(impactEffect, transform.position, transform.rotation);

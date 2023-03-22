@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
 
 	public float velocity = 20f;
 	public int damage = 40;
+	public int shieldDamage=40;
 //	public Rigidbody2D rb;
 	public GameObject impactEffect;
 	public float angle;
@@ -29,7 +30,7 @@ public class Bullet : MonoBehaviour {
 		Enemy enemy = hitInfo.GetComponent<Enemy>();
 		if (enemy != null)
 		{
-			enemy.TakeDamage(damage);
+			enemy.TakeDamage(shieldDamage,damage);
 		}
 
 		Instantiate(impactEffect, transform.position, transform.rotation);

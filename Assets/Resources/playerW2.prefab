@@ -127,9 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 70
-  damage: 30
+  damage: 25
+  shieldDamage: 35
   impactEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   angle: 0
+  hp: 1
 --- !u!114 &3518646682806887540
 MonoBehaviour:
   m_ObjectHideFlags: 0
