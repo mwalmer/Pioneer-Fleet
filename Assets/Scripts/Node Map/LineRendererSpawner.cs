@@ -30,6 +30,8 @@ public class LineRendererSpawner : MonoBehaviour
 
     public void SpawnSolid(Vector3 start, Vector3 end)
     {
+        if(NodeData.selectedNode != null)
+            return;
         GameObject obj = Instantiate(solidPrefab, transform);
         obj.name = "solid line";
         LineRenderer lineRenderer = obj.GetComponent<LineRenderer>();
@@ -42,6 +44,9 @@ public class LineRendererSpawner : MonoBehaviour
 
     public void SpawnLine(Vector3 start, Vector3 end)
     {
+        if(NodeData.selectedNode != null)
+            return;
+
         GameObject obj = Instantiate(dashPrefab, transform);
         obj.name = "dashed line";
         LineRenderer lineRenderer = obj.GetComponent<LineRenderer>();
@@ -52,8 +57,12 @@ public class LineRendererSpawner : MonoBehaviour
         dashRenderers.Add(obj);
     }
 
+    // only clears lines if the selected nodes is null!
     public void ClearLines()
     {
+        if(NodeData.selectedNode != null)
+            return;
+        
         for (int i = 0; i < dashRenderers.Count; i++)
         {
             Destroy(dashRenderers[i]);
