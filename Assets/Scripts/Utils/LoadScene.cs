@@ -12,6 +12,7 @@ public class LoadScene : MonoBehaviour
     public void LoadByIndexToStarFighter()
     {
         GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame = 1;
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore = 100;
         GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
         SceneManager.LoadScene(3);
     }
