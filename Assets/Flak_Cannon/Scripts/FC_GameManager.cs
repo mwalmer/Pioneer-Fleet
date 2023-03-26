@@ -8,6 +8,7 @@ public class FC_GameManager : MonoBehaviour
 {
     public UI_IconBar hpUI;
     public TextMeshProUGUI destroyCountUI;
+    public FC_EndGameEvent gameEndEvent;
     public TextMeshProUGUI gameEndNoticeUI;
     public UI_Description condiReminder;
     public UI_Timer gameTimer;
@@ -17,6 +18,7 @@ public class FC_GameManager : MonoBehaviour
     public int winningCount = 10;
     public float timeLimit = 60;
 
+    public static bool IsGameActive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +71,7 @@ public class FC_GameManager : MonoBehaviour
 
     void CheckGameConditions()
     {
-        if (destroyCount > winningCount)
+        if (destroyCount >= winningCount)
         {
             WinningEvent();
         }
@@ -81,14 +83,22 @@ public class FC_GameManager : MonoBehaviour
     void WinningEvent()
     {
         // TODO:: deal the events when player won the game
-        gameEndNoticeUI.color = Color.green;
-        gameEndNoticeUI.text = "YOU WIN!";
+        if (gameEndEvent)
+        {
+            gameEndEvent.gameObject.SetActive(true);
+            gameEndEvent.gameEndNotice.color = Color.green;
+            gameEndEvent.gameEndNotice.text = "YOU WIN!";
+        }
     }
     void losingEvent()
     {
         // TODO:: deal the events when player lost the game
-        gameEndNoticeUI.color = Color.red;
-        gameEndNoticeUI.text = "YOU LOSE!";
+        if (gameEndEvent)
+        {
+            gameEndEvent.gameObject.SetActive(true);
+            gameEndEvent.gameEndNotice.color = Color.red;
+            gameEndEvent.gameEndNotice.text = "YOU LOSE!";
+        }
     }
 
 

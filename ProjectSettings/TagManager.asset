@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Attack
   - BigLaser
+  - PlyShield
   layers:
   - Default
   - TransparentFX
