@@ -15,10 +15,12 @@ public class StarFighter : MonoBehaviour
     //Start is called before the first frame update
     public bool inFlight = false;
     public Transform target;
+    Vector3 t;
     SpriteRenderer sprite;
     Color color;
     void Start()
     {
+        t = new Vector3(transform.position.x+2,transform.position.y +1,transform.position.z);
         active = true;
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -28,7 +30,7 @@ public class StarFighter : MonoBehaviour
     {
         if(inFlight == true){
             var step =  2.0f * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, t, step);
         }
         /*
         if(Vector3.Distance(target.position, transform.position)<0.1f && inFlight == true){

@@ -107,8 +107,8 @@ public class FleetBattleHandler : MonoBehaviour
 
         if(fleet1ActiveFighters.Count > 0 && fleet2ActiveFighters.Count > 0){
             for(int i = 0; i < DogFights; i++){
-                fleet1ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet2ActiveFighters[i].transform);
-                fleet2ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet1ActiveFighters[i].transform);
+                //fleet1ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet2ActiveFighters[i].transform);
+                //fleet2ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet1ActiveFighters[i].transform);
 
                 fleet1ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
                 fleet2ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
