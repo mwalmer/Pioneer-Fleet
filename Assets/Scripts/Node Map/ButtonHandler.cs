@@ -6,12 +6,17 @@ public class ButtonHandler : MonoBehaviour
 {
     public static void Travel()
     {
-        Debug.Log("pressed");
-        // NodeData.selectedNode.GetComponent<EventNode>().Travel();
+        NodeData.selectedNode.GetComponent<EventNode>().Travel();
     }
     
     public static void Cancel()
     {
+        UI_WindowController controller = FindObjectOfType<UI_WindowController>();
+        controller.FadeOut();
+        
+        FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(NodeData.currentNode.transform);
+        NodeData.selectedNode.GetComponent<EventNode>().UpdateColor();
+        NodeData.selectedNode = null;
         GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>().ClearLines();
         // NodeData.selectedNode = null;
     }

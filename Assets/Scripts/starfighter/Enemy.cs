@@ -12,11 +12,11 @@ public class Enemy : MonoBehaviour {
 	public GameObject breakEffect;
 	public float leftshift=1;
 
-	public void TakeDamage (int damage)
+	public void TakeDamage (int shieldDamage,int damage)
 	{
 		if(	shield >0	)
 		{
-			shield -=damage;
+			shield -=shieldDamage;
 			var v = transform.position; 
 			v.x-=leftshift;
 			Instantiate(shieldEffect, v, Quaternion.identity);
