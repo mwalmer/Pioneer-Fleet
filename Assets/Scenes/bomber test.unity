@@ -1431,6 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
+  damage: 1
   invulnPeriod: 0
   isPlayer: 1
   healthBar: {fileID: 111725767}
@@ -2199,11 +2200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4980412612563622230, guid: 68c33b27080ff384fb6f85524426b3fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8348436
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: 4980412612563622230, guid: 68c33b27080ff384fb6f85524426b3fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9414603
+      value: -1.38
       objectReference: {fileID: 0}
     - target: {fileID: 4980412612563622230, guid: 68c33b27080ff384fb6f85524426b3fa, type: 3}
       propertyPath: m_LocalPosition.z
