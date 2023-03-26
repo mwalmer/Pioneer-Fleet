@@ -100,6 +100,7 @@ public class FC_CannonBullet : MonoBehaviour
 
         isBulletActive = false;
         spaceStatus.VisualDisable();
+        spaceStatus.Disable();
         if (explosion != null)
         {
             explosion.gameObject.SetActive(true);

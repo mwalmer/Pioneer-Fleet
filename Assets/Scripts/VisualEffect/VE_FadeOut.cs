@@ -13,6 +13,7 @@ public class VE_FadeOut : MonoBehaviour
     [SerializeField]
     private Color color;
     public bool disableWhenFinished = false;
+    public bool destroyWhenFinished = false;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,11 @@ public class VE_FadeOut : MonoBehaviour
             {
                 if (disableWhenFinished)
                     this.gameObject.SetActive(false);
-                Destroy(this);
+                if (destroyWhenFinished)
+                    Destroy(this.gameObject);
+                else
+                    Destroy(this);
+                img.color = new Color(img.color.r, img.color.g, img.color.b, 0);
             }
             else
             {

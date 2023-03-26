@@ -79,6 +79,7 @@ public class UI_IconBar : MonoBehaviour
             {
                 VE_FadeOut tempVE = iconItems[i].AddComponent<VE_FadeOut>();
                 tempVE.fadeoutTime = droppingTime;
+                tempVE.destroyWhenFinished = true;
                 tempVE.ChangeColor(colorForDropValue);
                 VE_FadeIn conflictVE = tempVE.gameObject.GetComponent<VE_FadeIn>();
                 if (conflictVE)

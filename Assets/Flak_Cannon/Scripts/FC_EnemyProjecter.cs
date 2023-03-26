@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FC_EnemyProjecter : MonoBehaviour
 {
+    public bool isActive = true;
     public GameObject EnemyfighterPrefab;
     public Transform minPos;
     public Transform maxPos;
@@ -18,6 +19,8 @@ public class FC_EnemyProjecter : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (FC_GameManager.IsGameActive == false) return;
+
         timeCount += Time.fixedDeltaTime;
         if (timeCount >= interval)
         {

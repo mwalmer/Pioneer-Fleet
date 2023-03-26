@@ -8,6 +8,7 @@ public class FC_Enemyfighter : MonoBehaviour
     public FC_SpaceStatus spaceStatus;
     [SerializeField]
     private FC_EnemyStatus enemyStatus;
+    public bool isHarmful = true;
 
     private void Start()
     {
@@ -21,7 +22,10 @@ public class FC_Enemyfighter : MonoBehaviour
         spaceStatus.Move(speed);
         if (spaceStatus.GetDistance() < 0)
         {
-            FC_GameManager.ChangePlayerHP(-1);
+            if (isHarmful)
+            {
+                FC_GameManager.ChangePlayerHP(-1);
+            }
             Destroy(this.gameObject);
         }
     }

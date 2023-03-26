@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3d50eeee43823e4b99198dddee92b60
+guid: 28663efd38676e1449dc88f34ff5ce25
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,11 +42,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.16230367, y: 0.09090909}
+  spritePivot: {x: 0.514844, y: 0.15}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,49 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: SampleCannon_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 267
-        height: 198
-      alignment: 9
-      pivot: {x: 0.16910796, y: 0.05599505}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c10184e585535e44399338169a59509f
-      internalID: -1395171870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SampleCannon_1
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 0
-        width: 110
-        height: 132
-      alignment: 9
-      pivot: {x: 0.18743786, y: 0.1735903}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e96b4089a57e264091fee4f0d6935e0
-      internalID: -2069270946
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -180,9 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      SampleCannon_1: -2069270946
-      SampleCannon_0: -1395171870
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

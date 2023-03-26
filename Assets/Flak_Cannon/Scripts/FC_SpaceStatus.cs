@@ -10,6 +10,7 @@ public class FC_SpaceStatus : MonoBehaviour
     public SpriteRenderer sr;
 
     public static float rangeOfVisibility = 2800;
+    bool isDisabled = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,10 @@ public class FC_SpaceStatus : MonoBehaviour
             //this.gameObject.SetActive(false);
         }
         else
-            sr.enabled = true;
+        {
+            if (isDisabled) return;
+            VisualEnable();
+        }
         sr.sortingOrder = (int)distance * -1;
         float modifier = (rangeOfVisibility - distance) / rangeOfVisibility * 4;
         modifier = modifier * modifier * sizeMultiplier;
@@ -79,6 +83,7 @@ public class FC_SpaceStatus : MonoBehaviour
 
     public void VisualDisable()
     {
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
         sr.enabled = false;
         ParticleSystem ps = this.GetComponentInChildren<ParticleSystem>();
         if (ps != null)
@@ -87,6 +92,13 @@ public class FC_SpaceStatus : MonoBehaviour
             ps.Clear();
         }
     }
-
-
+    public void VisualEnable()
+    {
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+        sr.enabled = true;
+    }
+    public void Disable()
+    {
+        isDisabled = true;
+    }
 }

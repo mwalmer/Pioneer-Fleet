@@ -11,11 +11,13 @@ public class UI_Description : MonoBehaviour
 
     void Start()
     {
+        InitUIDescription();
+    }
+    protected void InitUIDescription()
+    {
         if (!textRender)
             textRender = GetComponent<TextMeshProUGUI>();
-
     }
-
     //API
     public void UpdateSentence()
     {
