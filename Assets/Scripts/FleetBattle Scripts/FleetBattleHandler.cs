@@ -110,8 +110,8 @@ public class FleetBattleHandler : MonoBehaviour
                 //fleet1ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet2ActiveFighters[i].transform);
                 //fleet2ActiveFighters[i].GetComponent<StarFighter>().setTarget(fleet1ActiveFighters[i].transform);
 
-                fleet1ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
-                fleet2ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
+                //fleet1ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
+                //fleet2ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
 
                 fleet1ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet2ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
                 fleet2ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet1ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
@@ -161,8 +161,16 @@ public class FleetBattleHandler : MonoBehaviour
         text.text = "Ship 1 current hull: " + fleet1.CapitalShips[0].currentHull + "\nShip 1 current shield: " + fleet1.CapitalShips[0].currentShield + "\nShip 2 current hull:" + fleet1.CapitalShips[1].currentHull + "\nShip 2 current shield: " + fleet1.CapitalShips[1].currentShield;
     }
 
-    public void StarFighterMiniGame(int score){
-
+    public void MiniGameResults(int score,int minigame){
+        if(minigame == 0){
+            Debug.Log("No mini game found");
+        }
+        switch(minigame){
+            case 1: //star fighter
+                List<StarFighter> fleet2ActiveFighters = fleet2.ActiveFighters();
+                fleet2ActiveFighters[0].GetComponent<StarFighter>().takeFire(score);
+                break;
+        }
     }
 
     //public void battle1v1(){

@@ -7,6 +7,7 @@ public class PlayerData : MonoBehaviour
     public Fleet playerFleet;
     public Fleet enemyFleet;
     public int miniGame;
+    public int miniGameScore;
     //public List<CapitalShip> CapitalShips;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,15 @@ public class PlayerData : MonoBehaviour
         addPlayerStarFighter("PlayerFighter");
         addPlayerStarFighter("PlayerFighter");
         addPlayerStarFighter("PlayerFighter");
+    }
+
+    public void offScreen(){
+        for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
+            playerFleet.CapitalShips[i].transform.position = transform.position;
+        }
+        for(int i = 0; i < playerFleet.StarFighters.Count;i++){
+            playerFleet.StarFighters[i].transform.position = transform.position;
+        }
     }
 
     public void addPlayerCaptialShip(string name){
