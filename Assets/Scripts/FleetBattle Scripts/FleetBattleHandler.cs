@@ -72,7 +72,9 @@ public class FleetBattleHandler : MonoBehaviour
         }
         if(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame != 0){
             Debug.Log("You just played a mini game. Good job");
+            MiniGameResults(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame,GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore);
         }
+
         setHPtext();
     }
 
