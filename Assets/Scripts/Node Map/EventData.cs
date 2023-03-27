@@ -43,7 +43,7 @@ public class EventData
     public EnemyType enemyType;
     
     // player stats (for passive events)
-    public float hp;
+    public int hp;
     public float shield;
     public int starfighter;
     public string starfighterStr;
@@ -77,21 +77,23 @@ public class EventData
 
     public void SetPassiveData()
     {
+        PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
         // GameObject.Find("PlayerData").GetComponent<PlayerData>().
         if(starfighter > 0)
-            GameObject.Find("PlayerData").GetComponent<PlayerData>().addPlayerStarFighter(starfighterStr);
+            playerData.addPlayerStarFighter(starfighterStr);
         //else if (starfighter < 0)
            // GameObject.Find("PlayerData").GetComponent<PlayerData>().removePlayerStarFighter(starfighterStr);
         
-
+        if(hp != 0)
+            playerData.updateHP(hp);
 
         // PlayerData.shield += shield;
         // PlayerData.hp += hp;
         // PlayerData.starfighters += starfighter;
     }
 
-    public void setFleetBattleData(){
-        
+    public void setFleetBattleData()
+    {    
         GameObject.Find("PlayerData").GetComponent<PlayerData>().setEnemyFleet(EnemyCapitalType1,EnemyCapitalNum1,EnemyStarFighterType1,EnemyStarFighterNum1);
     }
 }

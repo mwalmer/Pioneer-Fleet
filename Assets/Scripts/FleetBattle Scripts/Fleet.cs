@@ -10,35 +10,34 @@ public class Fleet : MonoBehaviour
     public List<StarFighter> StarFighters = new List<StarFighter>();
     //public CapitalShip capitalShip;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         
     }
 
     public List<StarFighter> ActiveFighters(){
-        List<StarFighter> S = StarFighters;
-        for(int i = 0; i < S.Count; i++){
-            if(S[i].getActive() == false){
-                S.RemoveAt(i);
+        List<StarFighter> S = new List<StarFighter>();
+        for(int i = 0; i < StarFighters.Count; i++){
+            if(StarFighters[i].getActive() == true){
+                S.Add(StarFighters[i]);
             }
         }
         return S;
     }
 
+
     public List<CapitalShip> ActiveCapitalShips(){
-        List<CapitalShip> C = CapitalShips;
-        for(int i = 0; i < C.Count; i++){
-            if(C[i].GetComponent<CapitalShip>().getActive() == false){
-                C.RemoveAt(i);
+        List<CapitalShip> S = new List<CapitalShip>();
+        for(int i = 0; i < CapitalShips.Count; i++){
+            if(CapitalShips[i].getActive() == true){
+                S.Add(CapitalShips[i]);
             }
         }
-        return C;
+        return S;
     }
 
     public void setHP(Fleet f){

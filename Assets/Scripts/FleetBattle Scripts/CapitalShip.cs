@@ -65,4 +65,11 @@ public class CapitalShip : MonoBehaviour
         currentShield = cShield;
     }
 
+    public void AddHP(int x){
+        currentHull = currentHull + x;
+        if(currentHull > maxHull){
+            currentHull = maxHull;
+        }
+    }
+
 }

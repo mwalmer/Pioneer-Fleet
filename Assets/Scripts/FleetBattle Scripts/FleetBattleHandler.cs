@@ -30,23 +30,22 @@ public class FleetBattleHandler : MonoBehaviour
             fleet1.StarFighters[i].gameObject.transform.position = fighterPosition;
         }
 
-    fleet2 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
+    //fleet2 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
+    fleet2 = fleetTemp[1];
         //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
         //Fleet fleetTemp2 = GameObject.Find("PlayerData").GetComponent<Fleet>();
-        for(int i = 0; i < fleetTemp[1].CapitalShips.Count; i++){
+        for(int i = 0; i < fleet2.CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             CapitalPosition.x = CapitalPosition.x+5;
-            CapitalTemp= Instantiate(fleetTemp[1].CapitalShips[i], CapitalPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
-            fleet2.CapitalShips.Add(CapitalTemp.GetComponent<CapitalShip>());
+            fleet2.CapitalShips[i].gameObject.transform.position = CapitalPosition;
             //fleet1.CapitalShips[i].setup();
         }
-        for(int i = 0; i < fleetTemp[1].StarFighters.Count; i++){
+        for(int i = 0; i < fleet2.StarFighters.Count; i++){
             Vector3 fighterPosition = transform.position;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+4;
-            StarFighter FighterTemp = Instantiate(fleetTemp[1].StarFighters[i], fighterPosition,transform.rotation*Quaternion.Euler(180f, 180f, 0));
-            fleet2.StarFighters.Add(FighterTemp);
+            fleet2.StarFighters[i].gameObject.transform.position = fighterPosition;
             //fleet1.starFighters[i].setup();
         }
         if(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame != 0){
@@ -55,12 +54,6 @@ public class FleetBattleHandler : MonoBehaviour
         }
 
         setHPtext();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void fleetBattleCalcTest(){

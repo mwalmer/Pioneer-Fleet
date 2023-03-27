@@ -8,6 +8,8 @@ public class PlayerData : MonoBehaviour
     public Fleet enemyFleet;
     public int miniGame;
     public int miniGameScore;
+
+    public int currency;
     //public List<CapitalShip> CapitalShips;
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,13 @@ public class PlayerData : MonoBehaviour
         for(int i = 0; i < playerFleet.StarFighters.Count;i++){
             playerFleet.StarFighters[i].transform.position = transform.position;
         }
+
+        for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
+            enemyFleet.CapitalShips[i].transform.position = transform.position;
+        }
+        for(int i = 0; i < playerFleet.StarFighters.Count;i++){
+            enemyFleet.StarFighters[i].transform.position = transform.position;
+        }
     }
 
     public void addPlayerCaptialShip(string name){
@@ -54,16 +63,29 @@ public class PlayerData : MonoBehaviour
     }
 
     public void setEnemyFleet(string captialShipType, int captitalShipNum, string starFighterType, int starFighterNum){
-        CapitalShip enemyCapitalShip = Resources.Load("FleetBattle/" + captialShipType, typeof(CapitalShip)) as CapitalShip;
         for(int i = 0; i < captitalShipNum; i++){
+            CapitalShip enemyCapitalShip = Instantiate(Resources.Load("FleetBattle/" + captialShipType, typeof(CapitalShip)) as CapitalShip, transform);
             enemyFleet.CapitalShips.Add(enemyCapitalShip);
         }
-
-        StarFighter enemyFigther = Resources.Load("FleetBattle/" + starFighterType, typeof(StarFighter)) as StarFighter;
         for(int i = 0; i < starFighterNum; i++){
+            StarFighter enemyFigther = Instantiate(Resources.Load("FleetBattle/" + starFighterType, typeof(StarFighter)) as StarFighter, transform);
             enemyFleet.StarFighters.Add(enemyFigther);
         }
  
 
+    }
+
+    public void updateHP(int value)
+    {
+        // might need to have a ship in params to deal the damage to? or randomly choose a ship
+        for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
+            playerFleet.CapitalShips[i].AddHP(value);
+        }
+    }
+
+    public void updateCurrency(int value)
+    {
+        // idk where currency is stored
+        currency += value;
     }
 }

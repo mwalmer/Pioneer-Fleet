@@ -8,7 +8,6 @@ public class EventPresets
     {
         if(presets.Count != 0)
             return;
-    
         
         // Passive Events
         EventData AbandonedStarFighter = new EventData();
@@ -48,6 +47,15 @@ public class EventPresets
         singleMinigame.minigameType = EventData.Minigame.FlakCannon;
         singleMinigame.description = "A single minigame awaits, DONT LEAVE THIS IN! REMOVE ME!";
         presets.Add(singleMinigame);
+
+        //Heal your shit
+        EventData FriendlyDocks = new EventData();
+        FriendlyDocks.eventType = EventData.EventType.passive;
+        FriendlyDocks.description = "This system is friendly to the federation, perhaps you will find aid here.";
+        FriendlyDocks.text = "You gain nothing. You achieve nothing. You die. Fuck you";
+        FriendlyDocks.hp += 2;
+        FriendlyDocks.resource = EventData.Resource.hp;
+        presets.Add(FriendlyDocks);
 
     }
 

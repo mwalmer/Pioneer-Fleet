@@ -135,7 +135,7 @@ public class EventNode : MonoBehaviour
         else if (eventData.eventType == EventData.EventType.passive)
         {
             Debug.Log(eventData.text);
-            eventData.SetPassiveData();
+            //eventData.SetPassiveData();
             // TODO: show text box!
         }
         else if(eventData.eventType == EventData.EventType.singleMinigame)
