@@ -14,10 +14,10 @@ public class EventPresets
         e.eventType = EventData.EventType.battle;
         e.description = "event description";
 
-        e.capitalType = 2;
-        e.capitalNum  = 2;
-        e.fleetType   = 2;
-        e.fleetNum    = 2;
+        e.BB_capitalType = 2;
+        e.BB_capitalNum  = 2;
+        e.BB_fleetType   = 2;
+        e.BB_fleetNum    = 2;
         
         presets.Add(e);
         
