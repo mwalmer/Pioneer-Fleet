@@ -1,4 +1,6 @@
-﻿public class EventData
+﻿using UnityEngine;
+
+public class EventData
 {
     public enum EnemyType
     {
@@ -35,6 +37,7 @@
     public float hp;
     public float shield;
     public int starfighter;
+    public string starfighterStr;
     
     // battle bridge vars
     public int BB_capitalType;
@@ -62,6 +65,9 @@
 
     public void SetPassiveData()
     {
+        // GameObject.Find("PlayerData").GetComponent<PlayerData>().
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().addPlayerStarFighter(starfighterStr);
+
         // PlayerData.shield += shield;
         // PlayerData.hp += hp;
         // PlayerData.starfighters += starfighter;

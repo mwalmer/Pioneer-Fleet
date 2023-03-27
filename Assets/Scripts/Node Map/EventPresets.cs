@@ -18,7 +18,7 @@ public class EventPresets
         e.BB_capitalNum  = 2;
         e.BB_fleetType   = 2;
         e.BB_fleetNum    = 2;
-        
+
         presets.Add(e);
         
         // Passive Events
@@ -28,6 +28,7 @@ public class EventPresets
         e.text = "+1 star fighter to fleet";
         e.starfighter += 1;
         e.resource = EventData.Resource.starfighter;
+        e.starfighterStr = "PlayerFighter";
         presets.Add(e);
     }
 

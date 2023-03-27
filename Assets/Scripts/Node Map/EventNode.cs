@@ -135,7 +135,6 @@ public class EventNode : MonoBehaviour
         {
             Debug.Log(eventData.text);
             eventData.SetPassiveData();
-            
             // TODO: show text box!
         }
     }
