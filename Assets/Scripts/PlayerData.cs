@@ -16,7 +16,7 @@ public class PlayerData : MonoBehaviour
         playerFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         enemyFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         setFleet();
-        setEnemyFleet();
+        setEnemyFleet("FleetBattle/NairanBattlecruiser",2,"FleetBattle/NairanFighter",3);
     }
 
     // Update is called once per frame
@@ -53,19 +53,17 @@ public class PlayerData : MonoBehaviour
         playerFleet.StarFighters.Add(playerStarFighter);
     }
 
-    public void setEnemyFleet(){
-        CapitalShip enemyCapitalShip = Resources.Load("FleetBattle/NairanBattlecruiser", typeof(CapitalShip)) as CapitalShip;
-        //CapitalShip c = test.GetComponent(typeof(GameObject)) as GameObject;
-        enemyFleet.CapitalShips.Add(enemyCapitalShip);
-        enemyFleet.CapitalShips.Add(enemyCapitalShip);
+    public void setEnemyFleet(string captialShipType, int captitalShipNum, string starFighterType, int starFighterNum){
+        CapitalShip enemyCapitalShip = Resources.Load(captialShipType, typeof(CapitalShip)) as CapitalShip;
+        for(int i = 0; i < captitalShipNum; i++){
+            enemyFleet.CapitalShips.Add(enemyCapitalShip);
+        }
 
-        StarFighter enemyFigther = Resources.Load("FleetBattle/NairanFighter", typeof(StarFighter)) as StarFighter;
-        //StarFighter s = test2.GetComponent(typeof(GameObject)) as GameObject;
-        enemyFleet.StarFighters.Add(enemyFigther);
-        enemyFleet.StarFighters.Add(enemyFigther);
-        enemyFleet.StarFighters.Add(enemyFigther);
-        //playerFleet.addCapitalShip(test.GetComponent<CapitalShip>());
-        //playerFleet.starFighters.Add((StarFighter)Resources.Load("PlayerFighter", typeof(GameObject)));
+        StarFighter enemyFigther = Resources.Load(starFighterType, typeof(StarFighter)) as StarFighter;
+        for(int i = 0; i < starFighterNum; i++){
+            enemyFleet.StarFighters.Add(enemyFigther);
+        }
+ 
 
     }
 }
