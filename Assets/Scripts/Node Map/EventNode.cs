@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class EventNode : MonoBehaviour
 {
@@ -30,9 +26,7 @@ public class EventNode : MonoBehaviour
     }
 
     public string planetName;
-    public string planetDescription;
-    public NodeType type;
-    public EventType eventType;
+    public EventData eventData;
     
 
     public NodeState nodeState;
@@ -102,7 +96,7 @@ public class EventNode : MonoBehaviour
         UI_WindowController controller = FindObjectOfType<UI_WindowController>();
         UI_LocationInfo info = FindObjectOfType<UI_LocationInfo>();
         info.ChangeName(planetName, Color.white);
-        info.ChangeDescription(planetDescription, Color.white);
+        info.ChangeDescription(eventData.description, Color.white);
         controller.FadeBack();
     }
 
@@ -126,8 +120,24 @@ public class EventNode : MonoBehaviour
         
         if(defer) 
             return;
-        
-        LoadScene(2);
+
+        HandleEvent();
+    }
+
+    private void HandleEvent()
+    {
+        if (eventData.eventType == EventData.EventType.battle)
+        {
+            eventData.SetData();
+            LoadScene(2);
+        }
+        else if (eventData.eventType == EventData.EventType.passive)
+        {
+            Debug.Log(eventData.text);
+            eventData.SetPassiveData();
+            
+            // TODO: show text box!
+        }
     }
 
     public void Select(bool ignoreCurrent = false)

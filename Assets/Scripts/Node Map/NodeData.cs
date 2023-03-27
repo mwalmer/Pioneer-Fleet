@@ -4,9 +4,6 @@ using UnityEngine;
 public static class NodeData
 {
     public static GameObject nodeMap;
-    public static GameObject ui;
-    public static GameObject title;
-    public static GameObject description;
     public static GameObject currentNode;
     public static GameObject selectedNode;
     public static GameObject travelIndicator;
@@ -67,4 +64,6 @@ public static class NodeData
         "Yed Posterior", "Yed Prior", "Yildun", "Zaniah", "Zaurak", "Zavijava", "Zhang", "Zibal", "Zosma",
         "Zubenelgenubi", "Zubenelhakrabi", "Zubeneschamali"
     };
+    
+    
 }

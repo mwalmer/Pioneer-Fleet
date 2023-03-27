@@ -1,22 +1,69 @@
-public static class EventData
+﻿public class EventData
 {
-    // star fighter
-    // give range for each value 
+    public enum EnemyType
+    {
     
-    public static float enemyHealthMultiplier = 1.0f; 
-    public static float playerHealthMultiplier = 1.0f;
-    public static float speedMultiplier = 1.0f;
-    public static float playerDamageMultiplier = 1.0f;
-    public static int numSmallEnemies = 1; //0-10
-    public static int bigEnemies = 1; //0-4
-    public static int numWaves = 1; // example min = 1, max = 7
+    }
 
-    public static float winVariable;
-    //applied to enemy fleet when won
+    public enum EventType
+    {
+        battle,
+        passive
+    }
 
-    // flak cannon
+    public enum Resource
+    {
+        hp,
+        shield,
+        starfighter,
+    }
+    
+    // use this to get data!
+    // Example:
+    //     EventData data = EventData.data;
+    //     int numEnemies = data.SF_numEnemies;
+    public static EventData data;
+    
+    public EventType eventType;
+    public string description;
+    public string text;
+    public Resource resource;
+    public string enemyName;
+    public EnemyType enemyType;
+    
+    // player stats (for passive events)
+    public float hp;
+    public float shield;
+    public int starfighter;
+    
+    // battle bridge vars
+    public int BB_capitalType;
+    public int BB_capitalNum;
+    public int BB_fleetNum;
+    public int BB_fleetType;
+    
+    // star fighter vars
+    public int SF_numEnemies;//1-10
+    public int SF_difficulty;//0-3
 
-    // candy crush
+    public EventData()
+    {
+        // set default values
+        hp = 0;
+        shield = 0;
+        starfighter = 0;
+    }
+    
+    public void SetData()
+    {
+        // sets every variable in the static class
+        data = this;
+    }
 
-    // other stuff
+    public void SetPassiveData()
+    {
+        // PlayerData.shield += shield;
+        // PlayerData.hp += hp;
+        // PlayerData.starfighters += starfighter;
+    }
 }

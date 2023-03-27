@@ -216,6 +216,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1677141597, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_text
+      value: Andromeda
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677141597, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_fontSize
+      value: 32.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1940220087, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: camera
       value: 

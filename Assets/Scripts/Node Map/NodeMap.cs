@@ -15,6 +15,7 @@ public class NodeMap : MonoBehaviour
 
     private void Awake()
     {
+        EventPresets.InitPresets();
         if (instance != null)
         {
             FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(NodeData.currentNode.transform);
@@ -69,9 +70,9 @@ public class NodeMap : MonoBehaviour
         {
             EventNode node = NodeData.eventNodeList[i].GetComponent<EventNode>();
             node.planetName = NodeData.PlanetNames[Random.Range(0, NodeData.PlanetNames.Count)];
-            node.planetDescription = node.planetName + "'s description!";
-            node.type = (EventNode.NodeType)Random.Range(0, 2);
-            node.eventType = (EventNode.EventType)Random.Range(0, 2);
+            
+            // Event presets picked here
+            node.eventData = EventPresets.presets[Random.Range(0, EventPresets.presets.Count)];
         }
     }
 
@@ -118,8 +119,6 @@ public class NodeMap : MonoBehaviour
                     breakFlag = true;
                     break;
                 }
-                
-                // if(Screen.)
             }
             
             if(breakFlag)
