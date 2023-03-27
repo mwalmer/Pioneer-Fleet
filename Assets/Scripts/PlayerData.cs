@@ -44,6 +44,8 @@ public class PlayerData : MonoBehaviour
             playerFleet.StarFighters[i].transform.position = transform.position;
         }
 
+        
+        // TODO: shouldn't this be using enemyFleet's count not playerFleets count?!?!?!?!?!
         for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
             enemyFleet.CapitalShips[i].transform.position = transform.position;
         }

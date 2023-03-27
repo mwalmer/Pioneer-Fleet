@@ -11,7 +11,8 @@ public class EventData
     {
         battle,
         passive,
-        singleMinigame
+        singleMinigame,
+        boss
     }
 
     public enum Minigame
@@ -69,11 +70,7 @@ public class EventData
     
     public void SetData()
     {
-        // sets every variable in the static class
         data = this;
-
-        setFleetBattleData();
-        SetPassiveData();
     }
 
     public void SetPassiveData()
@@ -83,7 +80,7 @@ public class EventData
         if (starfighter > 0)
         {
             if(starfighterStr == "")
-                Debug.LogError("Need a starfighter string! I have no idea which fighter to add! (though it's probably PlayerFighter i can't read minds)");
+                Debug.LogError("Need a starfighter string! I have no idea which fighter to add! (though it's probably PlayerFighter, i can't read minds)");
             playerData.addPlayerStarFighter(starfighterStr);
         }
 
