@@ -44,7 +44,7 @@ public class EventData
     
     // player stats (for passive events)
     public int hp;
-    public float shield;
+    public int currency;
     public int starfighter;
     public string starfighterStr;
     
@@ -62,8 +62,9 @@ public class EventData
     {
         // set default values
         hp = 0;
-        shield = 0;
+        currency = 0;
         starfighter = 0;
+        starfighterStr = "";
     }
     
     public void SetData()
@@ -78,18 +79,18 @@ public class EventData
     public void SetPassiveData()
     {
         PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
-        // GameObject.Find("PlayerData").GetComponent<PlayerData>().
-        if(starfighter > 0)
-            playerData.addPlayerStarFighter(starfighterStr);
-        //else if (starfighter < 0)
-           // GameObject.Find("PlayerData").GetComponent<PlayerData>().removePlayerStarFighter(starfighterStr);
         
+        if (starfighter > 0)
+        {
+            if(starfighterStr == "")
+                Debug.LogError("Need a starfighter string! I have no idea which fighter to add! (though it's probably PlayerFighter i can't read minds)");
+            playerData.addPlayerStarFighter(starfighterStr);
+        }
+
         if(hp != 0)
             playerData.updateHP(hp);
-
-        // PlayerData.shield += shield;
-        // PlayerData.hp += hp;
-        // PlayerData.starfighters += starfighter;
+        if(currency != 0)
+            playerData.updateCurrency(currency);
     }
 
     public void setFleetBattleData()

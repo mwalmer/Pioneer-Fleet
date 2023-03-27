@@ -77,7 +77,6 @@ public class PlayerData : MonoBehaviour
 
     public void updateHP(int value)
     {
-        // might need to have a ship in params to deal the damage to? or randomly choose a ship
         for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
             playerFleet.CapitalShips[i].AddHP(value);
         }
@@ -85,7 +84,6 @@ public class PlayerData : MonoBehaviour
 
     public void updateCurrency(int value)
     {
-        // idk where currency is stored
         currency += value;
     }
 }

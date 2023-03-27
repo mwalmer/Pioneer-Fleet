@@ -18,6 +18,14 @@ public class EventPresets
         AbandonedStarFighter.resource = EventData.Resource.starfighter;
         AbandonedStarFighter.starfighterStr = "PlayerFighter";
         presets.Add(AbandonedStarFighter);
+        
+        // Passive Events
+        EventData miningOutpost = new EventData();
+        miningOutpost.eventType = EventData.EventType.passive;
+        miningOutpost.description = "This planet seems to be sparkling...";
+        miningOutpost.text = "Upon landing, you find large surface deposits of Orichalcum. Though you can't mine it you know people who be interested in its location. +1 currency";
+        miningOutpost.currency += 1;
+        presets.Add(miningOutpost);
 
         //Nairan Fleet attack
         EventData NairanFleetAttack = new EventData();
@@ -41,6 +49,7 @@ public class EventPresets
         NairanPlanetarySiege.EnemyStarFighterNum1 = 5;
         presets.Add(NairanPlanetarySiege);
 
+        // TODO: edit me (not the comment the thing below this [not that comment the thing below that])
         //Single minigame
         EventData singleMinigame = new EventData();
         singleMinigame.eventType = EventData.EventType.singleMinigame;
@@ -48,11 +57,11 @@ public class EventPresets
         singleMinigame.description = "A single minigame awaits, DONT LEAVE THIS IN! REMOVE ME!";
         presets.Add(singleMinigame);
 
-        //Heal your shit
+        //Heal your stuff
         EventData FriendlyDocks = new EventData();
         FriendlyDocks.eventType = EventData.EventType.passive;
         FriendlyDocks.description = "This system is friendly to the federation, perhaps you will find aid here.";
-        FriendlyDocks.text = "You gain nothing. You achieve nothing. You die. Fuck you";
+        FriendlyDocks.text = "You gain nothing. You achieve nothing. You die. Friendly you are";
         FriendlyDocks.hp += 2;
         FriendlyDocks.resource = EventData.Resource.hp;
         presets.Add(FriendlyDocks);
