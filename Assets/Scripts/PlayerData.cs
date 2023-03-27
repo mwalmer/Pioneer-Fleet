@@ -16,7 +16,7 @@ public class PlayerData : MonoBehaviour
         playerFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         enemyFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         setFleet();
-        setEnemyFleet("NairanBattlecruiser",2,"NairanFighter",3);
+        //setEnemyFleet("NairanBattlecruiser",2,"NairanFighter",3);
     }
 
     // Update is called once per frame

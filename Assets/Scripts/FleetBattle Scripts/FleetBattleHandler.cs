@@ -29,27 +29,6 @@ public class FleetBattleHandler : MonoBehaviour
             fighterPosition.x = fighterPosition.x+1;
             fleet1.StarFighters[i].gameObject.transform.position = fighterPosition;
         }
-        //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
-        /*
-        for(int i = 0; i < fleetTemp[0].CapitalShips.Count; i++){
-            Vector3 CapitalPosition = transform.position;
-            CapitalPosition.y = CapitalPosition.y + i;
-            CapitalTemp = Instantiate(fleetTemp[0].CapitalShips[i], CapitalPosition,transform.rotation);
-            Debug.Log("Value from player data is Ship #" + i + " has Hull:" + fleetTemp[0].CapitalShips[i].currentHull + " and Shield:" + fleetTemp[0].CapitalShips[i].currentShield);
-            CapitalTemp.GetComponent<CapitalShip>().currentHull = fleetTemp[0].CapitalShips[i].currentHull;
-            CapitalTemp.GetComponent<CapitalShip>().currentShield = fleetTemp[0].CapitalShips[i].currentShield;
-            fleet1.CapitalShips.Add(CapitalTemp.GetComponent<CapitalShip>());
-            //fleet1.CapitalShips[i].setup();
-        }
-        for(int i = 0; i < fleetTemp[0].starFighters.Count; i++){
-            Vector3 fighterPosition = transform.position;
-            fighterPosition.y = fighterPosition.y + i;
-            fighterPosition.x = fighterPosition.x+1;
-            GameObject FighterTemp = Instantiate(fleetTemp[0].starFighters[i], fighterPosition,transform.rotation);
-            fleet1.starFighters.Add(FighterTemp);
-            //fleet1.starFighters[i].setup();
-        }
-*/
 
     fleet2 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1

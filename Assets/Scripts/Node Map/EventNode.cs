@@ -126,9 +126,10 @@ public class EventNode : MonoBehaviour
 
     private void HandleEvent()
     {
+        eventData.SetData();
+
         if (eventData.eventType == EventData.EventType.battle)
         {
-            eventData.SetData();
             LoadScene(2);
         }
         else if (eventData.eventType == EventData.EventType.passive)
@@ -136,6 +137,15 @@ public class EventNode : MonoBehaviour
             Debug.Log(eventData.text);
             eventData.SetPassiveData();
             // TODO: show text box!
+        }
+        else if(eventData.eventType == EventData.EventType.singleMinigame)
+        {
+            if(eventData.minigameType == EventData.Minigame.StarFighter)
+                LoadScene(3);
+            else if(eventData.minigameType == EventData.Minigame.FlakCannon)
+                LoadScene(4);
+            else if(eventData.minigameType == EventData.Minigame.MatchingMinigame)
+                LoadScene(5);
         }
     }
 

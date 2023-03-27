@@ -10,7 +10,15 @@ public class EventData
     public enum EventType
     {
         battle,
-        passive
+        passive,
+        singleMinigame
+    }
+
+    public enum Minigame
+    {
+        StarFighter,
+        FlakCannon,
+        MatchingMinigame
     }
 
     public enum Resource
@@ -30,6 +38,7 @@ public class EventData
     public string description;
     public string text;
     public Resource resource;
+    public Minigame minigameType;
     public string enemyName;
     public EnemyType enemyType;
     
@@ -40,10 +49,10 @@ public class EventData
     public string starfighterStr;
     
     // battle bridge vars
-    public int BB_capitalType;
-    public int BB_capitalNum;
-    public int BB_fleetNum;
-    public int BB_fleetType;
+    public string EnemyCapitalType1;
+    public int EnemyCapitalNum1;
+    public string EnemyStarFighterType1;
+    public int EnemyStarFighterNum1;
     
     // star fighter vars
     public int SF_numEnemies;//1-10
@@ -61,15 +70,28 @@ public class EventData
     {
         // sets every variable in the static class
         data = this;
+
+        setFleetBattleData();
+        SetPassiveData();
     }
 
     public void SetPassiveData()
     {
         // GameObject.Find("PlayerData").GetComponent<PlayerData>().
-        GameObject.Find("PlayerData").GetComponent<PlayerData>().addPlayerStarFighter(starfighterStr);
+        if(starfighter > 0)
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().addPlayerStarFighter(starfighterStr);
+        //else if (starfighter < 0)
+           // GameObject.Find("PlayerData").GetComponent<PlayerData>().removePlayerStarFighter(starfighterStr);
+        
+
 
         // PlayerData.shield += shield;
         // PlayerData.hp += hp;
         // PlayerData.starfighters += starfighter;
+    }
+
+    public void setFleetBattleData(){
+        
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().setEnemyFleet(EnemyCapitalType1,EnemyCapitalNum1,EnemyStarFighterType1,EnemyStarFighterNum1);
     }
 }
