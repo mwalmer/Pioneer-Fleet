@@ -14,6 +14,7 @@ public class FC_EndGameEvent : MonoBehaviour
     private float fadingCurrent = 0f;
     private float inputLockInterval = 1f;
     private float inputLockCurrent = 0;
+    private bool shouldGoNextScene = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,14 @@ public class FC_EndGameEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (FC_GameManager.IsGameActive == false)
+        {
+            if (shouldGoNextScene)
+            {
+                SceneManager.LoadScene(nextScene);
+            }
+            return;
+        }
 
         if (cGroup.alpha < 1)
         {
@@ -40,9 +49,12 @@ public class FC_EndGameEvent : MonoBehaviour
     }
     public void GoNextScene()
     {
+        FC_GameManager.IsGameActive = false;
         Cursor.visible = true;
         Time.timeScale = 1;
-        SceneManager.LoadScene(nextScene);
-    }
 
+        Debug.Log("Time is back: " + Time.timeScale);
+        shouldGoNextScene = true;
+
+    }
 }

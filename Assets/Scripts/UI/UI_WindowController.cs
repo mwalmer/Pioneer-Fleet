@@ -24,6 +24,12 @@ public class UI_WindowController : MonoBehaviour
         {
             Fading();
         }
+
+        if (uiGroup.alpha == 1 && Input.GetKeyDown(KeyCode.Escape))
+        {
+            // TODO:: required a window manager for solving confliction with multiple windwos
+            //FadeOut();
+        }
     }
 
     void Fading()
