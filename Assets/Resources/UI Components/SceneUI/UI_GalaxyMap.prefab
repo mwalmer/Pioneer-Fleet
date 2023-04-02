@@ -384,6 +384,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4eefd1dc90d8044a6c58edfeb99a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1788687627451422370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5392687173775834114}
+  - component: {fileID: 531447136535613777}
+  m_Layer: 0
+  m_Name: WindowsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5392687173775834114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788687627451422370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2756144532393977240}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &531447136535613777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788687627451422370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3828e22a0727794eb4928408fde60aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingMenu: {fileID: 2027483224}
 --- !u!1 &2676630561537308393
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +701,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8857395652319294986}
+  - {fileID: 5392687173775834114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -756,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2718517806767948345, guid: ec762e15e1aa69c41ad90325528f781c, type: 3}
       propertyPath: shortcut
-      value: 27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2718517806767948346, guid: ec762e15e1aa69c41ad90325528f781c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1752,6 +1798,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
+--- !u!114 &3445761254399409383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1014567559395055769, guid: be56f401dc670b1469d290ec08526bc8, type: 3}
+  m_PrefabInstance: {fileID: 2433556006545351806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8409327975804139576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1759,6 +1816,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8857395652319294986}
     m_Modifications:
+    - target: {fileID: 2221615021334936116, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
+      propertyPath: cancelButton
+      value: 
+      objectReference: {fileID: 3445761254399409383}
     - target: {fileID: 6853798111485628586, guid: 985af29367b179845a1b3fa5aa2ad95e, type: 3}
       propertyPath: m_Name
       value: UI_SideWindow

@@ -37,8 +37,6 @@ public class UI_SettingMenu : MonoBehaviour
         {
 
         }
-
-
     }
 
     void FadeIn()
@@ -77,6 +75,7 @@ public class UI_SettingMenu : MonoBehaviour
             cGroup.alpha = 0;
             fadingStatus = -1;
             currentFadingTime = 0;
+            UI_WindowsManager.RequestWindow(this);
         }
         else
         {
@@ -84,6 +83,7 @@ public class UI_SettingMenu : MonoBehaviour
             ResumeGame();
             fadingStatus = 1;
             currentFadingTime = 0;
+            UI_WindowsManager.RemoveWindow(this);
         }
     }
 
@@ -97,6 +97,7 @@ public class UI_SettingMenu : MonoBehaviour
     }
     public void BackToTitle()
     {
+        ResumeGame();
         SceneManager.LoadScene(titleScene);
     }
     public void SurroundInMinigame()
