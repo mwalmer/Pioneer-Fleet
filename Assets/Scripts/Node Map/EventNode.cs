@@ -158,9 +158,10 @@ public class EventNode : MonoBehaviour
         {
             eventData.setFleetBattleData();
             // NodeData.newMap = true;
+            
+            LoadScene(2);
             Destroy(NodeData.nodeMap);
             NodeData.eventNodeList.Clear();
-            LoadScene(2);
             //eventData.SetPassiveData();
             // TODO: show text box!
         }
