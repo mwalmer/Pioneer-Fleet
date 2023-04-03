@@ -3759,6 +3759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: laser
       objectReference: {fileID: 0}
+    - target: {fileID: 75683308369995002, guid: d5d18675243da9d4e8b0aa1204ed11f1, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 442801009158157884, guid: d5d18675243da9d4e8b0aa1204ed11f1, type: 3}
       propertyPath: m_Name
       value: plasma launchers

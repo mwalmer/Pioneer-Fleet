@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,7 +103,847 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35afa3cae47c264ca891e6e777d54a8
+      internalID: -1203486366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07db918f4f9f6cb4b8a6af601fef26e8
+      internalID: -5343358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb0427c8aa7a4c42b58e193c79ccb59
+      internalID: -1996109744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33493891bd2946f468ade7ed0e7fb867
+      internalID: -564953358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c3222cc4fc6de4b834a685df11c000
+      internalID: -566413773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4b913148a784f43989b6a640705111
+      internalID: -995813575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_6
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8601e73cbb66a43af9e4f739bced59
+      internalID: -372955615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_7
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff90b29da2b84bb45a62fa845e8a91c9
+      internalID: 2032960453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_8
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c854378a44c774e80433183ea6471c
+      internalID: -822253220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_9
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 709b0961344b2a242b084125df83c5c5
+      internalID: 14690687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_10
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e780b29114bb341871df6be2ce83b4
+      internalID: 2140468938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_11
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9947df0527681645a941130d991d650
+      internalID: 479762509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_12
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088a46c147f11e54b9cacffac843d9d4
+      internalID: 588234495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_13
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a8209c3b632f74cad6412f6103fa8d
+      internalID: -1059557348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_14
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e071b91c02f1942418ffc1b5a4ae9cf3
+      internalID: 156454489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_15
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b742df40e82ade54f8c83706a92f83a6
+      internalID: -833746608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_16
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171023e2a57bcf0448e6f9052c887460
+      internalID: 1128868209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_17
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ae698a41d7228419dcad662cdb6a8d
+      internalID: -709769069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_18
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5181936d949cb54a8d3d00829dad6e3
+      internalID: 1361698626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_19
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2ebbf1af0634246bc4f920549a3b62
+      internalID: 746885076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_20
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10eb975efe218564c98e278bd5c9e327
+      internalID: 382476915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_21
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e0dba7574351374bb57aff7c49339ba
+      internalID: -387188902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_22
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 994919a398bc9084fb71750e892ff733
+      internalID: -977553505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_23
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5faf794ecf508c46b001ddae1ad32cf
+      internalID: 1752016066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_24
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c4d615954a19b4fa7375eb3a858617
+      internalID: -1227690164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_25
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223ddb98035b6fc48a1abf2836d9b31e
+      internalID: 284802497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_26
+      rect:
+        serializedVersion: 2
+        x: 1674
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ca9e3e93ff5af4b87b9eb119844666
+      internalID: 279646274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_27
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ba4ed1686ea6b43a6a519b277cb8e7
+      internalID: -129129683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_28
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9846598e0453f364d86dbc0855205c86
+      internalID: 694017753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_29
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c15f717ac508a449fd77c891289ec6
+      internalID: -471046318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_30
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90941a6ec4b8ffa4bbdb8b87e9e4d622
+      internalID: 910780760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_31
+      rect:
+        serializedVersion: 2
+        x: 1994
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a0c671b59f10564493cda4bf89f60ae
+      internalID: 1958870667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_32
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85949005a5669542bab19264421e924
+      internalID: -1047195992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_33
+      rect:
+        serializedVersion: 2
+        x: 2122
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf980c4cb2411a4292332d965e79b51
+      internalID: -151335322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_34
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1ef8d957e3a114c9caf6e22f148e6d
+      internalID: 1054494202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_35
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edad9b4d66d9e704eb4ee60d4bc204ba
+      internalID: 798362162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_36
+      rect:
+        serializedVersion: 2
+        x: 2314
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b85843680e57d4fbf2c82a9e4fd4cf
+      internalID: -999284068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_37
+      rect:
+        serializedVersion: 2
+        x: 2378
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f48eebe59c6e34d8bbe7311ce1a2ee
+      internalID: -1462051108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_38
+      rect:
+        serializedVersion: 2
+        x: 2442
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d441c7338ffb4e45ae98e49e7028e8f
+      internalID: 108461356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Frigate - Shield_39
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a45791cb2ad6e4b89fd9e08120266d
+      internalID: 69028204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +954,48 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kla'ed - Frigate - Shield_3: -564953358
+      Kla'ed - Frigate - Shield_37: -1462051108
+      Kla'ed - Frigate - Shield_21: -387188902
+      Kla'ed - Frigate - Shield_26: 279646274
+      Kla'ed - Frigate - Shield_7: 2032960453
+      Kla'ed - Frigate - Shield_12: 588234495
+      Kla'ed - Frigate - Shield_1: -5343358
+      Kla'ed - Frigate - Shield_27: -129129683
+      Kla'ed - Frigate - Shield_33: -151335322
+      Kla'ed - Frigate - Shield_17: -709769069
+      Kla'ed - Frigate - Shield_4: -566413773
+      Kla'ed - Frigate - Shield_24: -1227690164
+      Kla'ed - Frigate - Shield_14: 156454489
+      Kla'ed - Frigate - Shield_40: 1445577392
+      Kla'ed - Frigate - Shield_2: -1996109744
+      Kla'ed - Frigate - Shield_6: -372955615
+      Kla'ed - Frigate - Shield_8: -822253220
+      Kla'ed - Frigate - Shield_18: 1361698626
+      Kla'ed - Frigate - Shield_10: 2140468938
+      Kla'ed - Frigate - Shield_22: -977553505
+      Kla'ed - Frigate - Shield_9: 14690687
+      Kla'ed - Frigate - Shield_34: 1054494202
+      Kla'ed - Frigate - Shield_15: -833746608
+      Kla'ed - Frigate - Shield_23: 1752016066
+      Kla'ed - Frigate - Shield_29: -471046318
+      Kla'ed - Frigate - Shield_20: 382476915
+      Kla'ed - Frigate - Shield_32: -1047195992
+      Kla'ed - Frigate - Shield_28: 694017753
+      Kla'ed - Frigate - Shield_0: -1203486366
+      Kla'ed - Frigate - Shield_5: -995813575
+      Kla'ed - Frigate - Shield_38: 108461356
+      Kla'ed - Frigate - Shield_36: -999284068
+      Kla'ed - Frigate - Shield_31: 1958870667
+      Kla'ed - Frigate - Shield_11: 479762509
+      Kla'ed - Frigate - Shield_19: 746885076
+      Kla'ed - Frigate - Shield_25: 284802497
+      Kla'ed - Frigate - Shield_30: 910780760
+      Kla'ed - Frigate - Shield_35: 798362162
+      Kla'ed - Frigate - Shield_16: 1128868209
+      Kla'ed - Frigate - Shield_13: -1059557348
+      Kla'ed - Frigate - Shield_39: 69028204
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

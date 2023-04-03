@@ -103,5 +103,6 @@ MonoBehaviour:
   deadge: 0
   damadge: 0
   active: 1
-  inFlight: 0
+  inCombat: 0
   target: {fileID: 0}
+  projectile: {fileID: 3724408194818019075, guid: 7de9ba4909944b544a5b9fa75a892474, type: 3}
