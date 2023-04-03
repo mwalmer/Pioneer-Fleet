@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_WindowController : MonoBehaviour
 {
     public CanvasGroup uiGroup;
-
+    public Button cancelButton = null;
+    public Button confirmButton = null;
 
     //Fading UI
     public int fadingStatus = 0; // -1 = fading back, 0 = pause, 1 = fading out
@@ -24,6 +26,12 @@ public class UI_WindowController : MonoBehaviour
         {
             Fading();
         }
+
+        if (uiGroup.alpha == 1 && Input.GetKeyDown(KeyCode.Escape))
+        {
+            // TODO:: required a window manager for solving confliction with multiple windwos
+            //FadeOut();
+        }
     }
 
     void Fading()
@@ -40,15 +48,38 @@ public class UI_WindowController : MonoBehaviour
         }
     }
 
+    public void OnOffMenu()
+    {
+        if (uiGroup.alpha == 1)
+        {
+            FadeOut();
+        }
+        else if (uiGroup.alpha == 0)
+        {
+            FadeBack();
+        }
+    }
 
     public void FadeOut()
     {
+        UI_WindowsManager.RemoveWindow(this);
         fadingStatus = 1;
-
     }
     public void FadeBack()
     {
+        UI_WindowsManager.RequestWindow(this);
         fadingStatus = -1;
+    }
 
+    public void CloseWindow()
+    {
+        if (cancelButton)
+        {
+            cancelButton.onClick.Invoke();
+        }
+    }
+    public void OpenWindow()
+    {
+        FadeBack();
     }
 }

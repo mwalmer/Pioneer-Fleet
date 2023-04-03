@@ -127,16 +127,17 @@ public class EventNode : MonoBehaviour
     private void HandleEvent()
     {
         eventData.SetData();
+        Debug.Log(eventData.text);//TODO: show text box;
 
         if (eventData.eventType == EventData.EventType.battle)
         {
+            eventData.setFleetBattleData();
             GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
             LoadScene(2);
         }
         else if (eventData.eventType == EventData.EventType.passive)
         {
-            Debug.Log(eventData.text);
-            //eventData.SetPassiveData();
+            eventData.SetPassiveData();
             // TODO: show text box!
         }
         else if(eventData.eventType == EventData.EventType.singleMinigame)
@@ -147,6 +148,13 @@ public class EventNode : MonoBehaviour
                 LoadScene(4);
             else if(eventData.minigameType == EventData.Minigame.MatchingMinigame)
                 LoadScene(5);
+        }
+        else if(eventData.eventType == EventData.EventType.boss)
+        {
+            eventData.setFleetBattleData();
+            LoadScene(2);
+            //eventData.SetPassiveData();
+            // TODO: show text box!
         }
     }
 
