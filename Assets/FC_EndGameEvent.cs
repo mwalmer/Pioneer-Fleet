@@ -50,8 +50,7 @@ public class FC_EndGameEvent : MonoBehaviour
     public void GoNextScene()
     {
         FC_GameManager.IsGameActive = false;
-        Cursor.visible = true;
-        Time.timeScale = 1;
+        FC_GameManager.ResetFlakCannonGameSettings();
 
         Debug.Log("Time is back: " + Time.timeScale);
         shouldGoNextScene = true;

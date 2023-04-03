@@ -110,4 +110,9 @@ public class FC_GameManager : MonoBehaviour
     {
         destroyCount++;
     }
+    public static void ResetFlakCannonGameSettings()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = true;
+    }
 }

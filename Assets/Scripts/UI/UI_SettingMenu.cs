@@ -33,10 +33,6 @@ public class UI_SettingMenu : MonoBehaviour
         {
             FadeIn();
         }
-        else
-        {
-
-        }
     }
 
     void FadeIn()
@@ -97,7 +93,7 @@ public class UI_SettingMenu : MonoBehaviour
     }
     public void BackToTitle()
     {
-        ResumeGame();
+        FC_GameManager.ResetFlakCannonGameSettings();
         SceneManager.LoadScene(titleScene);
     }
     public void SurroundInMinigame()
