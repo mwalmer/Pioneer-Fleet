@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,6 +24,8 @@ public class NodeMap : MonoBehaviour
             return;
         }
         
+        
+        
         NodeData.travelIndicator = GameObject.Find("TravelIndicator");
         instance = gameObject;
         NodeData.nodeMap = instance;
@@ -31,7 +34,7 @@ public class NodeMap : MonoBehaviour
         GenerateNodes();
         NodeData.currentNode = NodeData.eventNodeList[0];
     }
-    
+
     private void Start()
     {
         NodeData.travelIndicator.SetActive(false);
@@ -47,6 +50,8 @@ public class NodeMap : MonoBehaviour
 
     private void GenerateNodes()
     {
+        NodeData.galaxyName = NodeData.GalaxyNames[Random.Range(0, NodeData.GalaxyNames.Count)];
+        GameObject.Find("GalaxyNameDescriptor").GetComponent<TextMeshProUGUI>().SetText(NodeData.galaxyName);
         // Create/Place nodes
         Vector3 start = new Vector3(-4, 0, 0);
         Vector3 goal = new Vector3(4, 0, 0);
@@ -58,7 +63,7 @@ public class NodeMap : MonoBehaviour
         for (int i = 0; i < numberOfNodes - 2; i++)
         {
             Vector3 position = new Vector3(0, 0, 0);
-            if(!placeNode(ref position, midpoint))
+            if(!placeNode(ref position, midpoint, maximumDistance, minimumDistance))
                 continue;
             CreateNode(position, i.ToString());
         }
@@ -72,8 +77,69 @@ public class NodeMap : MonoBehaviour
             node.planetName = NodeData.PlanetNames[Random.Range(0, NodeData.PlanetNames.Count)];
             
             // Event presets picked here
-            node.eventData = EventPresets.presets[Random.Range(0, EventPresets.presets.Count)];
+            // re-rolls event if it picks the turncoat or boss, b/c those need to be unique
+            EventData tempData = EventPresets.presets[Random.Range(0, EventPresets.presets.Count)];
+            while(tempData.eventType == EventData.EventType.turncoat || tempData.eventType == EventData.EventType.boss)
+                tempData = EventPresets.presets[Random.Range(0, EventPresets.presets.Count)];
+            node.eventData = tempData;
         }
+
+        EventData t = null;
+        EventData b = null;
+        for (int i = 0; i < EventPresets.presets.Count; i++)
+        {
+            if (EventPresets.presets[i].eventType == EventData.EventType.turncoat)
+            {
+                t = EventPresets.presets[i];
+            }
+            else if (EventPresets.presets[i].eventType == EventData.EventType.boss)
+            {
+                b = EventPresets.presets[i];
+            }
+        }
+        
+        if(t == null)
+            Debug.LogError("why is their no turncoat preset?!");
+        
+        // choose random node set equal to turncoat preset
+        // TODO: make sure this isn't the starting node! I think starting node is always 0
+        int r = Random.Range(2, NodeData.eventNodeList.Count);
+        Debug.Log(r);
+        GameObject turncoatNode = NodeData.eventNodeList[r];
+        turncoatNode.GetComponent<EventNode>().eventData  = t;
+        turncoatNode.GetComponent<SpriteRenderer>().color = Color.red;
+        turncoatNode.name = "Turncoat";
+
+        GameObject closestNode = null;
+        float closest = 0;
+
+        for (int i = 2; i < NodeData.eventNodeList.Count; i++)
+        {
+            GameObject n = NodeData.eventNodeList[i];
+            float tempDist = Vector3.Distance(n.transform.position, turncoatNode.transform.position);
+            if (closestNode == null || tempDist < closest)
+            {
+                if(n.GetComponent<EventNode>().eventData.eventType == EventData.EventType.turncoat)
+                    continue;
+                closestNode = n;
+                closest = tempDist;
+            }
+        }
+        
+        if(closestNode == null)
+            Debug.LogError("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        // add the boss next to turncoat node
+        GameObject bossNode = closestNode;
+        bossNode.GetComponent<EventNode>().eventData = b;
+        bossNode.GetComponent<SpriteRenderer>().color = Color.blue;
+        bossNode.name = "Boss Node!";
+        // NodeData.eventNodeList.Add(bossNode);
+        
+        // if(!placeNode(ref bPos, new Vector2(turncoatNode.transform.position.x, turncoatNode.transform.position.y), maximumDistance / 2.0f, minimumDistance / 2.0f))
+        //     Debug.Log("Failed to place!!!!!!!!!!!!!!!!!!!!!!");
+        NodeData.eventNodeList.Remove(closestNode);
+        NodeData.bossNode = bossNode;
+        bossNode.SetActive(false);
     }
 
     private void CreateNode(Vector3 position, string str)
@@ -84,7 +150,7 @@ public class NodeMap : MonoBehaviour
         NodeData.eventNodeList.Add(node);
     }
 
-    private bool placeNode(ref Vector3 position, Vector2 center)
+    private bool placeNode(ref Vector3 position, Vector2 center, float maxD, float minD)
     {
         // trys to place the node X amount of time before giving up
         int trys = 1000;
@@ -93,13 +159,12 @@ public class NodeMap : MonoBehaviour
         float nodeScaleX = 0.3f;
         float nodeScaleY = 0.3f;
 
-
         for (int i = 0; i < trys; i++)
         {
-            float x = Random.Range(-maximumDistance, maximumDistance);
-            float y = Random.Range(-maximumDistance, maximumDistance);
+            float x = Random.Range(-maxD, maxD);
+            float y = Random.Range(-maxD, maxD);
             float r = x * x + y * y;
-            if (r < minimumDistance || r > maximumDistance)
+            if (r < minD || r > maxD)
                 continue;
 
             x += center.x;
@@ -114,7 +179,7 @@ public class NodeMap : MonoBehaviour
             bool breakFlag = false;
             for (int j = 0; j < NodeData.eventNodeList.Count; j++)
             {
-                if (Vector3.Distance(NodeData.eventNodeList[j].transform.position, new Vector3(x, y, 0)) < minimumDistance)
+                if (Vector3.Distance(NodeData.eventNodeList[j].transform.position, new Vector3(x, y, 0)) < minD)
                 {
                     breakFlag = true;
                     break;

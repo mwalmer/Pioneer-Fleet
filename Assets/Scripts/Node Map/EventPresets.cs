@@ -15,10 +15,9 @@ public class EventPresets
         AbandonedStarFighter.description = "Abandoned star fighter.";
         AbandonedStarFighter.text = "+1 star fighter to fleet";
         AbandonedStarFighter.starfighter += 1;
-        AbandonedStarFighter.resource = EventData.Resource.starfighter;
         AbandonedStarFighter.starfighterStr = "PlayerFighter";
         presets.Add(AbandonedStarFighter);
-        
+
         // Passive Events
         EventData miningOutpost = new EventData();
         miningOutpost.eventType = EventData.EventType.passive;
@@ -26,7 +25,7 @@ public class EventPresets
         miningOutpost.text = "Upon landing, you find large surface deposits of Orichalcum. Though you can't mine it you know people who would be interested in its location. +1 currency";
         miningOutpost.currency += 1;
         presets.Add(miningOutpost);
-
+        
         //Nairan Fleet attack
         EventData NairanFleetAttack = new EventData();
         NairanFleetAttack.eventType = EventData.EventType.battle;
@@ -37,7 +36,7 @@ public class EventPresets
         NairanFleetAttack.EnemyStarFighterType1 = "NairanFighter";
         NairanFleetAttack.EnemyStarFighterNum1 = 3;
         presets.Add(NairanFleetAttack);
-
+        
         //Nairan Fleet attack
         EventData NairanPlanetarySiege = new EventData();
         NairanPlanetarySiege.eventType = EventData.EventType.battle;
@@ -48,7 +47,7 @@ public class EventPresets
         NairanPlanetarySiege.EnemyStarFighterType1 = "NairanFighter";
         NairanPlanetarySiege.EnemyStarFighterNum1 = 5;
         presets.Add(NairanPlanetarySiege);
-
+        
         // TODO: edit me (not the comment the thing below this [not that comment the thing below that])
         //Single minigame
         EventData singleMinigame = new EventData();
@@ -56,19 +55,18 @@ public class EventPresets
         singleMinigame.minigameType = EventData.Minigame.FlakCannon;
         singleMinigame.description = "A single minigame awaits, DONT LEAVE THIS IN! REMOVE ME!";
         presets.Add(singleMinigame);
-
+        
         //Heal your stuff
         EventData FriendlyDocks = new EventData();
         FriendlyDocks.eventType = EventData.EventType.passive;
         FriendlyDocks.description = "This system is friendly to the federation, perhaps you will find aid here.";
         FriendlyDocks.text = "You gain nothing. You achieve nothing. You die. Friendly you are";
         FriendlyDocks.hp += 2;
-        FriendlyDocks.resource = EventData.Resource.hp;
         presets.Add(FriendlyDocks);
-
+        
         // Turncoat
         EventData turncoat = new EventData();
-        turncoat.eventType = EventData.EventType.battle;
+        turncoat.eventType = EventData.EventType.turncoat;
         turncoat.description = "Your coat begins to move... as if it knows something...";
         turncoat.text = "IT DID! You find the enemy turncoat while his fighters are refueling!";
         turncoat.EnemyCapitalType1 = "NairanBattlecruiser";

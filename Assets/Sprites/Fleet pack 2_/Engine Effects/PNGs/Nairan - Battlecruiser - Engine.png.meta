@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 22
+        width: 32
+        height: 14
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90fd2e82082bad749b9e6aa2a10c5e4f
+      internalID: 219886642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 20
+        width: 32
+        height: 15
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f816e4a9b7fea41ac39c36cf5bf4d8
+      internalID: -952792412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_2
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 19
+        width: 32
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e86901dd7cadb4189779dae4044ee6
+      internalID: -1537425324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 18
+        width: 32
+        height: 17
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febd44b0b746bf14689304aedec98575
+      internalID: 193465739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 18
+        width: 32
+        height: 17
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fb2fe7712698443bdb2f3fce828b6b
+      internalID: 834917455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_5
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 17
+        width: 34
+        height: 18
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ec6406dc4cca84ca42a82e823371ae
+      internalID: -1627128313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_6
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 22
+        width: 34
+        height: 14
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd396de428f71cf46950fe8e0d525df0
+      internalID: -845040240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Battlecruiser - Engine_7
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 23
+        width: 32
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4200a47224e26ca4fa875703c697fe13
+      internalID: 1951393169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +282,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Battlecruiser - Engine_7: 1808345380
+      Nairan - Battlecruiser - Engine_1: -1841023057
+      Nairan - Battlecruiser - Engine_5: 245743556
+      Nairan - Battlecruiser - Engine_3: 1477099050
+      Nairan - Battlecruiser - Engine_0: 2040206231
+      Nairan - Battlecruiser - Engine_2: 1743698608
+      Nairan - Battlecruiser - Engine_6: 1787526589
+      Nairan - Battlecruiser - Engine_4: -1273851228
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

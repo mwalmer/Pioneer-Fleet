@@ -16,6 +16,12 @@ public class CapitalShip : MonoBehaviour
 
     SpriteRenderer sprite;
     Color color;
+    public GameObject projectile;
+
+    public GameObject shield;
+
+    public bool ShieldUp = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +32,17 @@ public class CapitalShip : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void startCombat(){
+        StartCoroutine(Fire());
+    }
+
+    public IEnumerator Fire(){
+        while(true){
+            Instantiate(projectile, this.transform.position+(transform.up*0.6f) , this.transform.rotation);
+            yield return new WaitForSeconds( Random.Range(3f,4f));
+        }   
     }
 
     public void setup(){
@@ -69,6 +86,15 @@ public class CapitalShip : MonoBehaviour
         currentHull = currentHull + x;
         if(currentHull > maxHull){
             currentHull = maxHull;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col){
+        Debug.Log("Collision");
+        Destroy(col.gameObject);
+        if(ShieldUp == false){
+            Instantiate(shield, this.transform.position, this.transform.rotation);
+            ShieldUp = true;
         }
     }
 
