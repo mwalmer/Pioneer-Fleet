@@ -3,13 +3,19 @@ using UnityEngine;
 
 public static class NodeData
 {
+    public static int mapNum = 0;
+    public static GameObject bossNode;
     public static GameObject nodeMap;
     public static GameObject currentNode;
+    public static string galaxyName;
     public static GameObject selectedNode;
     public static GameObject travelIndicator;
     public static List<GameObject> eventNodeList = new List<GameObject>();
 
-    public static List<string> Descriptions = new List<string>();
+    public static List<string> GalaxyNames = new List<string>()
+    {
+        "Andromna"
+    };
     
     public static List<string> PlanetNames = new List<string>() 
     {

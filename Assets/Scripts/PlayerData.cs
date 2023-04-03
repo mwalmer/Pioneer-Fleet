@@ -46,10 +46,10 @@ public class PlayerData : MonoBehaviour
 
         
         // TODO: shouldn't this be using enemyFleet's count not playerFleets count?!?!?!?!?!
-        for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
+        for(int i = 0; i < enemyFleet.CapitalShips.Count;i++){
             enemyFleet.CapitalShips[i].transform.position = transform.position;
         }
-        for(int i = 0; i < playerFleet.StarFighters.Count;i++){
+        for(int i = 0; i < enemyFleet.StarFighters.Count;i++){
             enemyFleet.StarFighters[i].transform.position = transform.position;
         }
     }
