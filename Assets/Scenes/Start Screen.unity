@@ -154,6 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFleet: {fileID: 0}
   enemyFleet: {fileID: 0}
+  miniGame: 0
+  miniGameScore: 0
+  currency: 0
+  LoadBridgeFirstTime: 0
 --- !u!4 &449220210
 Transform:
   m_ObjectHideFlags: 0
@@ -769,6 +773,8 @@ MonoBehaviour:
   flakPower: 0
   active: 1
   ShipType: {fileID: 0}
+  projectile: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!1001 &1869690913
 PrefabInstance:
   m_ObjectHideFlags: 0

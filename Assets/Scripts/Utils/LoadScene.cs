@@ -30,7 +30,7 @@ public class LoadScene : MonoBehaviour
     }
 
 
-    public void LoadBattleBridge(){
+    public void LoadBattleBridgeFromNodeMap(){
         SceneManager.LoadScene(2);
     }
 
@@ -41,6 +41,7 @@ public class LoadScene : MonoBehaviour
 
     public void LoadNodeMapFromBattleBridge(){
         GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().clearEnemyFleet();
         SceneManager.LoadScene(1);
     }
 

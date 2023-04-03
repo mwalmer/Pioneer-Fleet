@@ -130,6 +130,7 @@ public class EventNode : MonoBehaviour
 
         if (eventData.eventType == EventData.EventType.battle)
         {
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
             LoadScene(2);
         }
         else if (eventData.eventType == EventData.EventType.passive)

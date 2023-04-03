@@ -13,35 +13,98 @@ public class StarFighter : MonoBehaviour
     public bool active = true;
     //star fighters take 1 on 1s with the enemy. Leftover starfighters deal damage to capital ships
     //Start is called before the first frame update
-    public bool inFlight = false;
+    public bool inCombat;
+    Vector3 directionVector;
     public Transform target;
-    Vector3 t;
+    Vector3 t = new Vector3();
     SpriteRenderer sprite;
     Color color;
+    public GameObject projectile;
+    float mid = 0.5f;
+    StarFighter opponent;
+    CapitalShip opponentCapitalShip;
+    bool circling;
+
+    bool chasing =false;
+
+    bool chased = false;
+
+    bool arrived = false;
+
+    bool bombingRun = false;
+    Vector3 randPos;
+
     void Start()
     {
-        t = new Vector3(transform.position.x+2,transform.position.y +1,transform.position.z);
         active = true;
         sprite = GetComponent<SpriteRenderer>();
+        mid = 0.5f;
+        randPos = new Vector3(Random.Range(-7f,6f),Random.Range(-3.5f,3.5f));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(inFlight == true){
-            var step =  2.0f * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, t, step);
-        }
-        /*
-        if(Vector3.Distance(target.position, transform.position)<0.1f && inFlight == true){
-                if(deadge == true){
-                    //expode
-                }
-                if(deadge == false){
-                    //target.transform.position = (new Vector3(transform.position.x+2,transform.position.y +1,transform.position.z));
+        if(inCombat == true){
+            if(circling == true)
+                circle();
+            if(chasing == true){
+                transform.position = Vector3.MoveTowards(transform.position, target.position, 1.2f * Time.deltaTime);
+                Vector3.RotateTowards(transform.position,target.position, 1f * Time.deltaTime,1.0f);
+            }
+            if(chased == true){
+                transform.position = Vector3.MoveTowards(transform.position, randPos, 1.4f * Time.deltaTime);
+                if(Vector3.Distance(randPos,transform.position) < 0.5f){
+                     randPos = new Vector3(Random.Range(-7f,6f),Random.Range(-3.5f,3.5f));
                 }
             }
-            */
+            if(bombingRun == true){
+                transform.position = Vector3.MoveTowards(transform.position, target.position, 1.2f * Time.deltaTime);
+            }
+            
+        }
+    }
+
+    public void startCombat(bool dogFight){
+        inCombat = true;
+        StartCoroutine(Fire());
+        if(dogFight == true){
+            circling = true;
+            StartCoroutine(Behavior());
+        }
+        else{
+            bombingRun = true;
+        }
+    }
+
+    public IEnumerator Fire(){
+        while(true){
+            Instantiate(projectile, this.transform.position, this.transform.rotation);
+            yield return new WaitForSeconds( Random.Range(1f,2f));
+        }   
+    }
+
+    public IEnumerator Behavior(){
+
+        yield return new WaitForSeconds(Random.Range(5f,25f));
+        circling = false;
+        if(chasing == false && chased == false){
+            chasing = true;
+            opponent.chased = true;
+        }
+    }
+
+    public void circle(){
+        //(Mathf.Cos(mid)*Mathf.Cos(2*mid)
+        float x = Random.Range(-0.1f,0.2f);
+        float step =  x * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        Vector3 midpoint = Vector3.Lerp(transform.position, target.position, mid);
+        transform.RotateAround(midpoint, Vector3.forward, 45 * Time.deltaTime);
+    }
+
+    public void chase(){
+
     }
     public void setup(){
         active = true;
@@ -66,12 +129,15 @@ public class StarFighter : MonoBehaviour
         }
     }
 
-    public void dogFightAnimation(){
-        inFlight = true;
+
+    public void setTarget(StarFighter t){
+        target = t.transform;
+        opponent = t;
     }
 
-    public void setTarget(Transform t){
-        target = t;
+    public void setTargetBombing(CapitalShip t){
+        target = t.transform;
+        opponentCapitalShip = t;
     }
 
     public bool getActive(){
