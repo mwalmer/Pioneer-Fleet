@@ -46,7 +46,7 @@ public class UI_Selection : MonoBehaviour
         }
     }
 
-    public void RegisterSelection(string selectionName, string text, string selectionType = "None")
+    public Button RegisterSelection(string selectionName, string text, string selectionType = "None")
     {
         Button newSelection = Instantiate(buttonPrefab, this.transform).GetComponent<Button>();
         RectTransform tRect = newSelection.GetComponent<RectTransform>();
@@ -64,12 +64,14 @@ public class UI_Selection : MonoBehaviour
 
         }
 
-
         selections.Add(newSelection);
         RearrangeSelections();
+
+        return newSelection;
     }
     public string GetCurrentSelection()
     {
+
         return currentSelection.gameObject.name;
     }
 
