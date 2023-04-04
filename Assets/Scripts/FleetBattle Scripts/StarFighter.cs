@@ -10,7 +10,6 @@ public class StarFighter : MonoBehaviour
     public int BombingPower;
     public bool deadge;
     public bool damadge;
-    public bool active = true;
     //star fighters take 1 on 1s with the enemy. Leftover starfighters deal damage to capital ships
     //Start is called before the first frame update
     public bool inCombat;
@@ -36,13 +35,13 @@ public class StarFighter : MonoBehaviour
 
     void Start()
     {
-        active = true;
         sprite = GetComponent<SpriteRenderer>();
         mid = 0.5f;
         randPos = new Vector3(Random.Range(-7f,6f),Random.Range(-3.5f,3.5f));
     }
 
     // Update is called once per frame
+    // rotation continues from circling idk why
     void Update()
     {
         if(inCombat == true){
@@ -91,6 +90,7 @@ public class StarFighter : MonoBehaviour
         if(chasing == false && chased == false){
             chasing = true;
             opponent.chased = true;
+            opponent.circling = false;
         }
     }
 
@@ -105,10 +105,6 @@ public class StarFighter : MonoBehaviour
 
     public void chase(){
 
-    }
-    public void setup(){
-        active = true;
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     public void takeFire(int enemyAccuracy){

@@ -21,23 +21,35 @@ public class FleetBattleHandler : MonoBehaviour
         bool firstTime = GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime;
         Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
         fleet1 = fleetTemp[0];
+        fleet2 = fleetTemp[1];
+        
+        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime == false){
+            fleetBattleCalcTest();
+        }
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
+
+
+        fleet1ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveFighters();
+        fleet2ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveFighters();
+        DogFights = fleet1ActiveFighters.Count;
+        if(fleet2ActiveFighters.Count < DogFights){
+            DogFights = fleet2ActiveFighters.Count;
+        }
+
+
         for(int i = 0; i < fleet1.CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             fleet1.CapitalShips[i].startCombat();
             fleet1.CapitalShips[i].gameObject.transform.position = CapitalPosition;
         }
-        for(int i = 0; i < fleet1.StarFighters.Count; i++){
+        for(int i = 0; i < fleet1ActiveFighters.Count; i++){
             Vector3 fighterPosition = transform.position;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+1;
-            fleet1.StarFighters[i].gameObject.transform.position = fighterPosition;
+            fleet1ActiveFighters[i].gameObject.transform.position = fighterPosition;
         }
 
-    //fleet2 = gameObject.AddComponent(typeof(Fleet)) as Fleet;
-    fleet2 = fleetTemp[1];
-        //fleet one doesnt have game object, it has component. Use playerdata fleet for loop and set instanciate to fleet 1
-        //Fleet fleetTemp2 = GameObject.Find("PlayerData").GetComponent<Fleet>();
         for(int i = 0; i < fleet2.CapitalShips.Count; i++){
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
@@ -46,29 +58,17 @@ public class FleetBattleHandler : MonoBehaviour
             fleet2.CapitalShips[i].gameObject.transform.position = CapitalPosition;
             if(firstTime == true)
                 fleet2.CapitalShips[i].gameObject.transform.Rotate(Vector3.back*180);
-            //fleet1.CapitalShips[i].setup();
         }
-        for(int i = 0; i < fleet2.StarFighters.Count; i++){
+        for(int i = 0; i < fleet2ActiveFighters.Count; i++){
             Vector3 fighterPosition = transform.position;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+4;
-            fleet2.StarFighters[i].gameObject.transform.position = fighterPosition;
+            fleet2ActiveFighters[i].gameObject.transform.position = fighterPosition;
             if(firstTime == true)
-                fleet2.StarFighters[i].gameObject.transform.Rotate(Vector3.back*180);
-            //fleet1.starFighters[i].setup();
-        }
-        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame != 0){
-            Debug.Log("You just played a mini game. Good job");
-            MiniGameResults(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame,GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore);
+                fleet2ActiveFighters[i].gameObject.transform.Rotate(Vector3.back*180);
         }
 
         //Star figther animations
-        fleet1ActiveFighters = fleet1.ActiveFighters();
-        fleet2ActiveFighters = fleet2.ActiveFighters();
-        DogFights = fleet1ActiveFighters.Count;
-        if(fleet2ActiveFighters.Count < DogFights){
-            DogFights = fleet2ActiveFighters.Count;
-        }
         if(fleet1ActiveFighters.Count > 0 && fleet2ActiveFighters.Count > 0){
             for(int i = 0; i < DogFights; i++){
                 fleet1ActiveFighters[i].GetComponent<StarFighter>().startCombat(true);
@@ -97,10 +97,6 @@ public class FleetBattleHandler : MonoBehaviour
         }
 
         setHPtext();
-        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime == false){
-            fleetBattleCalcTest();
-        }
-        GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
 
     }
 
@@ -117,8 +113,8 @@ public class FleetBattleHandler : MonoBehaviour
             fleet2.CapitalShips[x].GetComponent<CapitalShip>().takeDamage(fleet1.CapitalShips[i].GetComponent<CapitalShip>().artilleryPower);
         }
         //starfighter battle
-        fleet1ActiveFighters = fleet1.ActiveFighters();
-        fleet2ActiveFighters = fleet2.ActiveFighters();
+       fleet1ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveFighters();
+        fleet2ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveFighters();
         DogFights = fleet1ActiveFighters.Count;
         if(fleet2ActiveFighters.Count < DogFights){
             DogFights = fleet2ActiveFighters.Count;
@@ -156,12 +152,14 @@ public class FleetBattleHandler : MonoBehaviour
         setHPtext();
         //make some way for capital ships to destory fighters
         //check for victory or defeat
+        /*
         if (fleet1.ActiveCapitalShips().Count <= 0 && fleet1.ActiveFighters().Count <=0){
             Debug.Log("Lose condition");
         }
         if(fleet2.ActiveCapitalShips().Count <= 0 && fleet2.ActiveFighters().Count <=0){
             Debug.Log("Win condition");
         }
+        */
         Debug.Log("There are this many allied capital ships this number should never change from 2 and it is " + fleet1.CapitalShips.Count);
         Debug.Log("From the feel scene directly Ship #0 has Hull:" + fleet1.CapitalShips[0].currentHull + " and Shield:" + fleet1.CapitalShips[0].currentShield);
         Debug.Log("From the feel scene directly Ship #1 has Hull:" + fleet1.CapitalShips[1].currentHull + " and Shield:" + fleet1.CapitalShips[1].currentShield);
@@ -189,7 +187,7 @@ public class FleetBattleHandler : MonoBehaviour
         }
         switch(minigame){
             case 1: //star fighter
-                List<StarFighter> fleet2ActiveFighters = fleet2.ActiveFighters();
+                //List<StarFighter> fleet2ActiveFighters = fleet2.ActiveFighters();
                 fleet2ActiveFighters[0].GetComponent<StarFighter>().takeFire(score);
                 break;
         }

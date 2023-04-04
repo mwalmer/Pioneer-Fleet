@@ -40,18 +40,47 @@ public class PlayerData : MonoBehaviour
     public void offScreen(){
         for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
             playerFleet.CapitalShips[i].transform.position = transform.position;
+            //playerFleet.CapitalShips[i].transform.rotation = transform.rotation;
         }
         for(int i = 0; i < playerFleet.StarFighters.Count;i++){
             playerFleet.StarFighters[i].transform.position = transform.position;
+            //playerFleet.StarFighters[i].transform.rotation = transform.rotation;
+
         }
 
         for(int i = 0; i < enemyFleet.CapitalShips.Count;i++){
             enemyFleet.CapitalShips[i].transform.position = transform.position;
+            //enemyFleet.CapitalShips[i].transform.rotation = transform.rotation;
+
         }
         for(int i = 0; i < enemyFleet.StarFighters.Count;i++){
             enemyFleet.StarFighters[i].transform.position = transform.position;
+            //enemyFleet.StarFighters[i].transform.rotation = transform.rotation;
+
         }
     }
+
+      public List<StarFighter> PlayerActiveFighters(){
+        List<StarFighter> S = new List<StarFighter>();
+        for(int i = 0; i < playerFleet.StarFighters.Count; i++){
+            if(playerFleet.StarFighters[i].getActive() == true){
+                S.Add(playerFleet.StarFighters[i]);
+            }
+        }
+        return S;
+    }
+
+    
+      public List<StarFighter> EnemyActiveFighters(){
+        List<StarFighter> S = new List<StarFighter>();
+        for(int i = 0; i < enemyFleet.StarFighters.Count; i++){
+            if(enemyFleet.StarFighters[i].getActive() == true){
+                S.Add(enemyFleet.StarFighters[i]);
+            }
+        }
+        return S;
+    }
+
 
     public void addPlayerCaptialShip(string name){
         CapitalShip playerCapitalShip = Instantiate(Resources.Load("FleetBattle/" + name, typeof(CapitalShip)) as CapitalShip, transform);
