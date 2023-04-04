@@ -4,7 +4,14 @@ public class EventData
 {
     public enum EnemyType
     {
-    
+        shadowFleet
+    }
+
+    public enum NodeType
+    {
+        planet,
+        asteroid,
+        star
     }
 
     public enum EventType
@@ -12,36 +19,31 @@ public class EventData
         battle,
         passive,
         singleMinigame,
-        boss
+        boss,
+        turncoat
     }
 
     public enum Minigame
     {
         StarFighter,
+        Bomber,
         FlakCannon,
         MatchingMinigame
     }
 
-    public enum Resource
-    {
-        hp,
-        shield,
-        starfighter,
-    }
-    
-    // use this to get data!
+    // use GetData() to get data!
     // Example:
-    //     EventData data = EventData.data;
+    //     EventData data = EventData.GetData();
     //     int numEnemies = data.SF_numEnemies;
     public static EventData data;
     
     public EventType eventType;
     public string description;
     public string text;
-    public Resource resource;
     public Minigame minigameType;
     public string enemyName;
     public EnemyType enemyType;
+    public NodeType nodeType;
     
     // player stats (for passive events)
     public int hp;
@@ -58,6 +60,11 @@ public class EventData
     // star fighter vars
     public int SF_numEnemies;//1-10
     public int SF_difficulty;//0-3
+    
+    // flack cannon
+    public int FC_timeGiven;//60-120
+    public int FC_numEnemiesRequired;
+    public int FC_enemyHP;
 
     public EventData()
     {
@@ -66,6 +73,17 @@ public class EventData
         currency = 0;
         starfighter = 0;
         starfighterStr = "";
+        nodeType = NodeType.planet;
+
+        FC_timeGiven = 60;
+    }
+
+    public static EventData GetData()
+    {
+        if (data == null)
+            data = new EventData();
+        
+        return data;
     }
     
     public void SetData()
@@ -92,6 +110,7 @@ public class EventData
 
     public void setFleetBattleData()
     {    
-        GameObject.Find("PlayerData").GetComponent<PlayerData>().setEnemyFleet(EnemyCapitalType1,EnemyCapitalNum1,EnemyStarFighterType1,EnemyStarFighterNum1);
+        PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+        playerData.setEnemyFleet(EnemyCapitalType1,EnemyCapitalNum1,EnemyStarFighterType1,EnemyStarFighterNum1);
     }
 }

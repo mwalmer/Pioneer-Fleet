@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,23 +11,10 @@ public class EventNode : MonoBehaviour
         completed = 2,
         failed = 3
     }
-    
-    public enum NodeType
-    {
-        planet = 0,
-        asteroid = 1,
-        star = 2
-    }
-    
-    public enum EventType
-    {
-        planet = 0,
-        asteroid = 1,
-        star = 2
-    }
 
     public string planetName;
     public EventData eventData;
+    public bool turncoat;
     
 
     public NodeState nodeState;
@@ -45,6 +33,18 @@ public class EventNode : MonoBehaviour
         nodeState = NodeState.unvisited;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _lineRendererSpawner = GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>();
+    }
+
+    private void Start()
+    {
+        switch (eventData.nodeType)
+        {
+            case EventData.NodeType.asteroid:
+                // _spriteRenderer.sprite = 
+                break;
+            case EventData.NodeType.star:
+                break;
+        }
     }
 
     private void OnMouseEnter()
@@ -108,6 +108,8 @@ public class EventNode : MonoBehaviour
         //TODO: this should be done when the player wins/loses
         NodeData.currentNode.GetComponent<EventNode>().nodeState = NodeState.completed;
         NodeData.currentNode.GetComponent<EventNode>().UpdateColor();
+        if(eventData.eventType == EventData.EventType.turncoat)
+            NodeData.bossNode.SetActive(true);
         
         NodeData.currentNode = gameObject;
         nodeState = NodeState.active;
@@ -133,7 +135,10 @@ public class EventNode : MonoBehaviour
         {
             eventData.setFleetBattleData();
             GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
-            LoadScene(2);
+            if(eventData.minigameType == EventData.Minigame.Bomber)
+                LoadScene(6);
+            else
+                LoadScene(2);
         }
         else if (eventData.eventType == EventData.EventType.passive)
         {
@@ -150,6 +155,17 @@ public class EventNode : MonoBehaviour
                 LoadScene(5);
         }
         else if(eventData.eventType == EventData.EventType.boss)
+        {
+            eventData.setFleetBattleData();
+            // NodeData.newMap = true;
+            
+            LoadScene(2);
+            Destroy(NodeData.nodeMap);
+            NodeData.eventNodeList.Clear();
+            //eventData.SetPassiveData();
+            // TODO: show text box!
+        }
+        else if(eventData.eventType == EventData.EventType.turncoat)
         {
             eventData.setFleetBattleData();
             LoadScene(2);
@@ -172,7 +188,12 @@ public class EventNode : MonoBehaviour
     
     public void UpdateColor()
     {
-        _spriteRenderer.color = nodeColors[(int)nodeState];
+        if(eventData.eventType == EventData.EventType.turncoat)
+            _spriteRenderer.color = Color.red;
+        else if(eventData.eventType == EventData.EventType.boss)
+            _spriteRenderer.color = Color.blue;
+        else
+            _spriteRenderer.color = nodeColors[(int)nodeState];
     }
     
     private void LoadScene(int id)

@@ -13,6 +13,7 @@ public class UI_ProgressBar : MonoBehaviour
     public float residualAnimeTime = 0.5f;
     public Slider fillBar;
     public bool isLeftToRight = false;
+    public RectTransform board;
     private float currentTimeForBar;
     private float currentTimeForResidual;
     private RectTransform rect;
@@ -41,6 +42,8 @@ public class UI_ProgressBar : MonoBehaviour
 
     void BarAnimation()
     {
+        float rectWidth = Screen.width + board.sizeDelta.x;
+        Debug.Log(rectWidth + "| gameboard length" + board.sizeDelta.x);
         if (fillBar.value != value)
         {
             currentTimeForBar += Time.deltaTime;
@@ -49,13 +52,13 @@ public class UI_ProgressBar : MonoBehaviour
             {
                 currentTimeForBar = 0;
                 currentTimeForResidual = 0;
-                if (isLeftToRight && residualFillBar.offsetMax.x * -1f > rect.sizeDelta.x * (1 - value))
+                if (isLeftToRight && residualFillBar.offsetMax.x * -1f > rectWidth * (1 - value))
                 {
-                    residualFillBar.offsetMax = new Vector2(rect.sizeDelta.x * (1 - value) * -1, Mathf.RoundToInt(residualFillBar.offsetMax.y * 100) / 100f);
+                    residualFillBar.offsetMax = new Vector2(rectWidth * (1 - value) * -1, Mathf.RoundToInt(residualFillBar.offsetMax.y * 100) / 100f);
                 }
-                else if (!isLeftToRight && residualFillBar.offsetMin.x > rect.sizeDelta.x * (1 - value))
+                else if (!isLeftToRight && residualFillBar.offsetMin.x > rectWidth * (1 - value))
                 {
-                    residualFillBar.offsetMin = new Vector2(rect.sizeDelta.x * (1 - value), Mathf.RoundToInt(residualFillBar.offsetMin.y * 100) / 100f);
+                    residualFillBar.offsetMin = new Vector2(rectWidth * (1 - value), Mathf.RoundToInt(residualFillBar.offsetMin.y * 100) / 100f);
                 }
                 else
                 {
@@ -73,7 +76,7 @@ public class UI_ProgressBar : MonoBehaviour
             currentTimeForResidual += Time.deltaTime;
             if (currentTimeForResidual > residualDelay)
             {
-                float width = Mathf.Lerp((isLeftToRight ? residualFillBar.offsetMax.x * -1f : residualFillBar.offsetMin.x), rect.sizeDelta.x * (1 - value), (currentTimeForResidual - residualDelay) / residualAnimeTime);
+                float width = Mathf.Lerp((isLeftToRight ? residualFillBar.offsetMax.x * -1f : residualFillBar.offsetMin.x), rectWidth * (1 - value), (currentTimeForResidual - residualDelay) / residualAnimeTime);
                 width = Mathf.RoundToInt(width * 100) / 100f;
                 Debug.Log(residualFillBar.offsetMax.x + " | " + residualFillBar.offsetMin.x + " |" + width);
                 if (isLeftToRight)
