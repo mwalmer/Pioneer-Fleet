@@ -72,7 +72,7 @@ public class UI_Selection : MonoBehaviour
 
     public string GetCurrentSelection()
     {
-
+        if (!currentSelection) return null;
         return currentSelection.gameObject.name;
     }
 
