@@ -19,16 +19,6 @@ public class Fleet : MonoBehaviour
         
     }
 
-    public List<StarFighter> ActiveFighters(){
-        List<StarFighter> S = new List<StarFighter>();
-        for(int i = 0; i < StarFighters.Count; i++){
-            if(StarFighters[i].getActive() == true){
-                S.Add(StarFighters[i]);
-            }
-        }
-        return S;
-    }
-
 
     public List<CapitalShip> ActiveCapitalShips(){
         List<CapitalShip> S = new List<CapitalShip>();
