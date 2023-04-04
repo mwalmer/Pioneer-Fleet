@@ -339,6 +339,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3147587521271523474, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853798110537117977, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8176699751236712070, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_Name
       value: UI_GalaxyMap
