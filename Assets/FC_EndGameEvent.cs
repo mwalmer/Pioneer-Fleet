@@ -22,6 +22,8 @@ public class FC_EndGameEvent : MonoBehaviour
             gameEndNotice = this.GetComponentInChildren<TextMeshProUGUI>();
         if (!cGroup)
             cGroup = this.GetComponent<CanvasGroup>();
+
+        nextScene = EventData.GetData().lastScene;
     }
 
     // Update is called once per frame
