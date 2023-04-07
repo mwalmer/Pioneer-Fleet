@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175a8dae3e9eeb49bf4f2c74f26f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleScene: 
+  titleScene: StartScreen
   fadingTime: 0.25
   cGroup: {fileID: 1473880813849045303}
 --- !u!1 &1473880814349080147

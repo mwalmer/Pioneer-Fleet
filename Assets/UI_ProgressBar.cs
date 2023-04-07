@@ -78,7 +78,6 @@ public class UI_ProgressBar : MonoBehaviour
             {
                 float width = Mathf.Lerp((isLeftToRight ? residualFillBar.offsetMax.x * -1f : residualFillBar.offsetMin.x), rectWidth * (1 - value), (currentTimeForResidual - residualDelay) / residualAnimeTime);
                 width = Mathf.RoundToInt(width * 100) / 100f;
-                Debug.Log(residualFillBar.offsetMax.x + " | " + residualFillBar.offsetMin.x + " |" + width);
                 if (isLeftToRight)
                 {
                     residualFillBar.offsetMax = new Vector2(width * -1, Mathf.RoundToInt(residualFillBar.offsetMax.y * 100) / 100f);
