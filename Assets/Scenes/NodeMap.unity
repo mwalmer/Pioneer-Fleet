@@ -289,6 +289,10 @@ PrefabInstance:
       propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2596267731729524015, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: testCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2756144532393977240, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -391,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853798110537117977, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7667145449854747148, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: uiGroup
@@ -399,6 +403,10 @@ PrefabInstance:
       objectReference: {fileID: 189591148}
     - target: {fileID: 7667145449854747148, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: fadingStatus
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947614979711583250, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8176699751236712070, guid: 79fad2b828d52e24382924613935f417, type: 3}
@@ -995,6 +1003,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d900f749ca52b14c93fdd8fb6c69871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideWindowController: {fileID: 0}
+  eventDialogController: {fileID: 0}
+  eventDialogSelection: {fileID: 0}
+  travelFlag: 0
+  showOnce: 1
 --- !u!1001 &4980412612234025245
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class EventNode : MonoBehaviour
     public Color activeColor;
     public Color completedColor;
     public Color failedColor;
-    private LineRendererSpawner _lineRendererSpawner;
+    public LineRendererSpawner _lineRendererSpawner;
     
     private void Awake()
     {
@@ -93,11 +93,13 @@ public class EventNode : MonoBehaviour
         _lineRendererSpawner.ClearLines();
         
         // show ui
-        UI_WindowController controller = FindObjectOfType<UI_WindowController>();
-        UI_LocationInfo info = FindObjectOfType<UI_LocationInfo>();
+        GameObject sw = GameObject.Find("UI_SideWindow");
+        UI_LocationInfo info = sw.GetComponent<UI_LocationInfo>();
+        UI_WindowController sideWindowController = sw.GetComponent<UI_WindowController>();
+        
         info.ChangeName(planetName, Color.white);
         info.ChangeDescription(eventData.description, Color.white);
-        controller.FadeBack();
+        sideWindowController.FadeBack();
     }
 
     public void Travel(bool defer=false)
@@ -126,10 +128,25 @@ public class EventNode : MonoBehaviour
         HandleEvent();
     }
 
+    public void ShowEventDialog()
+    {
+        // event dialog ui
+        GameObject ed = GameObject.Find("UI_EventDialog");
+        UI_EventDialog eventDialog = ed.GetComponent<UI_EventDialog>();
+        UI_WindowController eventDialogController = ed.GetComponent<UI_WindowController>();
+        eventDialogController.FadeBack();
+        eventDialog.ChangeName(planetName, Color.white);
+        eventDialog.ChangeDescription(eventData.text, Color.white);
+    }
+
     private void HandleEvent()
     {
         eventData.SetData();
         Debug.Log(eventData.text);//TODO: show text box;
+
+        var swc = GameObject.Find("UI_EventDialog").GetComponent<UI_WindowController>();
+        if(swc.uiGroup.alpha != 0)
+            swc.FadeOut();
 
         if (eventData.eventType == EventData.EventType.battle)
         {

@@ -38,10 +38,11 @@ public class UI_Selection : MonoBehaviour
     }
     public void CleanSelections()
     {
-        foreach (Button selection in selections)
+        // changed from foreach to for, deleting things in foreach caused errors
+        for(int i = 0; i < selections.Count; i++)
         {
-            Button temp = selection;
-            selections.Remove(selection);
+            Button temp = selections[i];
+            selections.Remove(temp);
             Destroy(temp);
         }
     }
