@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI_CanvasInit : MonoBehaviour
 {
     private Canvas canvas;
+    public static UI_CanvasInit canvasInit;
+    private bool goNextScene = false;
+    private string nameScene;
     // Start is called before the first frame update
     void Start()
     {
+        canvasInit = this;
         canvas = GetComponent<Canvas>();
         if (canvas)
         {
@@ -19,6 +24,17 @@ public class UI_CanvasInit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (goNextScene && UI_Blackscreen.blackscreen.IsFinished())
+        {
+            SceneManager.LoadScene(canvasInit.nameScene);
+        }
     }
+
+    public static void EnterNextScene(string _sceneName)
+    {
+        UI_Blackscreen.blackscreen.OpenBlack();
+        canvasInit.nameScene = _sceneName;
+        canvasInit.goNextScene = true;
+    }
+
 }
