@@ -93,7 +93,7 @@ public class EventNode : MonoBehaviour
         _lineRendererSpawner.ClearLines();
         
         // show ui
-        GameObject sw = GameObject.Find("UI_SideWindow");
+        GameObject sw = FindObjectOfType<ButtonHandler>().swG;
         UI_LocationInfo info = sw.GetComponent<UI_LocationInfo>();
         UI_WindowController sideWindowController = sw.GetComponent<UI_WindowController>();
         
@@ -128,66 +128,67 @@ public class EventNode : MonoBehaviour
         HandleEvent();
     }
 
-    public void ShowEventDialog()
+    public void SetEventDialog()
     {
         // event dialog ui
-        GameObject ed = GameObject.Find("UI_EventDialog");
-        UI_EventDialog eventDialog = ed.GetComponent<UI_EventDialog>();
-        UI_WindowController eventDialogController = ed.GetComponent<UI_WindowController>();
+        var bh = FindObjectOfType<ButtonHandler>();
+        GameObject ed = bh.edG;
+        ed.SetActive(true);
+        bh.showDialogWindow = true;
+        UI_EventDialog eventDialog = bh.edG.GetComponent<UI_EventDialog>();
+        UI_WindowController eventDialogController = bh.eventDialogController;
         eventDialogController.FadeBack();
         eventDialog.ChangeName(planetName, Color.white);
         eventDialog.ChangeDescription(eventData.text, Color.white);
+        
     }
 
     private void HandleEvent()
     {
         eventData.SetData();
-        Debug.Log(eventData.text);//TODO: show text box;
 
-        var swc = GameObject.Find("UI_EventDialog").GetComponent<UI_WindowController>();
-        if(swc.uiGroup.alpha != 0)
-            swc.FadeOut();
-
-        if (eventData.eventType == EventData.EventType.battle)
+        switch (eventData.eventType)
         {
-            eventData.setFleetBattleData();
-            GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
-            if(eventData.minigameType == EventData.Minigame.Bomber)
-                LoadScene(6);
-            else
-                LoadScene(2);
-        }
-        else if (eventData.eventType == EventData.EventType.passive)
-        {
-            eventData.SetPassiveData();
-            // TODO: show text box!
-        }
-        else if(eventData.eventType == EventData.EventType.singleMinigame)
-        {
-            if(eventData.minigameType == EventData.Minigame.StarFighter)
-                LoadScene(3);
-            else if(eventData.minigameType == EventData.Minigame.FlakCannon)
-                LoadScene(4);
-            else if(eventData.minigameType == EventData.Minigame.MatchingMinigame)
-                LoadScene(5);
-        }
-        else if(eventData.eventType == EventData.EventType.boss)
-        {
-            eventData.setFleetBattleData();
-            // NodeData.newMap = true;
+            case EventData.EventType.battle:
+            {
+                eventData.setFleetBattleData();
+                GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
+                if(eventData.minigameType == EventData.Minigame.Bomber)
+                    LoadScene(6);
+                else
+                    LoadScene(2);
+            } break;
+            case EventData.EventType.passive:
+            {
+                eventData.SetPassiveData();
+            } break;
+            case EventData.EventType.singleMinigame:
+            {
+                if(eventData.minigameType == EventData.Minigame.StarFighter)
+                    LoadScene(3);
+                else if(eventData.minigameType == EventData.Minigame.FlakCannon)
+                    LoadScene(4);
+                else if(eventData.minigameType == EventData.Minigame.MatchingMinigame)
+                    LoadScene(5);
+            } break;
+            case EventData.EventType.boss:
+            {
+                eventData.setFleetBattleData();
+                // NodeData.newMap = true;
             
-            LoadScene(2);
-            Destroy(NodeData.nodeMap);
-            NodeData.eventNodeList.Clear();
-            //eventData.SetPassiveData();
-            // TODO: show text box!
-        }
-        else if(eventData.eventType == EventData.EventType.turncoat)
-        {
-            eventData.setFleetBattleData();
-            LoadScene(2);
-            //eventData.SetPassiveData();
-            // TODO: show text box!
+                LoadScene(2);
+                Destroy(NodeData.nodeMap);
+                NodeData.eventNodeList.Clear();
+            } break;
+            case EventData.EventType.turncoat:
+            {
+                eventData.setFleetBattleData();
+                LoadScene(2);
+            } break;
+            default:
+            {
+                Debug.LogError("how did I get here?");
+            } break;
         }
     }
 
@@ -218,7 +219,7 @@ public class EventNode : MonoBehaviour
         SceneManager.LoadScene(id);
     }
 
-    private void UpdateTravelIndicator()
+    public void UpdateTravelIndicator()
     {
         NodeData.travelIndicator.SetActive(true);
         NodeMap nm = FindObjectOfType<NodeMap>();
