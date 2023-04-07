@@ -22,14 +22,12 @@ public class StartScene_Manager : MonoBehaviour
         }
         else if (operation == -1 && UI_Blackscreen.blackscreen.IsFinished())
         {
-            if (UnityEditor.EditorApplication.isPlaying)
-            {
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
-            else
-            {
-                Application.Quit();
-            }
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+#if UNITY_STANDALONE
+            Application.Quit();
+#endif
         }
     }
 

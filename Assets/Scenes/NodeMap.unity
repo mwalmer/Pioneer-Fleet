@@ -379,7 +379,7 @@ PrefabInstance:
       objectReference: {fileID: 2146335767}
     - target: {fileID: 3445761255052394260, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Travel
+      value: ShowDialogBox
       objectReference: {fileID: 0}
     - target: {fileID: 3445761255052394260, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: uiGroup
       value: 
       objectReference: {fileID: 189591148}
+    - target: {fileID: 7667145449854747148, guid: 79fad2b828d52e24382924613935f417, type: 3}
+      propertyPath: fadingTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7667145449854747148, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: fadingStatus
       value: 0
