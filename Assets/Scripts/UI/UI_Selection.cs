@@ -38,13 +38,11 @@ public class UI_Selection : MonoBehaviour
     }
     public void CleanSelections()
     {
-        // changed from foreach to for, deleting things in foreach caused errors
-        for(int i = 0; i < selections.Count; i++)
+        foreach (Button selection in selections)
         {
-            Button temp = selections[i];
-            selections.Remove(temp);
-            Destroy(temp);
+            Destroy(selection.gameObject);
         }
+        selections.Clear();
     }
 
     public Button RegisterSelection(string selectionName, string text, string selectionType = "None")
