@@ -531,6 +531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_BattleBridge_1280Rewindowed
       objectReference: {fileID: 0}
+    - target: {fileID: 8652225177348975687, guid: ca5cbefbed804a44285b891d80fa29d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8652225177363192516, guid: ca5cbefbed804a44285b891d80fa29d9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1096,6 +1100,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8652225177932678283, guid: ca5cbefbed804a44285b891d80fa29d9, type: 3}
   m_PrefabInstance: {fileID: 4326421231497120129}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4906788090083188001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8652225178171774112, guid: ca5cbefbed804a44285b891d80fa29d9, type: 3}
+  m_PrefabInstance: {fileID: 4326421231497120129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2334717492672077708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906788090083188001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657aacf9514c2a4499a62f333566c203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4906788090120271491 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8652225178205716226, guid: ca5cbefbed804a44285b891d80fa29d9, type: 3}

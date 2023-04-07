@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79df44e028604c4bb39129f8e23d556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCanvas: {fileID: 633865458}
   hpUI: {fileID: 2087482594}
   destroyCountUI: {fileID: 379641150}
   gameEndEvent: {fileID: 1246647902}
@@ -306,6 +307,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c33b27080ff384fb6f85524426b3fa, type: 3}
+--- !u!224 &633865458 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7380936881642444032, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+  m_PrefabInstance: {fileID: 7380936880298049144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &755475496
 GameObject:
   m_ObjectHideFlags: 0

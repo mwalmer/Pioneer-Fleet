@@ -31,7 +31,7 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         if (FC_GameManager.IsGameActive == false)
         {
-            if (shouldGoNextScene)
+            if (shouldGoNextScene && UI_Blackscreen.blackscreen.IsFinished())
             {
                 SceneManager.LoadScene(nextScene);
             }
@@ -56,6 +56,6 @@ public class FC_EndGameEvent : MonoBehaviour
 
         Debug.Log("Time is back: " + Time.timeScale);
         shouldGoNextScene = true;
-
+        UI_Blackscreen.CallBlackscreen(9, 1);
     }
 }

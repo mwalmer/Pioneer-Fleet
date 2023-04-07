@@ -12,6 +12,7 @@ public class UI_SettingMenu : MonoBehaviour
     private CanvasGroup cGroup = null;
     private int fadingStatus = 0; // -1 fade in, 0 = idle, 1 fade out
     private float currentFadingTime = 0f;
+    private bool isBackToTitle = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class UI_SettingMenu : MonoBehaviour
         else if (fadingStatus == -1)
         {
             FadeIn();
+        }
+        if (isBackToTitle)
+        {
+            SceneManager.LoadScene(titleScene);
         }
     }
 
@@ -94,7 +99,7 @@ public class UI_SettingMenu : MonoBehaviour
     public void BackToTitle()
     {
         FC_GameManager.ResetFlakCannonGameSettings();
-        SceneManager.LoadScene(titleScene);
+        isBackToTitle = true;
     }
     public void SurroundInMinigame()
     {

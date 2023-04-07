@@ -43,7 +43,6 @@ public class UI_ProgressBar : MonoBehaviour
     void BarAnimation()
     {
         float rectWidth = Screen.width + board.sizeDelta.x;
-        Debug.Log(rectWidth + "| gameboard length" + board.sizeDelta.x);
         if (fillBar.value != value)
         {
             currentTimeForBar += Time.deltaTime;
