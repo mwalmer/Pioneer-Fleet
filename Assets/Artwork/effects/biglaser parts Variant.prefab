@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 622160864037447190, guid: b78fead7421c86f479692834df30b37c, type: 3}
       propertyPath: m_Name
-      value: biglaser parts
+      value: biglaser parts Variant
       objectReference: {fileID: 0}
     - target: {fileID: 622160864037447190, guid: b78fead7421c86f479692834df30b37c, type: 3}
       propertyPath: m_Layer
@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 622160864037447194, guid: b78fead7421c86f479692834df30b37c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.8374
+      value: 6.42
       objectReference: {fileID: 0}
     - target: {fileID: 622160864037447194, guid: b78fead7421c86f479692834df30b37c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -148,9 +148,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7676588603321157884}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d72e2e51eb0207418b2fb46ad8ae322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 5
+--- !u!114 &982457416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676588603321157884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d72e2e51eb0207418b2fb46ad8ae322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 2
