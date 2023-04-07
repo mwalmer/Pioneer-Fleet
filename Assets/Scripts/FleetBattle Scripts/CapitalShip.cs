@@ -22,6 +22,8 @@ public class CapitalShip : MonoBehaviour
 
     public bool ShieldUp = false;
 
+    public float fireDistance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,12 +37,13 @@ public class CapitalShip : MonoBehaviour
     }
 
     public void startCombat(){
+        ShieldUp = false;
         StartCoroutine(Fire());
     }
 
     public IEnumerator Fire(){
         while(true){
-            Instantiate(projectile, this.transform.position+(transform.up*0.6f) , this.transform.rotation);
+            Instantiate(projectile, this.transform.position+(transform.up*fireDistance) , this.transform.rotation);
             yield return new WaitForSeconds( Random.Range(3f,4f));
         }   
     }

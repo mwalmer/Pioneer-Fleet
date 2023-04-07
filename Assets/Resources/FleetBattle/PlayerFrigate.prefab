@@ -216,6 +216,7 @@ MonoBehaviour:
   projectile: {fileID: 2839172876410382099, guid: 1dff6c6d0407ad34fb258da87a824942, type: 3}
   shield: {fileID: 2217855009206389461, guid: dbbe52381c03e1d42bb1f7bbfddd36b5, type: 3}
   ShieldUp: 0
+  fireDistance: 0.6
 --- !u!70 &1272335251138465036
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

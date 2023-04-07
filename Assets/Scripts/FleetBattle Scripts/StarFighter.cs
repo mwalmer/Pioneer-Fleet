@@ -31,6 +31,8 @@ public class StarFighter : MonoBehaviour
     bool arrived = false;
 
     bool bombingRun = false;
+
+    bool firing = false;
     Vector3 randPos;
 
     void Start()
@@ -66,6 +68,7 @@ public class StarFighter : MonoBehaviour
 
     public void startCombat(bool dogFight){
         inCombat = true;
+        firing = true;
         StartCoroutine(Fire());
         if(dogFight == true){
             circling = true;
@@ -76,8 +79,13 @@ public class StarFighter : MonoBehaviour
         }
     }
 
+    public void endCombat(){
+        firing = false;
+        inCombat = false;
+    }
+
     public IEnumerator Fire(){
-        while(true){
+        while(firing){
             Instantiate(projectile, this.transform.position, this.transform.rotation);
             yield return new WaitForSeconds( Random.Range(1f,2f));
         }   
@@ -87,7 +95,7 @@ public class StarFighter : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(5f,25f));
         circling = false;
-        if(chasing == false && chased == false){
+        if(chasing == false && chased == false && inCombat == true){
             chasing = true;
             opponent.chased = true;
             opponent.circling = false;
