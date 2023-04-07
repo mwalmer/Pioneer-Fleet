@@ -15,6 +15,8 @@ public class FleetBattleHandler : MonoBehaviour
     List<StarFighter> fleet2ActiveFighters;
     int DogFights;
     public TMP_Text text;
+
+    public TMP_Text log;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,7 @@ public class FleetBattleHandler : MonoBehaviour
             fleetBattleCalcTest();
         }
         GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
-
-
+        log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;
         fleet1ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveFighters();
         fleet2ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveFighters();
         DogFights = fleet1ActiveFighters.Count;
@@ -36,36 +37,49 @@ public class FleetBattleHandler : MonoBehaviour
             DogFights = fleet2ActiveFighters.Count;
         }
 
-
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn x--------\nEnemy Capital Ships: " + fleet2.CapitalShips.Count + "\nEnemy Star Fighters: " +fleet2ActiveFighters.Count + "\nAllied Capital Ships: " + fleet1.CapitalShips.Count + "\nAllied Star Fighters: " +fleet1ActiveFighters.Count);
+        log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;
         for(int i = 0; i < fleet1.CapitalShips.Count; i++){
+            fleet1.CapitalShips[i].gameObject.SetActive(true);
             Vector3 CapitalPosition = transform.position;
+            Quaternion CapitalRotation = transform.rotation;
             CapitalPosition.y = CapitalPosition.y + i;
             fleet1.CapitalShips[i].startCombat();
             fleet1.CapitalShips[i].gameObject.transform.position = CapitalPosition;
+            fleet1.CapitalShips[i].gameObject.transform.rotation = CapitalRotation;
         }
         for(int i = 0; i < fleet1ActiveFighters.Count; i++){
+            fleet1ActiveFighters[i].gameObject.SetActive(true);
             Vector3 fighterPosition = transform.position;
+            Quaternion FighterRotation = transform.rotation;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+1;
             fleet1ActiveFighters[i].gameObject.transform.position = fighterPosition;
+            fleet1ActiveFighters[i].gameObject.transform.rotation = FighterRotation;
+
         }
 
         for(int i = 0; i < fleet2.CapitalShips.Count; i++){
+            fleet2.CapitalShips[i].gameObject.SetActive(true);
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             CapitalPosition.x = CapitalPosition.x+5;
             fleet2.CapitalShips[i].startCombat();
             fleet2.CapitalShips[i].gameObject.transform.position = CapitalPosition;
-            if(firstTime == true)
-                fleet2.CapitalShips[i].gameObject.transform.Rotate(Vector3.back*180);
+            Quaternion CapitalRotation =  Quaternion.Inverse(transform.rotation);
+            fleet2.CapitalShips[i].gameObject.transform.rotation = CapitalRotation;
+
+            //if(firstTime == true)
+            //    fleet2.CapitalShips[i].gameObject.transform.Rotate(Vector3.back*180);
         }
         for(int i = 0; i < fleet2ActiveFighters.Count; i++){
+            fleet2ActiveFighters[i].gameObject.SetActive(true);
             Vector3 fighterPosition = transform.position;
             fighterPosition.y = fighterPosition.y + i;
             fighterPosition.x = fighterPosition.x+4;
             fleet2ActiveFighters[i].gameObject.transform.position = fighterPosition;
-            if(firstTime == true)
-                fleet2ActiveFighters[i].gameObject.transform.Rotate(Vector3.back*180);
+            Quaternion FighterRotation =  Quaternion.Inverse(transform.rotation);
+            fleet2ActiveFighters[i].gameObject.transform.rotation = FighterRotation;
         }
 
         //Star figther animations
@@ -173,6 +187,7 @@ public class FleetBattleHandler : MonoBehaviour
 
 
     }
+
 
     //IEnumerator starFighterBattle(){
     //    while()

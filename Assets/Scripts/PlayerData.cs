@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerData : MonoBehaviour
 {
     public Fleet playerFleet;
@@ -12,6 +13,7 @@ public class PlayerData : MonoBehaviour
     public int currency;
 
     public bool LoadBridgeFirstTime;
+    public string FleetLog;
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class PlayerData : MonoBehaviour
         playerFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         enemyFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         setFleet();
+        FleetLog = "An enemy fleet approaches";
         //setEnemyFleet("NairanBattlecruiser",2,"NairanFighter",3);
     }
 
@@ -26,6 +29,10 @@ public class PlayerData : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void addToFleetLog(string s){
+        FleetLog = FleetLog + s;
     }
 
     public void setFleet(){
@@ -39,24 +46,39 @@ public class PlayerData : MonoBehaviour
 
     public void offScreen(){
         for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
-            playerFleet.CapitalShips[i].transform.position = transform.position;
+            playerFleet.CapitalShips[i].gameObject.SetActive(false);
+            //playerFleet.CapitalShips[i].transform.position = transform.position;
             //playerFleet.CapitalShips[i].transform.rotation = transform.rotation;
         }
         for(int i = 0; i < playerFleet.StarFighters.Count;i++){
-            playerFleet.StarFighters[i].transform.position = transform.position;
+            playerFleet.StarFighters[i].gameObject.SetActive(false);
+            playerFleet.StarFighters[i].endCombat();
+            //playerFleet.StarFighters[i].transform.position = transform.position;
             //playerFleet.StarFighters[i].transform.rotation = transform.rotation;
 
         }
 
         for(int i = 0; i < enemyFleet.CapitalShips.Count;i++){
-            enemyFleet.CapitalShips[i].transform.position = transform.position;
+            enemyFleet.CapitalShips[i].gameObject.SetActive(false);
+            //enemyFleet.CapitalShips[i].transform.position = transform.position;
             //enemyFleet.CapitalShips[i].transform.rotation = transform.rotation;
 
         }
         for(int i = 0; i < enemyFleet.StarFighters.Count;i++){
-            enemyFleet.StarFighters[i].transform.position = transform.position;
+            enemyFleet.StarFighters[i].gameObject.SetActive(false);
+            enemyFleet.StarFighters[i].endCombat();
+            //enemyFleet.StarFighters[i].transform.position = transform.position;
             //enemyFleet.StarFighters[i].transform.rotation = transform.rotation;
 
+        }
+    }
+
+    public void HandleDamageandDeadFighters(){
+        for(int i = 0; i < playerFleet.StarFighters.Count;i++){
+            if(playerFleet.StarFighters[i].damadge == true)
+                playerFleet.StarFighters[i].damadge = false;
+            if(playerFleet.StarFighters[i].deadge == true)
+                playerFleet.StarFighters.RemoveAt(i);
         }
     }
 
@@ -104,8 +126,18 @@ public class PlayerData : MonoBehaviour
     }
 
     public void clearEnemyFleet(){
-        enemyFleet.CapitalShips.Clear();
-        enemyFleet.StarFighters.Clear();
+        for(int i = 0; i < enemyFleet.CapitalShips.Count;i++){
+            Destroy(enemyFleet.CapitalShips[i].gameObject);
+            //enemyFleet.CapitalShips[i].transform.position = transform.position;
+            //enemyFleet.CapitalShips[i].transform.rotation = transform.rotation;
+
+        }
+        for(int i = 0; i < enemyFleet.StarFighters.Count;i++){
+            Destroy(enemyFleet.StarFighters[i].gameObject);
+
+        }
+        //enemyFleet.CapitalShips.Clear();
+        //enemyFleet.StarFighters.Clear();
     }
 
     public void updateHP(int value)

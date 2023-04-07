@@ -42,6 +42,7 @@ public class LoadScene : MonoBehaviour
     public void LoadNodeMapFromBattleBridge(){
         GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
         GameObject.Find("PlayerData").GetComponent<PlayerData>().clearEnemyFleet();
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().HandleDamageandDeadFighters();
         SceneManager.LoadScene(1);
     }
 
