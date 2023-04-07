@@ -5,24 +5,31 @@ using UnityEngine;
 
 public class ButtonHandler : MonoBehaviour
 {
+    public GameObject swG;
+    public GameObject edG;
     public UI_WindowController sideWindowController;
     public UI_WindowController eventDialogController;
     public UI_Selection eventDialogSelection;
     public bool travelFlag = false;
     public bool showOnce = true;
+    public bool showDialogWindow = false;
 
     private void Start()
     {
-        GameObject sw = GameObject.Find("UI_SideWindow");
-        sideWindowController = sw.GetComponent<UI_WindowController>();
         
-        GameObject ed = GameObject.Find("UI_EventDialog");
-        eventDialogController = ed.GetComponent<UI_WindowController>();
+        swG = GameObject.Find("UI_SideWindow");
+        sideWindowController = swG.GetComponent<UI_WindowController>();
+        
+        edG = GameObject.Find("UI_EventDialog");
+        eventDialogController = edG.GetComponent<UI_WindowController>();
         eventDialogSelection = GameObject.Find("Selections").GetComponent<UI_Selection>();
     }
 
     private void Update()
     {
+        if(!showDialogWindow)
+            edG.SetActive(false);
+        
         if(!travelFlag)
             return;
 
@@ -32,7 +39,9 @@ public class ButtonHandler : MonoBehaviour
         if (showOnce)
         {
             GameObject node = NodeData.selectedNode;
-            node.GetComponent<EventNode>().ShowEventDialog();
+            node.GetComponent<EventNode>().SetEventDialog();
+            eventDialogSelection.CleanSelections();
+            eventDialogSelection.RegisterSelection("Continue", "Continue");
             showOnce = false;
         }
 
@@ -41,16 +50,18 @@ public class ButtonHandler : MonoBehaviour
         
         showOnce = true;
         travelFlag = false;
+        showDialogWindow = false;
         eventDialogSelection.CleanSelections();
         Continue();
     }
 
-    public void Travel()
+    public void ShowDialogBox()
     {
         travelFlag = true;
         sideWindowController.FadeOut();
         GameObject temp = NodeData.selectedNode;
         NodeData.selectedNode.GetComponent<EventNode>().UpdateColor();
+        NodeData.selectedNode.GetComponent<EventNode>().UpdateTravelIndicator();
         NodeData.selectedNode = null;
         GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>().SetSolid();
         GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>().ClearLines();
@@ -59,6 +70,11 @@ public class ButtonHandler : MonoBehaviour
     
     public void Continue()
     {
+        // remove event dialog box
+        if(eventDialogController.uiGroup.alpha != 0)
+            eventDialogController.FadeOut();
+        
+        // travel to node
         GameObject node = NodeData.selectedNode;
         node.GetComponent<EventNode>().Travel();
     }
