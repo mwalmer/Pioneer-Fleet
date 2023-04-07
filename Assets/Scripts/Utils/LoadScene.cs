@@ -35,7 +35,7 @@ public class LoadScene : MonoBehaviour
     }
 
     public void LoadBattleBridgeFromMiniGame(){
-
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1,100);
         SceneManager.LoadScene(2);
     }
 

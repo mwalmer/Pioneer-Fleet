@@ -39,7 +39,7 @@ public class StarFighter : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         mid = 0.5f;
-        randPos = new Vector3(Random.Range(-7f,6f),Random.Range(-3.5f,3.5f));
+        randPos = new Vector3(Random.Range(-15f,-27f),Random.Range(-3f,3f));
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class StarFighter : MonoBehaviour
             if(chased == true){
                 transform.position = Vector3.MoveTowards(transform.position, randPos, 1.4f * Time.deltaTime);
                 if(Vector3.Distance(randPos,transform.position) < 0.5f){
-                     randPos = new Vector3(Random.Range(-7f,6f),Random.Range(-3.5f,3.5f));
+                     randPos = new Vector3(Random.Range(-15f,-27f),Random.Range(-3f,3f));
                 }
             }
             if(bombingRun == true){
@@ -115,21 +115,21 @@ public class StarFighter : MonoBehaviour
 
     }
 
-    public void takeFire(int enemyAccuracy){
+    public bool takeFire(int enemyAccuracy){
         int hitChance = EnginePower - enemyAccuracy;
         if(hitChance < Random.Range(0,100)){
             hit();
+            return true;
         }
+        return false;
     }
 
     public void hit(){
         if(60 < Random.Range(0,100)){
             deadge = true;
-            sprite.color = Color.red;
         }
         else {
             damadge = true;
-            sprite.color = Color.black;
         }
     }
 

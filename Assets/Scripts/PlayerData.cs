@@ -15,6 +15,7 @@ public class PlayerData : MonoBehaviour
     public bool LoadBridgeFirstTime;
     public string FleetLog;
 
+
     void Start()
     {
         DontDestroyOnLoad (transform.gameObject);
@@ -150,5 +151,10 @@ public class PlayerData : MonoBehaviour
     public void updateCurrency(int value)
     {
         currency += value;
+    }
+
+    public void setMinigameInfo(int x, int x2){
+        miniGame = x;
+        miniGameScore = x2;
     }
 }

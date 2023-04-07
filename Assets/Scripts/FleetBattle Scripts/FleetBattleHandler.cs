@@ -24,9 +24,9 @@ public class FleetBattleHandler : MonoBehaviour
         Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
         fleet1 = fleetTemp[0];
         fleet2 = fleetTemp[1];
-        
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn x--------\n");
         if(GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime == false){
-            fleetBattleCalcTest();
+            fleetBattleCalcTest(1,100);
         }
         GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
         log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;
@@ -37,7 +37,7 @@ public class FleetBattleHandler : MonoBehaviour
             DogFights = fleet2ActiveFighters.Count;
         }
 
-        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn x--------\nEnemy Capital Ships: " + fleet2.CapitalShips.Count + "\nEnemy Star Fighters: " +fleet2ActiveFighters.Count + "\nAllied Capital Ships: " + fleet1.CapitalShips.Count + "\nAllied Star Fighters: " +fleet1ActiveFighters.Count);
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Enemy Capital Ships: " + fleet2.CapitalShips.Count + "\nEnemy Star Fighters: " +fleet2ActiveFighters.Count + "\nAllied Capital Ships: " + fleet1.CapitalShips.Count + "\nAllied Star Fighters: " +fleet1ActiveFighters.Count);
         log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;
         for(int i = 0; i < fleet1.CapitalShips.Count; i++){
             fleet1.CapitalShips[i].gameObject.SetActive(true);
@@ -114,7 +114,7 @@ public class FleetBattleHandler : MonoBehaviour
 
     }
 
-    public void fleetBattleCalcTest(){
+    public void fleetBattleCalcTest(int miniGame, int miniGameScore){
         //capital ships battle
         for(int i = 0; i < fleet2.CapitalShips.Count; i++){
             int x = Random.Range(0,fleet1.CapitalShips.Count);
@@ -182,10 +182,19 @@ public class FleetBattleHandler : MonoBehaviour
         //fleetTestOG.setHP(fleet1);
         GameObject.Find("PlayerData").GetComponent<Fleet>().setHP(fleet1);
         //Fleet fleetTest = GameObject.Find("PlayerData").GetComponent<Fleet>() as Fleet;
-        Debug.Log("Ship #0 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[0].currentShield);
-        Debug.Log("Ship #1 has Hull:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].currentHull + " and Shield:" + GameObject.Find("PlayerData").GetComponent<Fleet>().CapitalShips[1].currentShield);
 
+    if(miniGame == 0){
+                Debug.Log("No mini game found");
+            }
+            switch(miniGame){
+                case 1: //star fighter
+                    if(fleet2ActiveFighters[0].GetComponent<StarFighter>().takeFire(miniGameScore)){
+                        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your ace pilot destroyed 1 starfighter");
+                    }
 
+                    
+                    break;
+            }
     }
 
 
