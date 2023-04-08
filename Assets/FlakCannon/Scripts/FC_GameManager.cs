@@ -6,6 +6,11 @@ using TMPro;
 
 public class FC_GameManager : MonoBehaviour
 {
+    [Header("Game Conditions")]
+    public static string GameMode = "Elmination"; // Survival, Elimination.
+    public static int GameDifficulty = 1; // 0~7
+    [Space]
+    [Header("UI Handlers")]
     public UI_IconBar hpUI;
     public TextMeshProUGUI destroyCountUI;
     public FC_EndGameEvent gameEndEvent;
@@ -23,10 +28,7 @@ public class FC_GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gameTimer)
-        {
-            gameTimer.RunCountDown(timeLimit);
-        }
+        InitGame();
     }
 
     // Update is called once per frame
@@ -38,6 +40,25 @@ public class FC_GameManager : MonoBehaviour
     {
         CheckGameConditions();
     }
+
+
+    void InitGame()
+    {
+        //TODO::
+
+
+        if (gameTimer)
+        {
+            gameTimer.RunCountDown(timeLimit);
+        }
+    }
+
+
+
+
+
+
+
     void UpdatePlayerInfo()
     {
         if (hpUI != null)
@@ -49,15 +70,7 @@ public class FC_GameManager : MonoBehaviour
             destroyCountUI.text = "Destroyed: " + destroyCount + "/" + winningCount;
         }
 
-        if (gameTimer)
-        {
-            if (gameTimer.IsTime())
-            {
-                losingEvent();
-            }
-        }
-
-        // WinningCondition
+        // WinningCondition reminder
         if (condiReminder)
         {
             condiReminder.Clear();
@@ -71,13 +84,29 @@ public class FC_GameManager : MonoBehaviour
 
     void CheckGameConditions()
     {
-        if (destroyCount >= winningCount)
+        if (GameMode == "Elimination")
         {
-            WinningEvent();
+            if (destroyCount >= winningCount)
+            {
+                WinningEvent();
+            }
+            if (gameTimer.IsTime())
+            {
+                LosingEvent();
+            }
         }
+        else if (GameMode == "Survival")
+        {
+            if (gameTimer.IsTime())
+            {
+                WinningEvent();
+            }
+        }
+
+        //All cases
         if (playerHP <= 0)
         {
-            losingEvent();
+            LosingEvent();
         }
     }
     void WinningEvent()
@@ -90,7 +119,7 @@ public class FC_GameManager : MonoBehaviour
             gameEndEvent.gameEndNotice.text = "YOU WIN!";
         }
     }
-    void losingEvent()
+    void LosingEvent()
     {
         // TODO:: deal the events when player lost the game
         if (gameEndEvent)

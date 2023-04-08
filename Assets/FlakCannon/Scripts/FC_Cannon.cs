@@ -28,6 +28,9 @@ public class FC_Cannon : MonoBehaviour
     bool isReloading = false;
     Charger ammoReloading = new Charger(2f, false);
     public float reloadingTime = 1f;
+    public AudioSource leftCannonAudio = null;
+    public AudioSource rightCannonAudio = null;
+    public AudioClip fireAudio = null;
 
     [Header("Shield Components")]
     public GameObject energyShieldPrefab;
@@ -44,13 +47,22 @@ public class FC_Cannon : MonoBehaviour
         leftCannonCharger = new Charger(0.28f);
         rightCannonCharger = new Charger(0.28f);
         switchCannon = new Charger(0.14f);
+
+        if (fireAudio && leftCannonAudio && rightCannonAudio)
+        {
+            leftCannonAudio.clip = fireAudio;
+            rightCannonAudio.clip = fireAudio;
+        }
     }
 
     private void Update()
     {
         AdjustCannonAngles();
-        DetectOperation();
         InfomationUpdate();
+    }
+    private void FixedUpdate()
+    {
+        CannonSystemUpdate();
     }
 
     void AdjustCannonAngles()
@@ -68,43 +80,17 @@ public class FC_Cannon : MonoBehaviour
         rightCannon.eulerAngles = Vector3.forward * (angle + offset);
     }
 
-    void DetectOperation()
+    void CannonSystemUpdate()
     {
         // Fire
-        leftCannonCharger.Charge();
-        rightCannonCharger.Charge();
-        switchCannon.Charge();
-
-        if (Input.GetMouseButton(0) && bulletAmmo > 0 && isReloading == false)
-        {
-            if (switchCannon.IsCharged() && leftCannonCharger.IsCharged())
-            {
-                Fire(-1);
-                leftCannonCharger.ReleaseCharge();
-                switchCannon.ReleaseCharge();
-                bulletAmmo--;
-            }
-            if (switchCannon.IsCharged() && rightCannonCharger.IsCharged())
-            {
-                Fire(1);
-                rightCannonCharger.ReleaseCharge();
-                switchCannon.ReleaseCharge();
-                bulletAmmo--;
-            }
-        }
+        leftCannonCharger.FixedCharge();
+        rightCannonCharger.FixedCharge();
+        switchCannon.FixedCharge();
 
         // Reload
-        if (isReloading == false)
-        {
-            if (bulletAmmo == 0 || (bulletAmmo < ammoMagazine && Input.GetKeyDown(reloadButton)))
-            {
-                isReloading = true;
-                ammoReloading.chargingTime = reloadingTime * 0.2f + (1f - (float)bulletAmmo / (float)ammoMagazine) * reloadingTime * 0.8f;
-            }
-        }
         if (isReloading)
         {
-            ammoReloading.Charge();
+            ammoReloading.FixedCharge();
             if (ammoReloading.IsCharged())
             {
                 bulletAmmo = ammoMagazine;
@@ -127,13 +113,6 @@ public class FC_Cannon : MonoBehaviour
                 cursorNoticer.WriteNotice("Reloading...", Color.yellow, -1);
             }
         }
-
-        // Sheild
-
-
-        // ETC.
-
-
     }
 
     public void InfomationUpdate()
@@ -144,6 +123,44 @@ public class FC_Cannon : MonoBehaviour
         }
     }
 
+    // Player Control Command
+    public void FireCannons()
+    {
+        if (bulletAmmo > 0 && isReloading == false)
+        {
+            if (switchCannon.IsCharged() && leftCannonCharger.IsCharged())
+            {
+                Fire(-1);
+                leftCannonCharger.ReleaseCharge();
+                switchCannon.ReleaseCharge();
+                bulletAmmo--;
+            }
+            if (switchCannon.IsCharged() && rightCannonCharger.IsCharged())
+            {
+                Fire(1);
+                rightCannonCharger.ReleaseCharge();
+                switchCannon.ReleaseCharge();
+                bulletAmmo--;
+            }
+        }
+        if (bulletAmmo == 0)
+        {
+            ReloadCannons();
+        }
+    }
+    public void ReloadCannons()
+    {
+        if (isReloading == false)
+        {
+            if (bulletAmmo < ammoMagazine)
+            {
+                isReloading = true;
+                ammoReloading.chargingTime = reloadingTime * 0.2f + (1f - (float)bulletAmmo / (float)ammoMagazine) * reloadingTime * 0.8f;
+            }
+        }
+    }
+
+
     void Fire(int cannonNumber = 0) // cannonIndex: =0 both, <0 left, >0 right
     {
         FC_CannonBullet b;
@@ -151,11 +168,20 @@ public class FC_Cannon : MonoBehaviour
         {
             b = (FC_CannonBullet)Instantiate(bullet, leftMuzzle.position, Quaternion.identity, bulletCollector);
             b.InitBullet(cursorLocation.position, firePower);
+            if (fireAudio && leftCannonAudio)
+            {
+                leftCannonAudio.Play();
+            }
+
         }
         if (cannonNumber >= 0)
         {
             b = (FC_CannonBullet)Instantiate(bullet, rightMuzzle.position, Quaternion.identity, bulletCollector);
             b.InitBullet(cursorLocation.position, firePower);
+            if (fireAudio && rightCannonAudio)
+            {
+                rightCannonAudio.Play();
+            }
         }
     }
 }
