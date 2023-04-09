@@ -349,8 +349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGroup: {fileID: 0}
+  cancelButton: {fileID: 0}
+  confirmButton: {fileID: 0}
   fadingStatus: 0
-  fadingTime: 1
+  fadingTime: 0.5
 --- !u!225 &7947614980644185505
 CanvasGroup:
   m_ObjectHideFlags: 0
