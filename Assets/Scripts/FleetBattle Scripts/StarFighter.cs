@@ -60,7 +60,7 @@ public class StarFighter : MonoBehaviour
                 }
             }
             if(bombingRun == true){
-                transform.position = Vector3.MoveTowards(transform.position, target.position, 1.2f * Time.deltaTime);
+                //transform.position = Vector3.MoveTowards(transform.position, target.position, 1.2f * Time.deltaTime);
             }
             
         }
@@ -82,6 +82,11 @@ public class StarFighter : MonoBehaviour
     public void endCombat(){
         firing = false;
         inCombat = false;
+        circling = false;
+        chasing = false;
+        chased = false;
+        bombingRun = false;
+        target = null;
     }
 
     public IEnumerator Fire(){

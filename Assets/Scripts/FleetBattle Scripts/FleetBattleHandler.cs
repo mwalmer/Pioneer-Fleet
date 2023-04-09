@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FleetBattleHandler : MonoBehaviour
 {
@@ -166,14 +167,16 @@ public class FleetBattleHandler : MonoBehaviour
         setHPtext();
         //make some way for capital ships to destory fighters
         //check for victory or defeat
-        /*
-        if (fleet1.ActiveCapitalShips().Count <= 0 && fleet1.ActiveFighters().Count <=0){
+        if (fleet1.ActiveCapitalShips().Count <= 0 && fleet1ActiveFighters.Count <=0){
             Debug.Log("Lose condition");
         }
-        if(fleet2.ActiveCapitalShips().Count <= 0 && fleet2.ActiveFighters().Count <=0){
+        if(fleet2.ActiveCapitalShips().Count <= 0 && fleet2ActiveFighters.Count <=0){
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().clearEnemyFleet();
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().HandleDamageandDeadFighters();
+            SceneManager.LoadScene(1);
             Debug.Log("Win condition");
         }
-        */
         Debug.Log("There are this many allied capital ships this number should never change from 2 and it is " + fleet1.CapitalShips.Count);
         Debug.Log("From the feel scene directly Ship #0 has Hull:" + fleet1.CapitalShips[0].currentHull + " and Shield:" + fleet1.CapitalShips[0].currentShield);
         Debug.Log("From the feel scene directly Ship #1 has Hull:" + fleet1.CapitalShips[1].currentHull + " and Shield:" + fleet1.CapitalShips[1].currentShield);
@@ -188,8 +191,11 @@ public class FleetBattleHandler : MonoBehaviour
             }
             switch(miniGame){
                 case 1: //star fighter
-                    if(fleet2ActiveFighters[0].GetComponent<StarFighter>().takeFire(miniGameScore)){
-                        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your ace pilot destroyed 1 starfighter");
+                    fleet2ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveFighters();
+                    if(fleet2ActiveFighters.Count > 0){
+                        if(fleet2ActiveFighters[0].GetComponent<StarFighter>().takeFire(miniGameScore)){
+                            GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your ace pilot destroyed 1 starfighter");
+                        }
                     }
 
                     
