@@ -164,6 +164,7 @@ public class EventNode : MonoBehaviour
             } break;
             case EventData.EventType.singleMinigame:
             {
+                eventData.lastScene = "NodeMap";
                 if(eventData.minigameType == EventData.Minigame.StarFighter)
                     LoadScene(3);
                 else if(eventData.minigameType == EventData.Minigame.FlakCannon)
@@ -184,6 +185,10 @@ public class EventNode : MonoBehaviour
             {
                 eventData.setFleetBattleData();
                 LoadScene(2);
+            } break;
+            case EventData.EventType.MatchingMinigame:
+            {
+                LoadScene(5);
             } break;
             default:
             {
