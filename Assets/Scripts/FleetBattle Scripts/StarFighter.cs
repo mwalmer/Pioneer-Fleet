@@ -119,7 +119,7 @@ public class StarFighter : MonoBehaviour
     public void chase(){
 
     }
-
+//returns true if fighter is hit
     public bool takeFire(int enemyAccuracy){
         int hitChance = EnginePower - enemyAccuracy;
         if(hitChance < Random.Range(0,100)){

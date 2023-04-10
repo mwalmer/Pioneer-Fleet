@@ -190,10 +190,17 @@ public class FleetBattleHandler : MonoBehaviour
             }
         switch(miniGame){
             case 1: //star fighter
+                fleet2ActiveCaptialShips = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips();
+                if(fleet2ActiveCaptialShips.Count > 0){
+                    fleet2ActiveCaptialShips[0].GetComponent<CapitalShip>().takeDamage(miniGameScore);
+                    GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your ace pilot did " + miniGameScore + " damage");
+                }
+                break;
+            case 2: //flak cannon
                 fleet2ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveFighters();
                 if(fleet2ActiveFighters.Count > 0){
                     if(fleet2ActiveFighters[0].GetComponent<StarFighter>().takeFire(miniGameScore)){
-                        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your ace pilot destroyed 1 starfighter");
+                        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your gunner crew destroyed 1 starfighter");
                     }
                 }
                 break;
