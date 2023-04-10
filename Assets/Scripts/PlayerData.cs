@@ -104,6 +104,26 @@ public class PlayerData : MonoBehaviour
         return S;
     }
 
+    public List<CapitalShip> PlayerActiveCapitalShips(){
+        List<CapitalShip> S = new List<CapitalShip>();
+        for(int i = 0; i < playerFleet.CapitalShips.Count; i++){
+            if(playerFleet.CapitalShips[i].getActive() == true){
+                S.Add(playerFleet.CapitalShips[i]);
+            }
+        }
+        return S;
+    }
+
+    public List<CapitalShip> EnemyActiveCapitalShips(){
+        List<CapitalShip> S = new List<CapitalShip>();
+        for(int i = 0; i < enemyFleet.CapitalShips.Count; i++){
+            if(enemyFleet.CapitalShips[i].getActive() == true){
+                S.Add(enemyFleet.CapitalShips[i]);
+            }
+        }
+        return S;
+    }
+
 
     public void addPlayerCaptialShip(string name){
         CapitalShip playerCapitalShip = Instantiate(Resources.Load("FleetBattle/" + name, typeof(CapitalShip)) as CapitalShip, transform);
@@ -137,8 +157,8 @@ public class PlayerData : MonoBehaviour
             Destroy(enemyFleet.StarFighters[i].gameObject);
 
         }
-        //enemyFleet.CapitalShips.Clear();
-        //enemyFleet.StarFighters.Clear();
+        enemyFleet.CapitalShips.Clear();
+        enemyFleet.StarFighters.Clear();
     }
 
     public void updateHP(int value)

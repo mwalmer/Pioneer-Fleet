@@ -76,8 +76,8 @@ public class CapitalShip : MonoBehaviour
         if(currentHull <= 0){
             return false;
         }
-            else
-        return true;
+        else
+            return true;
     }
 
     public void setHP(int cHull, int cShield){
