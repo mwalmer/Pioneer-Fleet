@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour
 
     public int currency;
 
-    public bool LoadBridgeFirstTime;
+    public bool LoadBridgeFirstTime = true;
     public string FleetLog;
 
 

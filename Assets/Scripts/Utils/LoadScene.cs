@@ -19,6 +19,7 @@ public class LoadScene : MonoBehaviour
     public void LoadByIndexToFlak()
     {
         GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame = 2;
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore = 100;
         GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
         SceneManager.LoadScene(4);
     }
