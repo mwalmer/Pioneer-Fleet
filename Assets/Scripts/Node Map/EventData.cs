@@ -115,6 +115,7 @@ public class EventData
 
     public void setFleetBattleData()
     {
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
         PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
         playerData.setEnemyFleet(EnemyCapitalType1, EnemyCapitalNum1, EnemyStarFighterType1, EnemyStarFighterNum1);
     }

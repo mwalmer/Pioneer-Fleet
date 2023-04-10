@@ -152,7 +152,6 @@ public class EventNode : MonoBehaviour
             case EventData.EventType.battle:
             {
                 eventData.setFleetBattleData();
-                GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
                 if(eventData.minigameType == EventData.Minigame.Bomber)
                     LoadScene(6);
                 else
