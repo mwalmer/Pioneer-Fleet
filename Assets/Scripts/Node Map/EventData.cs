@@ -20,7 +20,8 @@ public class EventData
         passive,
         singleMinigame,
         boss,
-        turncoat
+        turncoat,
+        MatchingMinigame
     }
 
     public enum Minigame
@@ -44,6 +45,8 @@ public class EventData
     public string enemyName;
     public EnemyType enemyType;
     public NodeType nodeType;
+    public string buffText;
+    public string debuffText;
 
     // player stats (for passive events)
     public int hp;
@@ -75,7 +78,7 @@ public class EventData
         starfighter = 0;
         starfighterStr = "";
         nodeType = NodeType.planet;
-        lastScene = "NodeMap";
+        lastScene = "BattleBridge";
 
         FC_timeGiven = 60;
     }
