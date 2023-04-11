@@ -73,6 +73,12 @@ public class EventData
     public string gameMode; //Elimination, Survival
     public int difficulty;  //0-7
     public bool isBossFight;
+    public int CannonFireSpeed; // 1-8
+    public int CannonMagazineNumber; // 10-60
+    public int ShieldSustain; //50-400
+    public int CannonHP; // 3-20
+    public int EnergyGain; // 1-100
+    
 
     public EventData()
     {
@@ -82,10 +88,16 @@ public class EventData
         starfighter = 0;
         starfighterStr = "";
         nodeType = NodeType.planet;
+        
         lastScene = "BattleBridge";
         gameMode = "Elimination";
         difficulty = 3;
         isBossFight = false;
+        CannonFireSpeed = 4;
+        CannonMagazineNumber = 20;
+        ShieldSustain = 100;
+        CannonHP = 7;
+        EnergyGain = 10;
 
         FC_timeGiven = 60;
     }
