@@ -14,6 +14,7 @@ public class FC_Enemyfighter : MonoBehaviour
     private FC_EnemyStatus enemyStatus;
     public bool isHarmful = true;
     public FC_EnergyShield blockedByIt = null;
+    public GameObject enemyExplosion;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class FC_Enemyfighter : MonoBehaviour
             {
                 FC_GameManager.ChangePlayerHP(-1);
             }
+            SpwanExplosionEffect();
             Destroy(this.gameObject);
         }
     }
@@ -43,7 +45,14 @@ public class FC_Enemyfighter : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         if (enemyStatus)
+        {
             enemyStatus.TakeDamage(dmg);
+            if (enemyStatus.LifeCheck() == false)
+            {
+                SpwanExplosionEffect();
+                enemyStatus.Dead();
+            }
+        }
     }
     public float GetDistance()
     {
@@ -57,6 +66,14 @@ public class FC_Enemyfighter : MonoBehaviour
         }
     }
 
-
+    public void SpwanExplosionEffect()
+    {
+        ParticleSystem explosion = Instantiate(enemyExplosion).GetComponent<ParticleSystem>();
+        explosion.transform.localScale = new Vector3(transform.localScale.x / 10f, transform.localScale.y / 10f, transform.localScale.z / 10f);
+        explosion.transform.position = transform.position;
+        ParticleSystemRenderer explosionRender = explosion.GetComponent<ParticleSystemRenderer>();
+        explosionRender.sortingLayerName = "objects";
+        explosionRender.sortingOrder = (int)(spaceStatus.GetDistance() + 1f);
+    }
 
 }
