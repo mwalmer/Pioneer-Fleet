@@ -28,6 +28,7 @@ public class FC_CannonBullet : MonoBehaviour
     void Start()
     {
         spaceStatus = GetComponent<FC_SpaceStatus>();
+        spaceStatus.isFlyOut = true;
     }
 
     // Update is called once per frame
@@ -71,7 +72,8 @@ public class FC_CannonBullet : MonoBehaviour
         if (!isBulletActive)
             return;
 
-        spaceStatus.Move(speed, true);
+        spaceStatus.Move(speed, 0, 0);
+        spaceStatus.SetFlyOut(true);
         sdCountdown -= Time.fixedDeltaTime;
         if (sdCountdown < 0)
             Destroy(this.gameObject);

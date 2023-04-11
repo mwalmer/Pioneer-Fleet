@@ -10,7 +10,10 @@ public class FC_EnergyShield : MonoBehaviour
     SpriteRenderer sr;
     RectTransform rectT;
     Collider2D collider;
+
     public bool isActive = false;
+    private float visualSize = 125f;
+    private float initialAlpha = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,7 @@ public class FC_EnergyShield : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rectT = this.GetComponent<RectTransform>();
         collider = GetComponentInChildren<Collider2D>();
+        initialAlpha = sr.color.a;
     }
 
     // Update is called once per frame
@@ -44,34 +48,48 @@ public class FC_EnergyShield : MonoBehaviour
             Debug.Log("!");
             FC_Enemyfighter ef = col.gameObject.GetComponentInParent<FC_Enemyfighter>();
             ef.isHarmful = false;
+            ef.blockedByIt = this;
         }
     }
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log("!");
             FC_Enemyfighter ef = col.gameObject.GetComponentInParent<FC_Enemyfighter>();
             ef.isHarmful = true;
+            if (ef.blockedByIt == this)
+            {
+                ef.blockedByIt = null;
+            }
         }
     }
-    public void InitEnergyShield(float _energy, float _cost)
+    public void InitEnergyShield(float _energy, float _cost = 200)
     {
         isActive = true;
         energy = _energy;
+        visualSize = energy / 2f;
         cost = _cost;
+        EnergyShieldOn();
     }
 
     void EnergyShieldOn()
     {
         if (rectT)
         {
-            rectT.localScale = new Vector3(100 + energy, 100 + energy, rectT.localScale.z);
+            if (energy <= visualSize)
+            {
+                rectT.localScale = new Vector3(energy + visualSize, energy + visualSize, rectT.localScale.z);
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, initialAlpha * (energy / visualSize));
+            }
+            else
+            {
+                rectT.localScale = new Vector3(visualSize * 2, visualSize * 2, rectT.localScale.z);
+            }
         }
 
     }
     void EnergyShieldFinish()
     {
-
+        Destroy(this.gameObject);
     }
 }

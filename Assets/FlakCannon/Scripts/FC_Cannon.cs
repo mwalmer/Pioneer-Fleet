@@ -23,19 +23,20 @@ public class FC_Cannon : MonoBehaviour
     public Transform leftMuzzle;
     public Transform rightMuzzle;
     public Transform bulletCollector;
+    public FC_CannonFireEffector fireEffector;
     // Reloading
     public KeyCode reloadButton = KeyCode.R;
     bool isReloading = false;
     Charger ammoReloading = new Charger(2f, false);
     public float reloadingTime = 1f;
+    // Audio
+    [Header("Audio")]
     public AudioSource leftCannonAudio = null;
     public AudioSource rightCannonAudio = null;
+    public AudioSource reloadingAudioSource = null;
     public AudioClip fireAudio = null;
-
-    [Header("Shield Components")]
-    public GameObject energyShieldPrefab;
-    public KeyCode shieldButton;
-    public float shieldCost;
+    public AudioClip reloadingAudio = null;
+    public AudioClip reloadingFinishAudio = null;
 
     [Header("UI Components")]
     public UI_Notice cursorNoticer;
@@ -52,6 +53,12 @@ public class FC_Cannon : MonoBehaviour
         {
             leftCannonAudio.clip = fireAudio;
             rightCannonAudio.clip = fireAudio;
+        }
+
+        if (!fireEffector)
+        {
+            fireEffector = this.GetComponent<FC_CannonFireEffector>();
+
         }
     }
 
@@ -101,12 +108,27 @@ public class FC_Cannon : MonoBehaviour
                 }
                 reloadingUI.gameObject.SetActive(false);
                 isReloading = false;
+
+                if (reloadingAudioSource.clip != reloadingFinishAudio || reloadingAudioSource.isPlaying == false)
+                {
+                    reloadingAudioSource.Stop();
+                    reloadingAudioSource.clip = reloadingFinishAudio;
+                    reloadingAudioSource.loop = false;
+                    reloadingAudioSource.Play();
+                }
                 return;
             }
             if (reloadingUI)
             {
                 reloadingUI.gameObject.SetActive(true);
                 reloadingUI.value = ammoReloading.Progress();
+
+                if (reloadingAudioSource.clip != reloadingAudio || reloadingAudioSource.isPlaying == false)
+                {
+                    reloadingAudioSource.clip = reloadingAudio;
+                    reloadingAudioSource.loop = true;
+                    reloadingAudioSource.Play();
+                }
             }
             if (cursorNoticer && cursorNoticer.IsIdle())
             {
@@ -134,6 +156,8 @@ public class FC_Cannon : MonoBehaviour
                 leftCannonCharger.ReleaseCharge();
                 switchCannon.ReleaseCharge();
                 bulletAmmo--;
+
+                fireEffector.FireLeftEffect();
             }
             if (switchCannon.IsCharged() && rightCannonCharger.IsCharged())
             {
@@ -141,6 +165,8 @@ public class FC_Cannon : MonoBehaviour
                 rightCannonCharger.ReleaseCharge();
                 switchCannon.ReleaseCharge();
                 bulletAmmo--;
+
+                fireEffector.FireRightEffect();
             }
         }
         if (bulletAmmo == 0)
@@ -155,11 +181,10 @@ public class FC_Cannon : MonoBehaviour
             if (bulletAmmo < ammoMagazine)
             {
                 isReloading = true;
-                ammoReloading.chargingTime = reloadingTime * 0.2f + (1f - (float)bulletAmmo / (float)ammoMagazine) * reloadingTime * 0.8f;
+                ammoReloading.chargingTime = reloadingTime * 0.5f + (1f - (float)bulletAmmo / (float)ammoMagazine) * reloadingTime * 0.5f;
             }
         }
     }
-
 
     void Fire(int cannonNumber = 0) // cannonIndex: =0 both, <0 left, >0 right
     {

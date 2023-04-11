@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class FC_GameManager : MonoBehaviour
 {
     [Header("Game Conditions")]
-    public static string GameMode = "Elmination"; // Survival, Elimination.
+    public static string GameMode = "Elimination"; // Survival, Elimination.
     public static int GameDifficulty = 1; // 0~7
     [Space]
     [Header("UI Handlers")]
@@ -18,16 +19,19 @@ public class FC_GameManager : MonoBehaviour
     public UI_Description condiReminder;
     public UI_Timer gameTimer;
 
-    public static int playerHP = 10;
-    public static int destroyCount = 0;
+    public int playerHP = 10;
+    public int playerEnergy = 5;
+    public int destroyCount = 0;
     public int winningCount = 10;
     public float timeLimit = 60;
 
     public static bool IsGameActive = true;
+    public static FC_GameManager GameManager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        GameManager = this;
         InitGame();
     }
 
@@ -35,6 +39,10 @@ public class FC_GameManager : MonoBehaviour
     void Update()
     {
         UpdatePlayerInfo();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            FC_GameManager.ReloadScene();
+        }
     }
     private void FixedUpdate()
     {
@@ -53,7 +61,10 @@ public class FC_GameManager : MonoBehaviour
         }
     }
 
-
+    public static void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 
 
@@ -133,11 +144,11 @@ public class FC_GameManager : MonoBehaviour
 
     public static void ChangePlayerHP(int add)
     {
-        playerHP += add;
+        GameManager.playerHP += add;
     }
     public static void CountDestroy()
     {
-        destroyCount++;
+        GameManager.destroyCount++;
     }
     public static void ResetFlakCannonGameSettings()
     {

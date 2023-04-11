@@ -36,5 +36,18 @@ public class UI_CanvasInit : MonoBehaviour
         canvasInit.nameScene = _sceneName;
         canvasInit.goNextScene = true;
     }
+    public Canvas GetCanvas()
+    {
+        return canvas;
+    }
+
+    public static Canvas GetMainCanvas()
+    {
+        if (canvasInit != null)
+        {
+            return canvasInit.GetCanvas();
+        }
+        return null; ;
+    }
 
 }

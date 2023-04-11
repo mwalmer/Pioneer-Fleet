@@ -113,8 +113,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 670
+  angularSpeed: 0
+  planeAngular: 0
+  distanceAngular: 0
+  isUpsideDown: 0
   spaceStatus: {fileID: 0}
   enemyStatus: {fileID: 0}
+  isHarmful: 1
+  blockedByIt: {fileID: 0}
 --- !u!114 &4953361164336428771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c757ce1ec950594b955ed1666e4456c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 4
   def: 0
 --- !u!114 &1339383491
 MonoBehaviour:
@@ -144,6 +150,12 @@ MonoBehaviour:
   distance: 0
   sizeMultiplier: 1
   sr: {fileID: 0}
+  speed: 0
+  distanceSpeed: 0
+  planeSpeed: 0
+  planeMoveVector: {x: 0, y: 0}
+  planeToDistanceModifier: 1000
+  isFlyOut: 0
 --- !u!50 &7741593627627528242
 Rigidbody2D:
   serializedVersion: 4

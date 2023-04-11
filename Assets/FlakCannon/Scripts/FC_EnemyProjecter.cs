@@ -17,6 +17,7 @@ public class FC_EnemyProjecter : MonoBehaviour
     private float timeCount = 0;
 
 
+
     void FixedUpdate()
     {
         if (FC_GameManager.IsGameActive == false) return;
@@ -25,20 +26,30 @@ public class FC_EnemyProjecter : MonoBehaviour
         if (timeCount >= interval)
         {
             timeCount = 0;
-            SpawnEnemyfighter();
+            FC_Enemyfighter temp = SpawnEnemyfighter();
+
+            // For testing
+            temp.speed = Random.Range(650, 800);
+            temp.planeAngular = Random.Range(-180, 180);
+            temp.angularSpeed = Random.Range(10, 90);
+            temp.distanceAngular = Random.Range(0, 90);
+            if (Random.Range(0, 100) < 50)
+            {
+                temp.isUpsideDown = true;
+            }
         }
     }
 
-    void SpawnEnemyfighter()
+    FC_Enemyfighter SpawnEnemyfighter()
     {
         if (minPos == null || maxPos == null)
-            return;
+            return null;
         //TODO:: 
         //1. random a position in the camera
         float spawnX = Random.Range(minPos.position.x, maxPos.position.x);
         float spawnY = Random.Range(minPos.position.y, maxPos.position.y);
 
         //2. instantiate the enemy fighter and spwan into the right position from the above.
-        Instantiate(EnemyfighterPrefab, new Vector2(spawnX, spawnY), Quaternion.identity);
+        return Instantiate(EnemyfighterPrefab, new Vector2(spawnX, spawnY), Quaternion.identity).GetComponent<FC_Enemyfighter>();
     }
 }

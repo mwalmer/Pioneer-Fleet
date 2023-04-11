@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FC_AimmingCursor : MonoBehaviour
 {
     public static bool disableOriginalCursor = true;
-
     private void Start()
     {
         Cursor.visible = !disableOriginalCursor;
@@ -30,5 +30,10 @@ public class FC_AimmingCursor : MonoBehaviour
         mousePos.z = Camera.main.nearClipPlane;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         this.transform.position = new Vector3(worldPos.x, worldPos.y, mousePos.z);
+    }
+
+    public Vector2 GetPos()
+    {
+        return transform.position;
     }
 }

@@ -60,7 +60,6 @@ public class UI_IconBar : MonoBehaviour
         // Updating Icons
         if (iconItems.Count < IconNumbers())
         {
-            Debug.Log("Draw Icons");
             // Need to draw more icons.
             for (int i = iconItems.Count; i < IconNumbers(); ++i)
             {

@@ -322,6 +322,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c33b27080ff384fb6f85524426b3fa, type: 3}
+--- !u!114 &686066908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1257678537, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+  m_PrefabInstance: {fileID: 7380936880298049144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f9b2fbc17b2464a8e39a94c0b65575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &755475496
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,8 +574,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireButton: 323
   reloadButton: 114
+  shieldButton: 324
   cannons: {fileID: 193078253}
   shield: {fileID: 0}
+  playerCursor: {fileID: 686066908}
 --- !u!1 &922747791
 GameObject:
   m_ObjectHideFlags: 0

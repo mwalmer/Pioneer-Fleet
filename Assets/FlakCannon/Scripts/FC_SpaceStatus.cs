@@ -8,9 +8,17 @@ public class FC_SpaceStatus : MonoBehaviour
     float distance = 0;
     public float sizeMultiplier = 1; // for changing default sprite size
     public SpriteRenderer sr;
+    public float speed;
+    public float distanceSpeed;
+    public float planeSpeed;
+    public Vector2 planeMoveVector;
+    public float planeToDistanceModifier = 1000;
+
 
     public static float rangeOfVisibility = 2800;
     bool isDisabled = false;
+    public bool isFlyOut = false;
+    bool isUpsideDown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +44,10 @@ public class FC_SpaceStatus : MonoBehaviour
             return;
 
         // Use to change the scale of the enemy fighter by the distance
+        if (distance > rangeOfVisibility && isFlyOut)
+        {
+            Destroy(this.gameObject);
+        }
 
         if (distance > rangeOfVisibility || distance < 0 || transform.localScale.x <= 0.01f)
         {
@@ -67,12 +79,42 @@ public class FC_SpaceStatus : MonoBehaviour
         }
         distance = lower + Random.Range(0, upper - lower);
     }
-    public void Move(float speedPerSec, bool toFar = false, bool isFixedDelta = true)
+    public void SetMoveAngular(float planeAngular, float distanceAngular)
     {
-        if (!toFar)
-            distance = distance - speedPerSec * (isFixedDelta ? Time.fixedDeltaTime : 1);
+        planeAngular += 90; // offset the planeAngular to make the initial angle point to 0-clock.
+        planeAngular = Mathf.Deg2Rad * planeAngular;
+        distanceAngular = Mathf.Deg2Rad * distanceAngular;
+
+        planeSpeed = Mathf.Sin(distanceAngular) * speed / planeToDistanceModifier;
+        distanceSpeed = Mathf.Cos(distanceAngular) * speed;
+        planeMoveVector = new Vector2(planeSpeed * Mathf.Cos(planeAngular), planeSpeed * Mathf.Sin(planeAngular));
+    }
+    public void Move(float _speed, float planeAngular, float distanceAngular, bool isFixedDelta = true)
+    {
+        float deltaTime = (isFixedDelta ? Time.fixedDeltaTime : Time.deltaTime);
+        speed = _speed;
+        SetMoveAngular(planeAngular, distanceAngular);
+
+        if (isFlyOut)
+        {
+            distance = distance + distanceSpeed * deltaTime;
+        }
         else
-            distance = distance + speedPerSec * (isFixedDelta ? Time.fixedDeltaTime : 1);
+        {
+            distance = distance - distanceSpeed * deltaTime;
+        }
+
+        this.transform.position = new Vector3(transform.position.x + planeMoveVector.x * deltaTime,
+                                              transform.position.y + planeMoveVector.y * deltaTime,
+                                              transform.position.z);
+    }
+    public void SetFlyOut(bool _isFlyOut)
+    {
+        isFlyOut = _isFlyOut;
+    }
+    public void SetUpsideDown(bool _isUpsideDown)
+    {
+        isUpsideDown = _isUpsideDown;
     }
 
 
@@ -100,5 +142,25 @@ public class FC_SpaceStatus : MonoBehaviour
     public void Disable()
     {
         isDisabled = true;
+    }
+
+    public void AvatarRotationOn()
+    {
+        float degreeOfRotation = (planeSpeed * planeToDistanceModifier) / speed;
+        degreeOfRotation = Mathf.Pow((degreeOfRotation > 1 ? 1 : degreeOfRotation), 2);
+
+        float degreeOfSideMove = planeMoveVector.x / planeMoveVector.magnitude;
+        float newZ = 0;
+        if (isUpsideDown == false)
+        {
+            newZ = degreeOfSideMove * (90 * degreeOfRotation) * -1;
+        }
+        else
+        {
+            newZ = 180 + degreeOfSideMove * (90 * degreeOfRotation);
+        }
+        Vector3 eulerRotation = transform.rotation.eulerAngles;
+        newZ = (float)Mathf.RoundToInt(newZ * 1000) / 1000f;
+        transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, newZ);
     }
 }
