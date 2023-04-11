@@ -128,6 +128,7 @@ public class FC_GameManager : MonoBehaviour
             gameEndEvent.gameObject.SetActive(true);
             gameEndEvent.gameEndNotice.color = Color.green;
             gameEndEvent.gameEndNotice.text = "YOU WIN!";
+            FC_GameManager.IsGameActive = false;
         }
     }
     void LosingEvent()
@@ -138,6 +139,7 @@ public class FC_GameManager : MonoBehaviour
             gameEndEvent.gameObject.SetActive(true);
             gameEndEvent.gameEndNotice.color = Color.red;
             gameEndEvent.gameEndNotice.text = "YOU LOSE!";
+            FC_GameManager.IsGameActive = false;
         }
     }
 
