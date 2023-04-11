@@ -35,6 +35,8 @@ public class StarFighter : MonoBehaviour
     bool firing = false;
     Vector3 randPos;
 
+    public int price;
+
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();

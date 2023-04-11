@@ -13,6 +13,9 @@ public class ButtonHandler : MonoBehaviour
     public bool travelFlag = false;
     public bool showOnce = true;
     public bool showDialogWindow = false;
+    string[] ships = new string[4];
+    int[] prices = new int[4];
+    string lastSelection = "";
 
     private void Start()
     {
@@ -38,19 +41,96 @@ public class ButtonHandler : MonoBehaviour
         
         if (showOnce)
         {
+            showOnce = false;
             GameObject node = NodeData.selectedNode;
             node.GetComponent<EventNode>().SetEventDialog();
             eventDialogSelection.CleanSelections();
-            eventDialogSelection.RegisterSelection("Continue", "Continue");
-            showOnce = false;
+
+            if (node.GetComponent<EventNode>().eventData.eventType == EventData.EventType.shop)
+            {
+                for(int i = 0; i < ships.Length; i++)
+                {
+                    if(i < 2)
+                    {
+                        ships[i] = PlayerData.getRandomCapitalShip();
+                        prices[i] = (Resources.Load("FleetBattle/" + ships[i], typeof(CapitalShip)) as CapitalShip).price;
+                    }
+                    else
+                    {
+                        ships[i] = PlayerData.getRandomStarFighter();
+                        prices[i] = (Resources.Load("FleetBattle/" + ships[i], typeof(StarFighter)) as StarFighter).price;
+                    }
+                }
+                eventDialogSelection.RegisterSelection("0", ships[0] + ": price " + prices[0]);
+                eventDialogSelection.RegisterSelection("1", ships[1] + ": price " + prices[1]);
+                eventDialogSelection.RegisterSelection("2", ships[2] + ": price " + prices[2]);
+                eventDialogSelection.RegisterSelection("3", ships[3] + ": price " + prices[3]);
+                eventDialogSelection.RegisterSelection("Exit", "exit");
+            }
+            else
+            {
+                eventDialogSelection.RegisterSelection("Continue", "Continue");
+            }
+            
         }
 
-        if (eventDialogSelection.GetCurrentSelection() == null)
+        if (eventDialogSelection.GetCurrentSelection() == null || eventDialogSelection.GetCurrentSelection() == lastSelection)
             return;
-        
+    
+
+        GameObject n = NodeData.selectedNode;
+        if(n.GetComponent<EventNode>().eventData.eventType == EventData.EventType.shop)
+        {
+            PlayerData pd = FindObjectOfType<PlayerData>();
+            string selection = eventDialogSelection.GetCurrentSelection();
+            switch(selection)
+            {
+                case "0":
+                if(pd.currency < prices[0])
+                {
+                    lastSelection = selection;
+                    return;  
+                }
+                pd.addPlayerCaptialShip(ships[0]);
+                pd.currency -= prices[0];
+                break;
+                case "1":
+                if(pd.currency < prices[1])
+                {
+                    lastSelection = selection;
+                    return;  
+                }
+                pd.addPlayerCaptialShip(ships[1]);
+                pd.currency -= prices[1];
+                break;
+                case "2":
+                if(pd.currency < prices[2])
+                {
+                    lastSelection = selection;
+                    return;  
+                }
+                pd.addPlayerStarFighter(ships[2]);
+                pd.currency -= prices[2];
+                break;
+                case "3":
+                if(pd.currency < prices[3])
+                {
+                    lastSelection = selection;
+                    return;  
+                }
+                pd.addPlayerStarFighter(ships[3]);
+                pd.currency -= prices[3];
+                break;
+                default:
+                break;
+            }
+        }
+
         showOnce = true;
         travelFlag = false;
         showDialogWindow = false;
+
+        lastSelection = "";
         eventDialogSelection.CleanSelections();
         Continue();
     }

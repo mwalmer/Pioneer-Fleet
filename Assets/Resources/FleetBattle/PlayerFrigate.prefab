@@ -217,6 +217,7 @@ MonoBehaviour:
   shield: {fileID: 2217855009206389461, guid: dbbe52381c03e1d42bb1f7bbfddd36b5, type: 3}
   ShieldUp: 0
   fireDistance: 0.6
+  price: 150
 --- !u!70 &1272335251138465036
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

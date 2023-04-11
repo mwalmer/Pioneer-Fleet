@@ -21,7 +21,8 @@ public class EventData
         singleMinigame,
         boss,
         turncoat,
-        MatchingMinigame
+        MatchingMinigame,
+        shop
     }
 
     public enum Minigame

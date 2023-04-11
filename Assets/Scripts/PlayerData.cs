@@ -13,11 +13,14 @@ public class PlayerData : MonoBehaviour
     public int currency;
 
     public bool LoadBridgeFirstTime = true;
+
+    public int battleTurn = 1;
     public string FleetLog;
 
 
     void Start()
     {
+        currency = 150;
         DontDestroyOnLoad (transform.gameObject);
         playerFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
         enemyFleet = gameObject.AddComponent(typeof(Fleet)) as Fleet;
@@ -34,6 +37,10 @@ public class PlayerData : MonoBehaviour
 
     public void addToFleetLog(string s){
         FleetLog = FleetLog + s;
+    }
+
+    public void clearFleetLog(){
+        FleetLog = "";
     }
 
     public void setFleet(){
@@ -177,4 +184,29 @@ public class PlayerData : MonoBehaviour
         miniGame = x;
         miniGameScore = x2;
     }
+
+    public static string getRandomCapitalShip(){
+        int x = Random.Range(1,3);
+        switch(x){
+            case 1:
+            return "PlayerFrigate";
+
+            case 2:
+            return "NairanBattlecruiser";
+        }
+        return "PlayerFrigate";
+    }
+
+    public static string getRandomStarFighter(){
+        int x = Random.Range(1,3);
+        switch(x){
+            case 1:
+            return "PlayerFighter";
+
+            case 2:
+            return "NairanFighter";
+        }
+        return "PlayerFighter";
+    }
+
 }

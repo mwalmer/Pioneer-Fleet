@@ -106,6 +106,7 @@ MonoBehaviour:
   inCombat: 0
   target: {fileID: 0}
   projectile: {fileID: 3724408194818019075, guid: 7de9ba4909944b544a5b9fa75a892474, type: 3}
+  price: 50
 --- !u!1 &8566046045027211726
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,8 +27,11 @@ public class FleetBattleHandler : MonoBehaviour
         Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
         fleet1 = fleetTemp[0];
         fleet2 = fleetTemp[1];
+        if(firstTime == true)
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().clearFleetLog();
+
         GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn x--------\n");
-        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime == false){
+        if(firstTime == false){
             fleetBattleCalcTest(1,100);
         }
         GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
@@ -205,10 +208,10 @@ public class FleetBattleHandler : MonoBehaviour
                 }
                 break;
         }
-        if (GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveCapitalShips().Count <= 0 && fleet1ActiveFighters.Count <=0){
+        if (GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveCapitalShips().Count <= 0 && GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveFighters().Count <=0){
                 Debug.Log("Lose condition");
             }
-        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips().Count <= 0 && fleet2ActiveFighters.Count <=0){
+        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips().Count <= 0){
                 GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
                 GameObject.Find("PlayerData").GetComponent<PlayerData>().clearEnemyFleet();
                 GameObject.Find("PlayerData").GetComponent<PlayerData>().HandleDamageandDeadFighters();

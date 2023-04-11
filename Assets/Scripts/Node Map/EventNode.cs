@@ -189,6 +189,10 @@ public class EventNode : MonoBehaviour
             {
                 LoadScene(5);
             } break;
+            case EventData.EventType.shop:
+            {
+                Debug.LogError("Invalid capital ship!\n");
+            } break;
             default:
             {
                 Debug.LogError("how did I get here?");

@@ -217,6 +217,7 @@ MonoBehaviour:
   shield: {fileID: 1698974298655606264, guid: 5320dac430156e649a931f561fd77d2f, type: 3}
   ShieldUp: 0
   fireDistance: 0.9
+  price: 200
 --- !u!50 &1223507579087026290
 Rigidbody2D:
   serializedVersion: 4

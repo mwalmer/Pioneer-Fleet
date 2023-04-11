@@ -24,6 +24,8 @@ public class CapitalShip : MonoBehaviour
 
     public float fireDistance;
 
+    public int price;
+
     // Start is called before the first frame update
     void Start()
     {
