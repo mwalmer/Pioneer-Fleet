@@ -31,6 +31,10 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         if (FC_GameManager.IsGameActive == false)
         {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                GoNextScene();
+            }
             if (shouldGoNextScene && UI_Blackscreen.blackscreen.IsFinished())
             {
                 SceneManager.LoadScene(nextScene);
