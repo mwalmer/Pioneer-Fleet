@@ -69,7 +69,10 @@ public class EventData
     public int FC_timeGiven;//60-120
     public int FC_numEnemiesRequired;
     public int FC_enemyHP;
-    public string lastScene;
+    public string lastScene; 
+    public string gameMode; //Elimination, Survival
+    public int difficulty;  //0-7
+    public bool isBossFight;
 
     public EventData()
     {
@@ -80,6 +83,9 @@ public class EventData
         starfighterStr = "";
         nodeType = NodeType.planet;
         lastScene = "BattleBridge";
+        gameMode = "Elimination";
+        difficulty = 3;
+        isBossFight = false;
 
         FC_timeGiven = 60;
     }

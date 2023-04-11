@@ -153,9 +153,9 @@ public class EventNode : MonoBehaviour
             {
                 eventData.setFleetBattleData();
                 if(eventData.minigameType == EventData.Minigame.Bomber)
-                    LoadScene(6);
+                    UI_CanvasInit.EnterNextScene("bomber test");
                 else
-                    LoadScene(2);
+                    UI_CanvasInit.EnterNextScene("BattleBridge");
             } break;
             case EventData.EventType.passive:
             {
@@ -165,25 +165,25 @@ public class EventNode : MonoBehaviour
             {
                 eventData.lastScene = "NodeMap";
                 if(eventData.minigameType == EventData.Minigame.StarFighter)
-                    LoadScene(3);
+                    UI_CanvasInit.EnterNextScene("fighter");
                 else if(eventData.minigameType == EventData.Minigame.FlakCannon)
-                    LoadScene(4);
+                    UI_CanvasInit.EnterNextScene("FlakCannon");
                 else if(eventData.minigameType == EventData.Minigame.MatchingMinigame)
-                    LoadScene(5);
+                    UI_CanvasInit.EnterNextScene("CandyCrush");
             } break;
             case EventData.EventType.boss:
             {
                 eventData.setFleetBattleData();
                 // NodeData.newMap = true;
             
-                LoadScene(2);
+                UI_CanvasInit.EnterNextScene("BattleBridge");
                 Destroy(NodeData.nodeMap);
                 NodeData.eventNodeList.Clear();
             } break;
             case EventData.EventType.turncoat:
             {
                 eventData.setFleetBattleData();
-                LoadScene(2);
+                UI_CanvasInit.EnterNextScene("BattleBridge");
             } break;
             case EventData.EventType.MatchingMinigame:
             {
