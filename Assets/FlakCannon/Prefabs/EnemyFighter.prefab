@@ -117,11 +117,10 @@ MonoBehaviour:
   planeAngular: 0
   distanceAngular: 0
   isUpsideDown: 0
-  spaceStatus: {fileID: 0}
-  enemyStatus: {fileID: 0}
   isHarmful: 1
   blockedByIt: {fileID: 0}
   enemyExplosion: {fileID: 6198587726954272954, guid: d7a77c37122fe9643bb27bb65b3118d9, type: 3}
+  explosionSound: {fileID: 8300000, guid: 1fd31868d68903d4f9e2c4a3b7ef98f3, type: 3}
 --- !u!114 &4953361164336428771
 MonoBehaviour:
   m_ObjectHideFlags: 0

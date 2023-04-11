@@ -9,12 +9,12 @@ public class FC_Enemyfighter : MonoBehaviour
     public float planeAngular = 0;
     public float distanceAngular = 0; // range: -90 <- 0 -> 90
     public bool isUpsideDown = false;
-    public FC_SpaceStatus spaceStatus;
-    [SerializeField]
+    private FC_SpaceStatus spaceStatus;
     private FC_EnemyStatus enemyStatus;
     public bool isHarmful = true;
     public FC_EnergyShield blockedByIt = null;
     public GameObject enemyExplosion;
+    public AudioClip explosionSound;
 
     private void Start()
     {
@@ -74,6 +74,10 @@ public class FC_Enemyfighter : MonoBehaviour
         ParticleSystemRenderer explosionRender = explosion.GetComponent<ParticleSystemRenderer>();
         explosionRender.sortingLayerName = "objects";
         explosionRender.sortingOrder = (int)(spaceStatus.GetDistance() + 1f);
+
+        AudioSource tempSound = explosion.gameObject.AddComponent<AudioSource>();
+        tempSound.clip = explosionSound;
+        tempSound.Play();
     }
 
 }

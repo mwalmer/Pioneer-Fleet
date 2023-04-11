@@ -1073,7 +1073,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1737,7 +1737,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -12988,6 +12988,8 @@ GameObject:
   - component: {fileID: 7380936880401674571}
   - component: {fileID: 7380936880401674572}
   - component: {fileID: 4168155296917948038}
+  - component: {fileID: 193078256}
+  - component: {fileID: 193078257}
   m_Layer: 0
   m_Name: Cannons
   m_TagString: Untagged
@@ -13032,7 +13034,7 @@ MonoBehaviour:
   ammoMagazine: 36
   firePower: 4000
   leftMuzzle: {fileID: 2457254378795783496}
-  rightMuzzle: {fileID: 0}
+  rightMuzzle: {fileID: 5546848799109678896}
   bulletCollector: {fileID: 0}
   fireEffector: {fileID: 4168155296917948038}
   reloadButton: 114
@@ -13058,8 +13060,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d79608948ae4e4fbe711a1da6b2ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoilTime: 0.5
+  leftBarrelFired: 0
+  rightBarrelFired: 0
+  cannonAnimator: {fileID: 193078257}
   leftCannonFire: {fileID: 6664689187304068925}
   rightCannonFire: {fileID: 5843817762513645648}
+--- !u!111 &193078256
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380936880401674570}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &193078257
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380936880401674570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f60e3c194f2b4834bb23331d3637f991, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7380936880848776210
 GameObject:
   m_ObjectHideFlags: 0
@@ -13488,14 +13529,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.0627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f134cf15714f3c341856f44212c930b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
