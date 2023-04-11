@@ -45,16 +45,16 @@ public class FleetBattleHandler : MonoBehaviour
             DogFights = fleet2ActiveFighters.Count;
         }
 
-        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Enemy Capital Ships: " + fleet2.CapitalShips.Count + "\nEnemy Star Fighters: " +fleet2ActiveFighters.Count + "\nAllied Capital Ships: " + fleet1.CapitalShips.Count + "\nAllied Star Fighters: " +fleet1ActiveFighters.Count);
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Enemy Capital Ships: " + fleet2ActiveCaptialShips.Count + "\nEnemy Star Fighters: " +fleet2ActiveFighters.Count + "\nAllied Capital Ships: " + fleet1ActiveCaptialShips.Count + "\nAllied Star Fighters: " +fleet1ActiveFighters.Count);
         log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;
         for(int i = 0; i < fleet1ActiveCaptialShips.Count; i++){
-            fleet1.CapitalShips[i].gameObject.SetActive(true);
+            fleet1ActiveCaptialShips[i].gameObject.SetActive(true);
             Vector3 CapitalPosition = transform.position;
             Quaternion CapitalRotation = transform.rotation;
             CapitalPosition.y = CapitalPosition.y + i;
-            fleet1.CapitalShips[i].startCombat();
-            fleet1.CapitalShips[i].gameObject.transform.position = CapitalPosition;
-            fleet1.CapitalShips[i].gameObject.transform.rotation = CapitalRotation;
+            fleet1ActiveCaptialShips[i].startCombat();
+            fleet1ActiveCaptialShips[i].gameObject.transform.position = CapitalPosition;
+            fleet1ActiveCaptialShips[i].gameObject.transform.rotation = CapitalRotation;
         }
         for(int i = 0; i < fleet1ActiveFighters.Count; i++){
             fleet1ActiveFighters[i].gameObject.SetActive(true);
@@ -68,14 +68,14 @@ public class FleetBattleHandler : MonoBehaviour
         }
 
         for(int i = 0; i < fleet2ActiveCaptialShips.Count; i++){
-            fleet2.CapitalShips[i].gameObject.SetActive(true);
+            fleet2ActiveCaptialShips[i].gameObject.SetActive(true);
             Vector3 CapitalPosition = transform.position;
             CapitalPosition.y = CapitalPosition.y + i;
             CapitalPosition.x = CapitalPosition.x+5;
-            fleet2.CapitalShips[i].startCombat();
-            fleet2.CapitalShips[i].gameObject.transform.position = CapitalPosition;
+            fleet2ActiveCaptialShips[i].startCombat();
+            fleet2ActiveCaptialShips[i].gameObject.transform.position = CapitalPosition;
             Quaternion CapitalRotation =  Quaternion.Inverse(transform.rotation);
-            fleet2.CapitalShips[i].gameObject.transform.rotation = CapitalRotation;
+            fleet2ActiveCaptialShips[i].gameObject.transform.rotation = CapitalRotation;
 
             //if(firstTime == true)
             //    fleet2.CapitalShips[i].gameObject.transform.Rotate(Vector3.back*180);

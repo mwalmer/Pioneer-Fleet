@@ -26,6 +26,7 @@ public class CapitalShip : MonoBehaviour
 
     public int price;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +70,7 @@ public class CapitalShip : MonoBehaviour
             currentHull = currentHull - enemyArtillery;
             currentShield = 0;
             if(currentHull <= 0){
+                active = false;
                 sprite.color = Color.black;
             }
         }
@@ -78,8 +80,9 @@ public class CapitalShip : MonoBehaviour
         if(currentHull <= 0){
             return false;
         }
-        else
+        else{
             return true;
+        }
     }
 
     public void setHP(int cHull, int cShield){

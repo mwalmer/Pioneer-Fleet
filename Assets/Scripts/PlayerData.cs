@@ -90,6 +90,15 @@ public class PlayerData : MonoBehaviour
         }
     }
 
+    public void HandleDeadCapitalShips(){
+        for(int i = 0; i < playerFleet.CapitalShips.Count;i++){
+            if(playerFleet.StarFighters[i].damadge == true)
+                playerFleet.StarFighters[i].damadge = false;
+            if(playerFleet.StarFighters[i].deadge == true)
+                playerFleet.StarFighters.RemoveAt(i);
+        }
+    }
+
       public List<StarFighter> PlayerActiveFighters(){
         List<StarFighter> S = new List<StarFighter>();
         for(int i = 0; i < playerFleet.StarFighters.Count; i++){
