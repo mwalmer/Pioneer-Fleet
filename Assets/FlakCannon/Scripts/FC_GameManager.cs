@@ -53,7 +53,16 @@ public class FC_GameManager : MonoBehaviour
     void InitGame()
     {
         //TODO::
+        // FlakCannon: string gameMode = "Elimination" , "Survival"
+        //             int difficulty = 3 //0~7
+        //             bool IsBossFight = false// if I have time, I can working on it.
 
+        // FlakCannon Player Status:
+        //             CannonFireSpeed = 4; // 1 ~ 8
+        //             CannonMagazingNumber = 20; // 10 ~ 60
+        //             ShieldSustain = 100; // 50 ~ 400
+        //             CannonHP = 7; // 3 ~ 20
+        //             EnergyGain = 10; // 1 ~ 100
 
         if (gameTimer)
         {
