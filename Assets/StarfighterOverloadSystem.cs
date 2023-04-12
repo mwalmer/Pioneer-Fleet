@@ -29,6 +29,7 @@ public class StarfighterOverloadSystem : MonoBehaviour
     private bool isFinishedOnAction;
     private float currentTime = 0;
     public float residualDelayTime = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -123,7 +124,4 @@ public class StarfighterOverloadSystem : MonoBehaviour
 
         ThrusterOff();
     }
-
-
-
 }

@@ -35,7 +35,7 @@ public class FC_Enemyfighter : MonoBehaviour
             HarmfulnessCheck();
             if (isHarmful)
             {
-                FC_GameManager.ChangePlayerHP(-1);
+                FC_GameManager.PlayerTakeDamage(1);
             }
             SpwanExplosionEffect();
             Destroy(this.gameObject);

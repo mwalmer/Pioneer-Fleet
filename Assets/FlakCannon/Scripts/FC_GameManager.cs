@@ -157,6 +157,12 @@ public class FC_GameManager : MonoBehaviour
     {
         GameManager.playerHP += add;
     }
+    public static void PlayerTakeDamage(int damage)
+    {
+        GameManager.playerHP -= damage;
+        UI_ScreenEffect.ScreenGlassFlash(Color.red, 1f, 0.2f);
+        UI_ScreenEffect.ScreenUIBump(0.3f, 0.05f, 10f);
+    }
     public static void CountDestroy()
     {
         GameManager.destroyCount++;

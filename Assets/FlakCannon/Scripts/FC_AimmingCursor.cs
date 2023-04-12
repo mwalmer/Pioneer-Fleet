@@ -13,13 +13,12 @@ public class FC_AimmingCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FC_GameManager.IsGameActive == false) return;
+        //if (FC_GameManager.IsGameActive == false) return;
 
         if (disableOriginalCursor)
             Cursor.visible = false;
         else
             Cursor.visible = true;
-
 
         TrackMouse();
     }
