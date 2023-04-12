@@ -188,10 +188,10 @@ public class FleetBattleHandler : MonoBehaviour
         GameObject.Find("PlayerData").GetComponent<Fleet>().setHP(fleet1);
         //Fleet fleetTest = GameObject.Find("PlayerData").GetComponent<Fleet>() as Fleet;
 
-        if(miniGame == 0){
+        if(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame == 0){
             Debug.Log("No mini game found");
             }
-        switch(miniGame){
+        switch(GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame){
             case 1: //star fighter
                 fleet2ActiveCaptialShips = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips();
                 if(fleet2ActiveCaptialShips.Count > 0){

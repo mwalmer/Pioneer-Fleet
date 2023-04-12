@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1272335251138465036}
   - component: {fileID: 2404426590879822506}
   m_Layer: 0
-  m_Name: PlayerFrigate
+  m_Name: FederationFrigate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

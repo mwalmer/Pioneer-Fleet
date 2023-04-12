@@ -15,7 +15,7 @@ public class EventPresets
         AbandonedStarFighter.description = "Abandoned star fighter.";
         AbandonedStarFighter.text = "+1 star fighter to fleet";
         AbandonedStarFighter.starfighter += 1;
-        AbandonedStarFighter.starfighterStr = "PlayerFighter";
+        AbandonedStarFighter.starfighterStr = "FederationFighter";
         presets.Add(AbandonedStarFighter);
 
         // Passive Events
@@ -23,7 +23,7 @@ public class EventPresets
         miningOutpost.eventType = EventData.EventType.passive;
         miningOutpost.description = "This planet seems to be sparkling...";
         miningOutpost.text = "Upon landing, you find large surface deposits of Orichalcum. Though you can't mine it you know people who would be interested in its location. +1 currency";
-        miningOutpost.currency += 100;
+        miningOutpost.currency += 50;
         presets.Add(miningOutpost);
 
         // Passive Events
@@ -38,10 +38,11 @@ public class EventPresets
         NairanFleetAttack.eventType = EventData.EventType.battle;
         NairanFleetAttack.description = "An uninhabited planet that is a common jumping point of FTL travel.";
         NairanFleetAttack.text = "As you travel past the planet, ships begin appearing out of FTL. Its a Nairan fleet. Battle stations!";
-        NairanFleetAttack.EnemyCapitalType1 = "NairanBattlecruiser";
-        NairanFleetAttack.EnemyCapitalNum1 = 2;
-        NairanFleetAttack.EnemyStarFighterType1 = "NairanFighter";
-        NairanFleetAttack.EnemyStarFighterNum1 = 3;
+        NairanFleetAttack.EnemyCapitalShips.Add("NairanFrigate");
+        NairanFleetAttack.EnemyCapitalShipsNums.Add(2);
+        NairanFleetAttack.EnemyStarFighers.Add("NairanFighter");
+        NairanFleetAttack.EnemyStarFigherNums.Add(3);
+        NairanFleetAttack.currency += 100;
         presets.Add(NairanFleetAttack);
         
         //Nairan Fleet attack
@@ -49,10 +50,13 @@ public class EventPresets
         NairanPlanetarySiege.eventType = EventData.EventType.battle;
         NairanPlanetarySiege.description = "Scans indicate a large mass of ships around this planet. Holo news indicates a siege of the planet";
         NairanPlanetarySiege.text = "As you exit FLT, you see the siege in effect. A large amount of Nairan ships head towards you. Battle stations!";
-        NairanPlanetarySiege.EnemyCapitalType1 = "NairanBattlecruiser";
-        NairanPlanetarySiege.EnemyCapitalNum1 = 3;
-        NairanPlanetarySiege.EnemyStarFighterType1 = "NairanFighter";
-        NairanPlanetarySiege.EnemyStarFighterNum1 = 5;
+        NairanPlanetarySiege.EnemyCapitalShips.Add("NairanBattlecruiser");
+        NairanPlanetarySiege.EnemyCapitalShipsNums.Add(1);
+        NairanPlanetarySiege.EnemyCapitalShips.Add("NairanFrigate");
+        NairanPlanetarySiege.EnemyCapitalShipsNums.Add(2);
+        NairanPlanetarySiege.EnemyStarFighers.Add("NairanFighter");
+        NairanPlanetarySiege.EnemyStarFigherNums.Add(5);
+        NairanPlanetarySiege.currency += 200;
         presets.Add(NairanPlanetarySiege);
         
         // TODO: edit me (not the comment the thing below this [not that comment the thing below that])
@@ -76,10 +80,8 @@ public class EventPresets
         turncoat.eventType = EventData.EventType.turncoat;
         turncoat.description = "Your coat begins to move... as if it knows something...";
         turncoat.text = "IT DID! You find the enemy turncoat while his fighters are refueling!";
-        turncoat.EnemyCapitalType1 = "NairanBattlecruiser";
-        turncoat.EnemyCapitalNum1 = 1;
-        turncoat.EnemyStarFighterType1 = "NairanFighter";
-        turncoat.EnemyStarFighterNum1 = 0;
+        turncoat.EnemyCapitalShips.Add("NairanFrigate");
+        turncoat.EnemyCapitalShipsNums.Add(1);
         presets.Add(turncoat);
         
         // Boss
@@ -87,10 +89,13 @@ public class EventPresets
         boss.eventType = EventData.EventType.boss;
         boss.description = "The turncoats last navigation waypoint was set here... It looks heavily fortified.";
         boss.text = "It was!";
-        boss.EnemyCapitalType1 = "NairanBattlecruiser";
-        boss.EnemyCapitalNum1 = 4;
-        boss.EnemyStarFighterType1 = "NairanFighter";
-        boss.EnemyStarFighterNum1 = 8;
+        boss.EnemyCapitalShips.Add("NairanBattlecruiser");
+        boss.EnemyCapitalShipsNums.Add(2);
+        boss.EnemyCapitalShips.Add("NairanFrigate");
+        boss.EnemyCapitalShipsNums.Add(4);
+        boss.EnemyStarFighers.Add("NairanFighter");
+        boss.EnemyStarFigherNums.Add(8);
+        boss.currency += 300;
         presets.Add(boss);
     }
 

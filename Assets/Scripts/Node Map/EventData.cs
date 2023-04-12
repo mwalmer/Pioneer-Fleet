@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class EventData
 {
@@ -56,10 +59,17 @@ public class EventData
     public string starfighterStr;
 
     // battle bridge vars
-    public string EnemyCapitalType1;
-    public int EnemyCapitalNum1;
-    public string EnemyStarFighterType1;
-    public int EnemyStarFighterNum1;
+    // public string EnemyCapitalType1;
+    // public int EnemyCapitalNum1;
+    // public string EnemyStarFighterType1;
+    // public int EnemyStarFighterNum1;
+
+
+    public List<string> EnemyStarFighers;
+    public List<int> EnemyStarFigherNums;
+    public List<string> EnemyCapitalShips;
+    public List<int> EnemyCapitalShipsNums;
+
 
     // star fighter vars
     public int SF_numEnemies;//1-10
@@ -100,6 +110,11 @@ public class EventData
         EnergyGain = 10;
 
         FC_timeGiven = 60;
+
+        EnemyStarFighers = new List<string>();
+        EnemyStarFigherNums = new List<int>();
+        EnemyCapitalShips = new List<string>();
+        EnemyCapitalShipsNums = new List<int>();
     }
 
     public static EventData GetData()
@@ -112,6 +127,8 @@ public class EventData
 
     public void SetData()
     {
+        PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+        playerData.updateCurrency(currency);
         data = this;
     }
 
@@ -122,20 +139,18 @@ public class EventData
         if (starfighter > 0)
         {
             if (starfighterStr == "")
-                Debug.LogError("Need a starfighter string! I have no idea which fighter to add! (though it's probably PlayerFighter, i can't read minds)");
+                Debug.LogError("Need a starfighter string! I have no idea which fighter to add! (though it's probably FederationFighter, i can't read minds)");
             playerData.addPlayerStarFighter(starfighterStr);
         }
 
         if (hp != 0)
             playerData.updateHP(hp);
-        if (currency != 0)
-            playerData.updateCurrency(currency);
     }
 
     public void setFleetBattleData()
     {
         GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = true;
         PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
-        playerData.setEnemyFleet(EnemyCapitalType1, EnemyCapitalNum1, EnemyStarFighterType1, EnemyStarFighterNum1);
+        playerData.setEnemyFleet();
     }
 }

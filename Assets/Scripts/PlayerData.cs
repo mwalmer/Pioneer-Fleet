@@ -44,12 +44,12 @@ public class PlayerData : MonoBehaviour
     }
 
     public void setFleet(){
-        addPlayerCaptialShip("PlayerFrigate");
-        addPlayerCaptialShip("PlayerFrigate");
+        addPlayerCaptialShip("FederationFrigate");
+        addPlayerCaptialShip("FederationFrigate");
         
-        addPlayerStarFighter("PlayerFighter");
-        addPlayerStarFighter("PlayerFighter");
-        addPlayerStarFighter("PlayerFighter");
+        addPlayerStarFighter("FederationFighter");
+        addPlayerStarFighter("FederationFighter");
+        addPlayerStarFighter("FederationFighter");
     }
 
     public void offScreen(){
@@ -151,15 +151,31 @@ public class PlayerData : MonoBehaviour
         playerFleet.StarFighters.Add(playerStarFighter);
     }
 
-    public void setEnemyFleet(string captialShipType, int captitalShipNum, string starFighterType, int starFighterNum){
-        for(int i = 0; i < captitalShipNum; i++){
-            CapitalShip enemyCapitalShip = Instantiate(Resources.Load("FleetBattle/" + captialShipType, typeof(CapitalShip)) as CapitalShip, transform);
-            enemyFleet.CapitalShips.Add(enemyCapitalShip);
+    public void setEnemyFleet(){
+        EventData data = EventData.GetData();
+        for(int i = 0; i < data.EnemyCapitalShips.Count; i++) {
+            for(int j = 0; j < data.EnemyCapitalShipsNums[i]; j++) {
+                CapitalShip enemyCapitalShip = Instantiate(Resources.Load("FleetBattle/" + data.EnemyCapitalShips[i], typeof(CapitalShip)) as CapitalShip, transform);
+                enemyFleet.CapitalShips.Add(enemyCapitalShip);
+            }
         }
-        for(int i = 0; i < starFighterNum; i++){
-            StarFighter enemyFigther = Instantiate(Resources.Load("FleetBattle/" + starFighterType, typeof(StarFighter)) as StarFighter, transform);
-            enemyFleet.StarFighters.Add(enemyFigther);
+
+        for(int i = 0; i < data.EnemyStarFighers.Count; i++) {
+            for(int j = 0; j < data.EnemyStarFigherNums[i]; j++) {
+                StarFighter enemyFigther = Instantiate(Resources.Load("FleetBattle/" + data.EnemyStarFighers[i], typeof(StarFighter)) as StarFighter, transform);
+                enemyFleet.StarFighters.Add(enemyFigther);
+            }
+            
         }
+
+     //   for(int i = 0; i < captitalShipNum; i++){
+     //       CapitalShip enemyCapitalShip = Instantiate(Resources.Load("FleetBattle/" + captialShipType, typeof(CapitalShip)) as CapitalShip, transform);
+     //       enemyFleet.CapitalShips.Add(enemyCapitalShip);
+     //   }
+     //   for(int i = 0; i < starFighterNum; i++){
+     //       StarFighter enemyFigther = Instantiate(Resources.Load("FleetBattle/" + starFighterType, typeof(StarFighter)) as StarFighter, transform);
+     //       enemyFleet.StarFighters.Add(enemyFigther);
+     //   }
     }
 
     public void clearEnemyFleet(){
@@ -198,24 +214,27 @@ public class PlayerData : MonoBehaviour
         int x = Random.Range(1,3);
         switch(x){
             case 1:
-            return "PlayerFrigate";
+            return "FederationFrigate";
 
             case 2:
             return "NairanBattlecruiser";
+
+            case 3:
+            return "NairanFrigate";
         }
-        return "PlayerFrigate";
+        return "FederationFrigate";
     }
 
     public static string getRandomStarFighter(){
         int x = Random.Range(1,3);
         switch(x){
             case 1:
-            return "PlayerFighter";
+            return "FederationFighter";
 
             case 2:
             return "NairanFighter";
         }
-        return "PlayerFighter";
+        return "FederationFighter";
     }
 
 }
