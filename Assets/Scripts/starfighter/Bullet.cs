@@ -27,6 +27,10 @@ public class Bullet : MonoBehaviour {
 	}
 	void OnTriggerEnter2D (Collider2D hitInfo)
 	{
+		 if (hitInfo.CompareTag("Attack")) // check if the collider's tag is "Attack"
+    {
+        return; // if it is, exit the method without doing anything
+    }
 		Enemy enemy = hitInfo.GetComponent<Enemy>();
 		if (enemy != null)
 		{

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6341462912567300367}
   m_Layer: 6
   m_Name: plasma 6
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   velocity: -60
   eventualspeed: 80
   accTime: 6
+  shieldDamage: 40
   damage: 15
   impactEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   angle: 0
