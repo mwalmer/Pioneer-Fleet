@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleBridge.unity
     guid: 228a73740b92e5a40896b968fd43db2c
   - enabled: 1
-    path: Assets/Scenes/fighter.unity
+    path: Assets/Scenes/StarfighterStandard.unity
     guid: 2deed3e55cfe0a34c9cf3f24e5a7dc40
   - enabled: 1
     path: Assets/Scenes/FlakCannon.unity
@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CandyCrush.unity
     guid: 9f45c1e91dbff1140b4f2a1f195dd316
   - enabled: 1
-    path: Assets/Scenes/bomber test.unity
+    path: Assets/Scenes/Starbomber.unity
     guid: 4784cf78ab61d5e4a8a6478fe6b5941f
   m_configObjects: {}
