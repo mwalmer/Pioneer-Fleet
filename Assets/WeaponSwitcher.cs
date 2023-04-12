@@ -8,6 +8,7 @@ public class WeaponSwitcher : MonoBehaviour
     public float overLoadDuration = 5f;
     public GameObject playerPart1;
     public GameObject playerPart2;
+    public StarfighterOverloadSystem overloadSys;
 
     private int activeWeaponIndex = 0;
     private int activeSubweaponIndex = 0;
@@ -28,6 +29,8 @@ public class WeaponSwitcher : MonoBehaviour
 
         playerPart1.SetActive(false);
         playerPart2.SetActive(false);
+        overloadSys.OverloadOff();
+        
         weapons[0].SetActive(true);
         subweapons[0].SetActive(true);//Activate the first weapon and subweapon
     }
@@ -64,6 +67,8 @@ public class WeaponSwitcher : MonoBehaviour
         //activate all weapons and subweapons
         playerPart1.SetActive(true);
         playerPart2.SetActive(true);//activate player parts
+        overloadSys.OverloadOn();
+        
         foreach (GameObject weapon in weapons)
         {
             weapon.SetActive(true);
@@ -96,6 +101,8 @@ public class WeaponSwitcher : MonoBehaviour
         }
          playerPart1.SetActive(false);
         playerPart2.SetActive(false);//deactivate player parts
+        overloadSys.OverloadOff();
+       
        
         weapons[previousWeaponIndex].SetActive(true);
         subweapons[previousSubweaponIndex].SetActive(true);
