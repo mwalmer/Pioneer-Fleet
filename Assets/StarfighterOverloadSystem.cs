@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class StarfighterOverloadSystem : MonoBehaviour
 {
+    public bool testHandler;
+    private bool previousHandler;
+
+
     [Header("Wing Thrusters")]
     public ParticleSystem leftWing;
     public ParticleSystem rightWing;
@@ -24,14 +28,11 @@ public class StarfighterOverloadSystem : MonoBehaviour
     private bool isActived;
     private bool isFinishedOnAction;
     private float currentTime = 0;
-    private float residualDelayTime = 0.5f;
+    private float residualDelayTime = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
         notQuantums = new List<ParticleSystem>();
-        notQuantums.Add(leftWing);
-        notQuantums.Add(rightWing);
-        notQuantums.Add(mainThruster);
         notQuantums.Add(residual);
         notQuantums.Add(bodyLights);
 
@@ -41,12 +42,24 @@ public class StarfighterOverloadSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (testHandler != previousHandler)
+        {
+            if (testHandler)
+            {
+                OverloadOn();
+            }
+            else
+            {
+                OverloadOff();
+            }
+            previousHandler = testHandler;
+        }
+
         if (isActived && isFinishedOnAction == false)
         {
             if (leftSteam.isPlaying == false || rightSteam.isPlaying == false)
             {
                 currentTime += Time.deltaTime;
-                ThrustersOn();
                 QuantumsOn();
 
                 if (currentTime >= residualDelayTime)
@@ -62,6 +75,7 @@ public class StarfighterOverloadSystem : MonoBehaviour
     {
         leftSteam.Play();
         rightSteam.Play();
+        ThrustersOn();
         isActived = true;
     }
     public void OverloadOff()
