@@ -28,7 +28,7 @@ public class StarfighterOverloadSystem : MonoBehaviour
     private bool isActived;
     private bool isFinishedOnAction;
     private float currentTime = 0;
-    private float residualDelayTime = 0.2f;
+    public float residualDelayTime = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
