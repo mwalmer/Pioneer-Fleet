@@ -29,7 +29,7 @@ public class FC_EnemyProjecter : MonoBehaviour
             FC_Enemyfighter temp = SpawnEnemyfighter();
 
             // For testing
-            temp.speed = Random.Range(650, 800);
+            temp.speed = Random.Range(750, 1000);
             temp.planeAngular = Random.Range(-180, 180);
             temp.angularSpeed = Random.Range(10, 90);
             temp.distanceAngular = Random.Range(0, 90);

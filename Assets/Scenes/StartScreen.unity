@@ -351,6 +351,7 @@ MonoBehaviour:
   miniGameScore: 0
   currency: 0
   LoadBridgeFirstTime: 0
+  battleTurn: 1
   FleetLog: 
 --- !u!4 &449220210
 Transform:
@@ -483,7 +484,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -178786869
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5251,7 +5252,7 @@ GameObject:
   - component: {fileID: 714972921}
   - component: {fileID: 714972920}
   - component: {fileID: 714972919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5402,7 +5403,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -178786869
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -10988,7 +10989,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -178786869
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -16072,7 +16073,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -178786869
+  m_SortingLayerID: -1251535997
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1684155189
@@ -16123,6 +16124,7 @@ MonoBehaviour:
   shield: {fileID: 0}
   ShieldUp: 0
   fireDistance: 0
+  price: 0
 --- !u!114 &1684155191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16481,7 +16483,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -178786869
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1875839782, guid: 4a3d30e2917cce248afa403ec5d41b91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

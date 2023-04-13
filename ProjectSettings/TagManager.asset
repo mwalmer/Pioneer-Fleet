@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Attack
+  - BigLaser
+  - PlyShield
   layers:
   - Default
   - TransparentFX
@@ -11,9 +14,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - torpedo
+  - Enemy
+  - EnemyAtk
   - 
   - 
   - 
@@ -41,9 +44,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: background
     uniqueID: 2957017687
     locked: 0
   - name: Block
     uniqueID: 2573245691
+    locked: 0
+  - name: objects
+    uniqueID: 2573245691
+    locked: 0
+  - name: Player
+    uniqueID: 1503001111
+    locked: 0
+  - name: UI
+    uniqueID: 4116180427
     locked: 0
