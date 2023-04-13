@@ -18,6 +18,7 @@ public class PlayerData : MonoBehaviour
     public string FleetLog;
 
 
+
     void Start()
     {
         currency = 150;
@@ -32,7 +33,7 @@ public class PlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //test
     }
 
     public void addToFleetLog(string s){
