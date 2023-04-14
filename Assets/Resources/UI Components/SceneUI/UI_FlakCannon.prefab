@@ -1074,7 +1074,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1738,7 +1738,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2525,7 +2525,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -178786869
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 66989a37d742e0c4fb52aa08f83b50d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7602,13 +7602,14 @@ RectTransform:
   - {fileID: 7380936880259901038}
   - {fileID: 8221915088658636055}
   - {fileID: 538511822433591798}
+  - {fileID: 5805002228012427488}
   m_Father: {fileID: 7380936881642444032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &818314385172589110
 CanvasRenderer:
@@ -13388,7 +13389,6 @@ RectTransform:
   - {fileID: 5140127885218235335}
   - {fileID: 6563254954404795833}
   - {fileID: 8588098412522882628}
-  - {fileID: 5805002228012427488}
   m_Father: {fileID: 7380936880393010436}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13481,8 +13481,9 @@ GameObject:
   - component: {fileID: 5805002228012427488}
   - component: {fileID: 540945494506910525}
   - component: {fileID: 458123682766447116}
+  - component: {fileID: 1949235883}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ScreenGlassEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13500,8 +13501,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7380936881642444032}
-  m_RootOrder: 3
+  m_Father: {fileID: 6563254954404795833}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13529,7 +13530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.0627451}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13546,6 +13547,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1949235883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190888386510299744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc3ed51bda2af54794f91fd43167c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenGlass: {fileID: 458123682766447116}
+  screenUI: {fileID: 6563254954404795833}
 --- !u!1001 &6027557601248042223
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -37,8 +37,8 @@ public class FC_Enemyfighter : MonoBehaviour
             {
                 FC_GameManager.PlayerTakeDamage(1);
             }
-            SpwanExplosionEffect();
-            Destroy(this.gameObject);
+            SelfDestroy();
+            FC_EnemyProjecter.RemoveEnemy(this);
         }
     }
 
@@ -51,6 +51,7 @@ public class FC_Enemyfighter : MonoBehaviour
             {
                 SpwanExplosionEffect();
                 enemyStatus.Dead();
+                FC_EnemyProjecter.RemoveEnemy(this);
             }
         }
     }
@@ -78,6 +79,12 @@ public class FC_Enemyfighter : MonoBehaviour
         AudioSource tempSound = explosion.gameObject.AddComponent<AudioSource>();
         tempSound.clip = explosionSound;
         tempSound.Play();
+    }
+
+    public void SelfDestroy()
+    {
+        SpwanExplosionEffect();
+        Destroy(this.gameObject);
     }
 
 }

@@ -64,6 +64,45 @@ public class FC_GameManager : MonoBehaviour
         //             CannonHP = 7; // 3 ~ 20
         //             EnergyGain = 10; // 1 ~ 100
 
+        //EventData.GetData().difficulty = 7;   // For testing
+        //EventData.GetData().gameMode = "Survival";
+
+        if (EventData.GetData() is object)
+        {
+            GameMode = EventData.GetData().gameMode;
+            int difficulty = EventData.GetData().difficulty;
+
+            if (difficulty == 0)
+            {
+                playerHP = 30;
+                if (GameMode == "Survival")
+                {
+                    timeLimit = 60;
+                }
+                else if (GameMode == "Elimination")
+                {
+                    timeLimit = 120;
+                    winningCount = 20;
+                }
+            }
+            else
+            {
+                playerHP = (7 - difficulty) * 2 + 1;
+                if (GameMode == "Survival")
+                {
+                    timeLimit = 40 + 60 * ((float)difficulty / 7);
+                }
+                else if (GameMode == "Elimination")
+                {
+                    timeLimit = 80 - 20f * ((float)difficulty / 7f);
+                    winningCount = (int)(20 + 20f * ((float)difficulty / 7f));
+                }
+            }
+        }
+
+
+
+
         if (gameTimer)
         {
             gameTimer.RunCountDown(timeLimit);
@@ -93,11 +132,22 @@ public class FC_GameManager : MonoBehaviour
         // WinningCondition reminder
         if (condiReminder)
         {
-            condiReminder.Clear();
-            condiReminder.AddWords("Defeat ");
-            condiReminder.AddWords(((winningCount - destroyCount) >= 0 ? (winningCount - destroyCount) : 0).ToString(), ((winningCount - destroyCount) <= 0 ? Color.green : Color.red));
-            condiReminder.AddWords(" before run out the time.");
-            condiReminder.UpdateSentence();
+            if (GameMode == "Elimination")
+            {
+                condiReminder.Clear();
+                condiReminder.AddWords("Defeat ");
+                condiReminder.AddWords(((winningCount - destroyCount) >= 0 ? (winningCount - destroyCount) : 0).ToString(), ((winningCount - destroyCount) <= 0 ? Color.green : Color.red));
+                condiReminder.AddWords(" before run out the time.");
+                condiReminder.UpdateSentence();
+            }
+            else if (GameMode == "Survival")
+            {
+                condiReminder.Clear();
+                condiReminder.AddWords("Please ");
+                condiReminder.AddWords("SURVIVAL", Color.red);
+                condiReminder.AddWords(" in the remaining time.");
+                condiReminder.UpdateSentence();
+            }
         }
     }
 
@@ -138,6 +188,7 @@ public class FC_GameManager : MonoBehaviour
             gameEndEvent.gameEndNotice.color = Color.green;
             gameEndEvent.gameEndNotice.text = "YOU WIN!";
             FC_GameManager.IsGameActive = false;
+            FC_EnemyProjecter.DestroyAllEnemy();
         }
     }
     void LosingEvent()
@@ -145,6 +196,7 @@ public class FC_GameManager : MonoBehaviour
         // TODO:: deal the events when player lost the game
         if (gameEndEvent)
         {
+            UI_ScreenEffect.StopScreenBump();
             gameEndEvent.gameObject.SetActive(true);
             gameEndEvent.gameEndNotice.color = Color.red;
             gameEndEvent.gameEndNotice.text = "YOU LOSE!";

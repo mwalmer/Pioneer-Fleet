@@ -103,6 +103,11 @@ public class UI_ScreenEffect : MonoBehaviour
         bumpInterval = _bumpInterval;
         bumpTime = _bumpTime;
     }
+    void StopBump()
+    {
+        currentBumpTime = -1;
+        screenUI.position = initialUIPos;
+    }
     public static void ScreenGlassFlash(Color flashColor, float flashTime = 2f, float flashPeakTime = 1f)
     {
         screenEffect.GlassFlash(flashColor, flashTime, flashPeakTime);
@@ -110,5 +115,9 @@ public class UI_ScreenEffect : MonoBehaviour
     public static void ScreenUIBump(float amplitude = 0.1f, float bumpInterval = 0.1f, float bumpTime = 1f)
     {
         screenEffect.ScreenBump(amplitude, bumpInterval, bumpTime);
+    }
+    public static void StopScreenBump()
+    {
+        screenEffect.StopBump();
     }
 }

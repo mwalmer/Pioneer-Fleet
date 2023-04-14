@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FC_EnemyProjecter : MonoBehaviour
 {
+    public static FC_EnemyProjecter EnemyProjecter;
+    public List<FC_Enemyfighter> enemies;
     public bool isActive = true;
     public GameObject EnemyfighterPrefab;
     public Transform minPos;
@@ -15,8 +17,17 @@ public class FC_EnemyProjecter : MonoBehaviour
     // For testing, random spawn pattern with certain interval;
     public float interval = 3; // in sec
     private float timeCount = 0;
+    private float difficulty;
 
+    private void Start()
+    {
+        EnemyProjecter = this;
+        enemies = new List<FC_Enemyfighter>();
+        difficulty = EventData.GetData().difficulty;
 
+        // Elimination-> 1.125f ~ 2f, Survival-> 1.025f ~ 1.9f
+        interval = 1 + (8 - difficulty) / 8 - (EventData.GetData().gameMode == "Survival" ? 0.1f : 0);
+    }
 
     void FixedUpdate()
     {
@@ -29,7 +40,7 @@ public class FC_EnemyProjecter : MonoBehaviour
             FC_Enemyfighter temp = SpawnEnemyfighter();
 
             // For testing
-            temp.speed = Random.Range(750, 1000);
+            temp.speed = Random.Range(600 + difficulty * 20, 700 + difficulty * 20);
             temp.planeAngular = Random.Range(-180, 180);
             temp.angularSpeed = Random.Range(10, 90);
             temp.distanceAngular = Random.Range(0, 90);
@@ -50,6 +61,27 @@ public class FC_EnemyProjecter : MonoBehaviour
         float spawnY = Random.Range(minPos.position.y, maxPos.position.y);
 
         //2. instantiate the enemy fighter and spwan into the right position from the above.
-        return Instantiate(EnemyfighterPrefab, new Vector2(spawnX, spawnY), Quaternion.identity).GetComponent<FC_Enemyfighter>();
+        FC_Enemyfighter enemy = Instantiate(EnemyfighterPrefab, new Vector2(spawnX, spawnY), Quaternion.identity).GetComponent<FC_Enemyfighter>();
+        EnemyProjecter.enemies.Add(enemy);
+
+        return enemy;
+    }
+
+    public static void DestroyEnemy(FC_Enemyfighter enemy)
+    {
+        EnemyProjecter.enemies.Remove(enemy);
+        enemy.SelfDestroy();
+    }
+    public static void RemoveEnemy(FC_Enemyfighter enemy)
+    {
+        EnemyProjecter.enemies.Remove(enemy);
+    }
+    public static void DestroyAllEnemy()
+    {
+        foreach (FC_Enemyfighter enemy in EnemyProjecter.enemies)
+        {
+            enemy.SelfDestroy();
+        }
+        EnemyProjecter.enemies.Clear();
     }
 }
