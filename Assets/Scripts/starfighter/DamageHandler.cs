@@ -12,6 +12,7 @@ public class DamageHandler : MonoBehaviour {
 	int correctLayer;
 	public bool isPlayer = false;
 	public Image healthBar;
+	public int Energy =0;
 
 	SpriteRenderer spriteRend;
 
