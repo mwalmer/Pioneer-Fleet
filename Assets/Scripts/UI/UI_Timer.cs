@@ -6,7 +6,7 @@ using TMPro;
 public class UI_Timer : MonoBehaviour
 {
     // Time elements
-    float time; // in sec
+    public float time; // in sec
     public bool isRunning = false;
     public bool isCountingDown = false;
     public float timeRemindingBoder = 30f; // -1 means not using the reminding function.

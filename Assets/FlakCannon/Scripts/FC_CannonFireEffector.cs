@@ -23,10 +23,8 @@ public class FC_CannonFireEffector : MonoBehaviour
     {
         if (cannonAnimator)
         {
-            Debug.Log("FireAnimation!");
             cannonAnimator.SetBool("LeftBarrelFired", leftBarrelFired);
             cannonAnimator.SetBool("RightBarrelFired", rightBarrelFired);
-            Debug.Log(cannonAnimator.GetBool("RightBarrelFired"));
         }
 
     }

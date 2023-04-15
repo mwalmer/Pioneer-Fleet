@@ -5,7 +5,8 @@ using UnityEngine;
 public class FC_ScoreTaker : MonoBehaviour
 {
     public static FC_ScoreTaker scoreTaker;
-    private Dictionary<string, int> scores;
+    public UI_DynamicNumber dynamicNumber;
+    protected Dictionary<string, int> scores;
 
     // Start is called before the first frame update
     void Start()
@@ -20,32 +21,41 @@ public class FC_ScoreTaker : MonoBehaviour
 
     }
 
-    public void RegisterScore(string scoreType, int score)
+    public static void RegisterScore(string scoreType, int score)
     {
         //It will overwrite
-        scores.Add(scoreType, score);
+        GetScores().Add(scoreType, score);
     }
-    public void AddScore(string scoreType, int score)
+    public static void AddScore(string scoreType, int score)
     {
-        if (scores.ContainsKey(scoreType))
+        if (GetScores().ContainsKey(scoreType))
         {
-            scores[scoreType] += score;
+            GetScores()[scoreType] += score;
         }
         else
         {
-            scores.Add(scoreType, score);
+            GetScores().Add(scoreType, score);
+        }
+
+        if (scoreTaker.dynamicNumber)
+        {
+            scoreTaker.dynamicNumber.SetValue(GetTotalScore());
         }
     }
 
-    public Dictionary<string, int> GetScores()
+    public static Dictionary<string, int> GetScores()
     {
-        return scores;
+        return scoreTaker.scores;
+    }
+    public static int GetScore(string scoreType)
+    {
+        return scoreTaker.scores[scoreType];
     }
 
-    public int GetTotalScore()
+    public static int GetTotalScore()
     {
         int totalScore = 0;
-        foreach (KeyValuePair<string, int> score in scores)
+        foreach (KeyValuePair<string, int> score in GetScores())
         {
             totalScore += score.Value;
         }

@@ -15,6 +15,7 @@ public class FC_Enemyfighter : MonoBehaviour
     public FC_EnergyShield blockedByIt = null;
     public GameObject enemyExplosion;
     public AudioClip explosionSound;
+    private bool isDead = false;
 
     private void Start()
     {
@@ -30,15 +31,20 @@ public class FC_Enemyfighter : MonoBehaviour
         spaceStatus.Move(speed, planeAngular, distanceAngular);
         spaceStatus.SetUpsideDown(isUpsideDown);
         spaceStatus.AvatarRotationOn();
-        if (spaceStatus.GetDistance() < 0)
+        if (spaceStatus.GetDistance() < 0 && isDead == false)
         {
-            HarmfulnessCheck();
+            isDead = true;
             if (isHarmful)
             {
                 FC_GameManager.PlayerTakeDamage(1);
             }
-            SelfDestroy();
+            else
+            {
+                FC_ScoreTaker.AddScore("Shield Block Successes", 500);
+                UI_ScoreIndicator.BlockEnemyFighter("Enemy Fighter");
+            }
             FC_EnemyProjecter.RemoveEnemy(this);
+            SelfDestroy();
         }
     }
 
@@ -47,9 +53,19 @@ public class FC_Enemyfighter : MonoBehaviour
         if (enemyStatus)
         {
             enemyStatus.TakeDamage(dmg);
-            if (enemyStatus.LifeCheck() == false)
+            if (enemyStatus.LifeCheck() == false && isDead == false)
             {
+                isDead = true;
                 SpwanExplosionEffect();
+                UI_ScoreIndicator.DefeatEnemyFighter("Enemy Fighter", Mathf.RoundToInt(GetDistance()));
+                if (GetDistance() > 2000)
+                {
+                    FC_ScoreTaker.AddScore("Defeat Enemies in Over-Distance", 500);
+                }
+                else
+                {
+                    FC_ScoreTaker.AddScore("Defeat Enemy Fighters", 100);
+                }
                 enemyStatus.Dead();
                 FC_EnemyProjecter.RemoveEnemy(this);
             }
@@ -59,14 +75,6 @@ public class FC_Enemyfighter : MonoBehaviour
     {
         return spaceStatus.GetDistance();
     }
-    public void HarmfulnessCheck()
-    {
-        if (!blockedByIt)
-        {
-
-        }
-    }
-
     public void SpwanExplosionEffect()
     {
         ParticleSystem explosion = Instantiate(enemyExplosion).GetComponent<ParticleSystem>();
@@ -83,6 +91,7 @@ public class FC_Enemyfighter : MonoBehaviour
 
     public void SelfDestroy()
     {
+        isDead = true;
         SpwanExplosionEffect();
         Destroy(this.gameObject);
     }

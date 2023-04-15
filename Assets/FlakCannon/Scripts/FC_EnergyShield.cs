@@ -9,7 +9,6 @@ public class FC_EnergyShield : MonoBehaviour
     public float cost = 50; // energy per sec
     SpriteRenderer sr;
     RectTransform rectT;
-    Collider2D collider;
 
     public bool isActive = false;
     private float visualSize = 125f;
@@ -20,7 +19,6 @@ public class FC_EnergyShield : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         rectT = this.GetComponent<RectTransform>();
-        collider = GetComponentInChildren<Collider2D>();
         initialAlpha = sr.color.a;
     }
 

@@ -68,7 +68,7 @@ public class UI_IconBar : MonoBehaviour
                 {
                     imageIndex = icons.Count - imageIndex - 1;
                 }
-                DrawIcon(i / icons.Count + 1, 1, imageIndex);
+                DrawIcon(i / icons.Count + 1, i / icons.Count + 1, imageIndex);
             }
         }
         else if (iconItems.Count > IconNumbers())
@@ -114,7 +114,7 @@ public class UI_IconBar : MonoBehaviour
     void DrawIcon(int xCount, int yCount, int imageIndex)
     {
         float newX = (isLeftToRight ? this.transform.position.x + horizontalStartOffset + horizontalOffset * xCount : this.transform.position.x - horizontalOffset * xCount);
-        float newY = this.transform.position.y;// + verticalOffset;
+        float newY = this.transform.position.y + verticalOffset * yCount;
 
         Vector2 newPos = new Vector2(newX, newY);
         GameObject newIcon = Instantiate(imageSizePrefab, newPos, Quaternion.identity, this.transform);

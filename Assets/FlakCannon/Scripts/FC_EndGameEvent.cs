@@ -7,6 +7,7 @@ using TMPro;
 
 public class FC_EndGameEvent : MonoBehaviour
 {
+    public UI_EndGameScoreBoard scoreBoard;
     public TextMeshProUGUI gameEndNotice;
     public CanvasGroup cGroup;
     public string nextScene;
@@ -31,7 +32,9 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         if (FC_GameManager.IsGameActive == false)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            Cursor.visible = true;
+            scoreBoard.ShowScoreBoard();
+            if (scoreBoard.IsFinishedRecording() && Input.GetKeyDown(KeyCode.Mouse0))
             {
                 GoNextScene();
             }
@@ -57,6 +60,15 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         FC_GameManager.IsGameActive = false;
         FC_GameManager.ResetFlakCannonGameSettings();
+
+        if (EventData.GetData().lastScene == "BattleBridge")
+        {
+            int finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / (float)FC_GameManager.scoreFor100 * 100);
+            if (finalScore < 0) finalScore = 0;
+            else if (finalScore > 100) finalScore = 100;
+            Debug.Log("Final Score: " + finalScore);
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
+        }
 
         Debug.Log("Time is back: " + Time.timeScale);
         shouldGoNextScene = true;
