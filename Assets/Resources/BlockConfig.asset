@@ -23,17 +23,17 @@ MonoBehaviour:
   - 0.5
   - 0.525
   basicBlockSprites:
-  - {fileID: 21300000, guid: d87ce47d5c5adce4ba10704d463c70ea, type: 3}
-  - {fileID: 21300000, guid: 085dc9b92d7064f24868ea4e8f8919a2, type: 3}
-  - {fileID: 21300000, guid: d43c2ad42fb991641b399524a7ce3b1e, type: 3}
-  - {fileID: 21300000, guid: 96e53e0711c9f0940aae5005159ddeb4, type: 3}
-  - {fileID: 21300000, guid: 861e6592282f42a4e99f82ffb889c659, type: 3}
-  - {fileID: 21300000, guid: 8479d378caa012147b02efccda070d46, type: 3}
+  - {fileID: -510527575, guid: 61f15d107f171944281e151bfc091178, type: 3}
+  - {fileID: 1877454449, guid: a64eb4fedde92cf4f9b575f6a316a331, type: 3}
+  - {fileID: -2035969135, guid: 31ad8bb899c9dba428c3c9b2a056b3f8, type: 3}
+  - {fileID: -921215934, guid: 32dc1e3d1b7fde64584efbf1270925f1, type: 3}
+  - {fileID: 226401566, guid: 2ceb00acd933cc84a9c0bf2a6ca2f601, type: 3}
+  - {fileID: 959856863, guid: 1f81782dabcd0cc4483153e97b8b1307, type: 3}
   blockColors:
-  - {r: 0.377, g: 0.267, b: 0, a: 1}
-  - {r: 0.1, g: 0.528, b: 0.27, a: 1}
-  - {r: 0.37, g: 0.38, b: 0.38, a: 1}
-  - {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  - {r: 0.6, g: 0.11, b: 0, a: 1}
-  - {r: 0.1, g: 0.2, b: 0.2, a: 1}
+  - {r: 0.8584906, g: 0.21600644, b: 0.1822268, a: 1}
+  - {r: 0.91183054, g: 0.9150943, b: 0.7985493, a: 1}
+  - {r: 0.21933962, g: 0.8773585, b: 0.8773585, a: 1}
+  - {r: 0.3754005, g: 0.7169812, b: 0.51680946, a: 1}
+  - {r: 0.13950695, g: 0.51718074, b: 0.8962264, a: 1}
+  - {r: 0.8113208, g: 0.57001334, b: 0.27171594, a: 1}
   explosion: {fileID: 2861438460690957853, guid: 7e5cd21418e381a4da45c7d1ed637603, type: 3}

@@ -9,6 +9,6 @@ public class CameraAgent : MonoBehaviour
 
     void Start()
     {
-        cam.orthographicSize = boardUnit *1.3f / cam.aspect;
+        //cam.orthographicSize = boardUnit * 1.3f / cam.aspect;
     }
 }

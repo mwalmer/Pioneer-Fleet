@@ -73,7 +73,7 @@ public class UI_Blackscreen : MonoBehaviour
             container.AddComponent<CanvasRenderer>();
 
             rect.sizeDelta = new Vector2(Screen.width, Screen.height);
-            rect.position = Vector2.zero;
+            rect.anchoredPosition = Vector2.zero;
             rect.anchorMax = new Vector2(0.5f, 1f);
             rect.anchorMin = new Vector2(0.5f, 1f);
             rect.localScale = new Vector3(1, 1, 1);

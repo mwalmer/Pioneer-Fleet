@@ -486,7 +486,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6161920764521824521, guid: 766a7b0e94144e243976af7ae4b3692c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6161920764521824521, guid: 766a7b0e94144e243976af7ae4b3692c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -543,6 +543,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1473880813849045302, guid: c50d6588cb6163b4dad788e3fd7d2a55, type: 3}
   m_PrefabInstance: {fileID: 344911349}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136691197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1473880813849045306, guid: c50d6588cb6163b4dad788e3fd7d2a55, type: 3}
+  m_PrefabInstance: {fileID: 344911349}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f175a8dae3e9eeb49bf4f2c74f26f268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1403610395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -770,7 +781,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1791934062
 PrefabInstance:
@@ -845,7 +856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9115842008823383220, guid: 89ea3d10ef9e591419578a0deed246b1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2
+      value: -491
       objectReference: {fileID: 0}
     - target: {fileID: 9115842008823383220, guid: 89ea3d10ef9e591419578a0deed246b1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -964,6 +975,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_SettingButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2718517806767948346, guid: ec762e15e1aa69c41ad90325528f781c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1136691197}
+    - target: {fileID: 2718517806767948346, guid: ec762e15e1aa69c41ad90325528f781c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnOffMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec762e15e1aa69c41ad90325528f781c, type: 3}
 --- !u!1 &1925659154
@@ -996,7 +1015,7 @@ Transform:
   m_Children:
   - {fileID: 65743832}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2010139711 stripped
 RectTransform:
@@ -1032,7 +1051,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082637417
 GameObject:
@@ -1045,7 +1064,7 @@ GameObject:
   - component: {fileID: 2082637419}
   - component: {fileID: 2082637418}
   m_Layer: 0
-  m_Name: Board
+  m_Name: CoreGameBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
