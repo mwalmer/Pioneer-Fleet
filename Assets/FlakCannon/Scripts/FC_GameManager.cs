@@ -13,7 +13,7 @@ public class FC_GameManager : MonoBehaviour
     [Space]
     [Header("UI Handlers")]
     public UI_IconBar hpUI;
-    public TextMeshProUGUI destroyCountUI;
+    public UI_ScoreIndicator scoreIndicator;
     public FC_EndGameEvent gameEndEvent;
     public TextMeshProUGUI gameEndNoticeUI;
     public UI_Description condiReminder;
@@ -24,6 +24,7 @@ public class FC_GameManager : MonoBehaviour
     public int destroyCount = 0;
     public int winningCount = 10;
     public float timeLimit = 60;
+    public static int scoreFor100;
 
     public static bool IsGameActive = true;
     public static FC_GameManager GameManager;
@@ -61,11 +62,15 @@ public class FC_GameManager : MonoBehaviour
         //             CannonFireSpeed = 4; // 1 ~ 8
         //             CannonMagazingNumber = 20; // 10 ~ 60
         //             ShieldSustain = 100; // 50 ~ 400
-        //             CannonHP = 7; // 3 ~ 20
+        //             CannonHP = 7; // 1 ~ 15
         //             EnergyGain = 10; // 1 ~ 100
 
         //EventData.GetData().difficulty = 7;   // For testing
         //EventData.GetData().gameMode = "Survival";
+
+        FC_GameManager.IsGameActive = true;
+        playerEnergy = 5;
+        destroyCount = 0;
 
         if (EventData.GetData() is object)
         {
@@ -87,21 +92,37 @@ public class FC_GameManager : MonoBehaviour
             }
             else
             {
-                playerHP = (7 - difficulty) * 2 + 1;
                 if (GameMode == "Survival")
                 {
+                    playerHP = Mathf.RoundToInt((7 - difficulty) / 2) + 1;
                     timeLimit = 40 + 60 * ((float)difficulty / 7);
                 }
                 else if (GameMode == "Elimination")
                 {
+                    playerHP = (7 - difficulty) * 2 + 1;
                     timeLimit = 80 - 20f * ((float)difficulty / 7f);
                     winningCount = (int)(20 + 20f * ((float)difficulty / 7f));
                 }
             }
+
+            if (GameMode == "Survival")
+            {
+                scoreFor100 = 5000;
+                scoreFor100 += (int)(timeLimit / 2f) * 50;
+                scoreFor100 += difficulty * 100;
+            }
+            else if (GameMode == "Elimination")
+            {
+                scoreFor100 = winningCount * 100;
+                scoreFor100 += (int)(timeLimit / 2f) * 50;
+                scoreFor100 += difficulty * 100;
+            }
+            else
+            {
+                scoreFor100 = 9999;
+            }
+            Debug.Log(scoreFor100);
         }
-
-
-
 
         if (gameTimer)
         {
@@ -124,10 +145,7 @@ public class FC_GameManager : MonoBehaviour
         {
             hpUI.ChangeBarValue(playerHP);
         }
-        if (destroyCountUI != null)
-        {
-            destroyCountUI.text = "Destroyed: " + destroyCount + "/" + winningCount;
-        }
+
 
         // WinningCondition reminder
         if (condiReminder)
@@ -154,29 +172,34 @@ public class FC_GameManager : MonoBehaviour
 
     void CheckGameConditions()
     {
-        if (GameMode == "Elimination")
+        if (IsGameActive)
         {
-            if (destroyCount >= winningCount)
+            if (GameMode == "Elimination")
             {
-                WinningEvent();
+                if (destroyCount >= winningCount)
+                {
+                    WinningEvent();
+                    FC_ScoreTaker.AddScore("TimeReward", Mathf.RoundToInt(gameTimer.time * 100));
+                }
+                if (gameTimer.IsTime())
+                {
+                    LosingEvent();
+                }
             }
-            if (gameTimer.IsTime())
+            else if (GameMode == "Survival")
+            {
+                if (gameTimer.IsTime())
+                {
+                    WinningEvent();
+                    FC_ScoreTaker.AddScore("TimeReward", Mathf.RoundToInt(3000));
+                }
+            }
+
+            //All cases
+            if (playerHP <= 0)
             {
                 LosingEvent();
             }
-        }
-        else if (GameMode == "Survival")
-        {
-            if (gameTimer.IsTime())
-            {
-                WinningEvent();
-            }
-        }
-
-        //All cases
-        if (playerHP <= 0)
-        {
-            LosingEvent();
         }
     }
     void WinningEvent()
@@ -214,6 +237,7 @@ public class FC_GameManager : MonoBehaviour
         GameManager.playerHP -= damage;
         UI_ScreenEffect.ScreenGlassFlash(Color.red, 1f, 0.2f);
         UI_ScreenEffect.ScreenUIBump(0.3f, 0.05f, 10f);
+        FC_ScoreTaker.AddScore("LostHP", -100);
     }
     public static void CountDestroy()
     {

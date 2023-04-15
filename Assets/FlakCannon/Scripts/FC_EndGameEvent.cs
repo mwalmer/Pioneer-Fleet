@@ -31,6 +31,7 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         if (FC_GameManager.IsGameActive == false)
         {
+            Cursor.visible = true;
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 GoNextScene();
@@ -57,6 +58,11 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         FC_GameManager.IsGameActive = false;
         FC_GameManager.ResetFlakCannonGameSettings();
+
+        if (EventData.GetData().lastScene == "BattleBridge")
+        {
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1, Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / (float)FC_GameManager.scoreFor100) * 100);
+        }
 
         Debug.Log("Time is back: " + Time.timeScale);
         shouldGoNextScene = true;
