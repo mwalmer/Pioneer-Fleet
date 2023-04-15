@@ -7,6 +7,8 @@ public class UI_BlockMouseSelection : MonoBehaviour
 
     public SpriteRenderer block;
     private SpriteRenderer cell;
+    private bool isPressed = false;
+    private bool isOn = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,8 @@ public class UI_BlockMouseSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        IsMouseOn();
+        PressEvent();
     }
 
     public Vector2 GetCellPos()
@@ -25,7 +28,6 @@ public class UI_BlockMouseSelection : MonoBehaviour
         Debug.Log(cell.size);
         float newX = transform.position.x - cell.size.x / 2;
         float newY = transform.position.y + cell.size.y / 2;
-        Debug.Log(cell.size + " | " + newX + ", " + newY);
 
         return new Vector2(newX, newY);
     }
@@ -33,13 +35,43 @@ public class UI_BlockMouseSelection : MonoBehaviour
     public bool IsMouseOn()
     {
         Vector2 cellPos = GetCellPos();
-        if (Input.mousePosition.x > cellPos.x && Input.mousePosition.x < cellPos.x + cell.size.x)
-        {
+        Vector2 mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
+        if (isPressed == false)
+        {
+            if (mousePos.x > cellPos.x && mousePos.x < cellPos.x + cell.size.x && mousePos.y < cellPos.y && mousePos.y > cellPos.y - cell.size.y)
+            {
+                block.color = new Color(1, 1, 1, 1);
+                isOn = true;
+            }
+            else
+            {
+                block.color = new Color(1, 1, 1, 0.001f);
+                isOn = false;
+            }
         }
 
-
         return false;
+    }
+    public void PressEvent()
+    {
+        if (isOn)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                isPressed = true;
+                block.color = new Color(64f / 255f, 128f / 255f, 1, 1);
+            }
+        }
+        if (isPressed)
+        {
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                isPressed = false;
+                block.color = new Color(1, 1, 1, 1);
+            }
+        }
     }
 
 }
