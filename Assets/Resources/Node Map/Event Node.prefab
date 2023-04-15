@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8429648203397326694}
   - component: {fileID: -2426107996298776911}
   - component: {fileID: 1321002581845613537}
+  - component: {fileID: -3346420898770792131}
   m_Layer: 0
   m_Name: Event Node
   m_TagString: Untagged
@@ -46,11 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c400ad5730d36f74faffadd11a68ac9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetName: 
+  turncoat: 0
   nodeState: 0
   unvisitedColor: {r: 1, g: 1, b: 1, a: 1}
   activeColor: {r: 0.21176471, g: 1, b: 0.993308, a: 1}
   completedColor: {r: 0.2117647, g: 1, b: 0.9934303, a: 1}
   failedColor: {r: 1, g: 0.3254717, b: 0.3254717, a: 1}
+  _lineRendererSpawner: {fileID: 0}
 --- !u!212 &-2426107996298776911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -129,3 +133,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &-3346420898770792131
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413968532514908592}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ddb3697bd8c683748a5dbc5e9f398300, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

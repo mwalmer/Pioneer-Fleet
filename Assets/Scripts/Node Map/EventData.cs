@@ -132,8 +132,12 @@ public class EventData
 
     public void SetData()
     {
-        PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
-        playerData.updateCurrency(currency);
+        if (GameObject.Find("PlayerData") != null)
+        {
+            PlayerData playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+            playerData.updateCurrency(currency);
+        }
+        
         data = this;
     }
 
