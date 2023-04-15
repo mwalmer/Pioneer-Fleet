@@ -31,7 +31,6 @@ public class UI_CanvasGroupControl : MonoBehaviour
                 isAppeared = true;
             }
         }
-
     }
 
     public void Show()

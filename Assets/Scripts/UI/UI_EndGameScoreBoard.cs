@@ -109,7 +109,6 @@ public class UI_EndGameScoreBoard : MonoBehaviour
 
         if (tabQueue.Count > 0)
         {
-
             tabQueue.Peek().GetIn();
             tabQueue.Peek().SetNewPosY(-headOffset - yOffset - (yOffset + height) * scoreTabs.Count);
         }
