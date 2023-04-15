@@ -26,6 +26,7 @@ public class LoadScene : MonoBehaviour
     public void LoadByIndexArmaments()
     {
         GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame = 3;
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore = 100;
         GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
         SceneManager.LoadScene(5);
     }
@@ -36,7 +37,7 @@ public class LoadScene : MonoBehaviour
     }
 
     public void LoadBattleBridgeFromMiniGame(){
-        GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1,100);
+        //GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1,100);
         SceneManager.LoadScene(2);
     }
 

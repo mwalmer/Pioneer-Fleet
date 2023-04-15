@@ -32,7 +32,7 @@ public class FleetBattleHandler : MonoBehaviour
 
         GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn x--------\n");
         if(firstTime == false){
-            fleetBattleCalcTest(1,100);
+            fleetBattleCalcTest(1,GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore);
         }
         GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
         log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;

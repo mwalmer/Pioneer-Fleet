@@ -53,10 +53,20 @@ public class StarFighter : MonoBehaviour
                 circle();
             if(chasing == true){
                 transform.position = Vector3.MoveTowards(transform.position, target.position, 1.2f * Time.deltaTime);
-                Vector3.RotateTowards(transform.position,target.position, 1f * Time.deltaTime,1.0f);
+                Vector3 targetDirection = target.position - transform.position;
+                float singleStep = 3f * Time.deltaTime;
+                Vector3 newDirection = Vector3.RotateTowards(transform.up, targetDirection, singleStep, 0.0f);
+                // Debug.DrawRay(transform.position, newDirection, Color.red);
+                transform.rotation = Quaternion.LookRotation(Vector3.forward, newDirection);
             }
             if(chased == true){
                 transform.position = Vector3.MoveTowards(transform.position, randPos, 1.4f * Time.deltaTime);
+                Vector3 targetDirection = transform.position - target.position;
+                float singleStep = 100f * Time.deltaTime;
+                Vector3 newDirection = Vector3.RotateTowards(transform.up, targetDirection, singleStep, 0.0f);
+                // Debug.DrawRay(transform.position, newDirection, Color.red);
+                transform.rotation = Quaternion.LookRotation(Vector3.forward, newDirection);
+                
                 if(Vector3.Distance(randPos,transform.position) < 0.5f){
                      randPos = new Vector3(Random.Range(-15f,-27f),Random.Range(-3f,3f));
                 }
