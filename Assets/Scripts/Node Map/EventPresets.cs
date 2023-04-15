@@ -17,6 +17,14 @@ public class EventPresets
         AbandonedStarFighter.starfighter += 1;
         AbandonedStarFighter.starfighterStr = "FederationFighter";
         presets.Add(AbandonedStarFighter);
+        
+        // TODO: remove, for debug ONLY!!!!!!
+        EventData MatchThree = new EventData();
+        MatchThree.eventType = EventData.EventType.singleMinigame;
+        MatchThree.description = "MatchThree";
+        MatchThree.text = "matching";
+        MatchThree.minigameType = EventData.Minigame.MatchingMinigame;
+        presets.Add(MatchThree);
 
         // Passive Events
         EventData miningOutpost = new EventData();
@@ -25,6 +33,19 @@ public class EventPresets
         miningOutpost.text = "Upon landing, you find large surface deposits of Orichalcum. Though you can't mine it you know people who would be interested in its location. +1 currency";
         miningOutpost.currency += 50;
         presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
+        // presets.Add(miningOutpost);
 
         // Passive Events
         EventData shop = new EventData();

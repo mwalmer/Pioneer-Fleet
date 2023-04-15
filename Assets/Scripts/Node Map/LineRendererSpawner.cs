@@ -22,8 +22,10 @@ public class LineRendererSpawner : MonoBehaviour
         {
             GameObject obj = Instantiate(tempLine, transform);
             obj.name = "path line";
-            obj.GetComponent<LineRenderer>().startColor = EventNode.nodeColors[(int)EventNode.NodeState.completed];
-            obj.GetComponent<LineRenderer>().endColor = EventNode.nodeColors[(int)EventNode.NodeState.completed];
+            Color c = EventNode.nodeColors[(int)EventNode.NodeState.completed];
+            c.a = 0.5f;
+            obj.GetComponent<LineRenderer>().startColor = c;
+            obj.GetComponent<LineRenderer>().endColor = c;
             solidRenderers.Add(obj);
         }
     }

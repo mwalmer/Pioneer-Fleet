@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class EventNode : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class EventNode : MonoBehaviour
     public Color completedColor;
     public Color failedColor;
     public LineRendererSpawner _lineRendererSpawner;
+    public Animator animator;
     
     private void Awake()
     {
@@ -33,6 +35,9 @@ public class EventNode : MonoBehaviour
         nodeState = NodeState.unvisited;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _lineRendererSpawner = GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>();
+        animator = GetComponent<Animator>();
+        animator.speed = Random.Range(0.20f, 0.40f);
+        animator.Play("PlanetSpin", Random.Range(0, 77));
     }
 
     private void Start()
@@ -53,7 +58,7 @@ public class EventNode : MonoBehaviour
             return;
         
         // change node color
-        if(nodeState != NodeState.unvisited)
+        if(NodeData.currentNode == gameObject)
             return;
         
         // draws line to nearby nodes
@@ -88,8 +93,16 @@ public class EventNode : MonoBehaviour
     {
         if(NodeData.selectedNode != null)
             return;
-        
+
         Select();
+        
+        if(NodeData.selectedNode == null)
+            return;
+        
+        if (NodeData.selectedNode.GetComponent<EventNode>().nodeState == NodeState.completed)
+        {
+            SetCompleted();
+        }
         _lineRendererSpawner.ClearLines();
         
         // show ui
@@ -110,6 +123,7 @@ public class EventNode : MonoBehaviour
         //TODO: this should be done when the player wins/loses
         NodeData.currentNode.GetComponent<EventNode>().nodeState = NodeState.completed;
         NodeData.currentNode.GetComponent<EventNode>().UpdateColor();
+        
         if(eventData.eventType == EventData.EventType.turncoat)
             NodeData.bossNode.SetActive(true);
         
@@ -121,15 +135,23 @@ public class EventNode : MonoBehaviour
 
         NodeData.selectedNode = null;
         _lineRendererSpawner.ClearLines();
-        
-        if(defer) 
-            return;
 
+        if (defer)
+        {
+            // TODO: set complete
+            return;
+        }
+        
         HandleEvent();
     }
 
     public void SetEventDialog()
     {
+        if (eventData.text == "")
+        {
+            Debug.LogError("no text to display");
+            return;
+        }
         // event dialog ui
         var bh = FindObjectOfType<ButtonHandler>();
         GameObject ed = bh.edG;
@@ -140,7 +162,6 @@ public class EventNode : MonoBehaviour
         eventDialogController.FadeBack();
         eventDialog.ChangeName(planetName, Color.white);
         eventDialog.ChangeDescription(eventData.text, Color.white);
-        
     }
 
     private void HandleEvent()
@@ -169,13 +190,12 @@ public class EventNode : MonoBehaviour
                 else if(eventData.minigameType == EventData.Minigame.FlakCannon)
                     UI_CanvasInit.EnterNextScene("FlakCannon");
                 else if(eventData.minigameType == EventData.Minigame.MatchingMinigame)
-                    UI_CanvasInit.EnterNextScene("CandyCrush");
+                    UI_CanvasInit.EnterNextScene("ArmamentsAlign");
             } break;
             case EventData.EventType.boss:
             {
                 eventData.setFleetBattleData();
-                // NodeData.newMap = true;
-            
+                
                 UI_CanvasInit.EnterNextScene("BattleBridge");
                 Destroy(NodeData.nodeMap);
                 NodeData.eventNodeList.Clear();
@@ -187,11 +207,15 @@ public class EventNode : MonoBehaviour
             } break;
             case EventData.EventType.MatchingMinigame:
             {
-                LoadScene(5);
+                UI_CanvasInit.EnterNextScene("ArmamentsAlign");
             } break;
             case EventData.EventType.shop:
             {
                 Debug.LogError("Invalid capital ship!\n");
+            } break;
+            case EventData.EventType.completed:
+            {
+                // get random passive event
             } break;
             default:
             {
@@ -200,9 +224,18 @@ public class EventNode : MonoBehaviour
         }
     }
 
+    public void SetCompleted()
+    {
+        EventData tempData = new EventData();
+        tempData.eventType = EventData.EventType.completed;
+        tempData.description = "A familiar planet";
+        tempData.text = "";
+        eventData = tempData;
+    }
+
     public void Select(bool ignoreCurrent = false)
     {
-        if(nodeState != NodeState.unvisited)
+        if(NodeData.currentNode == gameObject && !ignoreCurrent)
             return;
 
         if(!ignoreCurrent && (NodeData.selectedNode == gameObject || NodeData.currentNode == gameObject))

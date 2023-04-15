@@ -137,6 +137,19 @@ public class ButtonHandler : MonoBehaviour
 
     public void ShowDialogBox()
     {
+        if (NodeData.selectedNode.GetComponent<EventNode>().eventData.text == "")
+        {
+            showOnce = true;
+            travelFlag = false;
+            showDialogWindow = false;
+
+            lastSelection = "";
+            eventDialogSelection.CleanSelections();
+            sideWindowController.FadeOut();
+            
+            Continue();
+            return;
+        }
         travelFlag = true;
         sideWindowController.FadeOut();
         GameObject temp = NodeData.selectedNode;

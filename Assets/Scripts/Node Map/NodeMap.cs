@@ -18,6 +18,15 @@ public class NodeMap : MonoBehaviour
         {
             FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(NodeData.currentNode.transform);
             Destroy(gameObject);
+            
+            // complete node's event is changed so revisiting doesn't trigger same event
+            // EventNode eventNode = NodeData.currentNode.GetComponent<EventNode>();
+            // eventNode.eventData.eventType = EventData.EventType.completed;
+            // eventNode.eventData.description = "A familiar planet";
+            
+            // EventNode eventNode = NodeData.currentNode.GetComponent<EventNode>();
+            // if(eventNode.eventData.eventType != EventData.EventType.completed)
+            //     eventNode.SetCompleted();
             return;
         }
         
