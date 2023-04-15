@@ -40,7 +40,7 @@ public class FC_Enemyfighter : MonoBehaviour
             }
             else
             {
-                FC_ScoreTaker.AddScore("Block", 500);
+                FC_ScoreTaker.AddScore("Shield Block Successes", 500);
                 UI_ScoreIndicator.BlockEnemyFighter("Enemy Fighter");
             }
             FC_EnemyProjecter.RemoveEnemy(this);
@@ -60,11 +60,11 @@ public class FC_Enemyfighter : MonoBehaviour
                 UI_ScoreIndicator.DefeatEnemyFighter("Enemy Fighter", Mathf.RoundToInt(GetDistance()));
                 if (GetDistance() > 2000)
                 {
-                    FC_ScoreTaker.AddScore("OverrangeElimination", 500);
+                    FC_ScoreTaker.AddScore("Defeat Enemies in Over-Distance", 500);
                 }
                 else
                 {
-                    FC_ScoreTaker.AddScore("Elimination", 100);
+                    FC_ScoreTaker.AddScore("Defeat Enemy Fighters", 100);
                 }
                 enemyStatus.Dead();
                 FC_EnemyProjecter.RemoveEnemy(this);

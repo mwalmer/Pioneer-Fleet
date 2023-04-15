@@ -15,6 +15,8 @@ public class UI_ScoreTab : MonoBehaviour
     public float presentingTime = 1f;
     public Sprite highlightBackground;
     public Sprite normalBackground;
+    public Image highlightTarget;
+    public bool hasIcon = true;
     private float currentPresentingTime = -1;
     private CanvasGroup group;
     private Image img;
@@ -90,6 +92,7 @@ public class UI_ScoreTab : MonoBehaviour
                 img = _img;
             }
         }
+        if (highlightTarget == false) highlightTarget = img;
         text = GetComponentInChildren<TextMeshProUGUI>();
 
         width = rect.sizeDelta.x;
@@ -164,6 +167,8 @@ public class UI_ScoreTab : MonoBehaviour
     public void SetIcon(Sprite _icon, Color _color)
     {
         if (isSetup == false) Init();
+
+        if (hasIcon == false) return;
 
         icon.sprite = _icon;
         icon.color = _color;

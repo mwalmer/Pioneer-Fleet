@@ -61,7 +61,11 @@ public class FC_EndGameEvent : MonoBehaviour
 
         if (EventData.GetData().lastScene == "BattleBridge")
         {
-            GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1, Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / (float)FC_GameManager.scoreFor100) * 100);
+            int finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / (float)FC_GameManager.scoreFor100 * 100);
+            if (finalScore < 0) finalScore = 0;
+            else if (finalScore > 100) finalScore = 100;
+            Debug.Log("Final Score: " + finalScore);
+            GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
         }
 
         Debug.Log("Time is back: " + Time.timeScale);

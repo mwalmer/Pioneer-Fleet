@@ -179,10 +179,11 @@ public class FC_GameManager : MonoBehaviour
                 if (destroyCount >= winningCount)
                 {
                     WinningEvent();
-                    FC_ScoreTaker.AddScore("TimeReward", Mathf.RoundToInt(gameTimer.time * 100));
+                    FC_ScoreTaker.AddScore("Time Bonus", Mathf.RoundToInt(gameTimer.time * 100));
                 }
                 if (gameTimer.IsTime())
                 {
+                    FC_ScoreTaker.AddScore("Mission Failed", -2000);
                     LosingEvent();
                 }
             }
@@ -191,7 +192,7 @@ public class FC_GameManager : MonoBehaviour
                 if (gameTimer.IsTime())
                 {
                     WinningEvent();
-                    FC_ScoreTaker.AddScore("TimeReward", Mathf.RoundToInt(3000));
+                    FC_ScoreTaker.AddScore("Survival Reward", 3000);
                 }
             }
 
