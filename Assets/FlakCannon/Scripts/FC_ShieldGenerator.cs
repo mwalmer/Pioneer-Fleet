@@ -75,7 +75,7 @@ public class FC_ShieldGenerator : MonoBehaviour
             return;
         }
 
-        FC_GameManager.GameManager.playerEnergy -= (chargedEnergy >= 500 ? (chargedEnergy >= 1000 ? 2 : 1) : 0);
+        FC_GameManager.GameManager.playerEnergy -= (chargedEnergy >= (maxEnergy * 2 / 3) ? (chargedEnergy >= 1000 ? 2 : 1) : 0);
         energyIndicator.ChangeBarValue(FC_GameManager.GameManager.playerEnergy);
 
         GameObject temp = Instantiate(shieldPrefab, rect);

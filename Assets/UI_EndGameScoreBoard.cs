@@ -43,6 +43,7 @@ public class UI_EndGameScoreBoard : MonoBehaviour
         {
             currentAppearingTime += Time.deltaTime;
 
+            scoreRequirement.text = "/ " + FC_GameManager.scoreFor100;
             group.alpha = Mathf.Lerp(0, 1, currentAppearingTime / appearingTime);
             if (subGroup) subGroup.alpha = group.alpha;
 
@@ -78,7 +79,6 @@ public class UI_EndGameScoreBoard : MonoBehaviour
             if (continueNotice) continueNotice.Show();
         }
 
-        scoreRequirement.text = "/ " + FC_GameManager.scoreFor100;
         float scoreMargin = (float)recordedScore / (float)FC_GameManager.scoreFor100;
         if (scoreMargin > 1) scoreMargin = 1;
         else if (scoreMargin < 0) scoreMargin = 0;
