@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Starbomber.unity
     guid: 4784cf78ab61d5e4a8a6478fe6b5941f
+  - enabled: 1
+    path: Assets/Scenes/ArmamentsAlign.unity
+    guid: 667f3c27da8889b45b7459ca03526644
   m_configObjects: {}
