@@ -25,7 +25,8 @@ public class EventData
         boss,
         turncoat,
         MatchingMinigame,
-        shop
+        shop,
+        completed
     }
 
     public enum Minigame
@@ -89,6 +90,9 @@ public class EventData
     public int CannonHP; // 3-20
     public int EnergyGain; // 1-100
     
+    // match three
+    public int MT_timeGiven;
+    
 
     public EventData()
     {
@@ -110,6 +114,7 @@ public class EventData
         EnergyGain = 10;
 
         FC_timeGiven = 60;
+        MT_timeGiven = 30;
 
         EnemyStarFighers = new List<string>();
         EnemyStarFigherNums = new List<int>();
