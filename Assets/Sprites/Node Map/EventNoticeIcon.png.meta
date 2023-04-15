@@ -212,6 +212,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: EventNoticeIcon_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c16dac0da11bf46992ad33e8b97366
+      internalID: 1342479100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -226,6 +247,7 @@ TextureImporter:
       EventNoticeIcon_0: 1703572383
       EventNoticeIcon_3: -529016030
       EventNoticeIcon_2: 943867108
+      EventNoticeIcon_4: 1342479100
       EventNoticeIcon_1: -891318953
   spritePackingTag: 
   pSDRemoveMatte: 0
