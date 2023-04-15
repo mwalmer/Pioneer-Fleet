@@ -7,6 +7,7 @@ using TMPro;
 
 public class FC_EndGameEvent : MonoBehaviour
 {
+    public UI_EndGameScoreBoard scoreBoard;
     public TextMeshProUGUI gameEndNotice;
     public CanvasGroup cGroup;
     public string nextScene;
@@ -32,7 +33,8 @@ public class FC_EndGameEvent : MonoBehaviour
         if (FC_GameManager.IsGameActive == false)
         {
             Cursor.visible = true;
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            scoreBoard.ShowScoreBoard();
+            if (scoreBoard.IsFinishedRecording() && Input.GetKeyDown(KeyCode.Mouse0))
             {
                 GoNextScene();
             }

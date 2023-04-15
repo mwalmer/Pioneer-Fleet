@@ -47,6 +47,10 @@ public class FC_ScoreTaker : MonoBehaviour
     {
         return scoreTaker.scores;
     }
+    public static int GetScore(string scoreType)
+    {
+        return scoreTaker.scores[scoreType];
+    }
 
     public static int GetTotalScore()
     {

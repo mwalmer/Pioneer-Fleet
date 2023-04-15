@@ -12,6 +12,7 @@ public class UI_DynamicNumber : MonoBehaviour
     private TextMeshProUGUI presenter;
     public bool isInt = false;
     public bool colorWhenChangingValue = true;
+    private Color normalColor = Color.white;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,7 @@ public class UI_DynamicNumber : MonoBehaviour
                 currentDynamicTime = -1;
                 presentingValue = value;
                 previousValue = value;
-                presenter.color = Color.white;
+                presenter.color = normalColor;
             }
         }
     }
@@ -47,6 +48,7 @@ public class UI_DynamicNumber : MonoBehaviour
     {
         previousValue = presentingValue;
         value = _value;
+        currentDynamicTime = 0;
 
         if (colorWhenChangingValue == false) return;
 
@@ -58,6 +60,10 @@ public class UI_DynamicNumber : MonoBehaviour
         {
             presenter.color = Color.red;
         }
+    }
 
+    public void SetColor(Color _color)
+    {
+        normalColor = _color;
     }
 }

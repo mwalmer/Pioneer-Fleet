@@ -238,7 +238,7 @@ public class FC_GameManager : MonoBehaviour
         GameManager.playerHP -= damage;
         UI_ScreenEffect.ScreenGlassFlash(Color.red, 1f, 0.2f);
         UI_ScreenEffect.ScreenUIBump(0.3f, 0.05f, 10f);
-        FC_ScoreTaker.AddScore("LostHP", -100);
+        FC_ScoreTaker.AddScore("Lost HP", -100);
     }
     public static void CountDestroy()
     {

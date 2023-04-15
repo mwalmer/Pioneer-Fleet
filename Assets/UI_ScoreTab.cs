@@ -17,11 +17,13 @@ public class UI_ScoreTab : MonoBehaviour
     public Sprite normalBackground;
     public Image highlightTarget;
     public bool hasIcon = true;
+    public bool rightToLeft = false;
     private float currentPresentingTime = -1;
     private CanvasGroup group;
     private Image img;
     private Image icon;
-    private TextMeshProUGUI text;
+    public TextMeshProUGUI frontText;
+    public TextMeshProUGUI tailText;
     private RectTransform rect;
     private float width;
     private float height;
@@ -39,7 +41,7 @@ public class UI_ScoreTab : MonoBehaviour
         {
             currentEntranceTime += Time.deltaTime;
 
-            rect.localPosition = new Vector3(Mathf.Lerp(width * -1, 0, currentEntranceTime / entranceTime), rect.localPosition.y, rect.localPosition.z);
+            rect.localPosition = new Vector3(Mathf.Lerp(width * (rightToLeft ? 1 : -1), 0, currentEntranceTime / entranceTime), rect.localPosition.y, rect.localPosition.z);
             group.alpha = Mathf.Lerp(0, 1, currentEntranceTime / entranceTime * 1.2f);
 
             if (currentEntranceTime >= entranceTime)
@@ -93,7 +95,8 @@ public class UI_ScoreTab : MonoBehaviour
             }
         }
         if (highlightTarget == false) highlightTarget = img;
-        text = GetComponentInChildren<TextMeshProUGUI>();
+        if (frontText == false)
+            frontText = GetComponentInChildren<TextMeshProUGUI>();
 
         width = rect.sizeDelta.x;
         height = rect.sizeDelta.y;
@@ -107,6 +110,10 @@ public class UI_ScoreTab : MonoBehaviour
     public void GetIn()
     {
         currentEntranceTime = 0;
+    }
+    public bool IsFinishedGetIn()
+    {
+        return currentPresentingTime >= 0;
     }
     public void GetDisappear()
     {
@@ -154,6 +161,7 @@ public class UI_ScoreTab : MonoBehaviour
 
     public void SetNewPosY(float _y)
     {
+        if (rect == false) Init();
         rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, _y);
     }
     public void SetText(string _text)
@@ -162,7 +170,18 @@ public class UI_ScoreTab : MonoBehaviour
         {
             Init();
         }
-        text.text = _text;
+        frontText.text = _text;
+    }
+    public void SetTailText(string _text)
+    {
+        if (tailText)
+        {
+            tailText.text = _text;
+        }
+        else
+        {
+            Debug.Log("TailText has not been setup.");
+        }
     }
     public void SetIcon(Sprite _icon, Color _color)
     {
