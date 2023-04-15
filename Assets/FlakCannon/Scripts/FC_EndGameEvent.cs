@@ -10,6 +10,7 @@ public class FC_EndGameEvent : MonoBehaviour
     public UI_EndGameScoreBoard scoreBoard;
     public TextMeshProUGUI gameEndNotice;
     public CanvasGroup cGroup;
+    public string currentMiniGame = "FlakCannon";
     public string nextScene;
     private float fadingTime = 2f;
     private float fadingCurrent = 0f;
@@ -67,7 +68,18 @@ public class FC_EndGameEvent : MonoBehaviour
             if (finalScore < 0) finalScore = 0;
             else if (finalScore > 100) finalScore = 100;
             Debug.Log("Final Score: " + finalScore);
-            GameObject.Find("PlayerData").GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
+            GameObject playerData = GameObject.Find("PlayerData");
+            if (playerData)
+            {
+                if (currentMiniGame == "FlakCannon")
+                {
+                    playerData.GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
+                }
+                else if (currentMiniGame == "ArmamentsAlign")
+                {
+                    //TODO:: sent final score;
+                }
+            }
         }
 
         Debug.Log("Time is back: " + Time.timeScale);
