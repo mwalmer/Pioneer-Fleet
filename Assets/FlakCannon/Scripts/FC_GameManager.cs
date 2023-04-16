@@ -79,7 +79,7 @@ public class FC_GameManager : MonoBehaviour
 
             if (difficulty == 0)
             {
-                playerHP = 30;
+                playerHP = 19;
                 if (GameMode == "Survival")
                 {
                     timeLimit = 30;
