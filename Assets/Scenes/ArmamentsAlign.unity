@@ -1049,17 +1049,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4457109217393264121, guid: 53aac02b80710694d9049e35f01db2dd, type: 3}
   m_PrefabInstance: {fileID: 839257458}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &648956645 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1952792424841989962, guid: 53aac02b80710694d9049e35f01db2dd, type: 3}
-  m_PrefabInstance: {fileID: 839257458}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &716967217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3827,7 +3816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c5f8082b747498f8e22c4bfc34d48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCountUI: {fileID: 648956645}
+  scoreCountUI: {fileID: 2088549450}
   matchScore: 99
   finalScore: 0
   thisContainer: {fileID: 2082637419}
@@ -3848,3 +3837,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088549450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5248201585941723672, guid: 3ce74555152e20d498778a2238153274, type: 3}
+  m_PrefabInstance: {fileID: 828790377}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
