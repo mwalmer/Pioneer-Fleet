@@ -55,16 +55,21 @@ public class EventPresets
         shop.text = "The merchant provides you with a catalog of refurbished ships.";
         presets.Add(shop);
         
+        // TODO: 
         //Nairan Fleet attack
         EventData NairanFleetAttack = new EventData();
         NairanFleetAttack.eventType = EventData.EventType.battle;
         NairanFleetAttack.description = "An uninhabited planet that is a common jumping point of FTL travel.";
         NairanFleetAttack.text = "As you travel past the planet, ships begin appearing out of FTL. Its a Nairan fleet. Battle stations!";
         NairanFleetAttack.EnemyCapitalShips.Add("NairanFrigate");
-        NairanFleetAttack.EnemyCapitalShipsNums.Add(2);
+        NairanFleetAttack.EnemyCapitalShipsNums.Add(1);
         NairanFleetAttack.EnemyStarFighers.Add("NairanFighter");
-        NairanFleetAttack.EnemyStarFigherNums.Add(3);
+        NairanFleetAttack.EnemyStarFigherNums.Add(1);
         NairanFleetAttack.currency += 100;
+        presets.Add(NairanFleetAttack);
+        presets.Add(NairanFleetAttack);
+        presets.Add(NairanFleetAttack);
+        presets.Add(NairanFleetAttack);
         presets.Add(NairanFleetAttack);
         
         //Nairan Fleet attack

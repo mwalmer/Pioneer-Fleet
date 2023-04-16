@@ -180,10 +180,13 @@ public class ButtonHandler : MonoBehaviour
         GameObject node = NodeData.selectedNode;
         node.GetComponent<EventNode>().Travel();
 
-        int currency = node.GetComponent<EventNode>().eventData.currency;
-        if (currency > 0)
+        if (node.GetComponent<EventNode>().eventData.eventType == EventData.EventType.passive)
         {
-            rt.AddAmount(currency);
+            int currency = node.GetComponent<EventNode>().eventData.currency;
+            if (currency > 0)
+            {
+                rt.AddAmount(currency);
+            }
         }
     }
     

@@ -238,7 +238,7 @@ public class EventNode : MonoBehaviour
             } break;
             case EventData.EventType.shop:
             {
-                Debug.LogError("Invalid capital ship!\n");
+                //Debug.LogError("Invalid capital ship!\n");
             } break;
             case EventData.EventType.completed:
             {
@@ -246,9 +246,10 @@ public class EventNode : MonoBehaviour
             } break;
             default:
             {
-                Debug.LogError("how did I get here?");
+                //Debug.LogError("how did I get here?");
             } break;
         }
+        
     }
 
     public void SetCompleted()

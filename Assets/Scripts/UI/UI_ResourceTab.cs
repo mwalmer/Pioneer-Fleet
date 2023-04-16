@@ -17,7 +17,7 @@ public class UI_ResourceTab : MonoBehaviour
     public bool testButton = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         additionQueue = new Queue<int>();
         number.dynamicTime = 0.33f;
