@@ -84,7 +84,7 @@ namespace MatchThree.Stage
         }
         void updateScore()
         {
-            scoreCountUI.text = "Score: " + thisActionManager.score;
+            scoreCountUI.text = "" + thisActionManager.score;
         }
         void OnInputHandler()
         {
