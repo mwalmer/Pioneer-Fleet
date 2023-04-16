@@ -118,7 +118,7 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         if (endGameEvent.gameObject == false)
         {
-            Init();
+            endGameEvent.Init();
         }
         FC_EndGameEvent.endGameEvent.gameObject.SetActive(true);
         FC_EndGameEvent.endGameEvent.isGameActived = false;
