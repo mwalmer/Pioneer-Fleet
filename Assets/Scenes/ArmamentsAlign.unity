@@ -1049,6 +1049,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4457109217393264121, guid: 53aac02b80710694d9049e35f01db2dd, type: 3}
   m_PrefabInstance: {fileID: 839257458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &648956645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1952792424841989962, guid: 53aac02b80710694d9049e35f01db2dd, type: 3}
+  m_PrefabInstance: {fileID: 839257458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &716967217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1147,7 +1158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5248201585226265520, guid: 3ce74555152e20d498778a2238153274, type: 3}
       propertyPath: headOffset
-      value: 64
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 5248201585226265520, guid: 3ce74555152e20d498778a2238153274, type: 3}
       propertyPath: scoretabPrefab
@@ -1975,7 +1986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1987,15 +1998,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -32
+      value: 608
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -496
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2027,11 +2038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 168
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 1669438095192422292, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2069,6 +2080,18 @@ PrefabInstance:
       propertyPath: frontText
       value: 
       objectReference: {fileID: 1813485031}
+    - target: {fileID: 1669438095192422378, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
+      propertyPath: disappearTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669438095192422378, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
+      propertyPath: presentingTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669438095192422378, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
+      propertyPath: highlightBackground
+      value: 
+      objectReference: {fileID: 21300000, guid: 0443dacb066b3a9478886caa7c8f28e4, type: 3}
     - target: {fileID: 1669438095400022653, guid: dbc7efd86e2a75c4ea7a60e3e44358c3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3785,6 +3808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTimer: {fileID: 1407114146}
   gameEndEvent: {fileID: 1673986778}
+  dynamicNumber: {fileID: 2088549452}
   gameStage: {fileID: 2082637418}
   isGameActive: 1
 --- !u!1 &2082637417
@@ -3816,7 +3840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c5f8082b747498f8e22c4bfc34d48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCountUI: {fileID: 2088549450}
+  scoreCountUI: {fileID: 648956645}
   matchScore: 99
   finalScore: 0
   thisContainer: {fileID: 2082637419}
@@ -3837,14 +3861,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2088549450 stripped
+--- !u!114 &2088549452 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5248201585941723672, guid: 3ce74555152e20d498778a2238153274, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5248201585941723673, guid: 3ce74555152e20d498778a2238153274, type: 3}
   m_PrefabInstance: {fileID: 828790377}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 47eaeaeb76b2c654188070a4a71aaa79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

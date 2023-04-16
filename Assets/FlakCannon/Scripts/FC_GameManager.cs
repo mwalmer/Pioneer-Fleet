@@ -87,7 +87,7 @@ public class FC_GameManager : MonoBehaviour
                 else if (GameMode == "Elimination")
                 {
                     timeLimit = 120;
-                    winningCount = 20;
+                    winningCount = 15;
                 }
             }
             else
