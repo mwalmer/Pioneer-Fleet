@@ -22,6 +22,11 @@ public class FC_EndGameEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Init();
+    }
+
+    void Init()
+    {
         endGameEvent = this;
 
         if (!gameEndNotice)
@@ -111,6 +116,10 @@ public class FC_EndGameEvent : MonoBehaviour
 
     public static void EnableEndGameEvent()
     {
+        if (endGameEvent.gameObject == false)
+        {
+            Init();
+        }
         FC_EndGameEvent.endGameEvent.gameObject.SetActive(true);
         FC_EndGameEvent.endGameEvent.isGameActived = false;
     }
