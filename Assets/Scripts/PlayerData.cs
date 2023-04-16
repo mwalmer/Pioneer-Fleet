@@ -142,6 +142,50 @@ public class PlayerData : MonoBehaviour
         return S;
     }
 
+    public float PlayerFleetHealth(){
+        List<CapitalShip> CS = playerFleet.CapitalShips;
+        List<StarFighter> SF = playerFleet.StarFighters;
+        float currentValue = 0;
+        float maxValue = 0;
+        for(int i = 0; i < CS.Count; i++){
+            maxValue += CS[i].maxHull;
+            maxValue += CS[i].maxShield;
+            currentValue += CS[i].currentHull;
+            currentValue += CS[i].currentShield; 
+        }
+        for(int i = 0; i < SF.Count; i++){
+            maxValue += SF[i].Accuracy;
+            maxValue += SF[i].BombingPower;
+            if(SF[i].getActive()){
+                maxValue += SF[i].Accuracy;
+                maxValue += SF[i].BombingPower;
+            }
+        }
+        return currentValue/maxValue;
+    }
+
+    public float EnemyFleetHealth(){
+        List<CapitalShip> CS = enemyFleet.CapitalShips;
+        List<StarFighter> SF = enemyFleet.StarFighters;
+        float currentValue = 0;
+        float maxValue = 0;
+        for(int i = 0; i < CS.Count; i++){
+            maxValue += CS[i].maxHull;
+            maxValue += CS[i].maxShield;
+            currentValue += CS[i].currentHull;
+            currentValue += CS[i].currentShield; 
+        }
+        for(int i = 0; i < SF.Count; i++){
+            maxValue += SF[i].Accuracy;
+            maxValue += SF[i].BombingPower;
+            if(SF[i].getActive()){
+                maxValue += SF[i].Accuracy;
+                maxValue += SF[i].BombingPower;
+            }
+        }
+        return currentValue/maxValue;
+    }
+
 
     public void addPlayerCaptialShip(string name){
         CapitalShip playerCapitalShip = Instantiate(Resources.Load("FleetBattle/" + name, typeof(CapitalShip)) as CapitalShip, transform);

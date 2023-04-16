@@ -30,9 +30,11 @@ public class FleetBattleHandler : MonoBehaviour
         if(firstTime == true)
             GameObject.Find("PlayerData").GetComponent<PlayerData>().clearFleetLog();
 
-        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn x--------\n");
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn "+ GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn+"--------\n");
+        GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn += 1;
         if(firstTime == false){
-            fleetBattleCalcTest(1,GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore);
+            if(fleetBattleCalcTest(1,GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore))
+                return;
         }
         GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
         log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;
@@ -120,12 +122,13 @@ public class FleetBattleHandler : MonoBehaviour
                 //fleet1.CapitalShips[x].GetComponent<CapitalShip>().takeDamage(fleet2ActiveFighters[DogFights].GetComponent<StarFighter>().BombingPower);
             }
         }
+        Debug.Log("When the scene ends, we should not make it here. After the last battle. If we do something is fucked");
 
         setHPtext();
 
     }
 
-    public void fleetBattleCalcTest(int miniGame, int miniGameScore){
+    public bool fleetBattleCalcTest(int miniGame, int miniGameScore){
         //capital ships battle
         fleet1ActiveCaptialShips = GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveCapitalShips();
         fleet2ActiveCaptialShips = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips();
@@ -196,14 +199,14 @@ public class FleetBattleHandler : MonoBehaviour
                 fleet2ActiveCaptialShips = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips();
                 if(fleet2ActiveCaptialShips.Count > 0){
                     fleet2ActiveCaptialShips[0].GetComponent<CapitalShip>().takeDamage(miniGameScore);
-                    GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your ace pilot did " + miniGameScore + " damage");
+                    GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your ace pilot did " + miniGameScore + " damage\n");
                 }
                 break;
             case 2: //flak cannon
                 fleet2ActiveFighters = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveFighters();
                 if(fleet2ActiveFighters.Count > 0){
                     if(fleet2ActiveFighters[0].GetComponent<StarFighter>().takeFire(miniGameScore)){
-                        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your gunner crew destroyed 1 starfighter");
+                        GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your gunner crew destroyed 1 starfighter\n");
                     }
                 }
                 break;
@@ -211,20 +214,24 @@ public class FleetBattleHandler : MonoBehaviour
                 fleet2ActiveCaptialShips = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips();
                 if(fleet2ActiveCaptialShips.Count > 0){
                     fleet2ActiveCaptialShips[0].GetComponent<CapitalShip>().takeDamage(miniGameScore);
-                    GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your munitions did " + miniGameScore + " damage");
+                    GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your munitions did " + miniGameScore + " damage\n");
                 }
                 break;
         }
         if (GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveCapitalShips().Count <= 0 && GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveFighters().Count <=0){
                 Debug.Log("Lose condition");
+                return false;
             }
         if(GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips().Count <= 0){
                 GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
                 GameObject.Find("PlayerData").GetComponent<PlayerData>().clearEnemyFleet();
                 GameObject.Find("PlayerData").GetComponent<PlayerData>().HandleDamageandDeadFighters();
+                GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn = 1;
                 SceneManager.LoadScene(1);
+                return true;
                 Debug.Log("Win condition");
             }
+        return false;
     }
 
 
