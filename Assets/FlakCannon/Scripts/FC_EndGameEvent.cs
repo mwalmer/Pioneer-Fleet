@@ -7,6 +7,7 @@ using TMPro;
 
 public class FC_EndGameEvent : MonoBehaviour
 {
+    protected static FC_EndGameEvent endGameEvent;
     public UI_EndGameScoreBoard scoreBoard;
     public TextMeshProUGUI gameEndNotice;
     public CanvasGroup cGroup;
@@ -51,7 +52,7 @@ public class FC_EndGameEvent : MonoBehaviour
         if (cGroup.alpha < 1)
         {
             fadingCurrent += Time.deltaTime;
-            cGroup.alpha = Mathf.Lerp(cGroup.alpha, 1, fadingCurrent / fadingTime);
+            cGroup.alpha = Mathf.Lerp(0, 1, fadingCurrent / fadingTime);
         }
         else
         {
@@ -92,6 +93,8 @@ public class FC_EndGameEvent : MonoBehaviour
                     else if (currentMiniGame == "ArmamentsAlign")
                     {
                         //TODO:: sent final score;
+
+
                         Debug.Log(FC_ScoreTaker.GetTotalScore());
                         playerData.GetComponent<PlayerData>().setMinigameInfo(2, finalScore);
                     }
@@ -101,5 +104,11 @@ public class FC_EndGameEvent : MonoBehaviour
             shouldGoNextScene = true;
             UI_Blackscreen.CallBlackscreen(9, 1);
         }
+    }
+
+
+    public static void EnableEndGameEvent()
+    {
+        FC_EndGameEvent.endGameEvent.gameObject.SetActive(true);
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AA_GameManager : MonoBehaviour
 {
+    protected static AA_GameManager gameManager;
     public UI_Timer gameTimer;
     public FC_EndGameEvent gameEndEvent;
     public MatchThree.Stage.StageController gameStage;
+    float previousScore = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +22,6 @@ public class AA_GameManager : MonoBehaviour
         {
             // Time out event
             gameEndEvent.gameObject.SetActive(true);
-
-
-
         }
 
         ReportScore();
@@ -40,7 +39,6 @@ public class AA_GameManager : MonoBehaviour
 
     public float ReportScore()
     {
-        Debug.Log("ArmamentsAlign's Score" + gameStage.returnScore());
         FC_ScoreTaker.RegisterScore("ArmamentsAlign's Score", gameStage.returnScore());
         return gameStage.returnScore();
     }
