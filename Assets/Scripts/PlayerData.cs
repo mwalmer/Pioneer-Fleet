@@ -17,7 +17,7 @@ public class PlayerData : MonoBehaviour
     public int battleTurn = 1;
     public string FleetLog;
 
-    public int starFighterDif=5;
+   // public int starFighterDif=0;
 
     void Start()
     {

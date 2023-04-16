@@ -52,4 +52,9 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex,LoadSceneMode.Additive);
     }
+    public void LoadLastScene()
+    {
+        EventData data = EventData.GetData();
+        UI_CanvasInit.EnterNextScene(data.lastScene);
+    }
 }
