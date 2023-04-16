@@ -205,10 +205,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnginePower: 65
   Accuracy: 5
-  BombingPower: 20
+  BombingPower: 15
   deadge: 0
   damadge: 0
   inCombat: 0
   target: {fileID: 0}
   projectile: {fileID: 3724408194818019075, guid: 7de9ba4909944b544a5b9fa75a892474, type: 3}
+  bombingRun: 0
   price: 80

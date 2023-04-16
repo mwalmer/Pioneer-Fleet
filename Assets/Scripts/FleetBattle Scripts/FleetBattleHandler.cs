@@ -176,9 +176,8 @@ public class FleetBattleHandler : MonoBehaviour
 
                 //fleet1ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
                 //fleet2ActiveFighters[i].GetComponent<StarFighter>().dogFightAnimation();
-
-                fleet1ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet2ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
                 fleet2ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet1ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
+                fleet1ActiveFighters[i].GetComponent<StarFighter>().takeFire(fleet2ActiveFighters[i].GetComponent<StarFighter>().Accuracy);
 
             }
         }
