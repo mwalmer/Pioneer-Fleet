@@ -35,7 +35,8 @@ public class UI_IconBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        descriptor = GetComponentInChildren<UI_Description>();
+        if (descriptor == false)
+            descriptor = GetComponentInChildren<UI_Description>();
     }
 
     // Update is called once per frame

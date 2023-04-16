@@ -39,6 +39,7 @@ public class AA_GameManager : MonoBehaviour
             gameTimer.isCountingDown = true;
             gameTimer.Run();
         }
+        isGameActive = true;
     }
 
     public void ReportScore()
