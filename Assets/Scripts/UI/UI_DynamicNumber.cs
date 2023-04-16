@@ -61,6 +61,14 @@ public class UI_DynamicNumber : MonoBehaviour
             presenter.color = Color.red;
         }
     }
+    public void AddValue(float _value)
+    {
+        SetValue(value + _value);
+    }
+    public float GetValue()
+    {
+        return value;
+    }
 
     public void SetColor(Color _color)
     {
