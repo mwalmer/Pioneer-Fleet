@@ -34,15 +34,20 @@ public class FleetBattleHandler : MonoBehaviour
         Fleet[] fleetTemp = GameObject.Find("PlayerData").GetComponents<Fleet>();
         fleet1 = fleetTemp[0];
         fleet2 = fleetTemp[1];
-        if(firstTime == true)
+        if(firstTime == true){
             GameObject.Find("PlayerData").GetComponent<PlayerData>().clearFleetLog();
+            PlayerValue.GetComponent<UI_ProgressBar>().value = 1f;
+            EnemyValue.GetComponent<UI_ProgressBar>().value = 1f;
+        }
 
         turnCounter.text = "Turn " + GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn;
         GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn "+ GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn+"--------\n");
         GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn += 1;
+        setHPtext();
         if(firstTime == false){
             if(fleetBattleCalcTest(1,GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore))
                 return;
+            setHPtext();
         }
         GameObject.Find("PlayerData").GetComponent<PlayerData>().LoadBridgeFirstTime = false;
         log.text = GameObject.Find("PlayerData").GetComponent<PlayerData>().FleetLog;
@@ -132,7 +137,7 @@ public class FleetBattleHandler : MonoBehaviour
         }
         Debug.Log("When the scene ends, we should not make it here. After the last battle. If we do something is fucked");
 
-        setHPtext();
+        //setHPtext();
 
     }
 
@@ -247,9 +252,9 @@ public class FleetBattleHandler : MonoBehaviour
     //    while()
     //}
     public void setHPtext() {
-        PlayerValue.value = GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerFleetHealth();
-        EnemyValue.value = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyFleetHealth();
-        text.text = "Ship 1 current hull: " + fleet1.CapitalShips[0].currentHull + "\nShip 1 current shield: " + fleet1.CapitalShips[0].currentShield + "\nShip 2 current hull:" + fleet1.CapitalShips[1].currentHull + "\nShip 2 current shield: " + fleet1.CapitalShips[1].currentShield;
+        PlayerValue.GetComponent<UI_ProgressBar>().value = GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerFleetHealth();
+        EnemyValue.GetComponent<UI_ProgressBar>().value = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyFleetHealth();
+        //text.text = "Ship 1 current hull: " + fleet1.CapitalShips[0].currentHull + "\nShip 1 current shield: " + fleet1.CapitalShips[0].currentShield + "\nShip 2 current hull:" + fleet1.CapitalShips[1].currentHull + "\nShip 2 current shield: " + fleet1.CapitalShips[1].currentShield;
     }
 
     public void MiniGameResults(int score,int minigame){
