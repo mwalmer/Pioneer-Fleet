@@ -106,7 +106,11 @@ public class EventData
         starfighterStr = "";
         nodeType = NodeType.planet;
 
+<<<<<<< Updated upstream
         starFighterDif = Random.Range(0, 5);
+=======
+        starFighterDif = 6;
+>>>>>>> Stashed changes
         
         lastScene = "BattleBridge";
         gameMode = "Elimination";
