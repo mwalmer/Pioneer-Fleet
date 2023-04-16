@@ -39,8 +39,6 @@ namespace MatchThree.Stage
 
         public void DoSwipeAction(int nRow, int numColumn, Swipe swipeDirection)
         {
-            Debug.Assert(nRow >= 0 && nRow < thisStage.maxRow && numColumn >= 0 && numColumn < thisStage.maxCol);
-
             if (thisStage.validSwipe(nRow, numColumn, swipeDirection))
             {
                 StartCoroutine(swipeAction(nRow, numColumn, swipeDirection));
@@ -87,7 +85,7 @@ namespace MatchThree.Stage
                 //There is match three
                 if (bBlockMatched.value)
                 {
-                    score += 1;
+                    score += 5;
                     matchResult.value = true;
 
                     SoundManager.instance.PlayOneShot(Clip.shot);

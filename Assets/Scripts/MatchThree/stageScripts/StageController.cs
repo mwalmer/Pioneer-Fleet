@@ -14,8 +14,9 @@ namespace MatchThree.Stage
         bool thisbInit;
         Stage thisStage;
         StageController thisstageCtr;
-        //public TextMeshProUGUI scoreCountUI;
+        public TextMeshProUGUI scoreCountUI;
         public int matchScore = 0;
+        public int finalScore = 0;
         //public float timeLimit = 60;
         InputManager thisInputManager;
         ActionManager thisActionManager;
@@ -36,7 +37,7 @@ namespace MatchThree.Stage
 
         private void Update()
         {
-            //UpdatePlayerInfo();
+            UpdatePlayerInfo();
             if (!thisbInit)
                 return;
 
@@ -79,7 +80,7 @@ namespace MatchThree.Stage
         }
         void UpdatePlayerInfo()
         {
-            //scoreCountUI.text = "Score: " + thisActionManager.score;
+            scoreCountUI.text = "Score: " + thisActionManager.score;
         }
         void OnInputHandler()
         {
