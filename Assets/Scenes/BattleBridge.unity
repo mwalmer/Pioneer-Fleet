@@ -1503,6 +1503,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330275792}
   m_CullTransparentMesh: 1
+--- !u!114 &1550483335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4906788090371165774, guid: 65663b3c2dbf87c45ab6c860b86df80c, type: 3}
+  m_PrefabInstance: {fileID: 1610220276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1550483336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4906788089370583067, guid: 65663b3c2dbf87c45ab6c860b86df80c, type: 3}
+  m_PrefabInstance: {fileID: 1610220276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1592244788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,6 +2196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 214928359}
   log: {fileID: 1610220277}
+  PlayerValue: {fileID: 1550483336}
+  EnemyValue: {fileID: 1550483335}
 --- !u!4 &1928577074
 Transform:
   m_ObjectHideFlags: 0

@@ -20,6 +20,11 @@ public class FleetBattleHandler : MonoBehaviour
     public TMP_Text text;
 
     public TMP_Text log;
+
+    public Slider PlayerValue;
+
+    public Slider EnemyValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -239,6 +244,8 @@ public class FleetBattleHandler : MonoBehaviour
     //    while()
     //}
     public void setHPtext() {
+        PlayerValue.value = GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerFleetHealth();
+        EnemyValue.value = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyFleetHealth();
         text.text = "Ship 1 current hull: " + fleet1.CapitalShips[0].currentHull + "\nShip 1 current shield: " + fleet1.CapitalShips[0].currentShield + "\nShip 2 current hull:" + fleet1.CapitalShips[1].currentHull + "\nShip 2 current shield: " + fleet1.CapitalShips[1].currentShield;
     }
 
