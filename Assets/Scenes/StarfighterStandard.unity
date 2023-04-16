@@ -2067,7 +2067,7 @@ GameObject:
   - component: {fileID: 288646421}
   - component: {fileID: 288646420}
   m_Layer: 0
-  m_Name: enemyWave5 (1)
+  m_Name: boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13153,6 +13153,7 @@ MonoBehaviour:
   - {fileID: 1513887854}
   - {fileID: 992333806}
   - {fileID: 340576546}
+  - {fileID: 288646419}
 --- !u!4 &1742949507
 Transform:
   m_ObjectHideFlags: 0
