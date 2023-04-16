@@ -206,11 +206,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811567551898206228, guid: f549fcea8a2841247aeafb83a1bdd3d1, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6811567551898206228, guid: f549fcea8a2841247aeafb83a1bdd3d1, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1721721605
+      value: -1337949609
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f549fcea8a2841247aeafb83a1bdd3d1, type: 3}
@@ -299,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2676630561537308393, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2756144532393977240, guid: 79fad2b828d52e24382924613935f417, type: 3}
       propertyPath: m_RootOrder

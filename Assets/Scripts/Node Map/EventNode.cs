@@ -275,28 +275,21 @@ public class EventNode : MonoBehaviour
     public void UpdateColor()
     {
         if(eventData.eventType == EventData.EventType.turncoat)
-            _spriteRenderer.color = Color.red;
+            _spriteRenderer.color = new Color(1.0f, .3f, .3f);
         else if(eventData.eventType == EventData.EventType.boss)
-            _spriteRenderer.color = Color.blue;
+            _spriteRenderer.color = Color.red;
         else
             _spriteRenderer.color = nodeColors[(int)nodeState];
-    }
-    
-    private void LoadScene(int id)
-    {
-        SceneManager.LoadScene(id);
     }
 
     public void UpdateTravelIndicator()
     {
         NodeData.travelIndicator.SetActive(true);
         NodeMap nm = FindObjectOfType<NodeMap>();
-        SpriteRenderer sr = NodeData.travelIndicator.GetComponent<SpriteRenderer>();
         
         NodeData.travelIndicator.transform.position = NodeData.currentNode.transform.position;
         // TODO: get rid of magic number
         float travelRadius = nm.travelDist / 4.5f;
         NodeData.travelIndicator.transform.localScale = new Vector3(travelRadius, travelRadius, 1);
-        // sp.sprite = new Vector2(.5f, .5f);
     }
 }
