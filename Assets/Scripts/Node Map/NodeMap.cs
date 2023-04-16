@@ -18,20 +18,9 @@ public class NodeMap : MonoBehaviour
         {
             FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(NodeData.currentNode.transform);
             Destroy(gameObject);
-            
-            // complete node's event is changed so revisiting doesn't trigger same event
-            // EventNode eventNode = NodeData.currentNode.GetComponent<EventNode>();
-            // eventNode.eventData.eventType = EventData.EventType.completed;
-            // eventNode.eventData.description = "A familiar planet";
-            
-            // EventNode eventNode = NodeData.currentNode.GetComponent<EventNode>();
-            // if(eventNode.eventData.eventType != EventData.EventType.completed)
-            //     eventNode.SetCompleted();
             return;
         }
-        
-        
-        
+
         NodeData.travelIndicator = GameObject.Find("TravelIndicator");
         instance = gameObject;
         NodeData.nodeMap = instance;
@@ -46,6 +35,8 @@ public class NodeMap : MonoBehaviour
         NodeData.travelIndicator.SetActive(false);
         NodeData.currentNode.GetComponent<EventNode>().Select(true);
         NodeData.selectedNode.GetComponent<EventNode>().Travel(true);
+        PlayerData playerData = FindObjectOfType<PlayerData>();
+        GameObject.Find("UI_ResourceTab").GetComponent<UI_ResourceTab>().SetValue(playerData.currency);
     }
 
     private void OnDestroy()
@@ -88,7 +79,6 @@ public class NodeMap : MonoBehaviour
             while(tempData.eventType == EventData.EventType.turncoat || tempData.eventType == EventData.EventType.boss)
                 tempData = EventPresets.presets[Random.Range(0, EventPresets.presets.Count)];
             node.eventData = tempData;
-            node.LoadIcon();
         }
 
         EventData t = null;
@@ -114,7 +104,7 @@ public class NodeMap : MonoBehaviour
         //Debug.Log(r);
         GameObject turncoatNode = NodeData.eventNodeList[r];
         turncoatNode.GetComponent<EventNode>().eventData  = t;
-        Color c = new Color(1.0f, .8f, .8f);
+        Color c = new Color(1.0f, .3f, .3f);
         turncoatNode.GetComponent<SpriteRenderer>().color = c;
         turncoatNode.name = "Turncoat";
 
@@ -142,6 +132,9 @@ public class NodeMap : MonoBehaviour
         bossNode.GetComponent<SpriteRenderer>().color = Color.red;
         bossNode.name = "Boss Node!";
         // NodeData.eventNodeList.Add(bossNode);
+        
+        for(int i = 0; i < NodeData.eventNodeList.Count; i++)
+            NodeData.eventNodeList[i].GetComponent<EventNode>().LoadIcon();
         
         // if(!placeNode(ref bPos, new Vector2(turncoatNode.transform.position.x, turncoatNode.transform.position.y), maximumDistance / 2.0f, minimumDistance / 2.0f))
         //     Debug.Log("Failed to place!!!!!!!!!!!!!!!!!!!!!!");

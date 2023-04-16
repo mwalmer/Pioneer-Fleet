@@ -10,6 +10,7 @@ public class ButtonHandler : MonoBehaviour
     public UI_WindowController sideWindowController;
     public UI_WindowController eventDialogController;
     public UI_Selection eventDialogSelection;
+    public UI_ResourceTab rt;
     public bool travelFlag = false;
     public bool showOnce = true;
     public bool showDialogWindow = false;
@@ -26,6 +27,8 @@ public class ButtonHandler : MonoBehaviour
         edG = GameObject.Find("UI_EventDialog");
         eventDialogController = edG.GetComponent<UI_WindowController>();
         eventDialogSelection = GameObject.Find("Selections").GetComponent<UI_Selection>();
+
+        rt = GameObject.Find("UI_ResourceTab").GetComponent<UI_ResourceTab>();
     }
 
     private void Update()
@@ -84,6 +87,7 @@ public class ButtonHandler : MonoBehaviour
         {
             PlayerData pd = FindObjectOfType<PlayerData>();
             string selection = eventDialogSelection.GetCurrentSelection();
+
             switch(selection)
             {
                 case "0":
@@ -94,6 +98,7 @@ public class ButtonHandler : MonoBehaviour
                 }
                 pd.addPlayerCaptialShip(ships[0]);
                 pd.currency -= prices[0];
+                rt.AddAmount(-1 * prices[0]);
                 break;
                 case "1":
                 if(pd.currency < prices[1])
@@ -103,6 +108,7 @@ public class ButtonHandler : MonoBehaviour
                 }
                 pd.addPlayerCaptialShip(ships[1]);
                 pd.currency -= prices[1];
+                rt.AddAmount(-1 * prices[1]);
                 break;
                 case "2":
                 if(pd.currency < prices[2])
@@ -112,6 +118,7 @@ public class ButtonHandler : MonoBehaviour
                 }
                 pd.addPlayerStarFighter(ships[2]);
                 pd.currency -= prices[2];
+                rt.AddAmount(-1 * prices[2]);
                 break;
                 case "3":
                 if(pd.currency < prices[3])
@@ -121,6 +128,7 @@ public class ButtonHandler : MonoBehaviour
                 }
                 pd.addPlayerStarFighter(ships[3]);
                 pd.currency -= prices[3];
+                rt.AddAmount(-1 * prices[3]);
                 break;
                 default:
                 break;
@@ -171,6 +179,12 @@ public class ButtonHandler : MonoBehaviour
         // travel to node
         GameObject node = NodeData.selectedNode;
         node.GetComponent<EventNode>().Travel();
+
+        int currency = node.GetComponent<EventNode>().eventData.currency;
+        if (currency > 0)
+        {
+            rt.AddAmount(currency);
+        }
     }
     
     public void Cancel()

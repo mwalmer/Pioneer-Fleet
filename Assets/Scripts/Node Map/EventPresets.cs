@@ -30,7 +30,7 @@ public class EventPresets
         EventData miningOutpost = new EventData();
         miningOutpost.eventType = EventData.EventType.passive;
         miningOutpost.description = "This planet seems to be sparkling...";
-        miningOutpost.text = "Upon landing, you find large surface deposits of Orichalcum. Though you can't mine it you know people who would be interested in its location. +1 currency";
+        miningOutpost.text = "Upon landing, you find large surface deposits of Orichalcum. Though you can't mine it you know people who would be interested in its location. +50 currency";
         miningOutpost.currency += 50;
         presets.Add(miningOutpost);
         // presets.Add(miningOutpost);
