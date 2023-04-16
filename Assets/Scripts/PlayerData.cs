@@ -62,6 +62,7 @@ public class PlayerData : MonoBehaviour
         for(int i = 0; i < playerFleet.StarFighters.Count;i++){
             playerFleet.StarFighters[i].gameObject.SetActive(false);
             playerFleet.StarFighters[i].endCombat();
+            Debug.Log("Bombing run is " + playerFleet.StarFighters[i].bombingRun);
             //playerFleet.StarFighters[i].transform.position = transform.position;
             //playerFleet.StarFighters[i].transform.rotation = transform.rotation;
 

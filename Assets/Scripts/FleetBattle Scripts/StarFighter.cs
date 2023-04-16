@@ -30,7 +30,7 @@ public class StarFighter : MonoBehaviour
 
     bool arrived = false;
 
-    bool bombingRun = false;
+    public bool bombingRun = false;
 
     bool firing = false;
     Vector3 randPos;
@@ -72,7 +72,7 @@ public class StarFighter : MonoBehaviour
                 }
             }
             if(bombingRun == true){
-                //transform.position = Vector3.MoveTowards(transform.position, target.position, 1.2f * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, target.position, 1.2f * Time.deltaTime);
             }
             
         }
