@@ -52,7 +52,7 @@ public class AA_GameManager : MonoBehaviour
             }
             else
             {
-                FC_ScoreTaker.AddScore("Aligned Armaments", gameStage.returnScore());
+                FC_ScoreTaker.AddScore("Aligned Armaments", (int)addScore);
             }
             UI_ScoreIndicator.AlignedArmament("Armament Aligned", (int)addScore);
             if (dynamicNumber)

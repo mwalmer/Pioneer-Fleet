@@ -93,7 +93,7 @@ public class FC_EndGameEvent : MonoBehaviour
                     if (currentMiniGame == "Starfighter")
                     {
                         //TODO:: sent final score;
-                        finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / 200f * 100);
+                        finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / 100f * 100);
                         finalScore = (finalScore <= 100 ? (finalScore >= 0 ? finalScore : 0) : 100);
 
                         playerData.GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
@@ -136,11 +136,10 @@ public class FC_EndGameEvent : MonoBehaviour
             }
             else if (endGameEvent.currentMiniGame == "Starfigther")
             {
-
+                endGameEvent.scoreBoard.SetScoreRequirement(100);
             }
             else if (endGameEvent.currentMiniGame == "ArmamentsAlign")
             {
-
                 endGameEvent.scoreBoard.SetScoreRequirement(100);
             }
 
