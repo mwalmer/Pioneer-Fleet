@@ -108,4 +108,11 @@ public class UI_ScoreIndicator : MonoBehaviour
         newTab.SetIcon(scoreIndicator.blockIcon, new Color(96f / 255f, 128f / 255f, 1, 1));
     }
 
+    public static void AlignedArmament(string name, int score)
+    {
+        UI_ScoreTab newTab = scoreIndicator.GenerateScoreTab();
+        newTab.frontText.text = name;
+        newTab.tailText.text = (score >= 0 ? "+" : "") + score;
+    }
+
 }

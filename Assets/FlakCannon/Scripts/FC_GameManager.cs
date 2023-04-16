@@ -79,7 +79,7 @@ public class FC_GameManager : MonoBehaviour
 
             if (difficulty == 0)
             {
-                playerHP = 30;
+                playerHP = 19;
                 if (GameMode == "Survival")
                 {
                     timeLimit = 30;
@@ -87,7 +87,7 @@ public class FC_GameManager : MonoBehaviour
                 else if (GameMode == "Elimination")
                 {
                     timeLimit = 120;
-                    winningCount = 20;
+                    winningCount = 15;
                 }
             }
             else

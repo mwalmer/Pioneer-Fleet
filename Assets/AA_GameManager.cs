@@ -7,6 +7,7 @@ public class AA_GameManager : MonoBehaviour
     protected static AA_GameManager gameManager;
     public UI_Timer gameTimer;
     public FC_EndGameEvent gameEndEvent;
+    public UI_DynamicNumber dynamicNumber;
     public MatchThree.Stage.StageController gameStage;
     float previousScore = 0;
     public bool isGameActive = true;
@@ -40,10 +41,26 @@ public class AA_GameManager : MonoBehaviour
         }
     }
 
-    public float ReportScore()
+    public void ReportScore()
     {
-        FC_ScoreTaker.RegisterScore("ArmamentsAlign's Score", gameStage.returnScore());
-        return gameStage.returnScore();
+        if (previousScore != gameStage.returnScore())
+        {
+            float addScore = gameStage.returnScore() - previousScore;
+            if (previousScore == 0)
+            {
+                FC_ScoreTaker.RegisterScore("Aligned Armaments", gameStage.returnScore());
+            }
+            else
+            {
+                FC_ScoreTaker.AddScore("Aligned Armaments", gameStage.returnScore());
+            }
+            UI_ScoreIndicator.AlignedArmament("Armament Aligned", (int)addScore);
+            if (dynamicNumber)
+            {
+                dynamicNumber.AddValue(addScore);
+            }
+            previousScore = gameStage.returnScore();
+        }
     }
     public static void RecordScore()
     {

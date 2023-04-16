@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e8f680e5a07994f8ee6029981b985d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxShield: 200
-  currentShield: 200
+  maxShield: 250
+  currentShield: 250
   maxHull: 200
   currentHull: 200
   artilleryPower: 80
