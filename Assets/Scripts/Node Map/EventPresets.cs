@@ -106,6 +106,9 @@ public class EventPresets
         turncoat.text = "The coordinates he provided are good. The Nairin ship is all alone.";
         turncoat.EnemyCapitalShips.Add("NairanFrigate");
         turncoat.EnemyCapitalShipsNums.Add(1);
+        turncoat.starFighterDif = 0;
+        turncoat.starfighter += 1;
+        turncoat.starfighterStr = "NairinFighter";
         presets.Add(turncoat);
         
         // Boss
