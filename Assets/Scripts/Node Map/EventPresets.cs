@@ -13,9 +13,9 @@ public class EventPresets
         EventData AbandonedStarFighter = new EventData();
         AbandonedStarFighter.eventType = EventData.EventType.passive;
         AbandonedStarFighter.description = "You come across an abandoned starfighter drifting alone. Our engineers say they should be able to restore it";
-        AbandonedStarFighter.text = "You gain one Nairin Fighter";
+        AbandonedStarFighter.text = "You gain one Nairan Fighter";
         AbandonedStarFighter.starfighter += 1;
-        AbandonedStarFighter.starfighterStr = "NairinFighter";
+        AbandonedStarFighter.starfighterStr = "NairanFighter";
         presets.Add(AbandonedStarFighter);
         
         // MatchThree mini game
@@ -108,7 +108,7 @@ public class EventPresets
         turncoat.EnemyCapitalShipsNums.Add(1);
         turncoat.starFighterDif = 0;
         turncoat.starfighter += 1;
-        turncoat.starfighterStr = "NairinFighter";
+        turncoat.starfighterStr = "NairanFighter";
         presets.Add(turncoat);
         
         // Boss
