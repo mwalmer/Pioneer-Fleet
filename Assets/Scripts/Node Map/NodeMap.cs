@@ -17,9 +17,9 @@ public class NodeMap : MonoBehaviour
         EventPresets.InitPresets();
         if (instance != null)
         {
-            EventData data = EventData.GetData();
-            if(data.currency > 0)
-                GameObject.Find("UI_ResourceTab").GetComponent<UI_ResourceTab>().AddAmount(data.currency);
+            // EventData data = EventData.GetData();
+            // if(data.currency > 0)
+            //     GameObject.Find("UI_ResourceTab").GetComponent<UI_ResourceTab>().AddAmount(data.currency);
             
             FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(NodeData.currentNode.transform);
             Destroy(gameObject);
@@ -38,6 +38,7 @@ public class NodeMap : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("nodemap start called");
         NodeData.travelIndicator.SetActive(false);
         NodeData.currentNode.GetComponent<EventNode>().Select(true);
         NodeData.selectedNode.GetComponent<EventNode>().Travel(true);
