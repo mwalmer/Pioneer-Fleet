@@ -50,8 +50,8 @@ public class EventPresets
         // Passive Events
         EventData shop = new EventData();
         shop.eventType = EventData.EventType.shop;
-        shop.description = "Shop";
-        shop.text = "shop text";
+        shop.description = "A wander merchant is passing by here.";
+        shop.text = "The merchant provides you with a catalog of refurbished ships.";
         presets.Add(shop);
         
         //Nairan Fleet attack

@@ -55,6 +55,7 @@ MonoBehaviour:
   completedColor: {r: 0.2117647, g: 1, b: 0.9934303, a: 1}
   failedColor: {r: 1, g: 0.3254717, b: 0.3254717, a: 1}
   _lineRendererSpawner: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!212 &-2426107996298776911
 SpriteRenderer:
   m_ObjectHideFlags: 0

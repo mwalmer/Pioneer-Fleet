@@ -61,6 +61,7 @@ public class ButtonHandler : MonoBehaviour
                         prices[i] = (Resources.Load("FleetBattle/" + ships[i], typeof(StarFighter)) as StarFighter).price;
                     }
                 }
+                
                 eventDialogSelection.RegisterSelection("0", ships[0] + ": price " + prices[0]);
                 eventDialogSelection.RegisterSelection("1", ships[1] + ": price " + prices[1]);
                 eventDialogSelection.RegisterSelection("2", ships[2] + ": price " + prices[2]);

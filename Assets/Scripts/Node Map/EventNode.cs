@@ -37,7 +37,33 @@ public class EventNode : MonoBehaviour
         _lineRendererSpawner = GameObject.Find("LineRenderer Spawner").GetComponent<LineRendererSpawner>();
         animator = GetComponent<Animator>();
         animator.speed = Random.Range(0.20f, 0.40f);
-        animator.Play("PlanetSpin", Random.Range(0, 77));
+    }
+
+    public void LoadIcon()
+    {
+        GameObject icon;
+        switch (eventData.eventType)
+        {
+            case EventData.EventType.shop:
+                icon = Instantiate(Resources.Load<GameObject>("Node Map/EventNoticeIcon_0"), transform);
+                //_spriteRenderer.color = new Color(0.3f, 0.3f, 0.05f,1);
+                break;
+            case EventData.EventType.passive:
+                icon = Instantiate(Resources.Load<GameObject>("Node Map/EventNoticeIcon_4"), transform);
+                //_spriteRenderer.color = new Color(0.5f, 0.8f, 0.5f,1);
+                break;
+            default:
+                icon = Instantiate(Resources.Load<GameObject>("Node Map/EventNoticeIcon_1"), transform);
+                //_spriteRenderer.color = new Color(0.5f, 0.2f, 0.2f, 1);
+
+                break;
+        }
+        
+        
+
+        Vector3 vec = transform.position;
+        vec.y += 0.32f;
+        icon.transform.position = vec;
     }
 
     private void Start()
@@ -63,7 +89,8 @@ public class EventNode : MonoBehaviour
         
         // draws line to nearby nodes
         float travelDist = FindObjectOfType<NodeMap>().travelDist;
-        _spriteRenderer.color = Color.magenta;
+        Color c = new Color(1.0f, 1.0f, 0.2f, 1);
+        _spriteRenderer.color = c;
         Vector3 currentPosition = gameObject.transform.position;
         for (int i = 0; i < NodeData.eventNodeList.Count; i++)
         {

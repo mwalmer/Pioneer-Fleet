@@ -88,6 +88,7 @@ public class NodeMap : MonoBehaviour
             while(tempData.eventType == EventData.EventType.turncoat || tempData.eventType == EventData.EventType.boss)
                 tempData = EventPresets.presets[Random.Range(0, EventPresets.presets.Count)];
             node.eventData = tempData;
+            node.LoadIcon();
         }
 
         EventData t = null;
@@ -110,10 +111,11 @@ public class NodeMap : MonoBehaviour
         // choose random node set equal to turncoat preset
         // TODO: make sure this isn't the starting node! I think starting node is always 0
         int r = Random.Range(2, NodeData.eventNodeList.Count);
-        Debug.Log(r);
+        //Debug.Log(r);
         GameObject turncoatNode = NodeData.eventNodeList[r];
         turncoatNode.GetComponent<EventNode>().eventData  = t;
-        turncoatNode.GetComponent<SpriteRenderer>().color = Color.red;
+        Color c = new Color(1.0f, .8f, .8f);
+        turncoatNode.GetComponent<SpriteRenderer>().color = c;
         turncoatNode.name = "Turncoat";
 
         GameObject closestNode = null;
@@ -137,7 +139,7 @@ public class NodeMap : MonoBehaviour
         // add the boss next to turncoat node
         GameObject bossNode = closestNode;
         bossNode.GetComponent<EventNode>().eventData = b;
-        bossNode.GetComponent<SpriteRenderer>().color = Color.blue;
+        bossNode.GetComponent<SpriteRenderer>().color = Color.red;
         bossNode.name = "Boss Node!";
         // NodeData.eventNodeList.Add(bossNode);
         
