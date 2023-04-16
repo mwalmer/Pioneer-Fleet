@@ -207,9 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxShield: 350
   currentShield: 350
-  maxHull: 250
-  currentHull: 250
-  artilleryPower: 100
+  maxHull: 300
+  currentHull: 300
+  artilleryPower: 110
   flakPower: 0
   active: 1
   ShipType: {fileID: 6831954910004607987}
