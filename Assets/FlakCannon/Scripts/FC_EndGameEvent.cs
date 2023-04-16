@@ -12,6 +12,7 @@ public class FC_EndGameEvent : MonoBehaviour
     public CanvasGroup cGroup;
     public string currentMiniGame = "FlakCannon";
     public string nextScene;
+    public bool isGameActived = true;
     private float fadingTime = 2f;
     private float fadingCurrent = 0f;
     private float inputLockInterval = 1f;
@@ -26,12 +27,13 @@ public class FC_EndGameEvent : MonoBehaviour
             cGroup = this.GetComponent<CanvasGroup>();
 
         nextScene = EventData.GetData().lastScene;
+        isGameActived = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (FC_GameManager.IsGameActive == false)
+        if (isGameActived == false)
         {
             Cursor.visible = true;
             scoreBoard.ShowScoreBoard();
@@ -60,30 +62,44 @@ public class FC_EndGameEvent : MonoBehaviour
     public void GoNextScene()
     {
         FC_GameManager.IsGameActive = false;
+        isGameActived = false;
         FC_GameManager.ResetFlakCannonGameSettings();
 
         if (EventData.GetData().lastScene == "BattleBridge")
         {
-            int finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / (float)FC_GameManager.scoreFor100 * 100);
-            if (finalScore < 0) finalScore = 0;
-            else if (finalScore > 100) finalScore = 100;
-            Debug.Log("Final Score: " + finalScore);
-            GameObject playerData = GameObject.Find("PlayerData");
-            if (playerData)
+            if (currentMiniGame == "FlakCannon")
             {
-                if (currentMiniGame == "FlakCannon")
+                GameObject playerData = GameObject.Find("PlayerData");
+                int finalScore = 0;
+                if (playerData)
                 {
-                    playerData.GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
-                }
-                else if (currentMiniGame == "ArmamentsAlign")
-                {
-                    //TODO:: sent final score;
+                    if (currentMiniGame == "Starfighter")
+                    {
+                        //TODO:: sent final score;
+
+
+
+                        playerData.GetComponent<PlayerData>().setMinigameInfo(0, finalScore);
+                    }
+                    else if (currentMiniGame == "FlakCannon")
+                    {
+                        finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / (float)FC_GameManager.scoreFor100 * 100);
+                        if (finalScore < 0) finalScore = 0;
+                        else if (finalScore > 100) finalScore = 100;
+
+                        playerData.GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
+                    }
+                    else if (currentMiniGame == "ArmamentsAlign")
+                    {
+                        //TODO:: sent final score;
+                        Debug.Log(FC_ScoreTaker.GetTotalScore());
+                        playerData.GetComponent<PlayerData>().setMinigameInfo(2, finalScore);
+                    }
                 }
             }
-        }
 
-        Debug.Log("Time is back: " + Time.timeScale);
-        shouldGoNextScene = true;
-        UI_Blackscreen.CallBlackscreen(9, 1);
+            shouldGoNextScene = true;
+            UI_Blackscreen.CallBlackscreen(9, 1);
+        }
     }
 }
