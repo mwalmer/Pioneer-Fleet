@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a23117ca75e7e4fbf948f258499cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnginePower: 70
+  EnginePower: 75
   Accuracy: 10
   BombingPower: 15
   deadge: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   inCombat: 0
   target: {fileID: 0}
   projectile: {fileID: 3724408194818019075, guid: 7de9ba4909944b544a5b9fa75a892474, type: 3}
+  bombingRun: 0
   price: 50
 --- !u!1 &8566046045027211726
 GameObject:
