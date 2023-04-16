@@ -83,7 +83,7 @@ public class UI_Selection : MonoBehaviour
         RectTransform tRect;
         for (int i = 0; i < selections.Count; ++i)
         {
-            Debug.Log("Modifying " + selections[i].gameObject.name);
+            //Debug.Log("Modifying " + selections[i].gameObject.name);
             tRect = selections[i].GetComponent<RectTransform>();
             tRect.offsetMin = new Vector2(tRect.offsetMin.x, (selections.Count - i - 1) * (selectionHeight + selectionInterval));
             tRect.offsetMax = new Vector2(tRect.offsetMax.x, i * (selectionHeight + selectionInterval) * -1);

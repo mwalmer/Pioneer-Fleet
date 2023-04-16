@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &44780554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1720740257, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+  m_PrefabInstance: {fileID: 7380936880298049144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c30f63b0548e24b8ed557ea65605d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &76850530
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +230,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c8f21e98fb6904db72e7f4e2af8618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &284600973 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1402688613, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+  m_PrefabInstance: {fileID: 7380936880298049144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &381676875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1422767381, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+  m_PrefabInstance: {fileID: 7380936880298049144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &496385849
@@ -1158,6 +1185,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1143430695, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143430697, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+      propertyPath: subGroup
+      value: 
+      objectReference: {fileID: 284600973}
+    - target: {fileID: 1143430697, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+      propertyPath: continueNotice
+      value: 
+      objectReference: {fileID: 44780554}
+    - target: {fileID: 1143430697, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+      propertyPath: scoreRequirementText
+      value: 
+      objectReference: {fileID: 381676875}
+    - target: {fileID: 1143430698, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402688613, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7380936880393010435, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
       propertyPath: m_Name
       value: UI_FlakCannon
@@ -1214,5 +1265,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2038574146}
+    - target: {fileID: 8236599412797720360, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}
+      propertyPath: m_Color.a
+      value: 0.76862746
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c921a623f54c3764eb3e6a8794c0ffbe, type: 3}

@@ -37,6 +37,8 @@ public class FC_EndGameEvent : MonoBehaviour
         isGameActived = true;
 
         cGroup.alpha = 0;
+        cGroup.blocksRaycasts = false;
+        cGroup.interactable = false;
         gameObject.SetActive(false);
     }
 
@@ -51,6 +53,11 @@ public class FC_EndGameEvent : MonoBehaviour
             if (fadingCurrent >= fadingTime)
             {
                 fadingCurrent = -1;
+
+                cGroup.alpha = 1;
+                cGroup.blocksRaycasts = false;
+                cGroup.interactable = false;
+
                 isEventEnabled = true;
             }
         }
@@ -59,10 +66,6 @@ public class FC_EndGameEvent : MonoBehaviour
         {
             Cursor.visible = true;
             scoreBoard.ShowScoreBoard();
-            if (scoreBoard.IsFinishedRecording())
-            {
-                Debug.Log("Should go next scene");
-            }
             if (scoreBoard.IsFinishedRecording() && Input.anyKey)
             {
                 GoNextScene();
@@ -129,6 +132,16 @@ public class FC_EndGameEvent : MonoBehaviour
             if (endGameEvent.currentMiniGame == "FlakCannon")
             {
                 FC_GameManager.IsGameActive = false;
+                endGameEvent.scoreBoard.SetScoreRequirement(FC_GameManager.scoreFor100);
+            }
+            else if (endGameEvent.currentMiniGame == "Starfigther")
+            {
+
+            }
+            else if (endGameEvent.currentMiniGame == "ArmamentsAlign")
+            {
+
+                endGameEvent.scoreBoard.SetScoreRequirement(100);
             }
 
             // EndGameEvent Window

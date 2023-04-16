@@ -645,6 +645,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175a8dae3e9eeb49bf4f2c74f26f268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1240271025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4608557315329799140, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
+  m_PrefabInstance: {fileID: 1288384127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1288384127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +763,14 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4608557315505868944, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608557315505868944, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4608557315505868975, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
       propertyPath: currentMiniGame
       value: ArmamentsAlign
@@ -764,6 +783,10 @@ PrefabInstance:
       propertyPath: continueNotice
       value: 
       objectReference: {fileID: 1059283320}
+    - target: {fileID: 4608557315604895960, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
+      propertyPath: scoreRequirementText
+      value: 
+      objectReference: {fileID: 1240271025}
     - target: {fileID: 4608557315604895963, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
       propertyPath: m_Alpha
       value: 0
@@ -1357,6 +1380,7 @@ MonoBehaviour:
   gameTimer: {fileID: 1407114146}
   gameEndEvent: {fileID: 1673986778}
   gameStage: {fileID: 2082637418}
+  isGameActive: 1
 --- !u!1 &2082637417
 GameObject:
   m_ObjectHideFlags: 0

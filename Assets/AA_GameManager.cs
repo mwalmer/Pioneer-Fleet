@@ -9,6 +9,7 @@ public class AA_GameManager : MonoBehaviour
     public FC_EndGameEvent gameEndEvent;
     public MatchThree.Stage.StageController gameStage;
     float previousScore = 0;
+    public bool isGameActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,8 @@ public class AA_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGameActive == false) return;
+
         if (gameTimer.IsTime())
         {
             // Time out event

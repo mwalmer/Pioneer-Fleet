@@ -8,7 +8,7 @@ public class UI_EndGameScoreBoard : MonoBehaviour
 {
     public UI_ScoreTab scoreTabPrefab;
     public UI_DynamicNumber dynamicNumber;
-    public TextMeshProUGUI scoreRequirement;
+    public TextMeshProUGUI scoreRequirementText;
     public UI_CanvasGroupControl continueNotice;
 
     public float headOffset;
@@ -20,6 +20,7 @@ public class UI_EndGameScoreBoard : MonoBehaviour
 
     public CanvasGroup subGroup;
     private CanvasGroup group;
+    private int scoreRequire = 0;
     private float appearingTime = 1f;
     private float currentAppearingTime = -1;
     bool isRecording = false;
@@ -43,7 +44,7 @@ public class UI_EndGameScoreBoard : MonoBehaviour
         {
             currentAppearingTime += Time.deltaTime;
 
-            scoreRequirement.text = "/ " + FC_GameManager.scoreFor100;
+            scoreRequirementText.text = "/ " + scoreRequire;
             group.alpha = Mathf.Lerp(0, 1, currentAppearingTime / appearingTime);
             if (subGroup) subGroup.alpha = group.alpha;
 
@@ -79,7 +80,7 @@ public class UI_EndGameScoreBoard : MonoBehaviour
             if (continueNotice) continueNotice.Show();
         }
 
-        float scoreMargin = (float)recordedScore / (float)FC_GameManager.scoreFor100;
+        float scoreMargin = (float)recordedScore / (float)scoreRequire;
         if (scoreMargin > 1) scoreMargin = 1;
         else if (scoreMargin < 0) scoreMargin = 0;
         if (scoreMargin >= 0.9f) dynamicNumber.SetColor(Color.green);
@@ -116,5 +117,9 @@ public class UI_EndGameScoreBoard : MonoBehaviour
     public bool IsFinishedRecording()
     {
         return isFinishedRecording;
+    }
+    public void SetScoreRequirement(int _scoreRequirement)
+    {
+        scoreRequire = _scoreRequirement;
     }
 }
