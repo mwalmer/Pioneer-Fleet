@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 
 public class EventData
@@ -74,7 +75,7 @@ public class EventData
 
     // star fighter vars
     public int SF_numEnemies;//1-10
-    public int starFighterDif;//0-3
+    public int starFighterDif;//0-5
 
 
     // flack cannon
@@ -105,11 +106,11 @@ public class EventData
         starfighterStr = "";
         nodeType = NodeType.planet;
 
-        starFighterDif = 1;
+        starFighterDif = Random.Range(0, 5);
         
         lastScene = "BattleBridge";
         gameMode = "Elimination";
-        difficulty = 3;
+        difficulty = 0;
         isBossFight = false;
         CannonFireSpeed = 4;
         CannonMagazineNumber = 20;
