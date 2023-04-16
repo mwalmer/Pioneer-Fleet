@@ -78,6 +78,10 @@ namespace MatchThree.Stage
         {
             matchScore += 10;
         }
+        public int returnScore()
+        {
+            return thisActionManager.score;
+        }
         void updateScore()
         {
             scoreCountUI.text = "Score: " + thisActionManager.score;
