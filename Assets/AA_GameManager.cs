@@ -42,4 +42,9 @@ public class AA_GameManager : MonoBehaviour
         FC_ScoreTaker.RegisterScore("ArmamentsAlign's Score", gameStage.returnScore());
         return gameStage.returnScore();
     }
+    public static void RecordScore()
+    {
+        float scoreDiff = gameManager.gameStage.returnScore() - gameManager.previousScore;
+        
+    }
 }
