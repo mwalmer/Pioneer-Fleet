@@ -212,6 +212,10 @@ public class PlayerData : MonoBehaviour
         miniGameScore = x2;
     }
 
+    public void setMiniGameScore(int x){
+        miniGameScore = x;
+    }
+
     public static string getRandomCapitalShip(){
         int x = Random.Range(1,4);
         switch(x){
