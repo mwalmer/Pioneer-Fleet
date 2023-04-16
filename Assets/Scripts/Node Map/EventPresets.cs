@@ -120,6 +120,7 @@ public class EventPresets
         boss.EnemyCapitalShipsNums.Add(2);
         boss.EnemyStarFighers.Add("NairanFighter");
         boss.EnemyStarFigherNums.Add(5);
+        boss.starFighterDif = 6;
         boss.currency += 300;
         presets.Add(boss);
     }
