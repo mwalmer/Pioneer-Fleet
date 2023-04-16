@@ -16,6 +16,10 @@ public class NodeMap : MonoBehaviour
         EventPresets.InitPresets();
         if (instance != null)
         {
+            EventData data = EventData.GetData();
+            if(data.currency > 0)
+                GameObject.Find("UI_ResourceTab").GetComponent<UI_ResourceTab>().AddAmount(data.currency);
+            
             FindObjectOfType<GalaxyMap_CameraFocus>().SetFocus(NodeData.currentNode.transform);
             Destroy(gameObject);
             return;
@@ -36,6 +40,7 @@ public class NodeMap : MonoBehaviour
         NodeData.currentNode.GetComponent<EventNode>().Select(true);
         NodeData.selectedNode.GetComponent<EventNode>().Travel(true);
         PlayerData playerData = FindObjectOfType<PlayerData>();
+        playerData.currency = 150;
         GameObject.Find("UI_ResourceTab").GetComponent<UI_ResourceTab>().SetValue(playerData.currency);
     }
 

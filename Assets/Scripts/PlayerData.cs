@@ -145,8 +145,8 @@ public class PlayerData : MonoBehaviour
     public float PlayerFleetHealth(){
         List<CapitalShip> CS = playerFleet.CapitalShips;
         List<StarFighter> SF = playerFleet.StarFighters;
-        float currentValue = 0;
-        float maxValue = 0;
+        float currentValue = 0f;
+        float maxValue = 0f;
         for(int i = 0; i < CS.Count; i++){
             maxValue += CS[i].maxHull;
             maxValue += CS[i].maxShield;

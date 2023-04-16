@@ -18,11 +18,12 @@ public class EventPresets
         AbandonedStarFighter.starfighterStr = "FederationFighter";
         presets.Add(AbandonedStarFighter);
         
-        // TODO: remove, for debug ONLY!!!!!!
+        // MatchThree mini game
         EventData MatchThree = new EventData();
         MatchThree.eventType = EventData.EventType.singleMinigame;
-        MatchThree.description = "MatchThree";
-        MatchThree.text = "matching";
+        MatchThree.description = "Our engineers are working on new armaments for the guns";
+        MatchThree.text = "Run practice drills with the new weapons";
+        MatchThree.currency += 50;
         MatchThree.minigameType = EventData.Minigame.MatchingMinigame;
         presets.Add(MatchThree);
 
@@ -54,16 +55,21 @@ public class EventPresets
         shop.text = "The merchant provides you with a catalog of refurbished ships.";
         presets.Add(shop);
         
+        // TODO: 
         //Nairan Fleet attack
         EventData NairanFleetAttack = new EventData();
         NairanFleetAttack.eventType = EventData.EventType.battle;
         NairanFleetAttack.description = "An uninhabited planet that is a common jumping point of FTL travel.";
         NairanFleetAttack.text = "As you travel past the planet, ships begin appearing out of FTL. Its a Nairan fleet. Battle stations!";
         NairanFleetAttack.EnemyCapitalShips.Add("NairanFrigate");
-        NairanFleetAttack.EnemyCapitalShipsNums.Add(2);
+        NairanFleetAttack.EnemyCapitalShipsNums.Add(1);
         NairanFleetAttack.EnemyStarFighers.Add("NairanFighter");
-        NairanFleetAttack.EnemyStarFigherNums.Add(3);
+        NairanFleetAttack.EnemyStarFigherNums.Add(1);
         NairanFleetAttack.currency += 100;
+        presets.Add(NairanFleetAttack);
+        presets.Add(NairanFleetAttack);
+        presets.Add(NairanFleetAttack);
+        presets.Add(NairanFleetAttack);
         presets.Add(NairanFleetAttack);
         
         //Nairan Fleet attack
@@ -99,8 +105,8 @@ public class EventPresets
         // Turncoat
         EventData turncoat = new EventData();
         turncoat.eventType = EventData.EventType.turncoat;
-        turncoat.description = "Your coat begins to move... as if it knows something...";
-        turncoat.text = "IT DID! You find the enemy turncoat while his fighters are refueling!";
+        turncoat.description = "You are contacted by a turncoat within the Nairin fleet. He has the location of the Nairin fortress and is willing to trade it for a full pardon and an extraction.";
+        turncoat.text = "The coordinates he provided are good. The Nairin ship is all alone.";
         turncoat.EnemyCapitalShips.Add("NairanFrigate");
         turncoat.EnemyCapitalShipsNums.Add(1);
         presets.Add(turncoat);
@@ -108,8 +114,8 @@ public class EventPresets
         // Boss
         EventData boss = new EventData();
         boss.eventType = EventData.EventType.boss;
-        boss.description = "The turncoats last navigation waypoint was set here... It looks heavily fortified.";
-        boss.text = "It was!";
+        boss.description = "The turncoat provided the coordinates of the Nairin fortress. Prepare for a difficult fight.";
+        boss.text = "A massive fleet is awaiting you. Battle stations!";
         boss.EnemyCapitalShips.Add("NairanBattlecruiser");
         boss.EnemyCapitalShipsNums.Add(2);
         boss.EnemyCapitalShips.Add("NairanFrigate");

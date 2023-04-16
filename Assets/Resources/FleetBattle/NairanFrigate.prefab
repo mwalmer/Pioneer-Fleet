@@ -148,7 +148,7 @@ MonoBehaviour:
   projectile: {fileID: 9094636679267056017, guid: eb2fe3d85c3694b44b9ca8158459c6de, type: 3}
   shield: {fileID: 450921658286255011, guid: 7035d7e1e56649f4694361ec5a98a835, type: 3}
   ShieldUp: 0
-  fireDistance: 0
+  fireDistance: 0.7
   price: 200
 --- !u!1 &3882387409273106058
 GameObject:
