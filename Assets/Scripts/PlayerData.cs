@@ -212,7 +212,7 @@ public class PlayerData : MonoBehaviour
     }
 
     public static string getRandomCapitalShip(){
-        int x = Random.Range(1,3);
+        int x = Random.Range(1,4);
         switch(x){
             case 1:
             return "FederationFrigate";

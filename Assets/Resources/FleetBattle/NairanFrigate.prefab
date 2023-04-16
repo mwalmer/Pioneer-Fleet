@@ -149,7 +149,7 @@ MonoBehaviour:
   shield: {fileID: 450921658286255011, guid: 7035d7e1e56649f4694361ec5a98a835, type: 3}
   ShieldUp: 0
   fireDistance: 0
-  price: 0
+  price: 200
 --- !u!1 &3882387409273106058
 GameObject:
   m_ObjectHideFlags: 0
