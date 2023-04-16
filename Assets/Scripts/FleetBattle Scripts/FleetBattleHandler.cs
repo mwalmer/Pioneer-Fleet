@@ -25,6 +25,8 @@ public class FleetBattleHandler : MonoBehaviour
 
     public Slider EnemyValue;
 
+    public TMP_Text turnCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,7 @@ public class FleetBattleHandler : MonoBehaviour
         if(firstTime == true)
             GameObject.Find("PlayerData").GetComponent<PlayerData>().clearFleetLog();
 
+        turnCounter.text = "Turn " + GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn;
         GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("\n-------Turn "+ GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn+"--------\n");
         GameObject.Find("PlayerData").GetComponent<PlayerData>().battleTurn += 1;
         if(firstTime == false){
