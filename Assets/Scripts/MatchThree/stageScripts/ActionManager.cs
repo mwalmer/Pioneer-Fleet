@@ -86,6 +86,7 @@ namespace MatchThree.Stage
                 if (bBlockMatched.value)
                 {
                     score += 5;
+                    //FC_ScoreTaker.AddScore("ScoreName", score);
                     matchResult.value = true;
 
                     SoundManager.instance.PlayOneShot(Clip.shot);

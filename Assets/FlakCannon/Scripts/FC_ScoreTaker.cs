@@ -24,7 +24,14 @@ public class FC_ScoreTaker : MonoBehaviour
     public static void RegisterScore(string scoreType, int score)
     {
         //It will overwrite
-        GetScores().Add(scoreType, score);
+        if (GetScores().ContainsKey(scoreType))
+        {
+            GetScores()[scoreType] = score;
+        }
+        else
+        {
+            GetScores().Add(scoreType, score);
+        }
     }
     public static void AddScore(string scoreType, int score)
     {

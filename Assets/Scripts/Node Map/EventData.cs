@@ -76,6 +76,7 @@ public class EventData
     public int SF_numEnemies;//1-10
     public int starFighterDif;//0-3
 
+
     // flack cannon
     public int FC_timeGiven;//60-120
     public int FC_numEnemiesRequired;

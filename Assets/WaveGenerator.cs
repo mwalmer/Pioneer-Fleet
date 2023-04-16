@@ -11,7 +11,7 @@ public class WaveGenerator : MonoBehaviour
     {
         PlayerData playerData = new PlayerData();
 
-        starFighterDif = playerData.starFighterDif;
+        starFighterDif = EventData.GetData().starFighterDif;
 
    
         GameObject wave = objects[starFighterDif % objects.Length];

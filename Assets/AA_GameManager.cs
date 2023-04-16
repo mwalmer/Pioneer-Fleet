@@ -6,6 +6,7 @@ public class AA_GameManager : MonoBehaviour
 {
     public UI_Timer gameTimer;
     public FC_EndGameEvent gameEndEvent;
+    public MatchThree.Stage.StageController gameStage;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,8 @@ public class AA_GameManager : MonoBehaviour
 
 
         }
+
+        ReportScore();
     }
 
     void Init()
@@ -33,6 +36,12 @@ public class AA_GameManager : MonoBehaviour
             gameTimer.isCountingDown = true;
             gameTimer.Run();
         }
+    }
 
+    public float ReportScore()
+    {
+        Debug.Log("ArmamentsAlign's Score" + gameStage.returnScore());
+        FC_ScoreTaker.RegisterScore("ArmamentsAlign's Score", gameStage.returnScore());
+        return gameStage.returnScore();
     }
 }
