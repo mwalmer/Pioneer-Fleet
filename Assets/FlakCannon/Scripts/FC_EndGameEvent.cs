@@ -150,6 +150,7 @@ public class FC_EndGameEvent : MonoBehaviour
         }
     }
 
+    // 调用这个函数来修改结束页面的标题
     public static void SetTitle(string title, Color color)
     {
         endGameEvent.gameEndNotice.text = title;

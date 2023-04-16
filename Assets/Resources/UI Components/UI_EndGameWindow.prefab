@@ -91,7 +91,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3307853999802748401}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -110,7 +110,9 @@ MonoBehaviour:
   scoreBoard: {fileID: 4608557315604895960}
   gameEndNotice: {fileID: 6456675921065135680}
   cGroup: {fileID: 0}
+  currentMiniGame: FlakCannon
   nextScene: BattleBridge
+  isGameActived: 1
 --- !u!1 &4608557315329799138
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +480,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4608557315343536784}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -734,7 +736,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4608557315604895958}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -752,12 +754,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTabPrefab: {fileID: 4608557315333541345}
   dynamicNumber: {fileID: 4608557315526907562}
-  scoreRequirement: {fileID: 4608557315329799140}
-  continueNotice: {fileID: 0}
+  scoreRequirementText: {fileID: 4608557315329799140}
+  continueNotice: {fileID: 4608557316099239760}
   headOffset: 40
   yOffset: 8
   height: 64
-  subGroup: {fileID: 4608557316099239761}
+  subGroup: {fileID: 4608557315343536788}
 --- !u!1 &4608557315813877919
 GameObject:
   m_ObjectHideFlags: 0
