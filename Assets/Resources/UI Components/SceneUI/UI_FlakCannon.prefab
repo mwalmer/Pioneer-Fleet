@@ -13548,6 +13548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndGameWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 3307853999802748401, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4075141731779061511, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13630,6 +13634,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075141731779061511, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608557315505868944, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4608557315604895958, guid: b93f9e0a91bb7664da1b343f9dd57952, type: 3}

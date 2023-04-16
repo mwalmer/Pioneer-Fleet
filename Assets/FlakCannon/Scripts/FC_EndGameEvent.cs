@@ -36,6 +36,9 @@ public class FC_EndGameEvent : MonoBehaviour
 
         nextScene = EventData.GetData().lastScene;
         isGameActived = true;
+
+        cGroup.alpha = 0;
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,7 +59,7 @@ public class FC_EndGameEvent : MonoBehaviour
             return;
         }
 
-        if (cGroup.alpha < 1)
+        if (cGroup.alpha <= 1)
         {
             fadingCurrent += Time.deltaTime;
             cGroup.alpha = Mathf.Lerp(0, 1, fadingCurrent / fadingTime);
@@ -116,10 +119,6 @@ public class FC_EndGameEvent : MonoBehaviour
 
     public static void EnableEndGameEvent()
     {
-        if (endGameEvent.gameObject == false)
-        {
-            endGameEvent.Init();
-        }
         FC_EndGameEvent.endGameEvent.gameObject.SetActive(true);
         FC_EndGameEvent.endGameEvent.isGameActived = false;
     }
