@@ -3,7 +3,7 @@ using UnityEngine;
 public class loadSceneAfterDestruction : MonoBehaviour
 {
     public GameObject[] objectsToDestroy;
-    public FC_EndGameEvent fc;
+    //public FC_EndGameEvent fc;
 
     private bool allObjectsDestroyed = false;
 
@@ -24,10 +24,11 @@ public class loadSceneAfterDestruction : MonoBehaviour
             if (!anyObjectsRemaining)
             {
                 allObjectsDestroyed = true;
-                    EventData data = EventData.GetData();
-                    fc.gameObject.SetActive(true);
-     //  UI_CanvasInit.EnterNextScene(data.lastScene);
-     // PlayerData.setMiniGameScore(100);
+                EventData data = EventData.GetData();
+                FC_EndGameEvent.EnableEndGameEvent();
+              //      fc.gameObject.SetActive(true);
+              //  UI_CanvasInit.EnterNextScene(data.lastScene);
+              // PlayerData.setMiniGameScore(100);
             }
         }
     }
