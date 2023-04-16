@@ -843,6 +843,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &636380638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4906788090161200760, guid: 65663b3c2dbf87c45ab6c860b86df80c, type: 3}
+  m_PrefabInstance: {fileID: 1610220276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &662732664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2209,7 @@ MonoBehaviour:
   log: {fileID: 1610220277}
   PlayerValue: {fileID: 1550483336}
   EnemyValue: {fileID: 1550483335}
+  turnCounter: {fileID: 636380638}
 --- !u!4 &1928577074
 Transform:
   m_ObjectHideFlags: 0

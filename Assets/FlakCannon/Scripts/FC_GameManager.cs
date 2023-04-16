@@ -82,7 +82,7 @@ public class FC_GameManager : MonoBehaviour
                 playerHP = 30;
                 if (GameMode == "Survival")
                 {
-                    timeLimit = 60;
+                    timeLimit = 30;
                 }
                 else if (GameMode == "Elimination")
                 {
@@ -95,7 +95,7 @@ public class FC_GameManager : MonoBehaviour
                 if (GameMode == "Survival")
                 {
                     playerHP = Mathf.RoundToInt((7 - difficulty) / 2) + 1;
-                    timeLimit = 40 + 60 * ((float)difficulty / 7);
+                    timeLimit = 30 + 30 * ((float)difficulty / 7);
                 }
                 else if (GameMode == "Elimination")
                 {
@@ -107,7 +107,7 @@ public class FC_GameManager : MonoBehaviour
 
             if (GameMode == "Survival")
             {
-                scoreFor100 = 5000;
+                scoreFor100 = 4000;
                 scoreFor100 += (int)(timeLimit / 2f) * 50;
                 scoreFor100 += difficulty * 100;
             }
