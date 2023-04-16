@@ -224,6 +224,7 @@ public class EventNode : MonoBehaviour
                 eventData.setFleetBattleData();
                 
                 UI_CanvasInit.EnterNextScene("BattleBridge");
+                NodeData.mapNum += 1;
                 Destroy(NodeData.nodeMap);
                 NodeData.eventNodeList.Clear();
             } break;

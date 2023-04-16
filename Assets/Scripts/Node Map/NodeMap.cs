@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -32,6 +33,7 @@ public class NodeMap : MonoBehaviour
         
         GenerateNodes();
         NodeData.currentNode = NodeData.eventNodeList[0];
+        
     }
 
     private void Start()
@@ -52,7 +54,9 @@ public class NodeMap : MonoBehaviour
 
     private void GenerateNodes()
     {
-        NodeData.galaxyName = NodeData.GalaxyNames[Random.Range(0, NodeData.GalaxyNames.Count)];
+        NodeData.galaxyName = NodeData.PlanetNames[Random.Range(0, NodeData.PlanetNames.Count())];
+        if (NodeData.mapNum < NodeData.galaxyName.Length)
+            NodeData.galaxyName = NodeData.GalaxyNames[NodeData.mapNum];
         GameObject.Find("GalaxyNameDescriptor").GetComponent<TextMeshProUGUI>().SetText(NodeData.galaxyName);
         // Create/Place nodes
         Vector3 start = new Vector3(-4, 0, 0);

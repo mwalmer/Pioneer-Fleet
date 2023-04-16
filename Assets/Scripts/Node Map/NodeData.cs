@@ -14,7 +14,7 @@ public static class NodeData
 
     public static List<string> GalaxyNames = new List<string>()
     {
-        "Andromna"
+        "Andromna", "Cygnus", "Achird", "Nervia"
     };
     
     public static List<string> PlanetNames = new List<string>() 
