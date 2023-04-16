@@ -208,9 +208,8 @@ public class FC_GameManager : MonoBehaviour
         // TODO:: deal the events when player won the game
         if (gameEndEvent)
         {
-            gameEndEvent.gameObject.SetActive(true);
-            gameEndEvent.gameEndNotice.color = Color.green;
-            gameEndEvent.gameEndNotice.text = "YOU WIN!";
+            FC_EndGameEvent.EnableEndGameEvent();
+            FC_EndGameEvent.SetTitle("YOU WIN!", Color.green);
             FC_GameManager.IsGameActive = false;
             FC_EnemyProjecter.DestroyAllEnemy();
         }
@@ -221,10 +220,10 @@ public class FC_GameManager : MonoBehaviour
         if (gameEndEvent)
         {
             UI_ScreenEffect.StopScreenBump();
-            gameEndEvent.gameObject.SetActive(true);
-            gameEndEvent.gameEndNotice.color = Color.red;
-            gameEndEvent.gameEndNotice.text = "YOU LOSE!";
+            FC_EndGameEvent.EnableEndGameEvent();
+            FC_EndGameEvent.SetTitle("YOU WIN!", Color.green);
             FC_GameManager.IsGameActive = false;
+            FC_EnemyProjecter.DestroyAllEnemy();
         }
     }
 

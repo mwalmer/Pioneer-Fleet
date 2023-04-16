@@ -16,9 +16,8 @@ public class FC_EndGameEvent : MonoBehaviour
     public bool isGameActived = true;
     private float fadingTime = 0.5f;
     private float fadingCurrent = -1;
-    private float inputLockInterval = 0.25f;
-    private float inputLockCurrent = 0;
     private bool shouldGoNextScene = false;
+    private bool isEventEnabled = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +51,7 @@ public class FC_EndGameEvent : MonoBehaviour
             if (fadingCurrent >= fadingTime)
             {
                 fadingCurrent = -1;
+                isEventEnabled = true;
             }
         }
 
@@ -59,7 +59,11 @@ public class FC_EndGameEvent : MonoBehaviour
         {
             Cursor.visible = true;
             scoreBoard.ShowScoreBoard();
-            if (scoreBoard.IsFinishedRecording() && Input.GetKeyDown(KeyCode.Mouse0))
+            if (scoreBoard.IsFinishedRecording())
+            {
+                Debug.Log("Should go next scene");
+            }
+            if (scoreBoard.IsFinishedRecording() && Input.anyKey)
             {
                 GoNextScene();
             }
@@ -72,7 +76,6 @@ public class FC_EndGameEvent : MonoBehaviour
     }
     public void GoNextScene()
     {
-        FC_GameManager.IsGameActive = false;
         isGameActived = false;
         FC_GameManager.ResetFlakCannonGameSettings();
 
@@ -104,23 +107,39 @@ public class FC_EndGameEvent : MonoBehaviour
                     {
                         //TODO:: sent final score;
 
-
-                        Debug.Log(FC_ScoreTaker.GetTotalScore());
+                        finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / 100f * 100);
                         playerData.GetComponent<PlayerData>().setMinigameInfo(2, finalScore);
                     }
                 }
             }
-
-            shouldGoNextScene = true;
-            UI_Blackscreen.CallBlackscreen(9, 1);
         }
+
+        shouldGoNextScene = true;
+        UI_Blackscreen.CallBlackscreen(9, 1);
+
     }
 
 
     public static void EnableEndGameEvent()
     {
-        endGameEvent.fadingCurrent = 0;
-        FC_EndGameEvent.endGameEvent.gameObject.SetActive(true);
-        FC_EndGameEvent.endGameEvent.isGameActived = false;
+        if (endGameEvent.isEventEnabled == false)
+        {
+            // Game states
+            endGameEvent.isGameActived = false;
+            if (endGameEvent.currentMiniGame == "FlakCannon")
+            {
+                FC_GameManager.IsGameActive = false;
+            }
+
+            // EndGameEvent Window
+            if (endGameEvent.fadingCurrent < 0) endGameEvent.fadingCurrent = 0;
+            endGameEvent.gameObject.SetActive(true);
+        }
+    }
+
+    public static void SetTitle(string title, Color color)
+    {
+        endGameEvent.gameEndNotice.text = title;
+        endGameEvent.gameEndNotice.color = color;
     }
 }

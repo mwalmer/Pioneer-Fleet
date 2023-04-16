@@ -85,7 +85,7 @@ public class UI_Blackscreen : MonoBehaviour
         }
         else
         {
-            if (blackscreen.numSlices == _numSlices)
+            if (blackscreen.numSlices != _numSlices)
             {
                 blackscreen.GenerateBlackSlices();
             }
@@ -161,7 +161,7 @@ public class UI_Blackscreen : MonoBehaviour
                 slices[e].sizeDelta = new Vector2(slices[e].sizeDelta.x, Mathf.Lerp(0, height, (currentTime - timeInterval * i) / (animeTime / numSlices * 2)));
             }
         }
-        if (currentTime > animeTime)
+        if (currentTime >= animeTime)
         {
             currentTime = 0;
             slicesStatus = 0;
@@ -181,7 +181,7 @@ public class UI_Blackscreen : MonoBehaviour
                 slices[e].sizeDelta = new Vector2(slices[e].sizeDelta.x, Mathf.Lerp(height, 0, (currentTime - timeInterval * c) / (animeTime / numSlices * 2)));
             }
         }
-        if (currentTime > animeTime)
+        if (currentTime >= animeTime)
         {
             currentTime = 0;
             slicesStatus = 0;

@@ -25,7 +25,6 @@ public class UI_BlockMouseSelection : MonoBehaviour
 
     public Vector2 GetCellPos()
     {
-        Debug.Log(cell.size);
         float newX = transform.position.x - cell.size.x / 2;
         float newY = transform.position.y + cell.size.y / 2;
 

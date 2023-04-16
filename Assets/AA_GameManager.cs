@@ -21,7 +21,7 @@ public class AA_GameManager : MonoBehaviour
         if (gameTimer.IsTime())
         {
             // Time out event
-            gameEndEvent.gameObject.SetActive(true);
+            FC_EndGameEvent.EnableEndGameEvent();
         }
 
         ReportScore();
@@ -44,7 +44,8 @@ public class AA_GameManager : MonoBehaviour
     }
     public static void RecordScore()
     {
+
         float scoreDiff = gameManager.gameStage.returnScore() - gameManager.previousScore;
-        
+
     }
 }
