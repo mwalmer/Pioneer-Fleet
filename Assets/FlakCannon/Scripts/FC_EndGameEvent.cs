@@ -94,16 +94,14 @@ public class FC_EndGameEvent : MonoBehaviour
                     {
                         //TODO:: sent final score;
                         finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / 200f * 100);
-                        if (finalScore < 0) finalScore = 0;
-                        else if (finalScore > 100) finalScore = 100;
+                        finalScore = (finalScore <= 100 ? (finalScore >= 0 ? finalScore : 0) : 100);
 
                         playerData.GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
                     }
                     else if (currentMiniGame == "FlakCannon")
                     {
                         finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / (float)FC_GameManager.scoreFor100 * 100);
-                        if (finalScore < 0) finalScore = 0;
-                        else if (finalScore > 100) finalScore = 100;
+                        finalScore = (finalScore <= 100 ? (finalScore >= 0 ? finalScore : 0) : 100);
 
                         playerData.GetComponent<PlayerData>().setMinigameInfo(2, finalScore);
                     }
@@ -111,8 +109,7 @@ public class FC_EndGameEvent : MonoBehaviour
                     {
                         //TODO:: sent final score;
                         finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / 100f * 100);
-                        if (finalScore < 0) finalScore = 0;
-                        else if (finalScore > 100) finalScore = 100;
+                        finalScore = (finalScore <= 100 ? (finalScore >= 0 ? finalScore : 0) : 100);
 
                         playerData.GetComponent<PlayerData>().setMinigameInfo(3, finalScore);
                     }
