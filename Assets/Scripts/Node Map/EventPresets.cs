@@ -79,7 +79,7 @@ public class EventPresets
         NairanPlanetarySiege.EnemyCapitalShips.Add("NairanFrigate");
         NairanPlanetarySiege.EnemyCapitalShipsNums.Add(2);
         NairanPlanetarySiege.EnemyStarFighers.Add("NairanFighter");
-        NairanPlanetarySiege.EnemyStarFigherNums.Add(5);
+        NairanPlanetarySiege.EnemyStarFigherNums.Add(4);
         NairanPlanetarySiege.currency += 200;
         presets.Add(NairanPlanetarySiege);
         
