@@ -104,7 +104,7 @@ public class EventData
         starfighterStr = "";
         nodeType = NodeType.planet;
 
-        starFighterDif = 0;
+        starFighterDif = 1;
         
         lastScene = "BattleBridge";
         gameMode = "Elimination";

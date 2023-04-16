@@ -25,7 +25,9 @@ public class loadSceneAfterDestruction : MonoBehaviour
             {
                 allObjectsDestroyed = true;
                 EventData data = EventData.GetData();
+                Debug.Log("all destroyed");
                 FC_EndGameEvent.EnableEndGameEvent();
+                 Debug.Log("end screen");
               //      fc.gameObject.SetActive(true);
               //  UI_CanvasInit.EnterNextScene(data.lastScene);
               // PlayerData.setMiniGameScore(100);
