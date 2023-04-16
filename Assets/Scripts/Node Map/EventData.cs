@@ -93,6 +93,7 @@ public class EventData
     
     // match three
     public int MT_timeGiven;
+    public static bool FC_firstTimePlay = true;
     
 
     public EventData()
