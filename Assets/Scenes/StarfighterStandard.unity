@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 140584259}
   - component: {fileID: 140584260}
   m_Layer: 0
-  m_Name: other weapon placeholder
+  m_Name: gatlins
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5367,6 +5367,12 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5226813157440050511, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_text
+      value: '/ 4920
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5760230890621911468, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -6192,7 +6198,7 @@ GameObject:
   - component: {fileID: 791594396}
   - component: {fileID: 791594397}
   m_Layer: 0
-  m_Name: laser (2)
+  m_Name: launcher
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6222,10 +6228,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 791594395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c198510623d9b43bc168bb6d5dd87b, type: 3}
+  m_Script: {fileID: 11500000, guid: af822590b9ab43f4aa3d071e09430d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8883622735407725878, guid: 94175cdf12688584895d0586e5bc2ce9, type: 3}
+  projectile: {fileID: 1533113445489674165, guid: 635676577d047564998e004277f724e7, type: 3}
   MaxActiveShots: 1000
   audioSource: {fileID: 2083305943}
   audioClip: {fileID: 8300000, guid: 118f4171047e80a4eb909b9e9819e4c1, type: 3}
@@ -6763,6 +6769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 140584259}
     m_Modifications:
+    - target: {fileID: 8668510304162601856, guid: e2020436170ca3a4eadb0e91d2d53678, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 118f4171047e80a4eb909b9e9819e4c1, type: 3}
     - target: {fileID: 8668510304162601856, guid: e2020436170ca3a4eadb0e91d2d53678, type: 3}
       propertyPath: audioSource
       value: 
@@ -8712,7 +8722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1228030778}
   m_Layer: 0
-  m_Name: other weapon place holder2
+  m_Name: dual bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9402,6 +9412,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 140584259}
     m_Modifications:
+    - target: {fileID: 8668510304162601856, guid: e2020436170ca3a4eadb0e91d2d53678, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 118f4171047e80a4eb909b9e9819e4c1, type: 3}
     - target: {fileID: 8668510304162601856, guid: e2020436170ca3a4eadb0e91d2d53678, type: 3}
       propertyPath: audioSource
       value: 
