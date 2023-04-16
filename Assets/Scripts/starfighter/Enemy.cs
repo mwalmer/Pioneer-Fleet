@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 
 	public int health = 100;
 	public int shield = 100;
+	public int points=0;
 	public GameObject show;
 	public GameObject deathEffect;
 	public GameObject shieldEffect;
@@ -33,11 +34,12 @@ public class Enemy : MonoBehaviour {
 		if (health <= 0)
 		{
 			Die();
+			
 		}
 	}
 
 	void Die ()
-	{
+	{	FC_ScoreTaker.AddScore("ScoreName", points);
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 		show.SetActive(true);

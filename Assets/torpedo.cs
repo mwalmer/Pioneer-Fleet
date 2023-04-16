@@ -41,8 +41,11 @@ public class torpedo : MonoBehaviour {
 	}
 	void OnTriggerEnter2D (Collider2D hitInfo)
 	{
-		
+	
+
 		Enemy enemy = hitInfo.GetComponent<Enemy>(); //
+		if(enemy==false)
+		return;
 		if(enemy.gameObject.layer==LayerMask.NameToLayer("Enemy"))
 		{
 			if (enemy != null)

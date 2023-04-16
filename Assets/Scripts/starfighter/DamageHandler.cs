@@ -87,7 +87,7 @@ public class DamageHandler : MonoBehaviour {
 
 	void UpdateHealth()
     {
-		healthBar.fillAmount = (float)health / (float)maxHealth;
+		//healthBar.fillAmount = (float)health / (float)maxHealth;
     }
 
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class loadSceneAfterDestruction : MonoBehaviour
 {
     public GameObject[] objectsToDestroy;
-   
+    public FC_EndGameEvent fc;
 
     private bool allObjectsDestroyed = false;
 
@@ -25,7 +25,9 @@ public class loadSceneAfterDestruction : MonoBehaviour
             {
                 allObjectsDestroyed = true;
                     EventData data = EventData.GetData();
-        UI_CanvasInit.EnterNextScene(data.lastScene);
+                    fc.gameObject.SetActive(true);
+     //  UI_CanvasInit.EnterNextScene(data.lastScene);
+     // PlayerData.setMiniGameScore(100);
             }
         }
     }
