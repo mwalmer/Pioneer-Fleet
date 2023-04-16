@@ -93,10 +93,11 @@ public class FC_EndGameEvent : MonoBehaviour
                     if (currentMiniGame == "Starfighter")
                     {
                         //TODO:: sent final score;
+                        finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / 200f * 100);
+                        if (finalScore < 0) finalScore = 0;
+                        else if (finalScore > 100) finalScore = 100;
 
-
-
-                        playerData.GetComponent<PlayerData>().setMinigameInfo(0, finalScore);
+                        playerData.GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
                     }
                     else if (currentMiniGame == "FlakCannon")
                     {
@@ -104,14 +105,16 @@ public class FC_EndGameEvent : MonoBehaviour
                         if (finalScore < 0) finalScore = 0;
                         else if (finalScore > 100) finalScore = 100;
 
-                        playerData.GetComponent<PlayerData>().setMinigameInfo(1, finalScore);
+                        playerData.GetComponent<PlayerData>().setMinigameInfo(2, finalScore);
                     }
                     else if (currentMiniGame == "ArmamentsAlign")
                     {
                         //TODO:: sent final score;
-
                         finalScore = Mathf.RoundToInt((float)FC_ScoreTaker.GetTotalScore() / 100f * 100);
-                        playerData.GetComponent<PlayerData>().setMinigameInfo(2, finalScore);
+                        if (finalScore < 0) finalScore = 0;
+                        else if (finalScore > 100) finalScore = 100;
+
+                        playerData.GetComponent<PlayerData>().setMinigameInfo(3, finalScore);
                     }
                 }
             }
