@@ -28,7 +28,7 @@ public class LoadScene : MonoBehaviour
         GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGame = 3;
         GameObject.Find("PlayerData").GetComponent<PlayerData>().miniGameScore = 100;
         GameObject.Find("PlayerData").GetComponent<PlayerData>().offScreen();
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(7);
     }
 
 

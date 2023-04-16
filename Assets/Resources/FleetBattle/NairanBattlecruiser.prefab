@@ -209,7 +209,7 @@ MonoBehaviour:
   currentShield: 350
   maxHull: 200
   currentHull: 200
-  artilleryPower: 25
+  artilleryPower: 100
   flakPower: 35
   active: 1
   ShipType: {fileID: 4976510238345592859}

@@ -207,6 +207,13 @@ public class FleetBattleHandler : MonoBehaviour
                     }
                 }
                 break;
+            case 3: //match 3
+                fleet2ActiveCaptialShips = GameObject.Find("PlayerData").GetComponent<PlayerData>().EnemyActiveCapitalShips();
+                if(fleet2ActiveCaptialShips.Count > 0){
+                    fleet2ActiveCaptialShips[0].GetComponent<CapitalShip>().takeDamage(miniGameScore);
+                    GameObject.Find("PlayerData").GetComponent<PlayerData>().addToFleetLog("Your munitions did " + miniGameScore + " damage");
+                }
+                break;
         }
         if (GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveCapitalShips().Count <= 0 && GameObject.Find("PlayerData").GetComponent<PlayerData>().PlayerActiveFighters().Count <=0){
                 Debug.Log("Lose condition");
