@@ -96,7 +96,7 @@ public class EventData
 
     public EventData()
     {
-        // set default values
+        // set default values   
         hp = 0;
         currency = 0;
         starfighter = 0;
@@ -125,7 +125,10 @@ public class EventData
     public static EventData GetData()
     {
         if (data == null)
+        {
             data = new EventData();
+            data.lastScene = "NodeMap";
+        }
 
         return data;
     }
