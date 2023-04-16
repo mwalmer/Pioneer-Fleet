@@ -225,8 +225,8 @@ public class EventNode : MonoBehaviour
                 
                 UI_CanvasInit.EnterNextScene("BattleBridge");
                 NodeData.mapNum += 1;
-                Destroy(NodeData.nodeMap);
                 NodeData.eventNodeList.Clear();
+                Destroy(NodeData.nodeMap);
             } break;
             case EventData.EventType.turncoat:
             {
