@@ -134,7 +134,7 @@ public class FC_EndGameEvent : MonoBehaviour
                 FC_GameManager.IsGameActive = false;
                 endGameEvent.scoreBoard.SetScoreRequirement(FC_GameManager.scoreFor100);
             }
-            else if (endGameEvent.currentMiniGame == "Starfigther")
+            else if (endGameEvent.currentMiniGame == "Starfighter")
             {
                 endGameEvent.scoreBoard.SetScoreRequirement(100);
             }
