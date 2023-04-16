@@ -207,8 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxShield: 250
   currentShield: 250
-  maxHull: 200
-  currentHull: 200
+  maxHull: 250
+  currentHull: 250
   artilleryPower: 80
   flakPower: 0
   active: 1
