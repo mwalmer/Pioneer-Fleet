@@ -14,9 +14,9 @@ public class FC_EndGameEvent : MonoBehaviour
     public string currentMiniGame = "FlakCannon";
     public string nextScene;
     public bool isGameActived = true;
-    private float fadingTime = 2f;
-    private float fadingCurrent = 0f;
-    private float inputLockInterval = 1f;
+    private float fadingTime = 0.5f;
+    private float fadingCurrent = -1;
+    private float inputLockInterval = 0.25f;
     private float inputLockCurrent = 0;
     private bool shouldGoNextScene = false;
     // Start is called before the first frame update
@@ -44,7 +44,18 @@ public class FC_EndGameEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGameActived == false)
+        if (fadingCurrent >= 0)
+        {
+            fadingCurrent += Time.deltaTime;
+            cGroup.alpha = Mathf.Lerp(0, 1, fadingCurrent / fadingTime);
+
+            if (fadingCurrent >= fadingTime)
+            {
+                fadingCurrent = -1;
+            }
+        }
+
+        if (isGameActived == false && fadingCurrent < 0)
         {
             Cursor.visible = true;
             scoreBoard.ShowScoreBoard();
@@ -57,17 +68,6 @@ public class FC_EndGameEvent : MonoBehaviour
                 SceneManager.LoadScene(nextScene);
             }
             return;
-        }
-
-        if (cGroup.alpha <= 1)
-        {
-            fadingCurrent += Time.deltaTime;
-            cGroup.alpha = Mathf.Lerp(0, 1, fadingCurrent / fadingTime);
-        }
-        else
-        {
-            inputLockCurrent += Time.deltaTime;
-            Time.timeScale = 0;
         }
     }
     public void GoNextScene()
@@ -119,6 +119,7 @@ public class FC_EndGameEvent : MonoBehaviour
 
     public static void EnableEndGameEvent()
     {
+        endGameEvent.fadingCurrent = 0;
         FC_EndGameEvent.endGameEvent.gameObject.SetActive(true);
         FC_EndGameEvent.endGameEvent.isGameActived = false;
     }
