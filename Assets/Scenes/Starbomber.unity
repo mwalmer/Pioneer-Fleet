@@ -218,7 +218,7 @@ MonoBehaviour:
   projectile: {fileID: 987745924474484431, guid: 4c56b7f755134d142a5c4cb8f76b9f5b, type: 3}
   MaxActiveShots: 1000
   audioSource: {fileID: 519347373}
-  audioClip: {fileID: 8300000, guid: 118f4171047e80a4eb909b9e9819e4c1, type: 3}
+  audioClip: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}
 --- !u!1 &111725765
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +277,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -178786869
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -966,7 +966,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0060504675, y: 0.013195604}
+  m_Offset: {x: -0.01573059, y: 0.016422182}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -977,7 +977,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54884124, y: 0.73684376}
+  m_Size: {x: 0.6843633, y: 0.9498071}
   m_EdgeRadius: 0
 --- !u!212 &980309666
 SpriteRenderer:
@@ -1045,6 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5000
   shield: 4000
+  points: 0
   show: {fileID: 1078915974}
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 516878696879621750, guid: 25716a92fbadd0d499cf49d995263489, type: 3}
@@ -1435,6 +1436,7 @@ MonoBehaviour:
   invulnPeriod: 0
   isPlayer: 1
   healthBar: {fileID: 111725767}
+  energy: 0
 --- !u!1 &1282789861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1484,64 @@ MonoBehaviour:
   projectile: {fileID: 987745924474484431, guid: 020728abd456c4a408496765201fe9b6, type: 3}
   MaxActiveShots: 1000
   audioSource: {fileID: 519347373}
-  audioClip: {fileID: 8300000, guid: 118f4171047e80a4eb909b9e9819e4c1, type: 3}
+  audioClip: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}
+--- !u!1001 &1296064599
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590578594343071578, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_Name
+      value: UI_Starfighter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
 --- !u!1 &1328745919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1732,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0060504675, y: 0.013195604}
+  m_Offset: {x: -0.0060504973, y: -0.0551295}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1684,7 +1743,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54884124, y: 0.73684376}
+  m_Size: {x: 0.7538168, y: 0.87349397}
   m_EdgeRadius: 0
 --- !u!212 &1591735369
 SpriteRenderer:
@@ -1752,6 +1811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5000
   shield: 4000
+  points: 0
   show: {fileID: 1078915974}
   deathEffect: {fileID: 3777530255133642965, guid: b2870849345d00f478d0dada3df2c5f3, type: 3}
   shieldEffect: {fileID: 516878696879621750, guid: 25716a92fbadd0d499cf49d995263489, type: 3}
@@ -2097,7 +2157,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1503001111
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 10
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.78039217}

@@ -11,17 +11,18 @@ public class CircularMoveForward : MonoBehaviour
     private float currentAngle = 0;
     public float yAmplitude = 1f;
     public float xAmplitude = 1;
+    
     private Vector3 center;
 
     // Start is called before the first frame update
     void Start()
-    {
+    { Init();
+
     }
-    void Init()
+   void Init()
     {
         center = this.transform.position;
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {

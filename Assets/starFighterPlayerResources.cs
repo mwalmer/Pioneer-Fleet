@@ -18,5 +18,6 @@ public class starFighterPlayerResources : MonoBehaviour
     void Update()
     {
         ui_hp.ChangeBarValue(player_hp.health);
+         ui_energy.ChangeBarValue(player_hp.energy);
     }
 }
