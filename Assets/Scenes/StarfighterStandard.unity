@@ -3137,6 +3137,7 @@ GameObject:
   - component: {fileID: 444983391}
   - component: {fileID: 444983394}
   - component: {fileID: 444983395}
+  - component: {fileID: 444983396}
   m_Layer: 7
   m_Name: mid enemy
   m_TagString: Untagged
@@ -3224,7 +3225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444983389}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 8.650001, y: -7.0899997, z: 0}
+  m_LocalPosition: {x: 8.65, y: -7.56, z: 0}
   m_LocalScale: {x: 2.147435, y: 2.147435, z: 2.147435}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3273,6 +3274,23 @@ MonoBehaviour:
   pointB: {fileID: 1603163181}
   isRight: 1
   speed: 2
+--- !u!114 &444983396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444983389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1e2cb7eb8344a42936e9e6fd9b1fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 1022430320909905503, guid: 173648a416335464d85f34ad442d6a4b, type: 3}
+  numberOfObjects: 1
+  spawnDelay: 15
+  minY: -2
+  maxY: -12
 --- !u!1 &476808066
 GameObject:
   m_ObjectHideFlags: 0
