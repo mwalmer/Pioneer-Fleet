@@ -15,7 +15,7 @@ namespace MatchThree.Stage
         MonoBehaviour thisMonoBehaviour;  
         public TextMeshProUGUI scoreCountUI;
         public int score = 0;
-        public bool operability = true;
+        //public bool operability = true;
 
         bool bRunning;                //action in play mode
         
@@ -37,10 +37,12 @@ namespace MatchThree.Stage
         {
             return score;
         }
+        /*
         public bool returnOperability()
         {
             return operability;
-        }
+        }*/
+
 
         public void DoSwipeAction(int nRow, int numColumn, Swipe swipeDirection)
         {
@@ -83,7 +85,7 @@ namespace MatchThree.Stage
         {
             while (true)    //keep going if there were matched block
             {
-                operability = false;
+                //operability = false;
                 //Remove Matched Block
                 Returnable<bool> bBlockMatched = new Returnable<bool>(false);
                 yield return StartCoroutine(thisStage.Evaluate(bBlockMatched));
@@ -103,8 +105,9 @@ namespace MatchThree.Stage
                 }
                 //no more match, then stop
                 else
-                    operability = true;
-                    break;  
+                    break;
+               
+
             }
 
             yield break;
