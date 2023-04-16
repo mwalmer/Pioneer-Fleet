@@ -37,7 +37,7 @@ namespace MatchThree.Stage
 
         private void Update()
         {
-            UpdatePlayerInfo();
+            updateScore();
             if (!thisbInit)
                 return;
 
@@ -78,7 +78,7 @@ namespace MatchThree.Stage
         {
             matchScore += 10;
         }
-        void UpdatePlayerInfo()
+        void updateScore()
         {
             scoreCountUI.text = "Score: " + thisActionManager.score;
         }
