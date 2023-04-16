@@ -12,17 +12,17 @@ public class EventPresets
         // Passive Events
         EventData AbandonedStarFighter = new EventData();
         AbandonedStarFighter.eventType = EventData.EventType.passive;
-        AbandonedStarFighter.description = "Abandoned star fighter.";
-        AbandonedStarFighter.text = "+1 star fighter to fleet";
+        AbandonedStarFighter.description = "You come across an abandoned starfighter drifting alone. Our engineers say they should be able to restore it";
+        AbandonedStarFighter.text = "You gain one Nairin Fighter";
         AbandonedStarFighter.starfighter += 1;
-        AbandonedStarFighter.starfighterStr = "FederationFighter";
+        AbandonedStarFighter.starfighterStr = "NairinFighter";
         presets.Add(AbandonedStarFighter);
         
         // MatchThree mini game
         EventData MatchThree = new EventData();
         MatchThree.eventType = EventData.EventType.singleMinigame;
-        MatchThree.description = "Our engineers are working on new armaments for the guns";
-        MatchThree.text = "Run practice drills with the new weapons";
+        MatchThree.description = "Our engineers are working on new armaments for the guns.";
+        MatchThree.text = "Run practice drills with the new weapons.";
         MatchThree.currency += 50;
         MatchThree.minigameType = EventData.Minigame.MatchingMinigame;
         presets.Add(MatchThree);
@@ -62,15 +62,12 @@ public class EventPresets
         NairanFleetAttack.description = "An uninhabited planet that is a common jumping point of FTL travel.";
         NairanFleetAttack.text = "As you travel past the planet, ships begin appearing out of FTL. Its a Nairan fleet. Battle stations!";
         NairanFleetAttack.EnemyCapitalShips.Add("NairanFrigate");
-        NairanFleetAttack.EnemyCapitalShipsNums.Add(1);
+        NairanFleetAttack.EnemyCapitalShipsNums.Add(2);
         NairanFleetAttack.EnemyStarFighers.Add("NairanFighter");
-        NairanFleetAttack.EnemyStarFigherNums.Add(1);
+        NairanFleetAttack.EnemyStarFigherNums.Add(3);
         NairanFleetAttack.currency += 100;
         presets.Add(NairanFleetAttack);
-        presets.Add(NairanFleetAttack);
-        presets.Add(NairanFleetAttack);
-        presets.Add(NairanFleetAttack);
-        presets.Add(NairanFleetAttack);
+
         
         //Nairan Fleet attack
         EventData NairanPlanetarySiege = new EventData();
@@ -119,9 +116,9 @@ public class EventPresets
         boss.EnemyCapitalShips.Add("NairanBattlecruiser");
         boss.EnemyCapitalShipsNums.Add(2);
         boss.EnemyCapitalShips.Add("NairanFrigate");
-        boss.EnemyCapitalShipsNums.Add(4);
+        boss.EnemyCapitalShipsNums.Add(3);
         boss.EnemyStarFighers.Add("NairanFighter");
-        boss.EnemyStarFigherNums.Add(8);
+        boss.EnemyStarFigherNums.Add(6);
         boss.currency += 300;
         presets.Add(boss);
     }
