@@ -74,10 +74,8 @@ public class EventPresets
         NairanPlanetarySiege.eventType = EventData.EventType.battle;
         NairanPlanetarySiege.description = "Scans indicate a large mass of ships around this planet. Holo news indicates a siege of the planet";
         NairanPlanetarySiege.text = "As you exit FLT, you see the siege in effect. A large amount of Nairan ships head towards you. Battle stations!";
-        NairanPlanetarySiege.EnemyCapitalShips.Add("NairanBattlecruiser");
-        NairanPlanetarySiege.EnemyCapitalShipsNums.Add(1);
         NairanPlanetarySiege.EnemyCapitalShips.Add("NairanFrigate");
-        NairanPlanetarySiege.EnemyCapitalShipsNums.Add(2);
+        NairanPlanetarySiege.EnemyCapitalShipsNums.Add(3);
         NairanPlanetarySiege.EnemyStarFighers.Add("NairanFighter");
         NairanPlanetarySiege.EnemyStarFigherNums.Add(4);
         NairanPlanetarySiege.currency += 200;
@@ -119,9 +117,9 @@ public class EventPresets
         boss.EnemyCapitalShips.Add("NairanBattlecruiser");
         boss.EnemyCapitalShipsNums.Add(2);
         boss.EnemyCapitalShips.Add("NairanFrigate");
-        boss.EnemyCapitalShipsNums.Add(3);
+        boss.EnemyCapitalShipsNums.Add(2);
         boss.EnemyStarFighers.Add("NairanFighter");
-        boss.EnemyStarFigherNums.Add(6);
+        boss.EnemyStarFigherNums.Add(5);
         boss.currency += 300;
         presets.Add(boss);
     }

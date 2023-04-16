@@ -134,7 +134,7 @@ public class StarFighter : MonoBehaviour
 //returns true if fighter is hit
     public bool takeFire(int enemyAccuracy){
         int hitChance = EnginePower - enemyAccuracy;
-        if(hitChance > Random.Range(0,100)){
+        if(hitChance < Random.Range(0,100)){
             hit();
             return true;
         }
@@ -142,7 +142,7 @@ public class StarFighter : MonoBehaviour
     }
 
     public void hit(){
-        if(60 > Random.Range(0,100)){
+        if(60 < Random.Range(0,100)){
             deadge = true;
         }
         else {
