@@ -233,8 +233,10 @@ public class FleetBattleHandler : MonoBehaviour
                 }
                 break;
         }
-        if (playerData.PlayerActiveCapitalShips().Count <= 0 && playerData.PlayerActiveFighters().Count <=0){
+        if (playerData.PlayerActiveCapitalShips().Count <= 0){
                 Debug.Log("Lose condition");
+                Destroy(GameObject.Find("PlayerData"));
+                SceneManager.LoadScene(0);
                 return false;
             }
         if(playerData.EnemyActiveCapitalShips().Count <= 0){
