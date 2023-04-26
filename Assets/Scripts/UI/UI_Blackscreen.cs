@@ -99,6 +99,7 @@ public class UI_Blackscreen : MonoBehaviour
 
     public void GenerateBlackSlices()
     {
+        if (slices == null) slices = new List<RectTransform>();
         if (slices.Count > 0)
         {
             foreach (RectTransform slice in slices)

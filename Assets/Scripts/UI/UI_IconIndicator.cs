@@ -15,11 +15,15 @@ public class UI_IconIndicator : MonoBehaviour
     public UI_Description text;
     public UI_Description number;
     private Color unavailableColor = new Color(0.3f, 0.3f, 0.3f);
+    private RectTransform rect;
+    private CanvasGroup group;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (!icon) icon = GetComponentInChildren<Image>();
         if (!text) text = GetComponentInChildren<UI_Description>();
+        if (!rect) rect = GetComponent<RectTransform>();
+        if (!group) group = GetComponent<CanvasGroup>();
     }
     void Update()
     {
@@ -73,6 +77,15 @@ public class UI_IconIndicator : MonoBehaviour
     public void ChangeRemainNumber(int _number)
     {
         remainNumber = _number;
+    }
+
+    public void ChangeAlpha(float _alpha, float timeMark = 1)
+    {
+        group.alpha = Mathf.Lerp(group.alpha, _alpha, timeMark);
+    }
+    public void ChangeLocation(Vector2 newPos, float timeMark = 1)
+    {
+        rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, newPos, timeMark);
     }
 }
 

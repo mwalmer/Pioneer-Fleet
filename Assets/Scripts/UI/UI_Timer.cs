@@ -23,7 +23,7 @@ public class UI_Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FC_GameManager.IsGameActive == false) return;
+        if (FC_EndGameEvent.CheckGameActivity() == false) return;
 
         if (timerTextMesh)
         {

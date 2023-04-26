@@ -19,7 +19,7 @@ public class FC_EndGameEvent : MonoBehaviour
     private bool shouldGoNextScene = false;
     private bool isEventEnabled = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Init();
     }
@@ -153,5 +153,11 @@ public class FC_EndGameEvent : MonoBehaviour
     {
         endGameEvent.gameEndNotice.text = title;
         endGameEvent.gameEndNotice.color = color;
+    }
+
+    public static bool CheckGameActivity()
+    {
+        if (!endGameEvent) return false;
+        return endGameEvent.isGameActived;
     }
 }
