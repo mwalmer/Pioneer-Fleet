@@ -4164,6 +4164,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 90
+--- !u!114 &579841215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 767321110702319039, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+  m_PrefabInstance: {fileID: 723109268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790476408202d8f4e9fc20371138199a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &613701091
 GameObject:
   m_ObjectHideFlags: 0
@@ -8015,6 +8026,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5936554197000320468, guid: a433bfd95ca2dfe48ad8e4e45c39e437, type: 3}
   m_PrefabInstance: {fileID: 1138647490124704004}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1119683280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5857143234589029961, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+  m_PrefabInstance: {fileID: 723109268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790476408202d8f4e9fc20371138199a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1124380864
 GameObject:
   m_ObjectHideFlags: 0
@@ -18576,6 +18598,8 @@ MonoBehaviour:
   playerPart1: {fileID: 401812423}
   playerPart2: {fileID: 192599366}
   overloadSys: {fileID: 1609381107}
+  mainWeaponSwitcher: {fileID: 579841215}
+  subWeaponSwitcher: {fileID: 1119683280}
 --- !u!114 &75683306919224626
 MonoBehaviour:
   m_ObjectHideFlags: 0
