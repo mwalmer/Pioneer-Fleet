@@ -31,7 +31,7 @@ public class FC_EnemyProjecter : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (FC_GameManager.IsGameActive == false) return;
+        if (FC_GameManager.IsGameActive == false || FC_EndGameEvent.CheckGameActivity() == false) return;
 
         timeCount += Time.fixedDeltaTime;
         if (timeCount >= interval)

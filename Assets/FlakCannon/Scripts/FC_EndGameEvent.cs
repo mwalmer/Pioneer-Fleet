@@ -160,4 +160,10 @@ public class FC_EndGameEvent : MonoBehaviour
         if (!endGameEvent) return false;
         return endGameEvent.isGameActived;
     }
+    public static void SetGameActivity(bool gameActivity)
+    {
+
+        if (!endGameEvent) return;
+        endGameEvent.isGameActived = gameActivity;
+    }
 }

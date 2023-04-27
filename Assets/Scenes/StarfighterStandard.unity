@@ -5697,10 +5697,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3991141621666114232, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: indicatorText
+      value: Magnetic Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175227160887565466, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175227161074000232, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_text
+      value: "\n\t[W] [A] [S] [D]  keys to move the starfighter\n\n\n\t[Left-click] 
+        on mouse to use main-weapon\n\n\n\t[Right-click]  on mouse to use sub-weapon\n\n\n\t[Q] 
+        key to switch main-weapon\n\n\n\t[E]  key to switch sub-weapon\n\n\n\t[F] 
+        key to on Overload mode."
+      objectReference: {fileID: 0}
     - target: {fileID: 4590578593476108139, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 420016524}
+    - target: {fileID: 4590578593476108139, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4590578594343071577, guid: 6e3839228beb20d40bd8e48f2aacd14e, type: 3}
       propertyPath: m_RootOrder
       value: 17
